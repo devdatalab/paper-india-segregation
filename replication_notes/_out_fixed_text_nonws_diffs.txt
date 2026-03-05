@@ -1,0 +1,4801 @@
+=== block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:35
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_pub
+--.122619,.05813107
+--.05392266,.05400209
+--.02424861,.05294752
+--.00199602,.05679876
+-.01832327,.05406361
+-.03774565,.05626907
+-.0568815,.05949302
+-.07619004,.05683154
+-.09471822,.05575908
+-.11176593,.058205
+-.12818133,.05903524
+-.14507024,.05919651
+-.16280204,.06206133
+-.18500096,.06185159
+-.21751355,.06185116
+-.26228287,.06411835
+-.32271709,.06436848
+-.40665472,.06362965
+-.53482026,.05695149
+-.7735573,.04713643
++-.12261973,.05813103
++-.05392276,.0540022
++-.02424864,.05294739
++-.00199596,.0567984
++.01832329,.05406396
++.03774573,.05626907
++.05688161,.05949381
++.07619009,.05683109
++.09471836,.05573836
++.11176595,.05820429
++.12818147,.05905507
++.14507041,.05919773
++.1628022,.06206132
++.18500109,.06185158
++.21751367,.06185115
++.26228291,.06411759
++.32271709,.0643692
++.40665631,.06362846
++.53482179,.05695283
++.77355711,.04713642
+
+=== block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:13:06
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.08579799,.20012543
+--.01262559,.18176614
+-.02095511,.18764855
+-.04738797,.18557435
+-.06907676,.19083194
+-.08774433,.18628793
+-.10401223,.18154882
+-.11815018,.17965041
+-.13073856,.18421356
+-.14245031,.18467834
+-.15349891,.19812756
+-.16378097,.19153525
+-.17589965,.19828553
+-.1921995,.19237356
+-.21236317,.20099806
+-.23757499,.19757688
+-.27033483,.1947283
+-.3153794,.19416948
+-.38978514,.18710438
+-.60679293,.18888272
++-.08579849,.20011031
++-.01262729,.18178563
++.02095347,.1876416
++.04738658,.18557883
++.0690762,.19083006
++.08774407,.18629847
++.10401204,.18153822
++.11815053,.17963986
++.13073855,.18423164
++.14245009,.18467091
++.15349875,.19812756
++.16378099,.19153527
++.17589976,.19828559
++.19219955,.19237363
++.21236404,.20092869
++.23757595,.19776365
++.27033495,.19461091
++.31537942,.19416946
++.38978508,.18710429
++.6067927,.1888826
+
+=== block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:49
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) ylab(0.12(0.01)0.16) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:11:37
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) ylab(0.45(0.025)0.6) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:14:04
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:36
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_priv
+--.13579105,.09919424
+--.03415395,.09076184
+-.00683273,.09214978
+-.03527214,.09094505
+-.05709022,.0874458
+-.07570244,.08750945
+-.09149352,.08573656
+-.10494128,.07820228
+-.11663728,.0880527
+-.12705312,.08216777
+-.13687935,.08382935
+-.14715209,.0842169
+-.15858132,.08519956
+-.1724225,.08335888
+-.19100473,.0841231
+-.21762882,.08157229
+-.25877103,.07811475
+-.33684378,.06915926
+-.5000481,.05881463
+-.74675423,.05201728
++-.13579107,.09919446
++-.03415396,.09076226
++.00683266,.09215025
++.03527133,.09094398
++.05708967,.0874481
++.07570319,.08755218
++.09149437,.08569548
++.10494142,.07820541
++.11663743,.08805082
++.12705276,.08216396
++.13687948,.0838436
++.14715265,.084209
++.15858127,.08520403
++.17242221,.08335306
++.19100426,.08412134
++.2176281,.0815695
++.25876998,.07811087
++.33684336,.06915783
++.50004865,.05881625
++.74675453,.05201912
+
+=== block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:03:27
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_hospital_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:51
+@@ -1,21 +1,21 @@
+ muslim_share,wat_source_home
+--.13540796,.7367242
+--.03398587,.7499413
+-.00679086,.74811134
+-.03402456,.74135519
+-.05505099,.74064559
+-.07305143,.74131848
+-.08841495,.73917229
+-.10164912,.73996823
+-.11326447,.74197472
+-.12360195,.73721196
+-.13334954,.73889099
+-.14353854,.74207003
+-.15484499,.74067872
+-.16850887,.7339687
+-.1866429,.73119168
+-.21257506,.72510846
+-.25302003,.71821639
+-.33001172,.70315259
+-.49508226,.69447242
+-.74796391,.68727871
++-.13540795,.73672409
++-.03398585,.7499412
++.00679083,.74811114
++.03402371,.74133365
++.05505055,.74066747
++.07305211,.74133233
++.0884156,.73915765
++.10164914,.73996812
++.11326449,.74198884
++.12360155,.73720753
++.13334975,.73890533
++.1435393,.74205541
++.15484512,.74066828
++.16850885,.73396883
++.18664287,.73119179
++.21257504,.72510845
++.25301999,.71821637
++.33001172,.70315254
++.49508229,.69447232
++.74796398,.68727863
+
+=== block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:03:18
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_secondary_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:19
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:12:05
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) ylab(0.11(0.005)0.16) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:11:47
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) ylab(0.45(0.025)0.6) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:47
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_pub
+--.0908229,.10158576
+--.021922,.09136926
+-.00290797,.0916472
+-.02036936,.0955316
+-.0349477,.0917243
+-.04723751,.0938156
+-.05841414,.09724868
+-.06889729,.09773858
+-.07928139,.09232357
+-.08908118,.08989726
+-.09841696,.10035618
+-.10831125,.10482763
+-.11886582,.09446688
+-.13068567,.09405413
+-.14700661,.09444704
+-.1698921,.10555676
+-.20250701,.10093628
+-.25369257,.09369623
+-.3444976,.08992203
+-.59198473,.08606582
++-.09082372,.1015858
++-.02192202,.09136923
++.00290954,.09164707
++.02036935,.09553157
++.03494773,.09172428
++.04723707,.09381557
++.05841415,.09724867
++.06889767,.09773863
++.07928177,.09232347
++.0890812,.08989727
++.09841696,.1003562
++.10831125,.10482766
++.11886581,.0944669
++.13068565,.09405418
++.14700669,.09450311
++.16989237,.10550078
++.20250698,.10093629
++.2536922,.09369633
++.34449753,.08992202
++.59198466,.08606579
+
+=== block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:18
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) ylab(0.055(0.005)0.075) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:46
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) ylab(0.28(0.02)0.36) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:15
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.10526409,.20340953
+--.00479127,.18437363
+-.0366079,.20480759
+-.06398293,.18757587
+-.08357871,.19461733
+-.09915103,.16998704
+-.11194861,.17739079
+-.12246495,.18654224
+-.13151406,.20385114
+-.13930751,.17683517
+-.14710575,.18191296
+-.15525197,.19583103
+-.16405392,.18198256
+-.17506597,.20398214
+-.18956806,.18626018
+-.2101707,.18406097
+-.24148494,.18175905
+-.29346265,.18081159
+-.39494641,.13754818
+-.61594321,.12012993
++-.10525921,.20340927
++-.00479141,.18437363
++.0366071,.20480761
++.06398298,.18757581
++.08357876,.19461727
++.09915111,.16998694
++.11194774,.17738701
++.12246366,.18654581
++.13151394,.203851
++.13930893,.17683079
++.14710761,.18191094
++.15525127,.19579605
++.16405328,.18202382
++.17506608,.20398226
++.18956824,.18626035
++.21017069,.18406123
++.24148456,.18175941
++.29346215,.18081182
++.39494649,.13754813
++.61594315,.12012975
+
+=== block_primary_by_mus_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:28
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_priv
+--.13579105,.14897903
+--.03415395,.14161665
+-.00683273,.14257791
+-.03527214,.14032347
+-.05709022,.13699203
+-.07570244,.1388274
+-.09149352,.14237546
+-.10494128,.13526627
+-.11663728,.13629263
+-.12705312,.14003828
+-.13687935,.13305839
+-.14715209,.13764914
+-.15858132,.13607051
+-.1724225,.1369762
+-.19100473,.14125514
+-.21762882,.13633415
+-.25877103,.13400862
+-.33684378,.13448238
+-.5000481,.12249523
+-.74675423,.11350913
++-.13579107,.14900681
++-.03415396,.14161943
++.00683266,.14257909
++.03527133,.14032433
++.05708967,.13687388
++.07570319,.13881826
++.09149437,.14243326
++.10494142,.13526212
++.11663743,.13629786
++.12705276,.13996728
++.13687948,.13311641
++.14715265,.13764405
++.15858127,.13607459
++.17242221,.13696251
++.19100426,.14124936
++.2176281,.13632886
++.25876998,.13400374
++.33684336,.13448487
++.50004865,.12250796
++.74675453,.11346166
+
+=== block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:26
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_pub
+--.12807229,.0749921
+--.01673561,.07122706
+-.01788349,.06994833
+-.03966012,.0693674
+-.05597533,.07129719
+-.06924081,.06803038
+-.08032433,.07134153
+-.08978124,.07086444
+-.0983474,.07265715
+-.10653002,.0719228
+-.11473759,.0738442
+-.12348107,.07054813
+-.13309932,.07138269
+-.14438081,.07021317
+-.15810048,.06880548
+-.17577668,.06876347
+-.20042424,.06616542
+-.24326139,.06893022
+-.34723251,.06638284
+-.62910461,.05729819
++-.12807236,.0749921
++-.01673558,.07122527
++.0178838,.06994959
++.03966018,.06936852
++.05597527,.07129692
++.06924065,.06803176
++.08032406,.07133919
++.08978099,.07084847
++.09834719,.07267643
++.10652979,.0719221
++.11473736,.07384173
++.12348077,.07055096
++.13309897,.07138045
++.14438078,.07021029
++.15810046,.06880833
++.17577666,.06876346
++.20042427,.06616541
++.24326139,.06892972
++.34723249,.06638331
++.62910454,.05729818
+
+=== seg_multivar_regs_app1.tex ===
+--- /Users/f0018fb/iec/output/seg/seg_multivar_regs_app1.tex	2026-03-05 05:29:02
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/seg_multivar_regs_app1.tex	2026-03-04 23:59:45
+@@ -8,7 +8,7 @@
+ (Log) City Population&       0.019\sym{***}&       0.025\sym{***}&       0.014\sym{***}&       0.024\sym{***}\\
+                     &     (0.003)         &     (0.002)         &     (0.003)         &     (0.003)         \\
+ [1em]
+-City Growth Rate    &       1.435\sym{***}&       0.490\sym{***}&      -1.227\sym{***}&      -1.373\sym{***}\\
++City Growth Rate    &       1.435\sym{***}&       0.490\sym{***}&      -1.227\sym{***}&      -1.372\sym{***}\\
+                     &     (0.232)         &     (0.117)         &     (0.267)         &     (0.214)         \\
+ [1em]
+ Muslim (Share)      &      -0.039         &       1.213\sym{***}&       0.125\sym{***}&       0.069\sym{***}\\
+@@ -17,7 +17,7 @@
+ Scheduled Castes (Share)&      -0.070\sym{*}  &      -0.119\sym{***}&      -0.104\sym{**} &       1.390\sym{***}\\
+                     &     (0.038)         &     (0.023)         &     (0.050)         &     (0.035)         \\
+ [1em]
+-City Origin Year ('00s)&      -4.177\sym{***}&      -1.202\sym{**} &      -3.960\sym{***}&      -2.531\sym{***}\\
++City Origin Year ('00s)&      -4.177\sym{***}&      -1.202\sym{**} &      -3.962\sym{***}&      -2.533\sym{***}\\
+                     &     (0.809)         &     (0.468)         &     (0.862)         &     (0.771)         \\
+ [1em]
+ (Log) Per-capita Consumption&      -0.246\sym{***}&      -0.128\sym{***}&      -0.060\sym{***}&      -0.005         \\
+
+=== block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:26
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:48
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter wat_source_home sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(wat_source_home) legend(off order()) xtitle(SC Share, size(large)) ytitle(HH Has Water Source at Home (Mean), size(large) ) xlab(0(0.1)1)
+
+=== block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:11:47
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.12807229,.57030839
+--.01673561,.54633784
+-.01788349,.55337595
+-.03966012,.55327604
+-.05597533,.55215989
+-.06924081,.55092331
+-.08032433,.54699395
+-.08978124,.54182316
+-.0983474,.54771982
+-.10653002,.54779248
+-.11473759,.54584205
+-.12348107,.5438085
+-.13309932,.54173154
+-.14438081,.54470903
+-.15810048,.53244497
+-.17577668,.52095085
+-.20042424,.51569342
+-.24326139,.51393114
+-.34723251,.49961764
+-.62910461,.46915146
++-.12807236,.57030769
++-.01673558,.54638198
++.0178838,.55331828
++.03966018,.55324497
++.05597527,.5521737
++.06924065,.55093865
++.08032406,.54701685
++.08978099,.54182704
++.09834719,.54771533
++.10652979,.54779707
++.11473736,.54583612
++.12348077,.54375264
++.13309897,.54176346
++.14438078,.5447297
++.15810046,.53242419
++.17577666,.52095079
++.20042427,.5156942
++.24326139,.51389694
++.34723249,.49965204
++.62910454,.46915101
+
+=== block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:01:57
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_pub
+--.08972811,.59276169
+-.00199478,.58917273
+-.03103788,.59294508
+-.04862733,.59222756
+-.06137683,.59157157
+-.07129892,.58982433
+-.07942442,.58818914
+-.08650059,.58608391
+-.09295352,.58507714
+-.09908797,.5920298
+-.10524563,.5853462
+-.1116695,.59160318
+-.11869056,.58994033
+-.12679009,.58906426
+-.13670692,.58999162
+-.14962263,.58707136
+-.16809943,.58653555
+-.19863556,.58545905
+-.26616226,.58034414
+-.50236498,.56524422
++-.08972825,.5927611
++.00199468,.58918295
++.03103926,.59300674
++.04862866,.5921815
++.06137769,.59159006
++.07129918,.58985789
++.07942441,.58817258
++.08650064,.58604897
++.09295359,.58514757
++.09908806,.59196592
++.10524578,.58538514
++.11166965,.59159164
++.11869053,.58993417
++.12679058,.58906846
++.13670747,.59000541
++.14962387,.58705382
++.16809887,.58649016
++.19863563,.58544917
++.26616144,.5802965
++.50236462,.56529295
+
+=== block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:51
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) ylab(0.01(0.004)0.03) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:37
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.13579105,.0447512
+--.03415395,.04293445
+-.00683273,.05082599
+-.03527214,.04835864
+-.05709022,.04279075
+-.07570244,.04141416
+-.09149352,.04255369
+-.10494128,.045508
+-.11663728,.04487513
+-.12705312,.04620826
+-.13687935,.04302822
+-.14715209,.05081946
+-.15858132,.04556666
+-.1724225,.04483444
+-.19100473,.0470567
+-.21762882,.04309844
+-.25877103,.04315792
+-.33684378,.03932009
+-.5000481,.03002882
+-.74675423,.03039884
++-.13579107,.04475119
++-.03415396,.04293444
++.00683266,.05082598
++.03527133,.04836022
++.05708967,.04278914
++.07570319,.04140717
++.09149437,.04256065
++.10494142,.04550637
++.11663743,.04487419
++.12705276,.04620986
++.13687948,.04302863
++.14715265,.05082005
++.15858127,.04557357
++.17242221,.04482743
++.19100426,.04705673
++.2176281,.0430985
++.25876998,.04315799
++.33684336,.03932012
++.50004865,.03002882
++.74675453,.03039881
+
+=== block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:03:09
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_priv
+--.122619,.05112005
+--.05392266,.04980599
+--.02424861,.04851708
+--.00199602,.04978804
+-.01832327,.05063272
+-.03774565,.04959778
+-.0568815,.05095657
+-.07619004,.05098972
+-.09471822,.05117967
+-.11176593,.05041272
+-.12818133,.04980896
+-.14507024,.05022215
+-.16280204,.05253854
+-.18500096,.05135418
+-.21751355,.05192604
+-.26228287,.05096228
+-.32271709,.04984009
+-.40665472,.04705164
+-.53482026,.04567783
+-.7735573,.03668927
++-.12261973,.05112001
++-.05392276,.04980723
++-.02424864,.04851583
++-.00199596,.04978791
++.01832329,.05063285
++.03774573,.04959778
++.05688161,.0509567
++.07619009,.05098985
++.09471836,.05117943
++.11176595,.05041207
++.12818147,.04980885
++.14507041,.05022286
++.1628022,.05253854
++.18500109,.05135418
++.21751367,.05192603
++.26228291,.05096095
++.32271709,.0498414
++.40665631,.04705135
++.53482179,.04567823
++.77355711,.03668927
+
+=== block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:12:55
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) ylab(0.7(0.05)1) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:32
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_secondary_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:02:05
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_pub
+--.08972811,.17455268
+-.00199478,.16600606
+-.03103788,.1678144
+-.04862733,.16245388
+-.06137683,.16432649
+-.07129892,.165573
+-.07942442,.16797876
+-.08650059,.16633701
+-.09295352,.16187592
+-.09908797,.16522212
+-.10524563,.16685448
+-.1116695,.16396889
+-.11869056,.1617862
+-.12679009,.15857172
+-.13670692,.15557146
+-.14962263,.1490296
+-.16809943,.15444649
+-.19863556,.15755724
+-.26616226,.15314812
+-.50236498,.1366804
++-.08972825,.17455268
++.00199468,.16600091
++.03103926,.16779674
++.04862866,.1624571
++.06137769,.16433104
++.07129918,.1655949
++.07942441,.16799276
++.08650064,.16627198
++.09295359,.161911
++.09908806,.16527361
++.10524578,.16681263
++.11166965,.1639684
++.11869053,.1617618
++.12679058,.15859606
++.13670747,.1555659
++.14962387,.14903207
++.16809887,.15449263
++.19863563,.15751386
++.26616144,.15314811
++.50236462,.1366804
+
+=== block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:55
+@@ -1,21 +1,21 @@
+ sc_share,light_source_elec
+--.09347202,.96551777
+--.0363494,.95560854
+--.01735178,.957607
+--.00300212,.95880823
+-.00972287,.95808017
+-.0215907,.95893518
+-.03228965,.95832518
+-.04274177,.95682355
+-.05367773,.95700518
+-.06500656,.95493129
+-.0758573,.95511524
+-.08605397,.95388129
+-.09742017,.95197228
+-.11046834,.95117087
+-.1268702,.95138892
+-.15093686,.9503199
+-.18962261,.94382819
+-.26150628,.93878385
+-.4061116,.92545079
+-.71765719,.91081745
++-.09347201,.96551768
++-.03634936,.95560839
++-.01735224,.95760504
++-.00300275,.9588109
++.00972346,.95804005
++.02159091,.95897367
++.03228966,.95832514
++.04274178,.95682351
++.05367774,.95700515
++.06500691,.95492505
++.0758574,.955125
++.08605343,.95388051
++.09741963,.95196954
++.11046833,.95117092
++.12687017,.95138904
++.15093684,.95032001
++.1896226,.94382823
++.2615063,.93878382
++.40611162,.92545073
++.71765719,.91081742
+
+=== block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:12:14
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) ylab(0.055(0.005)0.095) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:12
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.10526409,.45372717
+--.00479127,.43491445
+-.0366079,.43167808
+-.06398293,.46680384
+-.08357871,.44817868
+-.09915103,.46388962
+-.11194861,.45019836
+-.12246495,.46901969
+-.13151406,.45048777
+-.13930751,.45856691
+-.14710575,.46244591
+-.15525197,.45439497
+-.16405392,.45454399
+-.17506597,.46824496
+-.18956806,.46157198
+-.2101707,.447846
+-.24148494,.45317826
+-.29346265,.46468966
+-.39494641,.43463634
+-.61594321,.42136036
++-.10525921,.45372641
++-.00479141,.43491449
++.0366071,.4316782
++.06398298,.4668038
++.08357876,.44817862
++.09915111,.46388954
++.11194774,.45021121
++.12246366,.46900661
++.13151394,.45048771
++.13930893,.45855611
++.14710761,.46300647
++.15525127,.45329812
++.16405328,.45509095
++.17506608,.46824512
++.18956824,.46157218
++.21017069,.44784631
++.24148456,.4531787
++.29346215,.46468996
++.39494649,.4346363
++.61594315,.42136021
+
+=== table_repres.csv ===
+--- /Users/f0018fb/iec/output/seg/table_repres.csv	2026-03-05 05:29:02
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/table_repres.csv	2026-03-05 00:09:34
+@@ -1,7 +1,3 @@
+-urban_full_pc11_pca_tot_p_sum, 385,411,180
+-urban_seg_secc_pop_sum, 196,601,472
+-rural_full_pc11_pca_tot_p_sum, 834,030,262
+-rural_seg_secc_pop_sum, 571,127,176
+ urban_seg_log_city_pop_pc11_mean,     10.31
+ urban_seg_log_city_pop_pc11_se,      1.08
+ urban_seg_log_city_pop_pc11_sum,      36,112
+@@ -50,6 +46,8 @@
+ urban_full_hosp_pc_mean,      2.87
+ urban_full_hosp_pc_se,      5.36
+ urban_full_hosp_pc_sum,      19,904
++urban_full_pc11_pca_tot_p_sum, 385,411,180
++urban_seg_secc_pop_sum, 196,601,472
+ urban_city_dissim_muslim_mean,      0.52
+ urban_city_dissim_muslim_se,      0.14
+ urban_city_dissim_sc_mean,      0.59
+@@ -112,6 +110,8 @@
+ rural_full_hosp_pc_mean,      0.86
+ rural_full_hosp_pc_se,      3.47
+ rural_full_hosp_pc_sum,       5,022
++rural_full_pc11_pca_tot_p_sum, 834,030,262
++rural_seg_secc_pop_sum, 571,127,176
+ rural_city_dissim_muslim_mean,      0.49
+ rural_city_dissim_muslim_se,      0.15
+ rural_city_dissim_sc_mean,      0.58
+
+=== block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:45
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) ylab(0.28(0.02)0.36) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:39
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.13579105,.06531875
+--.03415395,.06720434
+-.00683273,.07356678
+-.03527214,.0678937
+-.05709022,.06465326
+-.07570244,.06821102
+-.09149352,.06213343
+-.10494128,.06484096
+-.11663728,.06327196
+-.12705312,.06471926
+-.13687935,.06848618
+-.14715209,.06597283
+-.15858132,.06797695
+-.1724225,.06252376
+-.19100473,.06426124
+-.21762882,.06766172
+-.25877103,.060135
+-.33684378,.0587023
+-.5000481,.04882092
+-.74675423,.0436268
++-.13579107,.06531865
++-.03415396,.06720416
++.00683266,.07356655
++.03527133,.06789279
++.05708967,.06465367
++.07570319,.06818315
++.09149437,.06216078
++.10494142,.06483901
++.11663743,.06327076
++.12705276,.06472829
++.13687948,.06848148
++.14715265,.06597027
++.15858127,.06799063
++.17242221,.06251034
++.19100426,.06426177
++.2176281,.06766271
++.25876998,.06013644
++.33684336,.05870283
++.50004865,.04882072
++.74675453,.04362612
+
+=== block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:59
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter light_source_elec muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(light_source_elec) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(HH Has Electricity (Mean), size(large)) xlab(0(0.1)1)
+
+=== binscatter_viz_sc.do ===
+--- /Users/f0018fb/iec/output/seg/binscatter_viz_sc.do	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/binscatter_viz_sc.do	2026-03-05 00:02:16
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/binscatter_viz_sc.csv
++insheet using ~/Dropbox/tmp/segdata//out/binscatter_viz_sc.csv
+ 
+ twoway (scatter dum_secondary_pub_pcap sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_pub_pcap) legend(off order()) xtitle(SC Share, size(large)) ytitle("Secondary schools per 100,000 people", size(medlarge) ) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:40
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_pub
+--.09475347,.02326045
+--.0369521,.02369088
+--.01664782,.02216101
+--.00210883,.0239138
+-.01049331,.02307518
+-.02225595,.02405905
+-.03295915,.02385285
+-.04317113,.02270857
+-.05379534,.02279427
+-.06484194,.02403248
+-.0753798,.02432937
+-.085326,.02538419
+-.09654762,.02428187
+-.10984997,.02395609
+-.12637263,.02425704
+-.1500907,.02505774
+-.18858932,.02659824
+-.26021436,.02478095
+-.40430954,.0219242
+-.71588046,.01759053
++-.09475271,.02326133
++-.03695121,.02369003
++-.01664726,.02216175
++-.00210805,.02391408
++.01049475,.0230742
++.02225651,.0240586
++.03295982,.02384428
++.04317044,.02269146
++.05379385,.02280644
++.06484198,.02403857
++.07538022,.02432926
++.08532595,.02539329
++.09654675,.02427373
++.1098494,.02389627
++.12637192,.02432381
++.15009002,.02505761
++.18859079,.02660658
++.26021976,.02477957
++.40431271,.02191731
++.7158813,.01759055
+
+=== block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:14
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) ylab(0.1(0.02)0.22) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_primary_by_mus_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:36
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_pub
+--.13579105,.06645151
+--.03415395,.06529838
+-.00683273,.06838001
+-.03527214,.06609192
+-.05709022,.06481427
+-.07570244,.06809674
+-.09149352,.06690909
+-.10494128,.06727643
+-.11663728,.06858077
+-.12705312,.06953126
+-.13687935,.06710053
+-.14715209,.0683049
+-.15858132,.06852454
+-.1724225,.06785655
+-.19100473,.06793896
+-.21762882,.06664992
+-.25877103,.06389246
+-.33684378,.06870775
+-.5000481,.06909359
+-.74675423,.06104065
++-.13579107,.0664517
++-.03415396,.06529901
++.00683266,.0683808
++.03527133,.06608503
++.05708967,.06476721
++.07570319,.0680984
++.09149437,.0669093
++.10494142,.06727443
++.11663743,.06858572
++.12705276,.06953741
++.13687948,.06709563
++.14715265,.06830413
++.15858127,.06852387
++.17242221,.0678552
++.19100426,.06793674
++.2176281,.06664709
++.25876998,.06388906
++.33684336,.0687623
++.50004865,.0690946
++.74675453,.06104259
+
+=== block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:44
+@@ -1,21 +1,21 @@
+ muslim_share,closed_drain
+--.13535571,.58039299
+--.03254636,.57992681
+-.00812644,.57284048
+-.03524494,.56899918
+-.05619131,.56803462
+-.07421717,.56535392
+-.08967507,.5672578
+-.10294209,.56561831
+-.1145853,.56516912
+-.1249955,.56544002
+-.13487199,.56639221
+-.14522904,.56717972
+-.15674513,.56557283
+-.17065367,.55796397
+-.18900726,.55376741
+-.21524779,.55124785
+-.25617909,.54465468
+-.33428197,.53094176
+-.49835005,.51834627
+-.7493952,.50502208
++-.13535569,.58039304
++-.03254633,.5799268
++.00812641,.57284105
++.03524419,.56897415
++.05619075,.56806763
++.07421775,.5653557
++.08967582,.56722784
++.10294215,.56563879
++.11458531,.56516915
++.1249951,.56542725
++.13487192,.56640657
++.14522955,.56716491
++.15674527,.56558612
++.17065364,.55796399
++.18900723,.55376921
++.21524776,.55124611
++.25617905,.54465474
++.33428196,.53094176
++.49835006,.51834628
++.74939522,.50502205
+
+=== block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:30
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.13579105,.06531875
+--.03415395,.06720434
+-.00683273,.07356678
+-.03527214,.0678937
+-.05709022,.06465326
+-.07570244,.06821102
+-.09149352,.06213343
+-.10494128,.06484096
+-.11663728,.06327196
+-.12705312,.06471926
+-.13687935,.06848618
+-.14715209,.06597283
+-.15858132,.06797695
+-.1724225,.06252376
+-.19100473,.06426124
+-.21762882,.06766172
+-.25877103,.060135
+-.33684378,.0587023
+-.5000481,.04882092
+-.74675423,.0436268
++-.13579107,.06531865
++-.03415396,.06720416
++.00683266,.07356655
++.03527133,.06789279
++.05708967,.06465367
++.07570319,.06818315
++.09149437,.06216078
++.10494142,.06483901
++.11663743,.06327076
++.12705276,.06472829
++.13687948,.06848148
++.14715265,.06597027
++.15858127,.06799063
++.17242221,.06251034
++.19100426,.06426177
++.2176281,.06766271
++.25876998,.06013644
++.33684336,.05870283
++.50004865,.04882072
++.74675453,.04362612
+
+=== city_pop_weighted_iso_density_urban_200.csv ===
+--- /Users/f0018fb/iec/output/seg/city_pop_weighted_iso_density_urban_200.csv	2026-03-05 05:28:30
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/city_pop_weighted_iso_density_urban_200.csv	2026-03-04 23:59:26
+@@ -1,54 +1,54 @@
+ sc_density,muslim_density,x
+-.0001408790063404,.0285125047721644,.0122702342366115
+-.000463312707739,.0966234725126151,.0324470075690462
+-.003164734800345,.191331779277309,.0526237809014809
+-.0152223260399464,.3392272692322391,.0728005542339156
+-.0322772366426884,.497315994011007,.0929773275663503
+-.0572834317365616,.6338311651428299,.113154100898785
+-.0931328511339258,.7283749512031508,.1333308742312197
+-.1503562115468952,.7812675505981872,.1535076475636545
+-.229368384199908,.8117503984304566,.1736844208960892
+-.3231179790444529,.8274128187260382,.1938611942285239
+-.6781304462141833,.8091844492799689,.2140379675609586
+-1.071317539509424,.8182694463259627,.2342147408933933
+-1.510403478138648,.8360762419634667,.254391514225828
+-1.683695055143514,.8623492344233952,.2745682875582627
+-1.798867095578006,.9196105876487134,.2947450608906974
+-2.052172082806803,.9909575199591429,.3149218342231321
+-2.292416725514758,1.059502342974896,.3350986075555668
+-2.666337494348907,1.21659789065285,.3552753808880015
+-2.802364488381163,1.335754831877868,.3754521542204362
+-2.938442874716289,1.456035214655095,.3956289275528709
+-3.126726448448079,1.556179001661774,.4158057008853056
+-3.462184868163826,1.753117484244489,.4359824742177403
+-3.67988372752365,1.927258233090691,.4561592475501751
+-3.443283618557537,2.044196122669863,.4763360208826097
+-2.885682118074492,2.083869881899227,.4965127942150445
+-2.374804703871162,2.057546491786648,.5166895675474791
+-1.901175306644183,1.91428582310923,.5368663408799138
+-1.636731255925046,1.896320777749703,.5570431142123485
+-1.29456747512054,1.910536870638161,.5772198875447833
+-1.145316962012889,1.963294336141825,.597396660877218
+-.9781396023611263,1.920556761404487,.6175734342096526
+-.7432603488035971,1.926435130233715,.6377502075420873
+-.5584439625907593,1.894325332740352,.6579269808745221
+-.4521485781245629,1.72081789718084,.6781037542069568
+-.367691179002957,1.426858077478914,.6982805275393915
+-.2660725053452321,1.248543636700976,.7184573008718261
+-.1937934495893514,1.053062718149274,.7386340742042609
+-.1403234290252954,.8729127552564168,.7588108475366956
+-.1227772038703981,.6827603320128454,.7789876208691303
+-.0998067470655038,.5722091208302846,.799164394201565
+-.070629364247309,.4916910671710644,.8193411675339997
+-.0410578111922644,.435555297676561,.8395179408664344
+-.0253967539597085,.3832694332493924,.8596947141988691
+-.0170048733506278,.2918137689531572,.8798714875313038
+-.0149760861387015,.1569580516872904,.9000482608637386
+-.0137297727387935,.0876439359039311,.9202250341961733
+-.0144768682647046,.0397989580649125,.9404018075286079
+-.0167363445249728,.012374859403603,.9605785808610426
+-.0142166592472279,.0020202614181557,.9807553541934774
+-.0085680788498589,.0003016618386944,1.000932127525912
++.0001408790063404,.0285125369696603,.0122702342366115
++.000463312707739,.0966235046903781,.0324470075690462
++.003164734800345,.1913317964128679,.0526237809014809
++.0150145172088422,.3392272865124289,.0728005542339156
++.032158091394722,.4973159846467103,.0929773275663503
++.0572748906892966,.6338311225465284,.113154100898785
++.0932349142873622,.7283749148392744,.1333308742312197
++.150568878901033,.7812675317021617,.1535076475636545
++.229368384199908,.8117503889279424,.1736844208960892
++.3231179790444529,.827412825093078,.1938611942285239
++.6781304462141833,.8091844556555745,.2140379675609586
++1.071317539509424,.818266912986807,.2342147408933933
++1.510403478138648,.8360745648942202,.254391514225828
++1.683699424809108,.8623484284004235,.2745682875582627
++1.798869244734864,.9196106337840575,.2947450608906974
++2.052172011454925,.9909813679244339,.3149218342231321
++2.292414433654144,1.059520836573693,.3350986075555668
++2.666339431167593,1.216610860553792,.3552753808880015
++2.802366502506163,1.335758911983782,.3754521542204362
++2.938440453778254,1.456033008579258,.3956289275528709
++3.126719592447008,1.556170587365715,.4158057008853056
++3.462184868163826,1.753102701591955,.4359824742177403
++3.67988372752365,1.927237073709154,.4561592475501751
++3.443283618557537,2.044196113755208,.4763360208826097
++2.885682118074492,2.083869768226167,.4965127942150445
++2.374803898326092,2.057546373566912,.5166895675474791
++1.901175061744699,1.914285849162798,.5368663408799138
++1.636731571671149,1.896321003867896,.5570431142123485
++1.294568351512229,1.910536879764158,.5772198875447833
++1.145316962012889,1.963294256924711,.597396660877218
++.9781396023611263,1.920556671680045,.6175734342096526
++.7432603488035971,1.926435039243578,.6377502075420873
++.5584439625907593,1.89432524749205,.6579269808745221
++.4521485781245629,1.72081793168872,.6781037542069568
++.367691179002957,1.426858214427202,.6982805275393915
++.2660725053452321,1.248543569526209,.7184573008718261
++.1937934495893514,1.053062660953072,.7386340742042609
++.1403234290252954,.8729128395420271,.7588108475366956
++.1227772038703981,.6827604158837608,.7789876208691303
++.0998067470655038,.5722091282415102,.799164394201565
++.070629364247309,.4916910662831953,.8193411675339997
++.0410578111922644,.435555281689732,.8395179408664344
++.0253967539597085,.3832693908699235,.8596947141988691
++.0170048733506278,.2918137749469581,.8798714875313038
++.0149760861387015,.1569581267255125,.9000482608637386
++.0137297727387935,.0876439501899668,.9202250341961733
++.0144768682647046,.0397989635935076,.9404018075286079
++.0167363445249728,.0123748786257384,.9605785808610426
++.0142166592472279,.0020202630965666,.9807553541934774
++.0085680788498589,.0003016622042107,1.000932127525912
+ ,,
+ ,,
+ ,,
+
+=== block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:55
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_light_source_elec_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter light_source_elec sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(light_source_elec) legend(off order()) xtitle(SC Share, size(large)) ytitle(HH Has Electricity (Mean), size(large) ) xlab(0(0.1)1)
+
+=== block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:14
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.10526409,.2848933
+--.00479127,.28521884
+-.0366079,.26914843
+-.06398293,.28188932
+-.08357871,.27228084
+-.09915103,.26969405
+-.11194861,.25770285
+-.12246495,.27755835
+-.13151406,.2715898
+-.13930751,.27194506
+-.14710575,.26927683
+-.15525197,.28806749
+-.16405392,.27456489
+-.17506597,.26422085
+-.18956806,.27741223
+-.2101707,.24517235
+-.24148494,.25672943
+-.29346265,.24638857
+-.39494641,.21655707
+-.61594321,.18774638
++-.10525921,.28489283
++-.00479141,.28521886
++.0366071,.26914851
++.06398298,.28188932
++.08357876,.27228084
++.09915111,.26969405
++.11194774,.25773651
++.12246366,.27752475
++.13151394,.27158977
++.13930893,.27269697
++.14710761,.26853316
++.15525127,.28799088
++.16405328,.27463349
++.17506608,.26422088
++.18956824,.27741225
++.21017069,.24517241
++.24148456,.25672953
++.29346215,.24638866
++.39494649,.21655707
++.61594315,.18774637
+
+=== block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:02:05
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) ylab(0.12(0.01)0.16) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:40
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) ylab(0.014(0.002)0.026) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== city_pop_weighted_iso_density_rural_200.csv ===
+--- /Users/f0018fb/iec/output/seg/city_pop_weighted_iso_density_rural_200.csv	2026-03-05 05:28:30
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/city_pop_weighted_iso_density_rural_200.csv	2026-03-04 23:59:27
+@@ -1,54 +1,54 @@
+ sc_density,muslim_density,x
+ .0000510771560912,0,-.0185755024993365
+-.0000638312676052,.0014031975370877,.0006404090489956
+-.0000492555099542,.0208907517665957,.0198563205973276
+-.000041885248991,.0699560407298955,.0390722321456597
+-.0001318482029582,.1526009175603426,.0582881436939918
+-.0004133066644151,.2883812706915109,.0775040552423239
+-.0024417342667243,.4923926659013272,.0967199667906559
+-.0083258558572203,.7311158280852588,.115935878338988
+-.0239517379454086,.9754966446353842,.13515178988732
+-.0553778779758943,1.208403503504894,.1543677014356521
+-.0759127804132775,1.428919678676307,.1735836129839842
+-.1051834802807378,1.589330116294927,.1927995245323162
+-.1594469740936252,1.69726663076038,.2120154360806483
+-.2407547534660491,1.721103324417115,.2312313476289804
+-.3642296903508186,1.679929315814711,.2504472591773125
+-.4915365682117494,1.618575220068087,.2696631707256446
+-.65121526938136,1.553347714017607,.2888790822739766
+-.8793451451296863,1.490249335498571,.3080949938223087
+-1.183576658434732,1.430554828552714,.3273109053706408
+-1.579079827322498,1.420953920023494,.3465268169189729
+-2.043236312338585,1.428548939399025,.3657427284673049
+-2.524175559961958,1.46444786658336,.384958640015637
+-2.959377148025856,1.493823430253378,.404174551563969
+-3.350160708866115,1.499163245609574,.4233904631123011
+-3.452508656386808,1.519330161497822,.4426063746606332
+-3.613515121115542,1.520812775681707,.4618222862089653
+-3.552620978550793,1.502771792525492,.4810381977572973
+-3.479777493023836,1.496645577936433,.5002541093056294
+-3.326349771326552,1.470120332998839,.5194700208539614
+-3.173737882059665,1.434577655736972,.5386859324022936
+-2.954885615527546,1.387888314025369,.5579018439506256
+-2.569181436598916,1.327827490022207,.5771177554989577
+-2.139752777726747,1.230777527052579,.5963336670472897
+-1.73013459486532,1.152050075531374,.6155495785956218
+-1.439712298534815,1.079712440782535,.6347654901439539
+-1.067114915647616,.9882306647739929,.6539814016922859
+-.7972746745530135,.9316979058204238,.673197313240618
+-.5840151994907686,.8796811802371406,.6924132247889501
+-.4345386664680846,.8122486213339115,.7116291363372822
+-.2983469211244105,.7755092040730218,.7308450478856142
+-.1932095064652891,.7731117662302864,.7500609594339464
+-.1482813224642897,.7707541353791119,.7692768709822784
+-.1311659911324068,.7733699667926077,.7884927825306104
+-.1056821928768416,.761503855168735,.8077086940789425
+-.075417523980744,.7107810538186977,.8269246056272745
+-.0375765656542576,.6458380647578642,.8461405171756067
+-.0183397934137826,.5673158146463367,.8653564287239387
+-.0086950427786258,.4533126757144733,.8845723402722708
+-.0046912496952797,.3346164554747472,.9037882518206029
+-.0034806512906792,.274580419211354,.9230041633689349
++.0000638312676052,.0014031951113884,.0006404090489956
++.0000492555099542,.0208907421734527,.0198563205973276
++.000041885248991,.0699560255218692,.0390722321456597
++.0001318482029582,.1526009002389955,.0582881436939918
++.0004133066644151,.288381243770361,.0775040552423239
++.0024417342667243,.4923926397931009,.0967199667906559
++.0083258558572203,.7311158206202493,.115935878338988
++.0239517379454086,.9754966527517217,.13515178988732
++.0553778779758943,1.208395944952267,.1543677014356521
++.0759127804132775,1.428913839797018,.1735836129839842
++.1051834802807378,1.589329797594218,.1927995245323162
++.1594469740936252,1.697267019576049,.2120154360806483
++.2407547534660491,1.721104414407018,.2312313476289804
++.3642296903508186,1.67993110520701,.2504472591773125
++.4915365682117494,1.618577709534919,.2696631707256446
++.65121526938136,1.553350896385812,.2888790822739766
++.8793451451296863,1.490253206867058,.3080949938223087
++1.183576658434732,1.430551552413847,.3273109053706408
++1.579079827322498,1.420949639272397,.3465268169189729
++2.043236312338585,1.428548939339036,.3657427284673049
++2.524175559961958,1.464447870793887,.384958640015637
++2.959377148025856,1.493823436097043,.404174551563969
++3.350159753480112,1.499163252436262,.4233904631123011
++3.452508199956608,1.519330734842488,.4426063746606332
++3.613515163641146,1.520813220802634,.4618222862089653
++3.552621520032202,1.502772115008252,.4810381977572973
++3.479778533461048,1.496645757655666,.5002541093056294
++3.326084177763749,1.470120392891192,.5194700208539614
++3.17360771272466,1.434577564188894,.5386859324022936
++2.954889425164859,1.387888092262499,.5579018439506256
++2.569321689715312,1.327827129395195,.5771177554989577
++2.140029474322228,1.230777021844461,.5963336670472897
++1.730136207363701,1.152050079898484,.6155495785956218
++1.439712298534815,1.079712442630145,.6347654901439539
++1.067114915647616,.9882306525496878,.6539814016922859
++.7972746745530135,.9316979039046662,.673197313240618
++.5840151994907686,.8796811754639511,.6924132247889501
++.4345386664680846,.8122486207771066,.7116291363372822
++.2983469211244105,.7755091950956567,.7308450478856142
++.1932095064652891,.7731117684069471,.7500609594339464
++.1482813224642897,.7707541227224785,.7692768709822784
++.1311659911324068,.7733699673302662,.7884927825306104
++.1056821928768416,.76150386861744,.8077086940789425
++.075417523980744,.7107810748143042,.8269246056272745
++.0375765656542576,.645838082382288,.8461405171756067
++.0183397934137826,.5673158259640917,.8653564287239387
++.0086950427786258,.453312668879154,.8845723402722708
++.0046912496952797,.334616441182653,.9037882518206029
++.0034806512906792,.2745803983878432,.9230041633689349
+ ,,
+ ,,
+ ,,
+
+=== block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:37
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:02:09
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_pub
+--.08579799,.13658498
+--.01262559,.123722
+-.02095511,.1282172
+-.04738797,.12716542
+-.06907676,.13440073
+-.08774433,.13119413
+-.10401223,.12860921
+-.11815018,.12746002
+-.13073856,.13062705
+-.14245031,.13267524
+-.15349891,.1357013
+-.16378097,.13700585
+-.17589965,.14221068
+-.1921995,.13620919
+-.21236317,.14062132
+-.23757499,.13910102
+-.27033483,.13832283
+-.3153794,.13746794
+-.38978514,.13235211
+-.60679293,.12995459
++-.08579849,.13657638
++-.01262729,.12373336
++.02095347,.12821447
++.04738658,.1271694
++.0690762,.13439672
++.08774407,.13120234
++.10401204,.12860095
++.11815053,.12745416
++.13073855,.13064186
++.14245009,.13266638
++.15349875,.1357013
++.16378099,.13700587
++.17589976,.14221073
++.19219955,.13620924
++.21236404,.14058279
++.23757595,.13915914
++.27033495,.13830324
++.31537942,.13746793
++.38978508,.13235204
++.6067927,.12995451
+
+=== block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:27
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.09475347,.06248492
+--.0369521,.06341731
+--.01664782,.06029897
+--.00210883,.06343379
+-.01049331,.0623281
+-.02225595,.06450731
+-.03295915,.06473133
+-.04317113,.06133973
+-.05379534,.06137038
+-.06484194,.06598955
+-.0753798,.0649828
+-.085326,.06847092
+-.09654762,.0655641
+-.10984997,.06493004
+-.12637263,.06868769
+-.1500907,.06853804
+-.18858932,.07297838
+-.26021436,.06592754
+-.40430954,.05787263
+-.71588046,.04212727
++-.09475271,.0624867
++-.03695121,.06341563
++-.01664726,.06030077
++-.00210805,.06343497
++.01049475,.06232528
++.02225651,.06450489
++.03295982,.06470873
++.04317044,.06129609
++.05379385,.06139826
++.06484198,.0660079
++.07538022,.06498294
++.08532595,.06849653
++.09654675,.06554111
++.1098494,.06475138
++.12637192,.06888582
++.15009002,.0685377
++.18859079,.0730013
++.26021976,.06592487
++.40431271,.05785258
++.7158813,.04212733
+
+=== block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:13:46
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.122619,.51843436
+--.05392266,.52479627
+--.02424861,.52840119
+--.00199602,.52829077
+-.01832327,.52757883
+-.03774565,.53598473
+-.0568815,.54014796
+-.07619004,.5366585
+-.09471822,.53866791
+-.11176593,.54811783
+-.12818133,.54931596
+-.14507024,.55411535
+-.16280204,.54950665
+-.18500096,.54524063
+-.21751355,.55103326
+-.26228287,.55567762
+-.32271709,.55153246
+-.40665472,.53633622
+-.53482026,.52398383
+-.7735573,.49477192
++-.12261973,.51843344
++-.05392276,.5247656
++-.02424864,.5284304
++-.00199596,.52829071
++.01832329,.52757767
++.03774573,.53598396
++.05688161,.54019927
++.07619009,.53658019
++.09471836,.5386783
++.11176595,.54807925
++.12818147,.54936731
++.14507041,.55410813
++.1628022,.54950672
++.18500109,.54523987
++.21751367,.5510324
++.26228291,.55562866
++.32271709,.55157963
++.40665631,.53634845
++.53482179,.52397134
++.77355711,.49477218
+
+=== block_primary_by_mus_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:28
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_primary_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:12:51
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) ylab(0.7(0.05)1) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:12:59
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) ylab(0.16(0.01)0.21) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:12:59
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.08579799,.34534044
+--.01262559,.33764663
+-.02095511,.34540568
+-.04738797,.34027529
+-.06907676,.34981171
+-.08774433,.34223434
+-.10401223,.34752415
+-.11815018,.33945911
+-.13073856,.3359534
+-.14245031,.33946165
+-.15349891,.35251989
+-.16378097,.35369977
+-.17589965,.36514104
+-.1921995,.3581734
+-.21236317,.36341063
+-.23757499,.36453675
+-.27033483,.34992097
+-.3153794,.34596641
+-.38978514,.33840732
+-.60679293,.33379782
++-.08579849,.34532256
++-.01262729,.33770216
++.02095347,.34534887
++.04738658,.34025943
++.0690762,.34984739
++.08774407,.3421742
++.10401204,.34758428
++.11815053,.33947617
++.13073855,.33594286
++.14245009,.33945538
++.15349875,.35251986
++.16378099,.3536997
++.17589976,.36514094
++.19219955,.35817327
++.21236404,.36344764
++.23757595,.36447488
++.27033495,.34994526
++.31537942,.34596637
++.38978508,.33840729
++.6067927,.33379788
+
+=== block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_light_source_elec_by_mus_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:59
+@@ -1,21 +1,21 @@
+ muslim_share,light_source_elec
+--.13525124,.95802153
+--.03246032,.95337473
+-.00818497,.95252427
+-.03528216,.95044392
+-.05621846,.95056044
+-.07422929,.95260702
+-.08967303,.95180846
+-.10292316,.95023639
+-.1145606,.95120639
+-.12496425,.95292705
+-.13483674,.95164992
+-.14519046,.95229101
+-.15670109,.95180554
+-.17061018,.95275336
+-.18896732,.95212789
+-.21518816,.95142125
+-.2560515,.95009212
+-.333985,.94630987
+-.49789098,.94382311
+-.7491358,.93838773
++-.13525123,.95802148
++-.0324603,.95337466
++.00818494,.95252427
++.03528134,.95044351
++.05621798,.95055652
++.07422995,.95261147
++.08967374,.951808
++.10292319,.95023631
++.11456062,.95120635
++.12496386,.95292743
++.13483668,.95165242
++.14519097,.95229119
++.15670123,.95179611
++.17061015,.95275935
++.18896729,.95212798
++.21518813,.95142128
++.25605145,.95009213
++.33398498,.94630985
++.49789099,.94382304
++.74913582,.93838766
+
+=== block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:43
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_hospital_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:49
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_pub
+--.10526409,.10047308
+--.00479127,.0872458
+-.0366079,.09789698
+-.06398293,.09200629
+-.08357871,.09172712
+-.09915103,.08340775
+-.11194861,.09120898
+-.12246495,.08840363
+-.13151406,.10009629
+-.13930751,.08741825
+-.14710575,.09185593
+-.15525197,.09467475
+-.16405392,.08838715
+-.17506597,.09689451
+-.18956806,.09280418
+-.2101707,.09198177
+-.24148494,.0908091
+-.29346265,.08850147
+-.39494641,.07306396
+-.61594321,.06373819
++-.10525921,.10047295
++-.00479141,.08724581
++.0366071,.097897
++.06398298,.09200627
++.08357876,.0917271
++.09915111,.08340772
++.11194774,.09120662
++.12246366,.08840593
++.13151394,.10009625
++.13930893,.08740873
++.14710761,.0919084
++.15525127,.09459577
++.16405328,.08842315
++.17506608,.09689455
++.18956824,.09280423
++.21017069,.09198186
++.24148456,.09080923
++.29346215,.08850156
++.39494649,.07306394
++.61594315,.06373814
+
+=== block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:51
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_pub
+--.13579105,.02315599
+--.03415395,.02337074
+-.00683273,.02419765
+-.03527214,.02468397
+-.05709022,.02121797
+-.07570244,.02202644
+-.09149352,.02215222
+-.10494128,.02302342
+-.11663728,.02214871
+-.12705312,.02320636
+-.13687935,.02321444
+-.14715209,.02423398
+-.15858132,.02351858
+-.1724225,.0227362
+-.19100473,.02367685
+-.21762882,.02273681
+-.25877103,.02264277
+-.33684378,.01986861
+-.5000481,.01698382
+-.74675423,.0163752
++-.13579107,.02315599
++-.03415396,.02337072
++.00683266,.02419764
++.03527133,.02468458
++.05708967,.02121732
++.07570319,.02202529
++.09149437,.02215333
++.10494142,.02302289
++.11663743,.02214916
++.12705276,.02320552
++.13687948,.02321516
++.14715265,.02423409
++.15858127,.02352161
++.17242221,.02273319
++.19100426,.02367689
++.2176281,.02273688
++.25876998,.02264287
++.33684336,.01986865
++.50004865,.01698381
++.74675453,.01637515
+
+=== block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:02:09
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) ylab(0.1(0.005)0.125) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:11:37
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.122619,.51843436
+--.05392266,.52479627
+--.02424861,.52840119
+--.00199602,.52829077
+-.01832327,.52757883
+-.03774565,.53598473
+-.0568815,.54014796
+-.07619004,.5366585
+-.09471822,.53866791
+-.11176593,.54811783
+-.12818133,.54931596
+-.14507024,.55411535
+-.16280204,.54950665
+-.18500096,.54524063
+-.21751355,.55103326
+-.26228287,.55567762
+-.32271709,.55153246
+-.40665472,.53633622
+-.53482026,.52398383
+-.7735573,.49477192
++-.12261973,.51843344
++-.05392276,.5247656
++-.02424864,.5284304
++-.00199596,.52829071
++.01832329,.52757767
++.03774573,.53598396
++.05688161,.54019927
++.07619009,.53658019
++.09471836,.5386783
++.11176595,.54807925
++.12818147,.54936731
++.14507041,.55410813
++.1628022,.54950672
++.18500109,.54523987
++.21751367,.5510324
++.26228291,.55562866
++.32271709,.55157963
++.40665631,.53634845
++.53482179,.52397134
++.77355711,.49477218
+
+=== block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:11:56
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.122619,.14823103
+--.05392266,.14182703
+--.02424861,.13923173
+--.00199602,.13776867
+-.01832327,.14261765
+-.03774565,.14386161
+-.0568815,.14678534
+-.07619004,.14554465
+-.09471822,.14678019
+-.11176593,.14489158
+-.12818133,.14854168
+-.14507024,.15269257
+-.16280204,.15117567
+-.18500096,.15400273
+-.21751355,.15672768
+-.26228287,.15513524
+-.32271709,.15538585
+-.40665472,.15359416
+-.53482026,.14424115
+-.7735573,.11177172
++-.12261973,.14823092
++-.05392276,.14182932
++-.02424864,.13922941
++-.00199596,.13776824
++.01832329,.14261806
++.03774573,.1438616
++.05688161,.14678524
++.07619009,.14554562
++.09471836,.14673697
++.11176595,.14493326
++.12818147,.14854204
++.14507041,.15269281
++.1628022,.15117566
++.18500109,.15400271
++.21751367,.15672766
++.26228291,.15513191
++.32271709,.15538912
++.40665631,.15359328
++.53482179,.14424241
++.77355711,.11177169
+
+=== block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:43
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) ylab(0.01(0.005)0.06) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:34
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:01:53
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_pub
+--.08579799,.58119541
+--.01262559,.58879021
+-.02095511,.58584023
+-.04738797,.5929313
+-.06907676,.58568336
+-.08774433,.58965585
+-.10401223,.58569364
+-.11815018,.58932649
+-.13073856,.5888612
+-.14245031,.5909902
+-.15349891,.58549215
+-.16378097,.59261812
+-.17589965,.58954589
+-.1921995,.58701623
+-.21236317,.5889281
+-.23757499,.58576866
+-.27033483,.58589881
+-.3153794,.58690766
+-.38978514,.58765807
+-.60679293,.58168188
++-.08579849,.58118217
++-.01262729,.58879701
++.02095347,.5858815
++.04738658,.5928884
++.0690762,.58567978
++.08774407,.5896217
++.10401204,.58572711
++.11815053,.5894017
++.13073855,.58871183
++.14245009,.59106802
++.15349875,.58549287
++.16378099,.59262029
++.17589976,.58954924
++.19219955,.58701734
++.21236404,.58887104
++.23757595,.58585053
++.27033495,.58588085
++.31537942,.58690818
++.38978508,.5876575
++.6067927,.58167637
+
+=== block_primary_by_sc_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:24
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_primary_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:23
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_primary_by_sc_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:24
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_priv
+--.09475347,.14751303
+--.0369521,.14434149
+--.01664782,.14524504
+--.00210883,.14288792
+-.01049331,.14278087
+-.02225595,.14221832
+-.03295915,.1419907
+-.04317113,.14124653
+-.05379534,.14212833
+-.06484194,.14257898
+-.0753798,.13832163
+-.085326,.14324269
+-.09654762,.13957827
+-.10984997,.13636736
+-.12637263,.13574426
+-.1500907,.13585807
+-.18858932,.13438663
+-.26021436,.12947056
+-.40430954,.1165638
+-.71588046,.08666278
++-.09475271,.14751111
++-.03695121,.14432949
++-.01664726,.14524272
++-.00210805,.14292701
++.01049475,.14273092
++.02225651,.14226811
++.03295982,.14187829
++.04317044,.14126141
++.05379385,.14214548
++.06484198,.14264585
++.07538022,.13821429
++.08532595,.14326339
++.09654675,.13963618
++.1098494,.13636258
++.12637192,.13566046
++.15009002,.13586515
++.18859079,.13433758
++.26021976,.12946458
++.40431271,.11661201
++.7158813,.08665899
+
+=== block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:47
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.13579105,.0447512
+--.03415395,.04293445
+-.00683273,.05082599
+-.03527214,.04835864
+-.05709022,.04279075
+-.07570244,.04141416
+-.09149352,.04255369
+-.10494128,.045508
+-.11663728,.04487513
+-.12705312,.04620826
+-.13687935,.04302822
+-.14715209,.05081946
+-.15858132,.04556666
+-.1724225,.04483444
+-.19100473,.0470567
+-.21762882,.04309844
+-.25877103,.04315792
+-.33684378,.03932009
+-.5000481,.03002882
+-.74675423,.03039884
++-.13579107,.04475119
++-.03415396,.04293444
++.00683266,.05082598
++.03527133,.04836022
++.05708967,.04278914
++.07570319,.04140717
++.09149437,.04256065
++.10494142,.04550637
++.11663743,.04487419
++.12705276,.04620986
++.13687948,.04302863
++.14715265,.05082005
++.15858127,.04557357
++.17242221,.04482743
++.19100426,.04705673
++.2176281,.0430985
++.25876998,.04315799
++.33684336,.03932012
++.50004865,.03002882
++.74675453,.03039881
+
+=== block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:47
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) ylab(0.12(0.01)0.17) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:44
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_closed_drain_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter closed_drain muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(closed_drain) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(HH Has Closed Drains (Mean), size(large)) xlab(0(0.1)1)
+
+=== block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:11
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.0908229,.42896773
+--.021922,.41632151
+-.00290797,.4098323
+-.02036936,.41486117
+-.0349477,.41559547
+-.04723751,.4432921
+-.05841414,.45201159
+-.06889729,.44036974
+-.07928139,.45241616
+-.08908118,.42070819
+-.09841696,.45795395
+-.10831125,.46355058
+-.11886582,.46033184
+-.13068567,.45337344
+-.14700661,.47755059
+-.1698921,.49512112
+-.20250701,.48199972
+-.25369257,.48507244
+-.3444976,.51641962
+-.59198473,.46462041
++-.09082372,.42896799
++-.02192202,.41632184
++.00290954,.40983251
++.02036935,.41486149
++.03494773,.41559571
++.04723707,.44329229
++.05841415,.45201176
++.06889767,.44036924
++.07928177,.452416
++.0890812,.42070816
++.09841696,.45795391
++.10831125,.46355036
++.11886581,.46033164
++.13068565,.45337297
++.14700669,.47774441
++.16989237,.49492646
++.20250698,.48199962
++.2536922,.48507273
++.34449753,.51641984
++.59198466,.46462077
+
+=== binscatter_viz_muslim.do ===
+--- /Users/f0018fb/iec/output/seg/binscatter_viz_muslim.do	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/binscatter_viz_muslim.do	2026-03-05 00:02:20
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/binscatter_viz_muslim.csv
++insheet using ~/Dropbox/tmp/segdata//out/binscatter_viz_muslim.csv
+ 
+ twoway (scatter dum_secondary_pub_pcap muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_pub_pcap) legend(off order()) xtitle(Muslim Share, size(large)) ytitle("Secondary schools per 100,000 people", size(medlarge)) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:03:36
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_priv
+--.12807229,.12412391
+--.01673561,.11581499
+-.01788349,.11417832
+-.03966012,.11649929
+-.05597533,.11445933
+-.06924081,.11762217
+-.08032433,.11915911
+-.08978124,.12142427
+-.0983474,.12113521
+-.10653002,.12446764
+-.11473759,.12919295
+-.12348107,.12842441
+-.13309932,.12991959
+-.14438081,.13485942
+-.15810048,.13378581
+-.17577668,.13461258
+-.20042424,.13986538
+-.24326139,.1456111
+-.34723251,.14709437
+-.62910461,.12693977
++-.12807236,.12412391
++-.01673558,.11581376
++.0178838,.11417923
++.03966018,.11650079
++.05597527,.11445854
++.06924065,.1176216
++.08032406,.11916028
++.08978099,.12142246
++.09834719,.12113524
++.10652979,.12446708
++.11473736,.12919459
++.12348077,.12842312
++.13309897,.12992064
++.14438078,.13484077
++.15810046,.13380446
++.17577666,.1346126
++.20042427,.1398654
++.24326139,.14560823
++.34723249,.14709721
++.62910454,.12693972
+
+=== block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:27
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) ylab(0.1(0.005)0.14) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:13:55
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.12807229,.57030839
+--.01673561,.54633784
+-.01788349,.55337595
+-.03966012,.55327604
+-.05597533,.55215989
+-.06924081,.55092331
+-.08032433,.54699395
+-.08978124,.54182316
+-.0983474,.54771982
+-.10653002,.54779248
+-.11473759,.54584205
+-.12348107,.5438085
+-.13309932,.54173154
+-.14438081,.54470903
+-.15810048,.53244497
+-.17577668,.52095085
+-.20042424,.51569342
+-.24326139,.51393114
+-.34723251,.49961764
+-.62910461,.46915146
++-.12807236,.57030769
++-.01673558,.54638198
++.0178838,.55331828
++.03966018,.55324497
++.05597527,.5521737
++.06924065,.55093865
++.08032406,.54701685
++.08978099,.54182704
++.09834719,.54771533
++.10652979,.54779707
++.11473736,.54583612
++.12348077,.54375264
++.13309897,.54176346
++.14438078,.5447297
++.15810046,.53242419
++.17577666,.52095079
++.20042427,.5156942
++.24326139,.51389694
++.34723249,.49965204
++.62910454,.46915101
+
+=== block_primary_by_sc_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:33
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_pub
+--.09475347,.05913986
+--.0369521,.06188534
+--.01664782,.06305617
+--.00210883,.06092823
+-.01049331,.06085011
+-.02225595,.06223019
+-.03295915,.06566159
+-.04317113,.06532104
+-.05379534,.06457009
+-.06484194,.06377268
+-.0753798,.0655382
+-.085326,.06554389
+-.09654762,.07007984
+-.10984997,.06696272
+-.12637263,.06758664
+-.1500907,.06791521
+-.18858932,.07388041
+-.26021436,.07853732
+-.40430954,.07854906
+-.71588046,.07853213
++-.09475271,.05914695
++-.03695121,.06188068
++-.01664726,.06300968
++-.00210805,.06097359
++.01049475,.06085447
++.02225651,.06222668
++.03295982,.06564912
++.04317044,.06524056
++.05379385,.06471613
++.06484198,.06371262
++.07538022,.06547973
++.08532595,.06556358
++.09654675,.07006399
++.1098494,.06699853
++.12637192,.06761169
++.15009002,.06785626
++.18859079,.07389327
++.26021976,.07853869
++.40431271,.07859098
++.7158813,.07853352
+
+=== block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:15
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) ylab(0.05(0.02)0.17) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:40
+@@ -1,21 +1,21 @@
+ sc_share,closed_drain
+--.09334734,.60814728
+--.03626536,.59582867
+--.01729885,.60308924
+--.00297005,.59380745
+-.00973976,.59473068
+-.0216116,.58556573
+-.03230599,.57800668
+-.04273374,.58187995
+-.05365228,.57811563
+-.06498624,.57267397
+-.07584818,.57121967
+-.08605511,.56213374
+-.09744169,.5593559
+-.11054015,.55345022
+-.1270014,.55756478
+-.15113044,.54712656
+-.18987274,.53081381
+-.26183004,.50204727
+-.40653404,.46591939
+-.71801451,.41864096
++-.09334734,.60814729
++-.03626532,.5958286
++-.01729892,.60309988
++-.00297034,.59379728
++.00974034,.59473865
++.02161181,.58556784
++.032306,.57795906
++.04273375,.5819275
++.05365228,.57811562
++.06498658,.57269906
++.0758483,.57116645
++.08605457,.56216035
++.09744114,.55934786
++.11054015,.55345029
++.12700137,.55756492
++.15113042,.54712667
++.18987274,.53081387
++.26183006,.50204725
++.40653406,.46591936
++.71801452,.4186409
+
+=== block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:14:21
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.122619,.07870473
+--.05392266,.07319782
+--.02424861,.07166004
+--.00199602,.07662405
+-.01832327,.07471252
+-.03774565,.07717791
+-.0568815,.08044584
+-.07619004,.07766416
+-.09471822,.07599795
+-.11176593,.07870191
+-.12818133,.08079955
+-.14507024,.08273801
+-.16280204,.08437971
+-.18500096,.08384214
+-.21751355,.08470209
+-.26228287,.08685854
+-.32271709,.08726212
+-.40665472,.08598392
+-.53482026,.07811312
+-.7735573,.06358927
++-.12261973,.07870467
++-.05392276,.07319819
++-.02424864,.07165966
++-.00199596,.07662348
++.01832329,.07471309
++.03774573,.07717791
++.05688161,.08044675
++.07619009,.07766371
++.09471836,.0759751
++.11176595,.07870081
++.12818147,.08082018
++.14507041,.08274083
++.1628022,.0843797
++.18500109,.08384212
++.21751367,.08470207
++.26228291,.08685763
++.32271709,.08726299
++.40665631,.08598268
++.53482179,.07811456
++.77355711,.06358926
+
+=== block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:43
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.09475347,.03380791
+--.0369521,.04080895
+--.01664782,.03947606
+--.00210883,.04236901
+-.01049331,.04034438
+-.02225595,.04113195
+-.03295915,.04261106
+-.04317113,.04447631
+-.05379534,.04267074
+-.06484194,.04516783
+-.0753798,.04098569
+-.085326,.04420964
+-.09654762,.04195273
+-.10984997,.04722893
+-.12637263,.04639924
+-.1500907,.0469771
+-.18858932,.05554135
+-.26021436,.05849128
+-.40430954,.04749429
+-.71588046,.02538457
++-.09475271,.03380862
++-.03695121,.04080824
++-.01664726,.03947522
++-.00210805,.04235976
++.01049475,.04035448
++.02225651,.04112893
++.03295982,.04261469
++.04317044,.04426066
++.05379385,.04280705
++.06484198,.04524828
++.07538022,.04098392
++.08532595,.04420927
++.09654675,.04196395
++.1098494,.04721481
++.12637192,.04640256
++.15009002,.04697696
++.18859079,.05554088
++.26021976,.05849282
++.40431271,.04749335
++.7158813,.02538458
+
+=== block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:14:12
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:44
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) ylab(0.04(0.005)0.06) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:31
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) ylab(0.1(0.005)0.14) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:40
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_priv
+--.09475347,.35249317
+--.0369521,.3469853
+--.01664782,.3413918
+--.00210883,.33557456
+-.01049331,.33047893
+-.02225595,.33202907
+-.03295915,.32283624
+-.04317113,.31979815
+-.05379534,.31953294
+-.06484194,.3164795
+-.0753798,.31488087
+-.085326,.30893561
+-.09654762,.31089605
+-.10984997,.30121358
+-.12637263,.29406424
+-.1500907,.28803987
+-.18858932,.27587754
+-.26021436,.25719824
+-.40430954,.23081295
+-.71588046,.17676667
++-.09475271,.35245184
++-.03695121,.34702655
++-.01664726,.34143439
++-.00210805,.33557866
++.01049475,.33043211
++.02225651,.33197759
++.03295982,.32285013
++.04317044,.31985117
++.05379385,.31957831
++.06484198,.31647232
++.07538022,.31482234
++.08532595,.30891158
++.09654675,.31099173
++.1098494,.3011389
++.12637192,.29407239
++.15009002,.2880395
++.18859079,.27586698
++.26021976,.25725577
++.40431271,.23076639
++.7158813,.17676661
+
+=== block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:39
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) ylab(0.04(0.004)0.076) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:14
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) ylab(0.05(0.02)0.17) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_primary_by_mus_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:09
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_pub
+--.12807229,.34823558
+--.01673561,.33535096
+-.01788349,.33913996
+-.03966012,.34015409
+-.05597533,.33816652
+-.06924081,.33889984
+-.08032433,.33548642
+-.08978124,.33056138
+-.0983474,.33450834
+-.10653002,.33535433
+-.11473759,.33368364
+-.12348107,.33205091
+-.13309932,.33103709
+-.14438081,.33082181
+-.15810048,.32545988
+-.17577668,.31828633
+-.20042424,.31554158
+-.24326139,.31267523
+-.34723251,.30461925
+-.62910461,.28968828
++-.12807236,.3482347
++-.01673558,.33536861
++.0178838,.33910556
++.03966018,.34013521
++.05597527,.33818301
++.06924065,.33889835
++.08032406,.33550411
++.08978099,.33056746
++.09834719,.33450462
++.10652979,.33535852
++.11473736,.33367602
++.12348077,.33202076
++.13309897,.33105116
++.14438078,.33083465
++.15810046,.32544696
++.17577666,.31828635
++.20042427,.31554247
++.24326139,.31265492
++.34723249,.30463981
++.62910454,.2896878
+
+=== block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:02:12
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_pub
+--.08972811,.14561286
+-.00199478,.137228
+-.03103788,.13253004
+-.04862733,.13324335
+-.06137683,.13620666
+-.07129892,.13689302
+-.07942442,.14066079
+-.08650059,.1367924
+-.09295352,.13665804
+-.09908797,.13495559
+-.10524563,.13541057
+-.1116695,.13500119
+-.11869056,.13382302
+-.12679009,.13241746
+-.13670692,.12990154
+-.14962263,.12886395
+-.16809943,.12983589
+-.19863556,.13124821
+-.26616226,.13181073
+-.50236498,.11050903
++-.08972825,.14561288
++.00199468,.13721671
++.03103926,.13252749
++.04862866,.13326403
++.06137769,.13617845
++.07129918,.13687521
++.07942441,.14071497
++.08650064,.13678536
++.09295359,.13660317
++.09908806,.13499782
++.10524578,.13541997
++.11166965,.13499776
++.11869053,.13379948
++.12679058,.13244068
++.13670747,.12989566
++.14962387,.1288711
++.16809887,.1298229
++.19863563,.13125864
++.26616144,.1318151
++.50236462,.1105049
+
+=== block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:12:23
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.12807229,.08661235
+--.01673561,.07573541
+-.01788349,.07488172
+-.03966012,.07309363
+-.05597533,.07693509
+-.06924081,.07651441
+-.08032433,.07706671
+-.08978124,.07876609
+-.0983474,.08086523
+-.10653002,.08158836
+-.11473759,.07991685
+-.12348107,.08058337
+-.13309932,.08251677
+-.14438081,.08269835
+-.15810048,.08492439
+-.17577668,.08159349
+-.20042424,.08166984
+-.24326139,.083597
+-.34723251,.07933237
+-.62910461,.06426377
++-.12807236,.08661235
++-.01673558,.07573186
++.0178838,.07488387
++.03966018,.07309624
++.05597527,.07693426
++.06924065,.07651382
++.08032406,.07706724
++.08978099,.07876595
++.09834719,.08086522
++.10652979,.08158793
++.11473736,.0799169
++.12348077,.08058305
++.13309897,.08251735
++.14438078,.0826979
++.15810046,.08492483
++.17577666,.08159349
++.20042427,.08166984
++.24326139,.08359689
++.34723249,.07933246
++.62910454,.06426375
+
+=== block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:48
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) ylab(0.12(0.01)0.17) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_primary_by_mus_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:36
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) ylab(0.06(0.005)0.08) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:14:30
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:26
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) ylab(0.055(0.005)0.075) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:45
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_pub
+--.0908229,.22035008
+--.021922,.21596456
+-.00290797,.2078386
+-.02036936,.20780862
+-.0349477,.2136945
+-.04723751,.22480007
+-.05841414,.22872137
+-.06889729,.22463867
+-.07928139,.23156704
+-.08908118,.21881006
+-.09841696,.23485036
+-.10831125,.23892624
+-.11886582,.23771553
+-.13068567,.23314791
+-.14700661,.24591584
+-.1698921,.25543887
+-.20250701,.24526484
+-.25369257,.25325022
+-.3444976,.27015439
+-.59198473,.24908427
++-.09082372,.2203502
++-.02192202,.21596471
++.00290954,.20783868
++.02036935,.20780876
++.03494773,.21369461
++.04723707,.22480016
++.05841415,.22872145
++.06889767,.22463845
++.07928177,.23156696
++.0890812,.21881005
++.09841696,.23485034
++.10831125,.23892614
++.11886581,.23771544
++.13068565,.23314769
++.14700669,.24600544
++.16989237,.25534889
++.20250698,.2452648
++.2536922,.25325036
++.34449753,.27015449
++.59198466,.24908443
+
+=== block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:13:02
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.08972811,.38316573
+-.00199478,.35675625
+-.03103788,.35798519
+-.04862733,.34916987
+-.06137683,.35048191
+-.07129892,.35761405
+-.07942442,.3635733
+-.08650059,.35783113
+-.09295352,.34656296
+-.09908797,.35901406
+-.10524563,.35954119
+-.1116695,.35506908
+-.11869056,.34803933
+-.12679009,.34182958
+-.13670692,.33285223
+-.14962263,.32236298
+-.16809943,.3378315
+-.19863556,.34096407
+-.26616226,.33746086
+-.50236498,.29057919
++-.08972825,.38316573
++.00199468,.35673798
++.03103926,.35795896
++.04862866,.34917261
++.06137769,.35048058
++.07129918,.35763636
++.07942441,.36363718
++.08650064,.35769765
++.09295359,.34663663
++.09908806,.35913086
++.10524578,.35944538
++.11166965,.35506484
++.11869053,.34791997
++.12679058,.34194884
++.13670747,.33283615
++.14962387,.32237659
++.16809887,.33787125
++.19863563,.3409263
++.26616144,.33746221
++.50236462,.29057784
+
+=== block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:13:10
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) ylab(0.07(0.005)0.1) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_primary_by_mus_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:03:01
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_primary_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== city_pop_weighted_seg_density_rural_200.csv ===
+--- /Users/f0018fb/iec/output/seg/city_pop_weighted_seg_density_rural_200.csv	2026-03-05 05:28:35
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/city_pop_weighted_seg_density_rural_200.csv	2026-03-04 23:59:26
+@@ -1,54 +1,54 @@
+ sc_density,muslim_density,x
+-.0000635534794096,9.50362906258e-06,-.0167168318210812
+-.0000783713346416,.0000104042870831,.0043392093570819
+-.0000427747632188,8.24065833573e-06,.025395250535245
+-0,3.01274282056e-06,.0464512917134081
++.0000635534794096,9.50364528667e-06,-.0167168318210812
++.0000783713346416,.0000104043090964,.0043392093570819
++.0000427747632188,8.24066644170e-06,.025395250535245
++0,3.01271732255e-06,.0464512917134081
+ 0,0,.0675073328915712
+-0,.0000213440237384,.0885633740697343
+-1.79948518136e-06,.0002218500952466,.1096194152478974
+-.0000195170610336,.0065696106539097,.1306754564260605
+-.0000278602561191,.0417054836632844,.1517314976042236
+-.0000999481478764,.1336559363974011,.1727875387823867
+-.0001872735572067,.3033861231096421,.1938435799605498
+-.0004223618903609,.5515793138603942,.2148996211387129
+-.0011649706398522,.8973993669874629,.235955662316876
+-.0014107372458034,1.244080718240926,.2570117034950391
+-.0053163068755544,1.578603446180822,.2780677446732022
+-.0122896242342795,1.806940216040855,.2991237858513653
+-.0214045245758879,1.947277136070637,.3201798270295284
+-.0865573638223453,2.038696439479998,.3412358682076915
+-.2295484007364542,2.09384964603871,.3622919093858546
+-.5409770880423991,2.145202082571037,.3833479505640177
+-.9035024743397305,2.131002185301059,.4044039917421808
+-1.302985054408358,2.124977957046622,.4254600329203439
+-1.869373741184724,2.113103511975475,.446516074098507
+-2.526460803557341,2.130725366903434,.4675721152766701
+-3.10358390932775,2.145209691308013,.4886281564548333
+-3.471557077525523,2.106587429756002,.5096841976329963
+-3.488657103770048,2.065743397562229,.5307402388111594
+-3.552872975676271,2.029332065500813,.5517962799893225
+-3.608930423285607,2.001730551200883,.5728523211674856
+-3.499414674199868,1.983986093555887,.5939083623456487
+-3.245577071293126,1.92482717645029,.6149644035238118
+-3.039988471433245,1.812310808786922,.6360204447019749
+-2.866370769428982,1.653054994389113,.657076485880138
+-2.625331689436464,1.476355718827769,.6781325270583011
+-2.181223990583105,1.365665760042895,.6991885682364642
+-1.581212752386074,1.170416552028885,.7202446094146273
+-1.194673755746692,.8994406348811912,.7413006505927904
+-.8788189208406995,.5986567278692139,.7623566917709536
+-.59424498867562,.3491197597517635,.7834127329491166
+-.3835009360085294,.2251224734793074,.8044687741272797
+-.2551581044189614,.1623843564149015,.8255248153054427
+-.1721844774403631,.1059454210689107,.8465808564836059
+-.1069925308979715,.0556485813905915,.867636897661769
+-.0592800542479243,.0354318249821466,.8886929388399321
+-.0307713000911264,.0226601345994221,.9097489800180952
+-.0196577351232781,.0083760087076428,.9308050211962583
+-.0115501653500936,.0033309543796993,.9518610623744214
+-.0043922237141,.0001058102501944,.9729171035525845
+-.0016312255200341,.0000415759057683,.9939731447307477
+-.0003980343804323,.0000164850052911,1.015029185908911
++0,.0000213437911729,.0885633740697343
++1.79948518136e-06,.000221847645643,.1096194152478974
++.0000195170610336,.0065695359277303,.1306754564260605
++.0000278602561191,.0417053228552979,.1517314976042236
++.0000999481478764,.1336556996888821,.1727875387823867
++.0001872735572067,.3033859161739293,.1938435799605498
++.0004223618903609,.5515788936356836,.2148996211387129
++.0011649706398522,.8973993231478196,.235955662316876
++.0014107372458034,1.244080703858358,.2570117034950391
++.0053163068755544,1.578603820965885,.2780677446732022
++.0122896242342795,1.806783964775416,.2991237858513653
++.0214045245758879,1.947185773494817,.3201798270295284
++.0865573638223453,2.03867059244052,.3412358682076915
++.2295484007364542,2.093888981514604,.3622919093858546
++.5409770880423991,2.145307429986856,.3833479505640177
++.9035024743397305,2.131161703221773,.4044039917421808
++1.302985054408358,2.124977665848252,.4254600329203439
++1.869373741184724,2.11310334915534,.446516074098507
++2.526460803557341,2.130725677802199,.4675721152766701
++3.10358390932775,2.145210111990994,.4886281564548333
++3.471557077525523,2.106587412641227,.5096841976329963
++3.488657103770048,2.065743330016788,.5307402388111594
++3.552872975676271,2.029331849237109,.5517962799893225
++3.608930423285607,2.001730416892393,.5728523211674856
++3.499414674199868,1.983986288987603,.5939083623456487
++3.245577071293126,1.924827305575366,.6149644035238118
++3.039988471433245,1.812311226182964,.6360204447019749
++2.866370769428982,1.653055187293624,.657076485880138
++2.625331689436464,1.47635539614279,.6781325270583011
++2.181223990583105,1.365666037913757,.6991885682364642
++1.581212752386074,1.170416934755235,.7202446094146273
++1.194673755746692,.8994409143755419,.7413006505927904
++.8788189208406995,.5986562447327244,.7623566917709536
++.59424498867562,.34911921163464,.7834127329491166
++.3835009360085294,.2251224677818511,.8044687741272797
++.2551581044189614,.1623843524024194,.8255248153054427
++.1721844774403631,.1059453061989013,.8465808564836059
++.1069925308979715,.0556484856295996,.867636897661769
++.0592800542479243,.0354318512894106,.8886929388399321
++.0307713000911264,.0226601306864129,.9097489800180952
++.0196577351232781,.0083759974350715,.9308050211962583
++.0115501653500936,.0033309422080411,.9518610623744214
++.0043922237141,.0001058099795086,.9729171035525845
++.0016312255200341,.0000415757591096,.9939731447307477
++.0003980343804323,.0000164850142908,1.015029185908911
+ ,,
+ ,,
+ ,,
+
+=== block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:48
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_pub
+--.0908229,.0865873
+--.021922,.08833731
+-.00290797,.08673504
+-.02036936,.08821228
+-.0349477,.08770938
+-.04723751,.09220738
+-.05841414,.09513586
+-.06889729,.08309928
+-.07928139,.09048033
+-.08908118,.08628625
+-.09841696,.093702
+-.10831125,.0923449
+-.11886582,.09190608
+-.13068567,.09072404
+-.14700661,.08713808
+-.1698921,.10036158
+-.20250701,.09176938
+-.25369257,.09588175
+-.3444976,.08785729
+-.59198473,.07612115
++-.09082372,.0865874
++-.02192202,.0883374
++.00290954,.08673504
++.02036935,.08821235
++.03494773,.08770944
++.04723707,.09220742
++.05841415,.09513588
++.06889767,.08309937
++.07928177,.09048021
++.0890812,.08628624
++.09841696,.09370195
++.10831125,.09234484
++.11886581,.09190601
++.13068565,.0907239
++.14700669,.08694494
++.16989237,.10055445
++.20250698,.09176935
++.2536922,.09588187
++.34449753,.08785736
++.59198466,.07612125
+
+=== city_pop_weighted_seg_density_urban_200.csv ===
+--- /Users/f0018fb/iec/output/seg/city_pop_weighted_seg_density_urban_200.csv	2026-03-05 05:28:35
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/city_pop_weighted_seg_density_urban_200.csv	2026-03-04 23:59:26
+@@ -16,20 +16,20 @@
+ .5823216940046133,.9991293337454272,.3703869104468924
+ .6783441383647471,1.100977499874666,.3888579473684607
+ .7166608226535893,1.271668438654972,.4073289842900291
+-.7651633501259822,1.404692118961999,.4258000212115974
+-1.149447296994601,1.572082539737974,.4442710581331657
+-1.558790624377348,1.735418109991328,.462742095054734
+-1.883812548276261,2.332086808576594,.4812131319763023
+-2.116081025253287,2.945661807932022,.4996841688978706
+-2.777191650807135,3.31015655303286,.5181552058194389
+-3.292733648049125,3.25317471512229,.5366262427410071
+-3.97380928497456,3.042276798082779,.5550972796625755
++.7651633501259822,1.404740335384344,.4258000212115974
++1.149447296994601,1.572106946145,.4442710581331657
++1.558652713849412,1.735418706383034,.462742095054734
++1.883594730135343,2.332061652419558,.4812131319763023
++2.116046097456007,2.945613673194095,.4996841688978706
++2.777339613353493,3.310156273368293,.5181552058194389
++3.293019976578764,3.253175266892151,.5366262427410071
++3.97380928497456,3.042278181287068,.5550972796625755
+ 4.570229573999169,3.157402477253158,.5735683165841438
+-4.4459550338317,3.447469529259439,.5920393535057121
+-3.773278135351486,3.618647738884225,.6105103904272804
+-3.029422994327979,3.320321236838754,.6289814273488487
+-3.122006232377202,2.602101112266283,.647452464270417
+-2.873491034169362,1.773008938245257,.6659235011919853
++4.446238932268745,3.447469529259439,.5920393535057121
++3.773419673818668,3.618647738884225,.6105103904272804
++3.029422172825298,3.320321236838754,.6289814273488487
++3.121863050904657,2.602101112266283,.647452464270417
++2.873205492726956,1.773008938245257,.6659235011919853
+ 2.469598075777632,1.270192094418753,.6843945381135537
+ 1.738303961591534,.9447363412631881,.7028655750351219
+ 1.572202572920278,.8545591781356373,.7213366119566902
+
+=== block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:03:36
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_hospital_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:12:14
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.122619,.07870473
+--.05392266,.07319782
+--.02424861,.07166004
+--.00199602,.07662405
+-.01832327,.07471252
+-.03774565,.07717791
+-.0568815,.08044584
+-.07619004,.07766416
+-.09471822,.07599795
+-.11176593,.07870191
+-.12818133,.08079955
+-.14507024,.08273801
+-.16280204,.08437971
+-.18500096,.08384214
+-.21751355,.08470209
+-.26228287,.08685854
+-.32271709,.08726212
+-.40665472,.08598392
+-.53482026,.07811312
+-.7735573,.06358927
++-.12261973,.07870467
++-.05392276,.07319819
++-.02424864,.07165966
++-.00199596,.07662348
++.01832329,.07471309
++.03774573,.07717791
++.05688161,.08044675
++.07619009,.07766371
++.09471836,.0759751
++.11176595,.07870081
++.12818147,.08082018
++.14507041,.08274083
++.1628022,.0843797
++.18500109,.08384212
++.21751367,.08470207
++.26228291,.08685763
++.32271709,.08726299
++.40665631,.08598268
++.53482179,.07811456
++.77355711,.06358926
+
+=== block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:14:12
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.12807229,.15722243
+--.01673561,.14873391
+-.01788349,.14339417
+-.03966012,.14322522
+-.05597533,.14636565
+-.06924081,.14144419
+-.08032433,.14820562
+-.08978124,.14725495
+-.0983474,.15042924
+-.10653002,.15074801
+-.11473759,.15538579
+-.12348107,.14883367
+-.13309932,.15125864
+-.14438081,.14807016
+-.15810048,.14469664
+-.17577668,.14510584
+-.20042424,.1402111
++-.12807236,.15722243
++-.01673558,.14872943
++.0178838,.14339745
++.03966018,.14322742
++.05597527,.14636536
++.06924065,.14144543
++.08032406,.14820259
++.08978099,.1472384
++.09834719,.15045227
++.10652979,.15074464
++.11473736,.15538292
++.12348077,.14883788
++.13309897,.15125546
++.14438078,.14806117
++.15810046,.14470559
++.17577666,.14510581
++.20042427,.14021107
+ .24326139,.14767255
+-.34723251,.14194635
+-.62910461,.12060383
++.34723249,.14194629
++.62910454,.12060381
+
+=== block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.do	2026-03-05 00:01:48
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_urban_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) ylab(0.12(0.01)0.16) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:44
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_pub
+--.12807229,.06287572
+--.01673561,.05639303
+-.01788349,.05607274
+-.03966012,.05558159
+-.05597533,.05752661
+-.06924081,.05778133
+-.08032433,.05803986
+-.08978124,.05786409
+-.0983474,.06001016
+-.10653002,.05921202
+-.11473759,.058716
+-.12348107,.0593077
+-.13309932,.05986214
+-.14438081,.06096383
+-.15810048,.06191996
+-.17577668,.05914418
+-.20042424,.05809418
+-.24326139,.05889081
+-.34723251,.05711356
+-.62910461,.04733133
++-.12807236,.06287572
++-.01673558,.05639019
++.0178838,.05607416
++.03966018,.05558391
++.05597527,.05752598
++.06924065,.05778101
++.08032406,.05804029
++.08978099,.05786377
++.09834719,.06001042
++.10652979,.05921184
++.11473736,.05871575
++.12348077,.0593074
++.13309897,.05986257
++.14438078,.06096284
++.15810046,.06192095
++.17577666,.05914418
++.20042427,.05809419
++.24326139,.05889093
++.34723249,.05711342
++.62910454,.04733132
+
+=== block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:47
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) ylab(0.01(0.004)0.03) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:19
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.09475347,.10499212
+--.0369521,.11072798
+--.01664782,.11249798
+--.00210883,.10945236
+-.01049331,.10674461
+-.02225595,.11085359
+-.03295915,.11696478
+-.04317113,.11559586
+-.05379534,.1154668
+-.06484194,.11202996
+-.0753798,.11609021
+-.085326,.1176445
+-.09654762,.12268165
+-.10984997,.11968297
+-.12637263,.11781981
+-.1500907,.12002602
+-.18858932,.13129015
+-.26021436,.13732986
+-.40430954,.13179254
+-.71588046,.12626342
++-.09475271,.10500864
++-.03695121,.11072465
++-.01664726,.11243401
++-.00210805,.10952398
++.01049475,.10675619
++.02225651,.11084929
++.03295982,.11694372
++.04317044,.11539563
++.05379385,.11576811
++.06484198,.11192514
++.07538022,.1160222
++.08532595,.11768319
++.09654675,.1226553
++.1098494,.11974493
++.12637192,.11782305
++.15009002,.11994972
++.18859079,.1313065
++.26021976,.13733188
++.40431271,.13190804
++.7158813,.12627044
+
+=== block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:14:04
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.122619,.14823103
+--.05392266,.14182703
+--.02424861,.13923173
+--.00199602,.13776867
+-.01832327,.14261765
+-.03774565,.14386161
+-.0568815,.14678534
+-.07619004,.14554465
+-.09471822,.14678019
+-.11176593,.14489158
+-.12818133,.14854168
+-.14507024,.15269257
+-.16280204,.15117567
+-.18500096,.15400273
+-.21751355,.15672768
+-.26228287,.15513524
+-.32271709,.15538585
+-.40665472,.15359416
+-.53482026,.14424115
+-.7735573,.11177172
++-.12261973,.14823092
++-.05392276,.14182932
++-.02424864,.13922941
++-.00199596,.13776824
++.01832329,.14261806
++.03774573,.1438616
++.05688161,.14678524
++.07619009,.14554562
++.09471836,.14673697
++.11176595,.14493326
++.12818147,.14854204
++.14507041,.15269281
++.1628022,.15117566
++.18500109,.15400271
++.21751367,.15672766
++.26228291,.15513191
++.32271709,.15538912
++.40665631,.15359328
++.53482179,.14424241
++.77355711,.11177169
+
+=== block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:13:06
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) ylab(0.07(0.005)0.1) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:14:21
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_hospital_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Health Facility, size(large) ) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:13
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.0908229,.28403239
+--.021922,.25873179
+-.00290797,.25479422
+-.02036936,.26372439
+-.0349477,.25273807
+-.04723751,.2589284
+-.05841414,.27111997
+-.06889729,.27374074
+-.07928139,.25556959
+-.08908118,.2573616
+-.09841696,.27426969
+-.10831125,.29067261
+-.11886582,.26238838
+-.13068567,.25578666
+-.14700661,.26018595
+-.1698921,.301018
+-.20250701,.28161732
+-.25369257,.25423646
+-.3444976,.23696963
+-.59198473,.2201781
++-.09082372,.2840325
++-.02192202,.25873171
++.00290954,.25479381
++.02036935,.2637243
++.03494773,.252738
++.04723707,.25892831
++.05841415,.27111992
++.06889767,.27374096
++.07928177,.25556927
++.0890812,.25736161
++.09841696,.27426972
++.10831125,.29067268
++.11886581,.26238843
++.13068565,.25578679
++.14700669,.26034649
++.16989237,.30085773
++.20250698,.28161737
++.2536922,.25423675
++.34449753,.2369696
++.59198466,.22017802
+
+=== block_primary_by_sc_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:02:52
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_primary_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:13:55
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:12:51
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.08579799,1.0970588
+--.01262559,1.1028563
+-.02095511,1.1017975
+-.04738797,1.1044268
+-.06907676,1.0965445
+-.08774433,1.1012549
+-.10401223,1.0854717
+-.11815018,1.0996595
+-.13073856,1.1005197
+-.14245031,1.1021564
+-.15349891,1.1049852
+-.16378097,1.1035036
+-.17589965,1.1025732
+-.1921995,1.0995469
+-.21236317,1.1068744
+-.23757499,1.1001819
+-.27033483,1.0907475
+-.3153794,1.0937691
+-.38978514,1.1015924
+-.60679293,1.1027216
++-.08579849,1.0970011
++-.01262729,1.1028093
++.02095347,1.1019924
++.04738658,1.1043177
++.0690762,1.0966415
++.08774407,1.1012273
++.10401204,1.0855006
++.11815053,1.0997625
++.13073855,1.1003395
++.14245009,1.1022409
++.15349875,1.104988
++.16378099,1.1034405
++.17589976,1.1025782
++.19219955,1.099551
++.21236404,1.10679
++.23757595,1.1003341
++.27033495,1.0907011
++.31537942,1.0937698
++.38978508,1.1015659
++.6067927,1.1027117
+
+=== block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:02:01
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) ylab(0.12(0.01)0.16) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_primary_by_sc_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:00
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_pub
+--.122619,.31599355
+--.05392266,.32029524
+--.02424861,.32354644
+--.00199602,.32486179
+-.01832327,.3226796
+-.03774565,.32887659
+-.0568815,.33025013
+-.07619004,.32810756
+-.09471822,.33087747
+-.11176593,.33609286
+-.12818133,.33619544
+-.14507024,.33656619
+-.16280204,.33527687
+-.18500096,.33464581
+-.21751355,.33584807
+-.26228287,.33765962
+-.32271709,.33453804
+-.40665472,.32717977
+-.53482026,.32003104
+-.7735573,.31019989
++-.12261973,.31599265
++-.05392276,.32027606
++-.02424864,.32356395
++-.00199596,.32486186
++.01832329,.32267796
++.03774573,.32887569
++.05688161,.33027268
++.07619009,.32806972
++.09471836,.33087937
++.11176595,.3360726
++.12818147,.33622209
++.14507041,.33656145
++.1628022,.33527694
++.18500109,.33464489
++.21751367,.33584728
++.26228291,.33763688
++.32271709,.33455933
++.40665631,.3271976
++.53482179,.32001267
++.77355711,.31019994
+
+=== binscatter_viz_muslim.csv ===
+--- /Users/f0018fb/iec/output/seg/binscatter_viz_muslim.csv	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/binscatter_viz_muslim.csv	2026-03-05 00:02:20
+@@ -1,19 +1,19 @@
+ muslim_share,dum_secondary_pub_pcap
+-.00683273,6.5171614
+-.03527214,5.942018
+-.057090219,5.3927121
+-.075702444,5.8260508
+-.091493517,5.2044754
+-.10494128,5.6120958
+-.11663728,5.1725354
+-.12705313,5.5792398
+-.13687935,5.769371
+-.1471521,5.7619796
+-.15858132,5.879992
+-.1724225,5.5484085
+-.19100472,5.5992498
+-.21762882,5.9663358
+-.25877103,5.42378
+-.33684379,5.2604098
+-.5000481,4.3617954
+-.74675423,4.185895
++.0068326602,6.517138
++.035271332,5.9417853
++.057089671,5.3928838
++.075703189,5.8240576
++.091494367,5.2064028
++.10494142,5.6117692
++.11663743,5.1724348
++.12705275,5.5800295
++.13687947,5.7691216
++.14715265,5.761838
++.15858127,5.8802929
++.17242222,5.5479989
++.19100426,5.5993161
++.21762811,5.9664598
++.25876999,5.4239602
++.33684337,5.2604761
++.50004864,4.3617659
++.74675453,4.1858106
+
+=== block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:03:27
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_priv
+--.122619,.13546617
+--.05392266,.12840384
+--.02424861,.1315222
+--.00199602,.13334011
+-.01832327,.13157593
+-.03774565,.13446992
+-.0568815,.13160155
+-.07619004,.1339848
+-.09471822,.12835994
+-.11176593,.12674278
+-.12818133,.12830072
+-.14507024,.12798687
+-.16280204,.13156736
+-.18500096,.12949409
+-.21751355,.128782
+-.26228287,.12542376
+-.32271709,.12621225
+-.40665472,.12197309
+-.53482026,.1166596
+-.7735573,.08732226
++-.12261973,.13546612
++-.05392276,.12842633
++-.02424864,.13149976
++-.00199596,.13333898
++.01832329,.1315771
++.03774573,.13446993
++.05688161,.13160062
++.07619009,.1339863
++.09471836,.1283389
++.11176595,.12676162
++.12818147,.12830123
++.14507041,.12798791
++.1628022,.13156731
++.18500109,.12949401
++.21751367,.12878191
++.26228291,.12542332
++.32271709,.12621258
++.40665631,.12197387
++.53482179,.11665917
++.77355711,.08732229
+
+=== block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:13
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) ylab(0.1(0.02)0.22) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:51
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_wat_source_home_by_mus_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter wat_source_home muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(wat_source_home) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(HH Has Water Source at Home (Mean), size(large)) xlab(0(0.1)1)
+
+=== block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:11:56
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) ylab(0.11(0.005)0.16) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_primary_by_sc_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:00
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) ylab(0.25(0.025)0.35) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:11
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) ylab(0.24(0.02)0.36) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_primary_by_sc_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:02:52
+@@ -1,21 +1,21 @@
+ sc_share,dum_primary_priv
+--.122619,.17548674
+--.05392266,.17555586
+--.02424861,.17681459
+--.00199602,.17823882
+-.01832327,.17794767
+-.03774565,.17729527
+-.0568815,.1799149
+-.07619004,.18100757
+-.09471822,.18223706
+-.11176593,.1813211
+-.12818133,.18243763
+-.14507024,.18327042
+-.16280204,.17984697
+-.18500096,.18043953
+-.21751355,.17869378
+-.26228287,.18015678
+-.32271709,.17784266
+-.40665472,.17282616
+-.53482026,.16731785
+-.7735573,.15781886
++-.12261973,.17548803
++-.05392276,.17557737
++-.02424864,.17679417
++-.00199596,.17823291
++.01832329,.17794606
++.03774573,.17729436
++.05688161,.17993387
++.07619009,.18098995
++.09471836,.18223741
++.11176595,.18130579
++.12818147,.18247343
++.14507041,.1832525
++.1628022,.1798473
++.18500109,.18043966
++.21751367,.17869413
++.26228291,.18015476
++.32271709,.17786601
++.40665631,.17280597
++.53482179,.16733934
++.77355711,.15781764
+
+=== block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:30
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== binscatter_viz_sc.csv ===
+--- /Users/f0018fb/iec/output/seg/binscatter_viz_sc.csv	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/binscatter_viz_sc.csv	2026-03-05 00:02:20
+@@ -1,17 +1,17 @@
+ sc_share,dum_secondary_pub_pcap
+-.01049331,5.1718836
+-.02225595,5.6952152
+-.032959148,5.700624
+-.04317113,5.1200647
+-.053795341,5.2627606
+-.064841941,5.5139594
+-.075379796,5.8431287
+-.085326001,5.9647155
+-.096547619,5.4800782
+-.10984997,5.5254574
+-.12637264,5.769474
+-.15009069,6.0144448
+-.18858932,6.330698
+-.26021436,5.8731194
+-.40430954,5.1568289
+-.71588045,4.0287299
++.01049475,5.1715531
++.02225651,5.6949725
++.032959819,5.6978292
++.043170441,5.1142011
++.053793851,5.2666006
++.064841978,5.5157504
++.075380221,5.8437781
++.085325949,5.9671845
++.096546747,5.4778495
++.1098494,5.5114899
++.12637192,5.7857976
++.15009002,6.0144391
++.18859079,6.3336921
++.26021975,5.8726101
++.4043127,5.1543355
++.71588129,4.0287371
+
+=== block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:47
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) ylab(0.01(0.005)0.06) xlab(0(0.1)1) name(blockhospitalmuslimurban, replace)
+
+=== block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:34
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.09475347,.03380791
+--.0369521,.04080895
+--.01664782,.03947606
+--.00210883,.04236901
+-.01049331,.04034438
+-.02225595,.04113195
+-.03295915,.04261106
+-.04317113,.04447631
+-.05379534,.04267074
+-.06484194,.04516783
+-.0753798,.04098569
+-.085326,.04420964
+-.09654762,.04195273
+-.10984997,.04722893
+-.12637263,.04639924
+-.1500907,.0469771
+-.18858932,.05554135
+-.26021436,.05849128
+-.40430954,.04749429
+-.71588046,.02538457
++-.09475271,.03380862
++-.03695121,.04080824
++-.01664726,.03947522
++-.00210805,.04235976
++.01049475,.04035448
++.02225651,.04112893
++.03295982,.04261469
++.04317044,.04426066
++.05379385,.04280705
++.06484198,.04524828
++.07538022,.04098392
++.08532595,.04420927
++.09654675,.04196395
++.1098494,.04721481
++.12637192,.04640256
++.15009002,.04697696
++.18859079,.05554088
++.26021976,.05849282
++.40431271,.04749335
++.7158813,.02538458
+
+=== block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:35
+@@ -1,21 +1,21 @@
+ sc_share,log_secondary_emp_pub
+--.09475347,.06248492
+--.0369521,.06341731
+--.01664782,.06029897
+--.00210883,.06343379
+-.01049331,.0623281
+-.02225595,.06450731
+-.03295915,.06473133
+-.04317113,.06133973
+-.05379534,.06137038
+-.06484194,.06598955
+-.0753798,.0649828
+-.085326,.06847092
+-.09654762,.0655641
+-.10984997,.06493004
+-.12637263,.06868769
+-.1500907,.06853804
+-.18858932,.07297838
+-.26021436,.06592754
+-.40430954,.05787263
+-.71588046,.04212727
++-.09475271,.0624867
++-.03695121,.06341563
++-.01664726,.06030077
++-.00210805,.06343497
++.01049475,.06232528
++.02225651,.06450489
++.03295982,.06470873
++.04317044,.06129609
++.05379385,.06139826
++.06484198,.0660079
++.07538022,.06498294
++.08532595,.06849653
++.09654675,.06554111
++.1098494,.06475138
++.12637192,.06888582
++.15009002,.0685377
++.18859079,.0730013
++.26021976,.06592487
++.40431271,.05785258
++.7158813,.04212733
+
+=== block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 05:28:26
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_wat_source_home_by_sc_dum_cfe_urban_200_semipriv_bindata.csv	2026-03-05 00:03:48
+@@ -1,21 +1,21 @@
+ sc_share,wat_source_home
+--.09347245,.78246819
+--.03660503,.76933848
+--.0176963,.77567099
+--.00333038,.77324206
+-.00947585,.76941656
+-.02141762,.76170907
+-.03212309,.75739794
+-.04255514,.75512781
+-.05346447,.74919085
+-.06479337,.75078476
+-.07558744,.74397075
+-.08562193,.73802612
+-.09682202,.73503215
+-.10980498,.73497775
+-.12618235,.73332618
+-.15027273,.72081395
+-.18906212,.70506291
+-.26098218,.67525063
+-.40589406,.62920419
+-.71814109,.57143737
++-.09347244,.78246808
++-.03660499,.76933834
++-.01769637,.77566446
++-.00333066,.7732498
++.00947643,.76938225
++.02141782,.76174109
++.0321231,.7573979
++.04255514,.75512776
++.05346447,.74919416
++.06479372,.75080076
++.07558753,.74393789
++.08562141,.73801534
++.09682147,.73505585
++.10980498,.73496518
++.12618233,.73333864
++.15027271,.72081392
++.18906212,.70506286
++.26098219,.67525061
++.40589406,.62920417
++.7181411,.57143746
+
+=== block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:20
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:27
+@@ -1,21 +1,21 @@
+ sc_share,log_primary_emp_pub
+--.09475347,.10499212
+--.0369521,.11072798
+--.01664782,.11249798
+--.00210883,.10945236
+-.01049331,.10674461
+-.02225595,.11085359
+-.03295915,.11696478
+-.04317113,.11559586
+-.05379534,.1154668
+-.06484194,.11202996
+-.0753798,.11609021
+-.085326,.1176445
+-.09654762,.12268165
+-.10984997,.11968297
+-.12637263,.11781981
+-.1500907,.12002602
+-.18858932,.13129015
+-.26021436,.13732986
+-.40430954,.13179254
+-.71588046,.12626342
++-.09475271,.10500864
++-.03695121,.11072465
++-.01664726,.11243401
++-.00210805,.10952398
++.01049475,.10675619
++.02225651,.11084929
++.03295982,.11694372
++.04317044,.11539563
++.05379385,.11576811
++.06484198,.11192514
++.07538022,.1160222
++.08532595,.11768319
++.09654675,.1226553
++.1098494,.11974493
++.12637192,.11782305
++.15009002,.11994972
++.18859079,.1313065
++.26021976,.13733188
++.40431271,.13190804
++.7158813,.12627044
+
+=== block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_200_priv_bindata.csv	2026-03-05 00:13:23
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.13579105,.11824988
+--.03415395,.11493618
+-.00683273,.12010953
+-.03527214,.11594082
+-.05709022,.11302224
+-.07570244,.1214509
+-.09149352,.11881324
+-.10494128,.1185696
+-.11663728,.12057007
+-.12705312,.12184743
+-.13687935,.11740156
+-.14715209,.12036397
+-.15858132,.11951678
+-.1724225,.12015794
+-.19100473,.12024
+-.21762882,.11833703
+-.25877103,.1113011
+-.33684378,.12062016
+-.5000481,.11908834
+-.74675423,.10540985
++-.13579107,.11825181
++-.03415396,.11493167
++.00683266,.12010289
++.03527133,.11592844
++.05708967,.11297277
++.07570319,.12145296
++.09149437,.11881323
++.10494142,.11856893
++.11663743,.12058146
++.12705276,.12186287
++.13687948,.11739792
++.14715265,.12036648
++.15858127,.11951992
++.17242221,.12015372
++.19100426,.12023685
++.2176281,.11833454
++.25876998,.11129207
++.33684336,.12068233
++.50004865,.11915996
++.74675453,.1054132
+
+=== block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:43
+@@ -1,21 +1,21 @@
+ muslim_share,dum_hospital_priv
+--.13579105,.32181837
+--.03415395,.30988325
+-.00683273,.31795504
+-.03527214,.30908893
+-.05709022,.31434342
+-.07570244,.31198297
+-.09149352,.30710914
+-.10494128,.30730068
+-.11663728,.3051546
+-.12705312,.30614743
+-.13687935,.30895605
+-.14715209,.30810769
+-.15858132,.31465929
+-.1724225,.31093337
+-.19100473,.30862356
+-.21762882,.30851981
+-.25877103,.30850432
+-.33684378,.29132779
+-.5000481,.27388105
+-.74675423,.2319905
++-.13579107,.32181826
++-.03415396,.30988288
++.00683266,.31795448
++.03527133,.30908781
++.05708967,.31434353
++.07570319,.31203387
++.09149437,.30705821
++.10494142,.30729578
++.11663743,.30516534
++.12705276,.30617575
++.13687948,.30898924
++.14715265,.30809666
++.15858127,.31460881
++.17242221,.31092698
++.19100426,.30862366
++.2176281,.30852014
++.25876998,.30850464
++.33684336,.29132797
++.50004865,.27388315
++.74675453,.23199013
+
+=== block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_4000_bindata_pub.csv	2026-03-05 00:02:01
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_pub
+--.08579799,.15945783
+--.01262559,.15402974
+-.02095511,.158227
+-.04738797,.15709444
+-.06907676,.1619035
+-.08774433,.15747132
+-.10401223,.16099185
+-.11815018,.15888965
+-.13073856,.15669655
+-.14245031,.15778236
+-.15349891,.16345905
+-.16378097,.16419435
+-.17589965,.16830938
+-.1921995,.16758928
+-.21236317,.16809503
+-.23757499,.16878837
+-.27033483,.16267966
+-.3153794,.16040378
+-.38978514,.15926375
+-.60679293,.15442883
++-.08579849,.15945213
++-.01262729,.1540488
++.02095347,.15820598
++.04738658,.15706734
++.0690762,.16193843
++.08774407,.15742312
++.10401204,.16104003
++.11815053,.15890469
++.13073855,.15668489
++.14245009,.15777908
++.15349875,.16345904
++.16378099,.16419434
++.17589976,.16830937
++.19219955,.16758927
++.21236404,.16810986
++.23757595,.16876333
++.27033495,.16268973
++.31537942,.16040376
++.38978508,.15926371
++.6067927,.15442881
+
+=== block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_200_pub_bindata_pub.csv	2026-03-05 00:12:31
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.13579105,.11824988
+--.03415395,.11493618
+-.00683273,.12010953
+-.03527214,.11594082
+-.05709022,.11302224
+-.07570244,.1214509
+-.09149352,.11881324
+-.10494128,.1185696
+-.11663728,.12057007
+-.12705312,.12184743
+-.13687935,.11740156
+-.14715209,.12036397
+-.15858132,.11951678
+-.1724225,.12015794
+-.19100473,.12024
+-.21762882,.11833703
+-.25877103,.1113011
+-.33684378,.12062016
+-.5000481,.11908834
+-.74675423,.10540985
++-.13579107,.11825181
++-.03415396,.11493167
++.00683266,.12010289
++.03527133,.11592844
++.05708967,.11297277
++.07570319,.12145296
++.09149437,.11881323
++.10494142,.11856893
++.11663743,.12058146
++.12705276,.12186287
++.13687948,.11739792
++.14715265,.12036648
++.15858127,.11951992
++.17242221,.12015372
++.19100426,.12023685
++.2176281,.11833454
++.25876998,.11129207
++.33684336,.12068233
++.50004865,.11915996
++.74675453,.1054132
+
+=== block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:02:12
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Health Facility, size(large)) ylab(0.1(0.005)0.125) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:47
+@@ -1,21 +1,21 @@
+ sc_share,dum_hospital_pub
+--.09475347,.01926909
+--.0369521,.02177849
+--.01664782,.02139894
+--.00210883,.02195958
+-.01049331,.02164846
+-.02225595,.02251433
+-.03295915,.02222163
+-.04317113,.02286598
+-.05379534,.02227459
+-.06484194,.0230481
+-.0753798,.02124392
+-.085326,.02355616
+-.09654762,.02155895
+-.10984997,.02278419
+-.12637263,.02248628
+-.1500907,.02333327
+-.18858932,.02536058
+-.26021436,.02787746
+-.40430954,.02263372
+-.71588046,.01535679
++-.09475271,.01926959
++-.03695121,.021778
++-.01664726,.02139814
++-.00210805,.02195674
++.01049475,.02165211
++.02225651,.02251348
++.03295982,.02222378
++.04317044,.02280708
++.05379385,.02228229
++.06484198,.02309851
++.07538022,.02124221
++.08532595,.02355725
++.09654675,.02156113
++.1098494,.02277879
++.12637192,.02248959
++.15009002,.0233332
++.18859079,.02536134
++.26021976,.02787834
++.40431271,.02263214
++.7158813,.0153568
+
+=== block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:35
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_hospital_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) ylab(0.04(0.005)0.06) xlab(0(0.1)1) name(blockhospitalscrural, replace)
+
+=== block_primary_by_mus_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:03:01
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_priv
+--.12807229,.1730199
+--.01673561,.1706603
+-.01788349,.17361758
+-.03966012,.17716505
+-.05597533,.17266916
+-.06924081,.17536997
+-.08032433,.17718925
+-.08978124,.17377607
+-.0983474,.17661589
+-.10653002,.17714045
+-.11473759,.17949847
+-.12348107,.17861033
+-.13309932,.1830158
+-.14438081,.17977753
+-.15810048,.18110106
+-.17577668,.17505268
+-.20042424,.17431694
+-.24326139,.18023184
+-.34723251,.18504436
+-.62910461,.1825977
++-.12807236,.17302082
++-.01673558,.17066064
++.0178838,.17362123
++.03966018,.17716537
++.05597527,.17266981
++.06924065,.17536827
++.08032406,.17719009
++.08978099,.17375382
++.09834719,.17661642
++.10652979,.17715929
++.11473736,.17950079
++.12348077,.17863078
++.13309897,.182994
++.14438078,.1797784
++.15810046,.18109917
++.17577666,.1750514
++.20042427,.17431503
++.24326139,.18025109
++.34723249,.18504494
++.62910454,.18259945
+
+=== block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.do	2026-03-05 00:13:12
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_log_emp_cfe_urban_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_primary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Primary School, size(large)) ylab(0.24(0.02)0.36) xlab(0(0.1)1) name(blockprimarymuslimurban, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.do	2026-03-05 00:13:27
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 05:28:04
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.do	2026-03-05 00:03:40
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_closed_drain_by_sc_dum_cfe_urban_200_semipriv_bindata.csv
+ 
+ twoway (scatter closed_drain sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(closed_drain) legend(off order()) xtitle(SC Share, size(large)) ytitle(HH Has Closed Drains (Mean), size(large) ) xlab(0(0.1)1)
+
+=== block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 05:28:17
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_log_emp_cfe_urban_4000_pub_bindata_pub.csv	2026-03-05 00:13:14
+@@ -1,21 +1,21 @@
+ sc_share,log_hospital_emp_pub
+--.0908229,.16433655
+--.021922,.18008618
+-.00290797,.17676099
+-.02036936,.1793284
+-.0349477,.18320308
+-.04723751,.18562966
+-.05841414,.19162074
+-.06889729,.1662328
+-.07928139,.18370038
+-.08908118,.1817659
+-.09841696,.19889637
+-.10831125,.18442296
+-.11886582,.19424255
+-.13068567,.18051057
+-.14700661,.17851725
+-.1698921,.21247381
+-.20250701,.19014446
+-.25369257,.19557078
+-.3444976,.17794743
+-.59198473,.13828141
++-.09082372,.16433674
++-.02192202,.18008628
++.00290954,.17676086
++.02036935,.17932848
++.03494773,.18320314
++.04723707,.18562968
++.05841415,.19162075
++.06889767,.16623308
++.07928177,.1837001
++.0890812,.18176588
++.09841696,.1988963
++.10831125,.18442288
++.11886581,.19424245
++.13068565,.18051039
++.14700669,.17842149
++.16989237,.21256922
++.20250698,.19014442
++.2536922,.19557105
++.34449753,.17794753
++.59198466,.13828153
+
+=== block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:40
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_sc_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_hospital_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_hospital_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Health Facility, size(large) ) xlab(0(0.1)1) name(blockhospitalscurban, replace)
+
+=== block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:13:10
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.08972811,.21147769
+-.00199478,.19597363
+-.03103788,.18572837
+-.04862733,.18337599
+-.06137683,.18924914
+-.07129892,.19252701
+-.07942442,.20070905
+-.08650059,.19532931
+-.09295352,.19336621
+-.09908797,.1903557
+-.10524563,.19411711
+-.1116695,.19240348
+-.11869056,.18843439
+-.12679009,.19118874
+-.13670692,.18480703
+-.14962263,.18695535
+-.16809943,.19072169
+-.19863556,.19340411
+-.26616226,.19255678
+-.50236498,.15342581
++-.08972825,.21147772
++.00199468,.19595544
++.03103926,.18572444
++.04862866,.18340836
++.06137769,.18920405
++.07129918,.19254481
++.07942441,.20074876
++.08650064,.1953198
++.09295359,.19318879
++.09908806,.19049935
++.10524578,.19414442
++.11166965,.19239915
++.11869053,.18838939
++.12679058,.19123318
++.13670747,.18480146
++.14962387,.18696243
++.16809887,.19073707
++.19863563,.19338507
++.26616144,.19256338
++.50236462,.15341964
+
+=== block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.do	2026-03-05 00:02:36
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_urban_200_priv_bindata.csv
+ 
+ twoway (scatter dum_secondary_priv muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_priv) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.do	2026-03-05 00:13:46
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_log_emp_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter log_primary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_primary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Primary School, size(large) ) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv	2026-03-05 00:12:05
+@@ -1,21 +1,21 @@
+ muslim_share,log_secondary_emp_pub
+--.12807229,.15722243
+--.01673561,.14873391
+-.01788349,.14339417
+-.03966012,.14322522
+-.05597533,.14636565
+-.06924081,.14144419
+-.08032433,.14820562
+-.08978124,.14725495
+-.0983474,.15042924
+-.10653002,.15074801
+-.11473759,.15538579
+-.12348107,.14883367
+-.13309932,.15125864
+-.14438081,.14807016
+-.15810048,.14469664
+-.17577668,.14510584
+-.20042424,.1402111
++-.12807236,.15722243
++-.01673558,.14872943
++.0178838,.14339745
++.03966018,.14322742
++.05597527,.14636536
++.06924065,.14144543
++.08032406,.14820259
++.08978099,.1472384
++.09834719,.15045227
++.10652979,.15074464
++.11473736,.15538292
++.12348077,.14883788
++.13309897,.15125546
++.14438078,.14806117
++.15810046,.14470559
++.17577666,.14510581
++.20042427,.14021107
+ .24326139,.14767255
+-.34723251,.14194635
+-.62910461,.12060383
++.34723249,.14194629
++.62910454,.12060381
+
+=== block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:44
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_secondary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_secondary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Secondary School, size(large)) ylab(0.014(0.002)0.026) xlab(0(0.1)1) name(blocksecondarymuslimurban, replace)
+
+=== block_primary_by_mus_dum_cfe_rural_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.do	2026-03-05 00:01:09
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_rural_200_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) ylab(0.25(0.025)0.35) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 05:28:12
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.do	2026-03-05 00:12:23
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_hospital_by_mus_log_emp_cfe_rural_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_hospital_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_hospital_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Health Facility, size(large)) ylab(0.055(0.005)0.095) xlab(0(0.1)1) name(blockhospitalmuslimrural, replace)
+
+=== block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_200_priv_bindata.csv	2026-03-05 00:03:18
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_priv
+--.12807229,.05231977
+--.01673561,.04753408
+-.01788349,.04726929
+-.03966012,.04764002
+-.05597533,.04726465
+-.06924081,.04738618
+-.08032433,.04846399
+-.08978124,.04963173
+-.0983474,.05102818
+-.10653002,.04839857
+-.11473759,.05167112
+-.12348107,.05034516
+-.13309932,.04986672
+-.14438081,.05234877
+-.15810048,.05043504
+-.17577668,.05061956
+-.20042424,.04955111
+-.24326139,.05138405
+-.34723251,.05152866
+-.62910461,.04438478
++-.12807236,.05231977
++-.01673558,.04753326
++.0178838,.04726889
++.03966018,.04764043
++.05597527,.04726564
++.06924065,.04738682
++.08032406,.04846322
++.08978099,.04963327
++.09834719,.05100946
++.10652979,.04841586
++.11473736,.0516718
++.12348077,.05034575
++.13309897,.04986528
++.14438078,.05234947
++.15810046,.05043434
++.17577666,.05061957
++.20042427,.04955112
++.24326139,.05138339
++.34723249,.0515293
++.62910454,.04438476
+
+=== block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:01:57
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_mus_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(dum_primary_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Indicator For any Primary School, size(large)) ylab(0.54(0.005)0.57) xlab(0(0.1)1) name(blockprimarymuslimrural, replace)
+
+=== block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.do	2026-03-05 00:13:02
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub muslim_share, mcolor(cranberry) lcolor(maroon) msymbol(T)) , graphregion(fcolor(white))  xtitle(muslim_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(Muslim Share, size(large)) ytitle(Log Employment at Secondary School, size(large)) ylab(0.16(0.01)0.21) xlab(0(0.1)1) name(blocksecondarymuslimrural, replace)
+
+=== block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 05:28:23
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.do	2026-03-05 00:12:35
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_log_emp_cfe_urban_200_pub_bindata_pub.csv
+ 
+ twoway (scatter log_secondary_emp_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(log_secondary_emp_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Log Employment at Secondary School, size(large) ) ylab(0.04(0.004)0.076) xlab(0(0.1)1) name(blocksecondaryscurban, replace)
+
+=== block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_200_bindata_pub.csv	2026-03-05 00:00:44
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_pub
+--.13579105,.02446526
+--.03415395,.02520088
+-.00683273,.02700816
+-.03527214,.0249143
+-.05709022,.02324925
+-.07570244,.02548761
+-.09149352,.02247517
+-.10494128,.02402535
+-.11663728,.02297238
+-.12705312,.02390938
+-.13687935,.02496575
+-.14715209,.02444578
+-.15858132,.02566305
+-.1724225,.02267583
+-.19100473,.02395391
+-.21762882,.02536463
+-.25877103,.02293447
+-.33684378,.02224624
+-.5000481,.01854629
+-.74675423,.01720512
++-.13579107,.02446522
++-.03415396,.02520081
++.00683266,.02700808
++.03527133,.02491403
++.05708967,.02324934
++.07570319,.02547661
++.09149437,.02248598
++.10494142,.02402462
++.11663743,.02297209
++.12705276,.02391263
++.13687948,.02496384
++.14715265,.02444492
++.15858127,.02566592
++.17242221,.0226731
++.19100426,.0239541
++.2176281,.02536499
++.25876998,.022935
++.33684336,.02224643
++.50004865,.0185462
++.74675453,.01720487
+
+=== block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:48
+@@ -1,21 +1,21 @@
+ muslim_share,dum_secondary_pub
+--.10526409,.10053401
+--.00479127,.10332217
+-.0366079,.09598561
+-.06398293,.10269218
+-.08357871,.09923613
+-.09915103,.09622277
+-.11194861,.09437977
+-.12246495,.10200366
+-.13151406,.09536196
+-.13930751,.09736814
+-.14710575,.0974654
+-.15525197,.10331045
+-.16405392,.09738326
+-.17506597,.09716187
+-.18956806,.09846731
+-.2101707,.08950012
+-.24148494,.09638202
+-.29346265,.09044185
+-.39494641,.07762516
+-.61594321,.07236617
++-.10525921,.10053384
++-.00479141,.10332218
++.0366071,.09598564
++.06398298,.10269218
++.08357876,.09923613
++.09915111,.09622277
++.11194774,.09439974
++.12246366,.1019837
++.13151394,.09536196
++.13930893,.09760322
++.14710761,.09723958
++.15525127,.10327778
++.16405328,.09740674
++.17506608,.09716189
++.18956824,.09846732
++.21017069,.08950014
++.24148456,.09638205
++.29346215,.09044188
++.39494649,.07762516
++.61594315,.07236616
+
+=== block_primary_by_sc_dum_cfe_urban_200_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.do	2026-03-05 00:00:33
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_urban_200_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) ylab(0.06(0.005)0.08) xlab(0(0.1)1) name(blockprimaryscurban, replace)
+
+=== block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.do ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.do	2026-03-05 00:03:09
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_secondary_by_sc_dum_cfe_rural_200_priv_bindata.csv
+ 
+ twoway (scatter dum_secondary_priv sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_secondary_priv) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Secondary School, size(large) ) xlab(0(0.1)1) name(blocksecondaryscrural, replace)
+
+=== block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_dum_cfe_urban_4000_bindata_pub.csv	2026-03-05 00:01:46
+@@ -1,21 +1,21 @@
+ muslim_share,dum_primary_pub
+--.10526409,.23270875
+--.00479127,.22425266
+-.0366079,.2234386
+-.06398293,.23949462
+-.08357871,.23060257
+-.09915103,.23852101
+-.11194861,.23578298
+-.12246495,.23868097
+-.13151406,.23470903
+-.13930751,.23675815
+-.14710575,.23520378
+-.15525197,.23092658
+-.16405392,.23745731
+-.17506597,.23917641
+-.18956806,.23417955
+-.2101707,.22937901
+-.24148494,.23248855
+-.29346265,.24076279
+-.39494641,.22658078
+-.61594321,.21684217
++-.10525921,.2327084
++-.00479141,.22425268
++.0366071,.22343865
++.06398298,.23949459
++.08357876,.23060254
++.09915111,.23852097
++.11194774,.23579369
++.12246366,.23867013
++.13151394,.234709
++.13930893,.23668977
++.14710761,.23565712
++.15525127,.23034752
++.16405328,.23765132
++.17506608,.23917649
++.18956824,.23417965
++.21017069,.22937917
++.24148456,.23248878
++.29346215,.24076294
++.39494649,.22658076
++.61594315,.21684208
+
+=== block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.do ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.do	2026-03-05 00:01:53
+@@ -1,3 +1,3 @@
+-insheet using /dartfs-hpc/rc/home/b/f0018fb/iec/output/seg/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.csv
++insheet using ~/Dropbox/tmp/segdata//out/block_primary_by_sc_dum_cfe_rural_4000_bindata_pub.csv
+ 
+ twoway (scatter dum_primary_pub sc_share, mcolor(navy) lcolor(maroon) msymbol(O)) , graphregion(fcolor(white))  xtitle(sc_share) ytitle(dum_primary_pub) legend(off order()) xtitle(SC Share, size(large)) ytitle(Indicator For any Primary School, size(large) ) ylab(0.54(0.005)0.57) xlab(0(0.1)1) name(blockprimaryscrural, replace)
+
+=== block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 05:28:18
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_primary_by_mus_log_emp_cfe_rural_4000_pub_bindata_pub.csv	2026-03-05 00:12:55
+@@ -1,21 +1,21 @@
+ muslim_share,log_primary_emp_pub
+--.08972811,1.1229358
+-.00199478,1.1068425
+-.03103788,1.1113685
+-.04862733,1.1164644
+-.06137683,1.1059943
+-.07129892,1.1141126
+-.07942442,1.1076177
+-.08650059,1.1008231
+-.09295352,1.1019727
+-.09908797,1.1089098
+-.10524563,1.0965632
+-.1116695,1.1047952
+-.11869056,1.1047842
+-.12679009,1.1031338
+-.13670692,1.1010604
+-.14962263,1.0943656
+-.16809943,1.0916671
+-.19863556,1.0851508
+-.26616226,1.0769566
+-.50236498,1.0427225
++-.08972825,1.1229348
++.00199468,1.1068313
++.03103926,1.1115383
++.04862866,1.1164313
++.06137769,1.105991
++.07129918,1.1140809
++.07942441,1.1076475
++.08650064,1.100778
++.09295359,1.1021038
++.09908806,1.108788
++.10524578,1.0966443
++.11166965,1.1047697
++.11869053,1.1048406
++.12679058,1.1030201
++.13670747,1.1011188
++.14962387,1.0943306
++.16809887,1.0916331
++.19863563,1.0851008
++.26616144,1.076814
++.50236462,1.0428645
+
+=== block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_200_priv_bindata.csv	2026-03-05 00:02:32
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_priv
+--.09475347,.09009501
+--.0369521,.08949973
+--.01664782,.08426138
+--.00210883,.09043282
+-.01049331,.08766603
+-.02225595,.08735656
+-.03295915,.08613108
+-.04317113,.08887123
+-.05379534,.08420123
+-.06484194,.08556721
+-.0753798,.0834747
+-.085326,.08584797
+-.09654762,.0874713
+-.10984997,.08559071
+-.12637263,.08656779
+-.1500907,.081298
+-.18858932,.08089986
+-.26021436,.07372165
+-.40430954,.062497
+-.71588046,.04112025
++-.09475271,.09009627
++-.03695121,.08949821
++-.01664726,.08425576
++-.00210805,.09044456
++.01049475,.08765932
++.02225651,.08735706
++.03295982,.08619318
++.04317044,.08879969
++.05379385,.08419599
++.06484198,.08551801
++.07538022,.08348013
++.08532595,.08591853
++.09654675,.08740611
++.1098494,.08564086
++.12637192,.08657095
++.15009002,.08124191
++.18859079,.08090226
++.26021976,.07371859
++.40431271,.06255405
++.7158813,.04112007
+
+=== block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.csv ===
+--- /Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 05:28:22
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_200_bindata_pub.csv	2026-03-05 00:01:18
+@@ -1,21 +1,21 @@
+ sc_share,dum_secondary_pub
+--.122619,.06992202
+--.05392266,.06696725
+--.02424861,.06633776
+--.00199602,.06645112
+-.01832327,.0683398
+-.03774565,.06869727
+-.0568815,.07010621
+-.07619004,.06967515
+-.09471822,.06987366
+-.11176593,.06968447
+-.12818133,.07134121
+-.14507024,.07248755
+-.16280204,.07174122
+-.18500096,.0733981
+-.21751355,.07515448
+-.26228287,.07328035
+-.32271709,.07432289
+-.40665472,.073245
+-.53482026,.06756586
+-.7735573,.05539082
++-.12261973,.06992197
++-.05392276,.06696817
++-.02424864,.06633683
++-.00199596,.06645094
++.01832329,.06833998
++.03774573,.06869727
++.05688161,.07010614
++.07619009,.06967562
++.09471836,.0698529
++.11176595,.06970452
++.12818147,.07134142
++.14507041,.07248763
++.1628022,.07174122
++.18500109,.07339809
++.21751367,.07515447
++.26228291,.07327875
++.32271709,.07432445
++.40665631,.07324462
++.53482179,.06756641
++.77355711,.05539081
+
+=== block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.csv ===
+--- /Users/f0018fb/iec/output/seg/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 05:28:11
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_hospital_by_mus_log_emp_cfe_rural_200_priv_bindata.csv	2026-03-05 00:14:30
+@@ -1,21 +1,21 @@
+ muslim_share,log_hospital_emp_pub
+--.12807229,.08661235
+--.01673561,.07573541
+-.01788349,.07488172
+-.03966012,.07309363
+-.05597533,.07693509
+-.06924081,.07651441
+-.08032433,.07706671
+-.08978124,.07876609
+-.0983474,.08086523
+-.10653002,.08158836
+-.11473759,.07991685
+-.12348107,.08058337
+-.13309932,.08251677
+-.14438081,.08269835
+-.15810048,.08492439
+-.17577668,.08159349
+-.20042424,.08166984
+-.24326139,.083597
+-.34723251,.07933237
+-.62910461,.06426377
++-.12807236,.08661235
++-.01673558,.07573186
++.0178838,.07488387
++.03966018,.07309624
++.05597527,.07693426
++.06924065,.07651382
++.08032406,.07706724
++.08978099,.07876595
++.09834719,.08086522
++.10652979,.08158793
++.11473736,.0799169
++.12348077,.08058305
++.13309897,.08251735
++.14438078,.0826979
++.15810046,.08492483
++.17577666,.08159349
++.20042427,.08166984
++.24326139,.08359689
++.34723249,.07933246
++.62910454,.06426375
+

@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Figure Compare: master vs out-fixed</title>
+<style>
+  :root {
+    --bg: #f7f5f2;
+    --card: #ffffff;
+    --ink: #222222;
+    --muted: #666666;
+    --accent: #0f766e;
+    --line: #d9d6d1;
+  }
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: "Iowan Old Style", "Palatino", "Times New Roman", serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top left, #fff, var(--bg));
+  }
+  h1 { margin: 0 0 8px; font-size: 28px; }
+  p.meta { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+  .item {
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 10px;
+    margin: 0 0 18px;
+    padding: 12px;
+  }
+  .title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--accent);
+    word-break: break-all;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .panel {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px;
+    background: #fafafa;
+    min-height: 820px;
+  }
+  .panel h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .panel object,
+  .panel img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8.5 / 11;
+    min-height: 780px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    background: white;
+  }
+  .panel object {
+    height: 780px;
+  }
+  .missing {
+    color: #9f1239;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<h1>Figure Compare: master vs out-fixed</h1>
+<p class="meta">Left = master (<code>/Users/f0018fb/iec/output/seg</code>) | Right = out-fixed (<code>/Users/f0018fb/Dropbox/tmp/segdata/out-fixed</code>)</p>
+<section class="item">
+<div class="title">Figure 1 | group_share_density_urban.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__group_share_density_urban.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__group_share_density_urban.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 1 | group_share_density_rural.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__group_share_density_rural.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__group_share_density_rural.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 2 | seg_compare_dissim.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__seg_compare_dissim.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__seg_compare_dissim.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 2 | seg_compare_iso.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__seg_compare_iso.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__seg_compare_iso.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 3 | bin_seg_muslim_urban_rural_corr_200.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_seg_muslim_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_seg_muslim_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 3 | bin_seg_sc_urban_rural_corr_200.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_seg_sc_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_seg_sc_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 3 | bin_iso_muslim_urban_rural_corr_200.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_iso_muslim_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_iso_muslim_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 3 | bin_iso_sc_urban_rural_corr_200.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_iso_sc_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_iso_sc_urban_rural_corr_200.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 4 | coefplot_std_joint.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__coefplot_std_joint.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__coefplot_std_joint.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 5 | block_secondary_by_mus_dum_cfe_urban_200_pub.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__block_secondary_by_mus_dum_cfe_urban_200_pub.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__block_secondary_by_mus_dum_cfe_urban_200_pub.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 5 | block_secondary_by_sc_dum_cfe_urban_200_pub.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__block_secondary_by_sc_dum_cfe_urban_200_pub.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__block_secondary_by_sc_dum_cfe_urban_200_pub.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 5 | block_secondary_by_mus_dum_cfe_rural_200_pub.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__block_secondary_by_mus_dum_cfe_rural_200_pub.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__block_secondary_by_mus_dum_cfe_rural_200_pub.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 5 | block_secondary_by_sc_dum_cfe_rural_200_pub.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__block_secondary_by_sc_dum_cfe_rural_200_pub.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__block_secondary_by_sc_dum_cfe_rural_200_pub.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_urban_muslim_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_muslim_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_muslim_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_rural_muslim_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_muslim_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_muslim_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_urban_muslim_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_muslim_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_muslim_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_rural_muslim_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_muslim_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_muslim_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_urban_muslim_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_muslim_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_muslim_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 6 | pe_pub_rural_muslim_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_muslim_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_muslim_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_urban_sc_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_sc_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_sc_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_rural_sc_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_sc_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_sc_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_urban_sc_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_sc_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_sc_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_rural_sc_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_sc_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_sc_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_urban_sc_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_urban_sc_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_urban_sc_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 7 | pe_pub_rural_sc_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_pub_rural_sc_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_pub_rural_sc_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_muslim_light_source_elec_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_muslim_light_source_elec_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_muslim_light_source_elec_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_sc_light_source_elec_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_sc_light_source_elec_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_sc_light_source_elec_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_muslim_wat_source_home_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_muslim_wat_source_home_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_muslim_wat_source_home_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_sc_wat_source_home_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_sc_wat_source_home_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_sc_wat_source_home_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_muslim_closed_drain_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_muslim_closed_drain_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_muslim_closed_drain_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure 8 | pe_urban_sc_closed_drain_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_urban_sc_closed_drain_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_urban_sc_closed_drain_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A1 | block_pop_hist_200.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__block_pop_hist_200.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__block_pop_hist_200.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A2 | city_share_muslim_pc_classify_urban_nofe.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__city_share_muslim_pc_classify_urban_nofe.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__city_share_muslim_pc_classify_urban_nofe.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A3 | india_segregation_sc_urban.png</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__india_segregation_sc_urban.png" alt="master india_segregation_sc_urban.png" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__india_segregation_sc_urban.png" alt="out-fixed india_segregation_sc_urban.png" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A3 | india_segregation_muslim_urban.png</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__india_segregation_muslim_urban.png" alt="master india_segregation_muslim_urban.png" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__india_segregation_muslim_urban.png" alt="out-fixed india_segregation_muslim_urban.png" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A3 | india_segregation_sc_rural.png</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__india_segregation_sc_rural.png" alt="master india_segregation_sc_rural.png" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__india_segregation_sc_rural.png" alt="out-fixed india_segregation_sc_rural.png" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A3 | india_segregation_muslim_rural.png</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__india_segregation_muslim_rural.png" alt="master india_segregation_muslim_rural.png" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__india_segregation_muslim_rural.png" alt="out-fixed india_segregation_muslim_rural.png" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_muslim_ln_cons_pc.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_muslim_ln_cons_pc.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_muslim_ln_cons_pc.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_sc_ln_cons_pc.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_sc_ln_cons_pc.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_sc_ln_cons_pc.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_muslim_ln_city_pop.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_muslim_ln_city_pop.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_muslim_ln_city_pop.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_sc_ln_city_pop.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_sc_ln_city_pop.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_sc_ln_city_pop.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_muslim_p25.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_muslim_p25.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_muslim_p25.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A4 | bin_dissim_sc_p25.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__bin_dissim_sc_p25.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__bin_dissim_sc_p25.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_urban_muslim_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_muslim_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_muslim_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_rural_muslim_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_muslim_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_muslim_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_urban_muslim_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_muslim_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_muslim_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_rural_muslim_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_muslim_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_muslim_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_urban_muslim_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_muslim_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_muslim_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A5 | pe_priv_rural_muslim_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_muslim_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_muslim_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_urban_sc_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_sc_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_sc_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_rural_sc_primary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_sc_primary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_sc_primary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_urban_sc_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_sc_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_sc_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_rural_sc_secondary_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_sc_secondary_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_sc_secondary_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_urban_sc_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_urban_sc_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_urban_sc_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A6 | pe_priv_rural_sc_hospital_all.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pe_priv_rural_sc_hospital_all.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pe_priv_rural_sc_hospital_all.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_prim_muslim_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_prim_muslim_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_prim_muslim_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_prim_sc_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_prim_sc_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_prim_sc_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_sec_muslim_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_sec_muslim_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_sec_muslim_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_sec_sc_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_sec_sc_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_sec_sc_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_hosp_muslim_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_hosp_muslim_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_hosp_muslim_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A7 | pg_interaction_coefplot_hosp_sc_share.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__pg_interaction_coefplot_hosp_sc_share.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__pg_interaction_coefplot_hosp_sc_share.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A8 | quartiles_sc_dissim.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__quartiles_sc_dissim.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__quartiles_sc_dissim.png" alt="figure preview" />
+</div>
+</div>
+</section>
+<section class="item">
+<div class="title">Figure A8 | quartiles_muslim_dissim.pdf</div>
+<div class="grid">
+<div class="panel"><h3>Master</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/master__quartiles_muslim_dissim.png" alt="figure preview" />
+</div>
+<div class="panel"><h3>Out-fixed</h3>
+<img src="/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/outfixed__quartiles_muslim_dissim.png" alt="figure preview" />
+</div>
+</div>
+</section>
+</body>
+</html>

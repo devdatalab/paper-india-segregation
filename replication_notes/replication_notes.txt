@@ -1,0 +1,417 @@
+Segregation replication notes (canonical handoff)
+Working branch: codex/replication-repo
+Last updated: 2026-03-05
+
+Purpose
+- Capture the final replication setup decisions from this repo in a reusable, one-shot format for the next replication repo.
+- Record the path, dependency, and runtime iterations we had to figure out so they are not rediscovered.
+
+======================================================================
+1) Locked Scope and Start Point
+======================================================================
+- Replication top-level makefile is `make_seg_rebuild.do`.
+- It is derived from `make_segregation.do` with rebuild-only logic removed from the active chain.
+- Target paper file is `tex/segregation.tex`.
+- No private raw data for this project.
+- Target replication repo name/path (future): `~/ddl/paper-india-segregation/`.
+
+======================================================================
+2) Canonical Manifests (under replication_notes/)
+======================================================================
+- `run_order.csv`
+- `raw_datasets.csv`
+- `intermediate_datasets.csv`
+- `exhibits.csv`
+- `tool_dependencies.csv`
+- `repo_package_includes.csv`
+- `global_paths.csv`
+
+Column-level decisions that were locked:
+- `intermediate_datasets.csv` is optional for theory, but useful in practice for producer/consumer tracing.
+- `exhibits.csv` uses `pdf_exhibit_id` (renamed from `latex_exhibit_id`).
+- `repo_package_includes.csv` is include-only; default destination is `default`.
+- `tool_dependencies.csv` is external dependencies only (not repo files).
+
+CSV formatting lesson:
+- Avoid unquoted commas inside cell values.
+- For brace-pattern alternatives, use pipe syntax (example: `{urban|rural}`) to keep CSV parse-safe.
+- This was fixed in both `raw_datasets.csv` and `intermediate_datasets.csv`.
+
+======================================================================
+3) Path Contract That Actually Works
+======================================================================
+Core principle:
+- Do not infer paths from file location.
+- Hardcode root globals in the primary makefile.
+- Derive all other aliases from those roots.
+
+Stata roots (in `make_seg_rebuild.do`):
+- `global scode "~/ddl/segregation"`
+- `global base "~/Dropbox/tmp/segdata/"`
+- `global sdata "$base/raw"`
+- `global python "/opt/homebrew/Caskroom/mambaforge/base/envs/py3/bin/python"`
+
+Stata derived aliases (in `set_paths.do`):
+- Code roots from `$scode` (for example `$tools`, `$tex`, `$ado`).
+- Runtime/output roots from `$base` (`$tmp`, `$out`).
+- Raw roots from `$sdata` (`$raw`, `$seg`, `$shrug`, `$mobility`, `$pc11`, `$pc01`).
+
+Important constraints:
+- Never expect to read/write above `$scode` or `$base`.
+- Red flags in active chain: `~/...`, `/dartfs...`, `$iec`, `IEC`.
+- `global tools` is `$scode/tools`.
+
+======================================================================
+4) Raw vs TMP Separation (Critical Iteration)
+======================================================================
+Working-repo legacy mixed raw and intermediate paths.
+Replication contract is stricter:
+- Raw inputs live under `$sdata` (raw root).
+- Any cross-script intermediate must live under `$tmp`.
+
+What we changed:
+- Active-chain producer/consumer paths were rewired so cross-script handoff files write/read in `$tmp/...`.
+- Added `cap mkdir` guards for new tmp subfolders before first writes.
+- Updated manifests to match moved files (raw list vs intermediate list).
+
+Concrete example:
+- Files like `secc_ec_blockdata_*` generated in one file and read in another are tmp handoffs, not raw.
+
+======================================================================
+5) Run-Order and Exhibit Mapping Fixes
+======================================================================
+Required run-order fixes discovered:
+- Added `a/graph_seg_comparisons.do` to active analysis run order (Figure 2).
+- Added `a/analyze_seg_changes.do` to active analysis run order (Table 3).
+
+Raw-input classification fix:
+- `seg_comparisons_*.csv` are treated as raw inputs.
+- Download/gsheet lines were removed from `a/graph_seg_comparisons.do`.
+
+Open logic policy that was enforced:
+- Avoid logic edits unless approved.
+- Path, dependency, and orchestration fixes are expected.
+
+======================================================================
+6) Tooling Lessons
+======================================================================
+- `tool_dependencies.csv` should only include external requirements.
+  - Do not list repo scripts like `a/*.py` as dependencies.
+- Removed stale/non-active items (for example `sbatch` when not in active replication chain).
+
+Local tool extraction workflow:
+- Legacy script in shared tools was used as reference.
+- Created local copy for this repo work:
+  - `tools/py/scripts/parse_ddl_tools_local.py`
+- Local copy was adapted to:
+  - avoid old environment-specific imports
+  - output into current replication layout (`tools/do/tools.do`, `tools/stata-tex/`, `tools/masala-merge/`, `ado/`)
+
+Validation-tool cleanup for replication:
+- Removed `data_validation_tools` from active run path/dependencies.
+- Removed stale calls to `store_validation_data` in active chain.
+
+======================================================================
+7) Python Integration That Works with Stata
+======================================================================
+This was the key runtime iteration.
+
+Final contract:
+1. Python path aliases are centralized in root `set_paths.py`.
+2. `set_paths.py` requires repo `.env` with:
+   - `SCODE=~/ddl/segregation`
+   - `SDATA=~/Dropbox/tmp/segdata/`
+3. Python scripts import from `set_paths.py` (no hardcoded output roots).
+4. Stata invokes Python with explicit interpreter + scoped `PYTHONPATH`:
+   - `shell PYTHONPATH=$scode $python $scode/a/<script>.py`
+
+Do not do:
+- Relative repo root inference blocks in Stata/Python.
+- Fragile try/except wrappers that hide path contract failures.
+
+Silent-failure guard (added):
+- `seg_programs.do` now contains reusable helper:
+  - `check_file_update_status "<path>" [, minutes(#)]`
+- Pattern after each Python call in do-files:
+  - call python
+  - immediately call `check_file_update_status` on expected output
+
+======================================================================
+8) Run/Debug Workflow Lessons
+======================================================================
+Efficiency rule:
+- When a failure is fixed, resume from failing stage; do not rerun full slow upstream jobs.
+- Use small temporary wrappers with the same global/header contract to run suffix chains.
+
+Dependency rule:
+- If failure is a missing SSC package, add install command in makefile header and continue.
+- Example fixed this way: `_gwtmean` (`ssc install _gwtmean, replace`).
+
+======================================================================
+9) Useful Replication Helpers (WIP)
+======================================================================
+This section is intentionally WIP and should be cleaned/deduped at end.
+
+- `./pull_remaining_raw_from_polaris.sh`
+  - Pulls remaining raw files from manifest into local raw tree.
+- `tools/py/scripts/parse_ddl_tools_local.py replicate --force`
+  - Local first-pass extractor for required Stata tool programs.
+- `~/ddl/tools/sh/grep_do_files_for_paper.sh`
+  - Optional cross-check for latex exhibit mapping.
+- `~/ddl/tools/py/scripts/prep_pub_tex_inputs.py`
+  - Later-stage helper for packaging tex inputs/exhibits.
+
+======================================================================
+10) Current State
+======================================================================
+- Manifests exist and have gone through multiple normalization passes.
+- Stata root-path setup is in place and simplified.
+- Python invocation contract from Stata is implemented.
+- Output freshness checks after Python calls are implemented.
+- Full end-to-end rerun was intentionally deferred; resume from current failing/remaining stage when ready.
+
+======================================================================
+11) Late Updates (Post-Handoff)
+======================================================================
+- Active call-graph vs manifest reconciliation completed:
+  - `run_order.csv` now includes required subcomponents that execute in the chain:
+    - `set_paths.do`
+    - `tools/stata-tex/stata-tex.do`
+    - `tools/do/tools.do`
+    - `seg_programs.do`
+  - `run_order.csv` now includes python scripts invoked from Stata:
+    - `a/correlate_coefplots.py`
+    - `a/graph_seg_vs_pg.py`
+    - `a/pg_intersection.py`
+  - Validation check passed: no missing and no extra entries relative to parsed call graph.
+- Raw manifest integrity check completed against local raw tree:
+  - Compared `raw_datasets.csv` to `~/Dropbox/tmp/segdata/raw` with brace-pattern expansion.
+  - Result: type-1 errors (missing expected files) = 0.
+  - Result: type-2 errors (unexpected extra files) = 0.
+  - Report written to: `replication_notes/_raw_manifest_audit.txt`.
+- Branch safety status:
+  - Pushed explicitly to remote non-main branch using explicit refspec:
+    - `git push -u origin HEAD:refs/heads/codex/replication-repo`
+  - `main` was not touched.
+
+======================================================================
+12) LaTeX Replication Path Updates (Current)
+======================================================================
+- `tex/segregation.tex` no longer depends on `~/include.tex`.
+- Front matter is now vendored in-repo:
+  - `tex/front_matter_natbib.tex` copied from shared tools.
+  - `segregation.tex` now does `\\input{front_matter_natbib}`.
+- Bibliography dependency on external master bib removed:
+  - `\\bibliography{\\HOME/ddl/tools/tex/master,segregation}` replaced with `\\bibliography{segregation}`.
+  - `tex/segregation.bib` expanded to include all citation keys used by `segregation.tex`.
+  - Coverage check passed: 79 citation keys needed, 79 present.
+- Exhibit path handling decision (temporary local-run mode):
+  - `segregation.tex` now defines:
+    - commented release path candidate: `../out`
+    - active temporary hardcoded local path: `/Users/f0018fb/Dropbox/tmp/segdata/out`
+  - This hardcoded path is intentional for current local compile workflow and marked TODO for pre-release switch.
+
+Remaining pre-shipping steps (still required):
+- Finish full clean end-to-end run stabilization.
+- Replace temporary hardcoded `\\segpath` with replication-safe relative/override contract.
+- Build and validate replication packet migration script.
+- Test run in target replication repo clone.
+- Final README only after the above are complete.
+
+======================================================================
+13) Active-Chain Replication Hygiene Cleanup (2026-03-04)
+======================================================================
+Objective:
+- Remove replication-inappropriate clutter while preserving executable behavior.
+
+Scope and method used:
+- Built active manifest recursively from `make_seg_rebuild.do` call graph (including `a/make_seg_results.do`, nested `do` files, and shared loaders).
+- Reviewed each active-chain code file for:
+  - stale commented validation scaffolding
+  - commented exploratory blocks with no downstream impact
+  - comments-to-self (`KJ`, `PN`) not suitable for replication handoff
+- Preserved explanatory comments that document active logic.
+- Did not delete executable inline code unless clearly comment-only/dead and safe.
+
+What was changed:
+- Comment/dead-block cleanup applied across 24 active-chain files in `a/`, `b/`, plus `seg_programs.do`.
+- Removed large retired blocks (including old validation sections and deprecated commented helper programs).
+- Rewrote a few useful comments into neutral replication-facing wording.
+- Added a reusable replication instruction block to `replication-repos.md` ("Replication hygiene cleanup") so this workflow is explicit in future projects.
+- Validation pass after edits:
+  - `git diff --check` passed cleanly.
+  - Net effect was overwhelmingly deletions of non-executable clutter.
+
+Open decision intentionally deferred:
+- `a/graph_group_shares.do` contains executable lines after triple `exit` statements.
+- This appears unreachable/dead in runtime, but because it is executable text (not commented) it was not deleted without explicit approval.
+
+Immediate next steps:
+- If approved, remove/relocate the post-`exit` executable tail in `a/graph_group_shares.do`.
+- Then run focused runtime smoke checks from the current resume point.
+
+======================================================================
+14) Variable-Label Metadata Localization (2026-03-05)
+======================================================================
+Issue discovered:
+- `b/add_variable_labels.do` called `keep_label_from_meta`, which is not defined in this repo.
+- The prior implementation depended on runtime reads from published Google Sheets URLs.
+- This is not replication-safe (network dependency + hidden external helper).
+
+What was changed:
+- Added local helper program in `tools/do/tools.do`:
+  - `label_from_csv using "<csv_path>"`
+  - reads first two CSV columns as `(varname, varlabel)`
+  - handles optional header row
+  - applies labels with `capture label variable ...`
+- Replaced label call in `b/add_variable_labels.do`:
+  - from `keep_label_from_meta, meta(...) label_only`
+  - to `label_from_csv using "$raw/labels/seg_labels_`geo'_`loc'.csv"`
+- Added 4 metadata inputs to `replication_notes/raw_datasets.csv`:
+  - `RAW/labels/seg_labels_city_rural.csv`
+  - `RAW/labels/seg_labels_city_urban.csv`
+  - `RAW/labels/seg_labels_block_rural.csv`
+  - `RAW/labels/seg_labels_block_urban.csv`
+
+Data-location decision (locked):
+- Label CSVs are data inputs, not code assets.
+- They must live under `$sdata/raw/labels` (`RAW/labels` alias in manifests).
+- Do not store these files in repo code paths like `REPO/raw/...`.
+
+Verification completed:
+- Synthetic integration test wrapper passed with explicit label assertions:
+  - `test_add_variable_labels_local_csv.log` contains `LABEL_TEST_PASS`.
+- Real-data run passed end-to-end using `$raw/labels`:
+  - `run_add_variable_labels_real.log`
+- Spot checks on output labels passed:
+  - `check_real_labels.log`
+  - examples confirmed: `subdistrict`, `town`, `shrid`.
+
+Remaining follow-through:
+- During replication packet build, ensure `RAW/labels/*.csv` are copied before runtime tests.
+- Treat any runtime URL pull for label metadata as a bug and replace with local `RAW/...` inputs.
+
+======================================================================
+15) Integration Checkpoint (Full Run Pass) (2026-03-05)
+======================================================================
+Checkpoint intent:
+- Mark a rollback-safe baseline after successful full-chain runtime testing, before new edits.
+
+Checkpoint metadata:
+- Branch: `codex/replication-repo`
+- Commit: `d5cbd64`
+- Commit timestamp: `2026-03-05 05:03:23 -0500`
+- Commit message: `minor fixes, gets maps running`
+- Recorded at: `2026-03-05 05:06:02 EST`
+
+Pass scope (user-confirmed):
+- Full replication run chain completed successfully after iterative small fixes.
+- This checkpoint closes the run-stabilization phase for the current branch state.
+
+Known temporary exceptions carried at checkpoint:
+- `tex/segregation.tex` uses a temporary hardcoded local `\\segpath`:
+  - `/Users/f0018fb/Dropbox/tmp/segdata/out`
+- A commented release-safe candidate path is already present (`../out`) and must replace the hardcoded path before shipping.
+
+Next phase from this checkpoint:
+- Replication packet migration script and replication-repo seed test.
+- Replace temporary `\\segpath` with release-safe relative/override contract.
+- Final README/shipping polish only after those tests pass.
+
+======================================================================
+16) Exhibit Parity Review (out-fixed vs master) (2026-03-05)
+======================================================================
+Objective:
+- Confirm generated exhibits from replication look correct against master outputs.
+- Use stable `out-fixed/` outputs only (not `out/` while rebuild is in progress).
+
+Paths used:
+- Replication outputs (frozen): `/Users/f0018fb/Dropbox/tmp/segdata/out-fixed`
+- Master outputs: `/Users/f0018fb/iec/output/seg`
+
+Scope decision (locked for this check):
+- Text comparison is `.tex` files only.
+- Do not enforce master->out-fixed existence parity (master has many extra files).
+- Do report files present in `out-fixed` but absent in master.
+
+Manifest-driven figure scope:
+- Used `replication_notes/exhibits.csv` as source of paper exhibits.
+- Built figure-only comparison manifest:
+  - `replication_notes/_figure_compare_manifest.csv`
+- Labels include figure id in paper format:
+  - main figures as `1..8`
+  - appendix figures as `A1..A8`
+- Each row includes `figure_id`, `figure_label`, and `rel_path` for display.
+
+Text exhibit comparison procedure (`.tex` only):
+- Enumerated all `.tex` files under `out-fixed`.
+- Compared to same relative path under master with whitespace-insensitive diff (`diff -w`).
+- Wrote:
+  - summary: `replication_notes/_out_fixed_tex_nonws_summary.csv`
+  - detailed diffs: `replication_notes/_out_fixed_tex_nonws_diffs.txt`
+  - out-fixed `.tex` missing in master: `replication_notes/_out_fixed_tex_missing_in_master.txt`
+
+Text exhibit results:
+- Total `.tex` in `out-fixed`: 21
+- Identical ignoring whitespace: 20
+- Non-whitespace diffs: 1
+- Missing in master: 0
+- Only changed file: `seg_multivar_regs_app1.tex`
+
+Substantive-vs-rounding review:
+- Reviewed the one changed `.tex` file line-by-line.
+- Differences were last-digit coefficient changes only:
+  - `-1.373` vs `-1.372`
+  - `-3.960` vs `-3.962`
+  - `-2.531` vs `-2.533`
+- Significance stars were unchanged.
+- Classification: non-substantive rounding drift.
+
+Figure review page procedure:
+- Generated two-column HTML with:
+  - left: master figure
+  - right: out-fixed figure
+  - title: figure number + relative filepath
+- Output file:
+  - `replication_notes/out_fixed_vs_master_figures.html`
+
+Browser-stability refinement:
+- Embedded PDFs were heavy for browser rendering.
+- Converted figure sources to PNG previews (first page for PDFs) and rewired HTML to PNGs.
+- PNG output directory:
+  - `/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/comparison/`
+- Conversion map:
+  - `replication_notes/_figure_compare_png_map.csv`
+- Validation after rewrite:
+  - `OBJECT_TAGS=0`
+  - `PNG_REFS_IN_HTML=126`
+  - `PNG_FILES=126`
+
+Out-fixed items not in master:
+- `handbook_secc_match_lat.pdf`
+- `handbook_secc_match_lon.pdf`
+- `handbook_secc_match_pop.pdf`
+- `pc0111_match.pdf`
+- Recorded in:
+  - `replication_notes/_out_fixed_items_not_in_master.txt`
+
+Signoff:
+- Visual comparison completed by user; figures reported as looking correct.
+
+======================================================================
+17) Stale-File Pruning Pass Completed (2026-03-05)
+======================================================================
+Objective:
+- Remove obsolete repo files safely after manifest-driven dependency review.
+
+Process used:
+- Used manifest/filelist outputs to build candidate unused files in active code areas.
+- Reviewed candidates one-by-one with user judgment.
+- Applied two-way disposition:
+  - deleted files only when non-use was fully certain
+  - moved uncertain files into `not-used/` hold folders for temporary retention
+- Removed legacy `old/` folders from the repo at this stage.
+
+Status:
+- This cleanup step is complete for the segregation replication branch.
+- Manifests and active packaging inputs were updated alongside the cleanup.

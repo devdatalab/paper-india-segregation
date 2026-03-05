@@ -1,0 +1,17 @@
+#!/bin/sh
+
+date
+
+echo "MAKE: FIRST LATEX RUN"
+pdflatex segregation.tex
+
+echo "MAKE: RUNNING BIBTEX"
+bibtex segregation.aux
+
+# now two pdflatex runs and see what happens
+echo "MAKE: 2ND LATEX RUN"
+pdflatex segregation.tex
+
+echo "MAKE: 3RD LATEX RUN"
+pdflatex segregation.tex
+

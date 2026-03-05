@@ -1,0 +1,40 @@
+{
+  \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{lcccc}
+  \hline\hline
+                             & \multicolumn{2}{c}{\underline{Cities (Urban)}} & \multicolumn{2}{c}{\underline{Subdistricts (Rural)}}      \\
+                             & \multicolumn{1}{c}{Our Sample}        & \multicolumn{1}{c}{India (full)}      & \multicolumn{1}{c}{Our Sample}       & \multicolumn{1}{c}{India (full)}      \\
+  \hline
+(Log) Population             & $$urban_seg_log_city_pop_pc11_mean$$  & $$urban_full_log_city_pop_pc11_mean$$ & $$rural_seg_log_city_pop_pc11_mean$$ & $$rural_full_log_city_pop_pc11_mean$$ \\
+                             & ($$urban_seg_log_city_pop_pc11_se$$)  & ($$urban_full_log_city_pop_pc11_se$$) & ($$rural_seg_log_city_pop_pc11_se$$) & ($$rural_full_log_city_pop_pc11_se$$) \\
+(Log) Area                   & $$urban_seg_log_area_pc11_mean$$      & $$urban_full_log_area_pc11_mean$$     & $$rural_seg_log_area_pc11_mean$$     & $$rural_full_log_area_pc11_mean$$     \\
+                             & ($$urban_seg_log_area_pc11_se$$)      & ($$urban_full_log_area_pc11_se$$)     & ($$rural_seg_log_area_pc11_se$$)     & ($$rural_full_log_area_pc11_se$$)     \\
+Scheduled Castes (Share)     & $$urban_seg_sc_share_mean$$           & $$urban_full_sc_share_mean$$          & $$rural_seg_sc_share_mean$$          & $$rural_full_sc_share_mean$$          \\
+                             & ($$urban_seg_sc_share_se$$)           & ($$urban_full_sc_share_se$$)          & ($$rural_seg_sc_share_se$$)          & ($$rural_full_sc_share_se$$)          \\ 
+Muslim (Share)               & $$urban_seg_muslim_share_mean$$       & $$urban_full_muslim_share_mean$$      & $$rural_seg_muslim_share_mean$$      & $$rural_full_muslim_share_mean$$      \\
+                             & ($$urban_seg_muslim_share_se$$)       & ($$urban_full_muslim_share_se$$)      & ($$rural_seg_muslim_share_se$$)      & ($$rural_full_muslim_share_se$$)      \\
+Town Origin Year             & $$urban_seg_city_origin_year_mean$$   & $$urban_full_city_origin_year_mean$$  &                                      &                                       \\
+                             & ($$urban_seg_city_origin_year_se$$)   & ($$urban_full_city_origin_year_se$$)  &                                      &                                       \\
+Primary Schools per 100k     & $$urban_seg_prim_pc_mean$$            & $$urban_full_prim_pc_mean$$           & $$rural_seg_prim_pc_mean$$           & $$rural_full_prim_pc_mean$$           \\
+                             & ($$urban_seg_prim_pc_se$$)            & ($$urban_full_prim_pc_se$$)           & ($$rural_seg_prim_pc_se$$)           & ($$rural_full_prim_pc_se$$)           \\
+Middle Schools per 100k      & $$urban_seg_mid_pc_mean$$             & $$urban_full_mid_pc_mean$$            & $$rural_seg_mid_pc_mean$$            & $$rural_full_mid_pc_mean$$            \\
+                             & ($$urban_seg_mid_pc_se$$)             & ($$urban_full_mid_pc_se$$)            & ($$rural_seg_mid_pc_se$$)            & ($$rural_full_mid_pc_se$$)            \\
+Secondary Schools per 100k   & $$urban_seg_sec_pc_mean$$             & $$urban_full_sec_pc_mean$$            & $$rural_seg_sec_pc_mean$$            & $$rural_full_sec_pc_mean$$            \\
+                             & ($$urban_seg_sec_pc_se$$)             & ($$urban_full_sec_pc_se$$)            & ($$rural_seg_sec_pc_se$$)            & ($$rural_full_sec_pc_se$$)            \\
+Hospitals per 100k           & $$urban_seg_hosp_pc_mean$$            & $$urban_full_hosp_pc_mean$$           & $$rural_seg_hosp_pc_mean$$           & $$rural_full_hosp_pc_mean$$           \\
+& ($$urban_seg_hosp_pc_se$$)            & ($$urban_full_hosp_pc_se$$)           & ($$rural_seg_hosp_pc_se$$)           & ($$rural_full_hosp_pc_se$$)           \\
+\hline
+Isolation Index (SC)         & $$urban_city_iso_sc_mean$$            &                                       & $$rural_city_iso_sc_mean$$           &                                       \\
+                             & ($$urban_city_iso_sc_se$$)            &                                       & ($$rural_city_iso_sc_se$$)           &                                       \\
+Isolation Index (Muslim)     & $$urban_city_iso_muslim_mean$$        &                                       & $$rural_city_iso_muslim_mean$$       &                                       \\
+                             & ($$urban_city_iso_muslim_se$$)        &                                       & ($$rural_city_iso_muslim_se$$)       &                                       \\
+Dissimilarity Index (SC)     & $$urban_city_dissim_sc_mean$$         &                                       & $$rural_city_dissim_sc_mean$$        &                                       \\
+                             & ($$urban_city_dissim_sc_se$$)         &                                       & ($$rural_city_dissim_sc_se$$)        &                                       \\
+Dissimilarity Index (Muslim) & $$urban_city_dissim_muslim_mean$$     &                                       & $$rural_city_dissim_muslim_mean$$    &                                       \\
+                             & ($$urban_city_dissim_muslim_se$$)     &                                       & ($$rural_city_dissim_muslim_se$$)    &                                       \\
+  \hline 
+Total Population             & $$urban_seg_secc_pop_sum$$      & $$urban_full_pc11_pca_tot_p_sum$$     & $$rural_seg_secc_pop_sum$$     & $$rural_full_pc11_pca_tot_p_sum$$     \\
+Observations                 & $$urban_seg_n$$                       & $$urban_full_n$$                      & $$rural_seg_n$$                      & $$rural_full_n$$                      \\
+  \hline
+\end{tabular}
+}

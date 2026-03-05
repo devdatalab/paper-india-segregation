@@ -1,0 +1,22 @@
+=== seg_multivar_regs_app1.tex ===
+--- /Users/f0018fb/iec/output/seg/seg_multivar_regs_app1.tex	2026-03-05 05:29:02
++++ /Users/f0018fb/Dropbox/tmp/segdata/out-fixed/seg_multivar_regs_app1.tex	2026-03-04 23:59:45
+@@ -8,7 +8,7 @@
+ (Log) City Population&       0.019\sym{***}&       0.025\sym{***}&       0.014\sym{***}&       0.024\sym{***}\\
+                     &     (0.003)         &     (0.002)         &     (0.003)         &     (0.003)         \\
+ [1em]
+-City Growth Rate    &       1.435\sym{***}&       0.490\sym{***}&      -1.227\sym{***}&      -1.373\sym{***}\\
++City Growth Rate    &       1.435\sym{***}&       0.490\sym{***}&      -1.227\sym{***}&      -1.372\sym{***}\\
+                     &     (0.232)         &     (0.117)         &     (0.267)         &     (0.214)         \\
+ [1em]
+ Muslim (Share)      &      -0.039         &       1.213\sym{***}&       0.125\sym{***}&       0.069\sym{***}\\
+@@ -17,7 +17,7 @@
+ Scheduled Castes (Share)&      -0.070\sym{*}  &      -0.119\sym{***}&      -0.104\sym{**} &       1.390\sym{***}\\
+                     &     (0.038)         &     (0.023)         &     (0.050)         &     (0.035)         \\
+ [1em]
+-City Origin Year ('00s)&      -4.177\sym{***}&      -1.202\sym{**} &      -3.960\sym{***}&      -2.531\sym{***}\\
++City Origin Year ('00s)&      -4.177\sym{***}&      -1.202\sym{**} &      -3.962\sym{***}&      -2.533\sym{***}\\
+                     &     (0.809)         &     (0.468)         &     (0.862)         &     (0.771)         \\
+ [1em]
+ (Log) Per-capita Consumption&      -0.246\sym{***}&      -0.128\sym{***}&      -0.060\sym{***}&      -0.005         \\
+

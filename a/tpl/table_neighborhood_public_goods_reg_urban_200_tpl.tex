@@ -1,0 +1,22 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\hline\hline
+ &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} &\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
+ &\multicolumn{2}{c}{Primary School}&\multicolumn{2}{c}{Secondary School}&\multicolumn{2}{c}{Health Facility}\\
+ \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ &\multicolumn{1}{c}{Indicator}&\multicolumn{1}{c}{Log Emp}&\multicolumn{1}{c}{Indicator}&\multicolumn{1}{c}{Log Emp}&\multicolumn{1}{c}{Indicator}&\multicolumn{1}{c}{Log Emp}\\
+
+\hline
+SC Share            & $$sc_dum_primary_200_starbeta$$ &$$sc_log_primary_200_starbeta$$ &$$sc_dum_secondary_200_starbeta$$ &$$sc_log_secondary_200_starbeta$$ &$$sc_dum_hospital_200_starbeta$$ &$$sc_log_hospital_200_starbeta$$ \\
+                    & ($$sc_dum_primary_200_se$$) &($$sc_log_primary_200_se$$) & ($$sc_dum_secondary_200_se$$) &($$sc_log_secondary_200_se$$) & ($$sc_dum_hospital_200_se$$) &($$sc_log_hospital_200_se$$) \\
+[1em]
+Muslim Share            & $$muslim_dum_primary_200_starbeta$$ &$$muslim_log_primary_200_starbeta$$ &$$muslim_dum_secondary_200_starbeta$$ &$$muslim_log_secondary_200_starbeta$$ &$$muslim_dum_hospital_200_starbeta$$ &$$muslim_log_hospital_200_starbeta$$ \\
+                    & ($$muslim_dum_primary_200_se$$) &($$muslim_log_primary_200_se$$) & ($$muslim_dum_secondary_200_se$$) &($$muslim_log_secondary_200_se$$) & ($$muslim_dum_hospital_200_se$$) &($$muslim_log_hospital_200_se$$) \\
+\hline
+Observations        &      $$dum_n_primary_200$$ & $$log_n_primary_200$$ & $$dum_n_secondary_200$$ & $$log_n_secondary_200$$ & $$dum_n_hospital_200$$ & $$log_n_hospital_200$$  \\
+Mean of Dependent Variable &      $$dum_mean_primary_200$$ & $$log_mean_primary_200$$ & $$dum_mean_secondary_200$$ & $$log_mean_secondary_200$$ & $$dum_mean_hospital_200$$ & $$log_mean_hospital_200$$  \\
+Town FE     &         Yes         &         Yes         &         Yes &         Yes         &         Yes         &         Yes         \\
+\hline\hline
+\end{tabular}
+}

@@ -1,0 +1,14 @@
+exhibit_id,figure_or_table,rel_path,status
+Table 1,Table,sum_stats_tbl_200.tex,identical_ignoring_whitespace
+Table 2,Table,town_subd_repres.tex,identical_ignoring_whitespace
+Table 3,Table,seg_time_01_11_pc01_secc.tex,identical_ignoring_whitespace
+Table 4,Table,seg_multivar_regs.tex,identical_ignoring_whitespace
+Table 5,Table,nbd_pg_share_urban_200.tex,identical_ignoring_whitespace
+Table 5,Table,nbd_pg_share_rural_200.tex,identical_ignoring_whitespace
+Table 6,Table,nbd_privg_share_urban_200.tex,identical_ignoring_whitespace
+Table 6,Table,nbd_privg_share_rural_200.tex,identical_ignoring_whitespace
+Table 7,Table,nbd_wash_mean_urban_200.tex,identical_ignoring_whitespace
+Appendix Table A.1,Appendix,reweighted_means.tex,identical_ignoring_whitespace
+Appendix Table A.3,Appendix,seg_multivar_regs_app1.tex,non_whitespace_diff
+Appendix Table A.4,Appendix,nbd_pg_slum_200.tex,identical_ignoring_whitespace
+Appendix Table A.5,Appendix,pg_ineq_w_controls.tex,identical_ignoring_whitespace

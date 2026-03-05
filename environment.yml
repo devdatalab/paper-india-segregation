@@ -1,0 +1,55 @@
+name: segregation
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+platforms: # you can add windows and regen if needed
+  - linux-64
+  - osx-64
+  - osx-arm64
+dependencies:
+  # Core & Data Manipulation
+  - python=3.11
+  - pandas
+  - numpy
+  - polars
+
+  # Geospatial
+  - geopandas
+  - gdal
+  - rasterio
+  - rasterstats
+  - rtree
+  - shapely
+  - segregation
+  - haversine
+  - geotiff
+  - topojson
+
+  # Visualization
+  - matplotlib
+  - plotly
+
+  # Modeling & Stats
+  - statsmodels
+  - linearmodels
+
+  # Google API & Services
+  - gspread
+  - google-api-python-client
+  - google-auth-oauthlib
+
+  # Development & Utilities
+  - jupyter
+  - quarto
+  - pytest
+  - pip
+  - pyyaml
+  - requests
+  - python-dotenv
+  - simplejson
+  - beautifulsoup4
+  - lxml
+  - pdbpp
+  - conda-lock
+  - bioconda::snakemake

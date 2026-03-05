@@ -1,0 +1,962 @@
+\documentclass[12pt]{article}
+
+%% \usepackage{subfig}
+%% \usepackage{placeins}
+\usepackage{microtype}
+\usepackage{rotating}  
+\usepackage{changepage}
+\usepackage{tikz}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt,font=\tiny] (char) {#1};}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOAD LOCAL COMPILATION PATHS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% TODO(replication): switch to the relative path before packaging release.
+%% \newcommand{\segpath}{../out}
+\newcommand{\segpath}{/Users/f0018fb/Dropbox/tmp/segdata/out}
+
+%% include standard front_matter
+\input{front_matter_natbib}
+
+\normalem
+
+\onehalfspacing
+
+\geometry{left=1.0in,right=1.0in,top=1.0in,bottom=1.0in}
+
+\begin{document}
+
+\begin{titlepage}
+  \title{Residential Segregation and \\ Unequal Access to Local Public Services in India: \\ Evidence from 1.5m Neighborhoods\footnote{We are grateful for stellar research assistance from Ryu Matsuura, Alison Campion, Aneesha Mishra and Xinyu Ni, and for helpful comments from Gustavo Bobonis, Filipe Campante, Raj Chetty, John Friedman, Ingrid Gould Ellen, Ed Glaeser, Rema Hanna, Nina Harari, Rick Hornbeck, Larry Katz, Gaurav Khanna, Karthik Muralidharan, Sean Reardon, Mushfiq Mobarak, Rebecca White, and Maisy Wong, among many others. This project was in part supported by the IGC (project code IND-20165) and the Becker Friedman Institute at the University of Chicago. The \textcircled{r} between author names signals that the name order was randomized using the AEA author randomization tool (TaxM\_T0V9IFZ). When citing this paper, please follow the convention, such as using ``S. Asher \textcircled{r} K. Jha \textcircled{r} P. Novosad \textcircled{r} A. Adukia \textcircled{r} B. Tan'' in the references and/or using ``Asher \textcircled{r} al'' instead of ``et al'' which signals the different meaning. More details can be found at https://www.aeaweb.org/journals/random-author-order.}}
+  \author{Sam Asher\thanks{Imperial College London,
+      sam.asher@imperial.ac.uk}\, \superscript{\circled{r}} \\ Kritarth Jha\thanks{Development Data Lab,
+      jha@devdatalab.org}\; \superscript{\circled{r}} \\ Paul Novosad\thanks{Dartmouth College, paul.novosad@dartmouth.edu}\; \superscript{\circled{r}} \\ Anjali Adukia\thanks{University of Chicago,
+      adukia@uchicago.edu}\;  \superscript{\circled{r}} \\ Brandon Tan\thanks{Harvard University, btan@g.harvard.edu}\; \superscript{\circled{r}}}
+
+  %% NOTE: Don't replace date with \today -- we want to update the date when we make major updates, to
+  %%       avoid confusion over when major drafts were completed.
+  \date{February 2026}
+  \maketitle
+  \begin{abstract}
+
+    We study residential segregation and access to public services across 1.5 million urban and rural neighborhoods in India. Muslim and Scheduled Caste segregation in India is high by global standards, and only slightly lower than Black-White segregation in the U.S. Within cities, public facilities and infrastructure are systematically less available in Muslim and Scheduled Caste neighborhoods. Nearly all regressive allocation is across neighborhoods within cities---at the most informal and least studied form of government. These inequalities are not visible in the aggregate data typically used for research and policy.
+
+    %\vspace{0in}
+    %\noindent\textbf{Keywords: Free Rider, Public Economics, Public Finance, Public Goods, Public Investment, Joint Products, Local Public Service, Privately Provided Public Good, Public Services, Pure Public Goods, Discrimination, Ethnicity, Inequality, Minorities} \\
+    \vspace{0in}
+    \noindent\textbf{JEL Codes:} H41, J15, O15 \\
+
+    % H41: Public Goods
+    % J15: Discrimination in non-labor markets
+    % O15: Human development
+    \bigskip
+  \end{abstract}
+  \setcounter{page}{0}
+  \thispagestyle{empty}
+\end{titlepage}
+\clearpage
+
+\doublespacing
+
+\section{Introduction} \label{sec:introduction}
+
+The concentration of marginalized social groups into poor neighborhoods is a key driver of persistent cross-group inequality in many contexts \citep{Cutler2008,Ananat2009,alesina2011,Boustan2011,chyn2022}. Residential segregation can have a range of negative consequences: members of segregated groups may have worse access to public services, employment networks and labor market opportunities, and stereotypes in the wider population may be more difficult to break, among others \citep{massey1993,cutler1997}.
+
+A wide body of research shows that neighborhoods are consequential for access to opportunity, but this work concentrates on wealthy countries \cite{chetty2016theeffects,hendren2016,fogli2025}. The policy stakes may in fact be higher in rapidly urbanizing regions, where settlement patterns are still taking shape and could remain fixed for decades.
+
+In this paper, we mobilize new administrative data to describe settlement and segregation patterns of marginalized groups across Indian cities and villages, and the relationship between these settlement patterns and access to public services. Because of the substantial data requirements, there is little prior research on residential segregation in developing countries, and even basic descriptive facts about the extent of segregation and its relationship to public service access are lacking.
+
+We focus on the segregation of members of Scheduled Castes (SCs), often called Dalits or (previously) Untouchables, and of Muslims. India is an important context in which to study these questions for several reasons. First, it is huge: the marginalized groups that we study number over 300 million individuals. Second, disparities across these groups are rooted in historical inequalities that have persisted for generations, but the extent to which those inequalities are being changed by market liberalization and urbanization remains an open question. Third, policy in India has often focused on disparities across large administrative units, like districts (aggregations of approximately 1000 villages and 10 towns). But public facilities like schools and clinics only benefit people when they can access them from their neighborhoods. It is thus essential to study access inequalities in high geographic resolution.
+
+We have two primary aims. First, we document the extent of residential segregation in rural and urban areas. Second, we describe how a range of neighborhood public services---schools, medical clinics, water, sewerage, and electricity---are distributed across marginalized group (MG) and non-marginalized group (non-MG) neighborhoods. Our analysis is descriptive. We document patterns of segregation and public service access, but do not disentangle discrimination, homophily, or other sorting mechanisms; establishing the basic facts is a first step toward that work.
+
+Our ``neighborhoods'' are groups of approximately 125 contiguous households ($\sim$500 people) that were assigned together for census enumeration. We are able to link enumeration blocks across three Indian censuses (Population Census 2011, Socioeconomic and Caste Census (SECC) 2012, and Economic Census 2013), creating a neighborhood-level dataset describing demographics, public and private schools and hospitals, living standards and infrastructure access covering 63\% of India's population.\footnote{The analysis dataset describes 400,000 urban neighborhoods (in 3500 cities and towns) and 1.1 million rural neighborhoods (in about 400,000 villages). Scheduled Caste status is directly recorded in the SECC, and we infer Muslim identity indirectly from the distinctive patterns of Muslim names using a long-short-term-memory (LSTM) neural network based on a training set of two million takers of the Indian Railways Exam \citep{ash2025}.} Importantly, while we observe neighborhood identifiers, their geographic coordinates are not available to us.
+
+% SCs and Muslims make up similar population shares in the country (17\% and 14\% respectively in 2011), but have distinct group histories. Scheduled Castes were consigned to the lowest occupational rungs of society for over a thousand years, but since independence, improving access to services for SCs has been an explicit goal of many governments. Empirical studies have found positive effects for some of the resulting affirmative action programs \citep{cassan2017,gulzar2020,anr2022mob}.
+
+% Different Muslim groups have historically occupied heterogeneous positions in Indian society over the generations; some Muslims are descendants of India's 15th to 18th century ruling classes, while others descend from lower-caste groups who converted to Islam to escape their status at the bottom of the social hierarchy. Groups from both heritages increasingly find themselves politically marginalized and threatened. A large literature has discussed the relative outcomes of Scheduled Castes, and there is a more moderate literature on Muslims.\footnote{For example, see \citet{basant2010handbook} and \citet{jaffrelot2012}.} 
+
+In the first part of our analysis, we show that Muslims and SCs have notably segregated residential patterns, slightly lower than Black Americans and non-White people in England and Wales, but higher than minority groups in almost all other comparison countries. We focus on the dissimilarity and isolation indices, which describe the extent to which the demographic composition of a city's neighborhoods are different from the average demographic composition of the city. The ranking of Muslim vs. SC segregation varies depending on the measure used, because the isolation index is more sensitive to the most segregated neighborhoods, which are predominantly Muslim. 26\% of Muslims live in neighborhoods that are more than 80\% Muslim, compared with 16\% of SCs.
+
+Urban and rural segregation are highly correlated across regions for both Muslims and SCs, suggesting that Indian cities are replicating rural settlement patterns that have been in place for hundreds of years.\footnote{While the data do not record when these settlement patterns emerged, the historical record suggests that rural Indians have been highly endogamous and segregated, such that village settlement patterns observed today have been static for decades, if not centuries.} Compared with SCs, Muslims are relatively more segregated in cities than in rural areas. Marshaling the limited time series data available, we show that the urban segregation of SCs has marginally diminished from 2001--11.\footnote{We calculate segregation in 2001 using the Population Census District Handbooks, which record enumeration block-level populations of SCs, but not for any other group.}
+
+Larger, poorer, and older cities tend to have higher Muslim and SC segregation, as do cities that have experienced more religious violence.\footnote{This result is consistent with qualitative work arguing that religious violence has motivated Muslims to self-segregate for safety \citep{jaffrelot2012}.}  Cities with more Muslims have more Muslim segregation (in parallel with segregation patterns for Black communities in the U.S.), but there is no relationship between SC share and SC segregation. We find a strong negative correlation between Muslim segregation and upward mobility (defined as an increase in relative educational position across generations), which is notable given that Muslims are the least upwardly mobile major social group in India \citep{anr2022mob}.
+
+In the second part of our analysis, we show that access to public services is systematically worse in neighborhoods where marginalized groups live. This holds for both Muslims and SCs, and for almost every local service that we can measure, including primary and secondary schools, medical clinics, piped water, electricity, and covered sewerage. Private providers do not make up for the reduced service access of marginalized groups; in fact, private services are also less accessible in MG neighborhoods.\footnote{Controlling for neighborhood living standards shrinks, but does not erase, MG disadvantages. Since our interest is in how ostensibly universal government services are allocated, we view the uncontrolled estimates as more relevant for our study.}
+
+The magnitude of the disparities is large. Compared with a 0\% Muslim neighborhood, a 100\% Muslim neighborhood in the same city is 10\% less likely to have piped water and only half as likely to have a secondary school. For schools and clinics, facilities provided entirely by government, the disadvantage in Muslim neighborhoods is double the disadvantage in SC neighborhoods, echoing a consistent finding across the qualitative literature that Muslims report difficulty in getting public facilities from their representatives \citep{jaffrelot2012}. For electricity, water, and drainage, goods which have both a private (hook-up) and public (infrastructure) component, SCs (who are somewhat poorer on average) face worse neighborhood-level disadvantages.\footnote{For evidence on the impact of access to these types of infrastructure and facilities, see \citet{duflo2001}, \citet{chandra2007}, \citet{adukia2017}, and \citet{lee2020}.} 
+
+Disparities look different at higher levels of aggregation. Districts and subdistricts with many SCs have more public facilities on average. However, the cross-neighborhood allocation of these services \textit{within} subdistricts and towns means that nearly all of these advantages are eliminated at the neighborhood level. Muslim neighborhoods, in contrast, have no advantage or disadvantage at higher levels of aggregation; the neighborhood disparity (which is large) is the aggregate disparity.
+
+In short, marginalized groups face the most systematic and substantive disadvantages at the most local and informal levels of government --- within towns and village clusters. These are the levels of government which operate with the least scrutiny, and at the greatest distance from the district and subdistrict levels at which affirmative action policies are codified.\footnote{In the working version of this paper, we showed that people growing up in marginalized group neighborhoods---regardless of their social group---have worse educational outcomes. These results are left for future work, because we lack the data to distinguish whether these effects are caused by unequal service access, discrimination, or just sorting of marginalized people into poor and underserviced neighborhoods.}
+
+A key prior work in this space is \citet{banerjee2007}, who showed that \textit{districts} with more SCs and Muslims had fewer public services in 1971, and that the gap closed almost entirely or even reversed for SCs by 1991, but was little changed for Muslims. Our cross-district results for SCs are consistent with these results, but we show that the cross-district SC advantage is almost completely undone by the cross-neighborhood disadvantage. It remains an open question whether the aggregate convergence process of the 1970s and 1980s affected cross-neighborhood inequalities at all.
+
+Systematic analysis of neighborhood access to public services in developing countries has been elusive because of an absence of neighborhood-level census data. While several of India's major sample surveys contain neighborhood identifiers, they are not powered to measure neighborhood characteristics like social group shares, nor do they have enough sample to measure urban segregation. Prior work on segregation in India includes a number of ward-level studies that use spatial units of population 30,000--200,000, making them 60--400 times more coarse than the neighborhoods in our analysis.\footnote{\citet{VithayathilTrinaandSingh2012SpacesCities} use ward data from 2001 to show that residential segregation by caste is more prominent than by socioeconomic status in seven major cities. \citet{Singh2019RecastingIndia} examine changes in caste-based segregation from 2001 and 2011, again at the ward level, finding that residential segregation by caste has persisted or worsened in 60\% of the cities in their sample. Neither of these studies examine religion, which is less-often disaggregated than Scheduled Caste or Scheduled Tribe status in Indian Census microdata.} A series of recent studies has used enumeration block data similar to ours to document average patterns of segregation in a subset of Indian cities.\footnote{\citet{bharathi2021fractal} use enumeration block-level data to describe SC segregation and its correlates in the 150 largest cities. They find that blocks are more homogeneous than wards, highlighting the importance of working at this granular level. Like us, they find a weak relationship between city size and segregation (among large cities). \citet{bharathi2021cordon} use similar-scale data on caste (jati) and religion to characterize segregation in rural Karnataka; they report a high level of rural segregation. \citet{Susewind2017MuslimsGhetto} measures Muslim segregation using microgeographic polling booth data in eleven cities. He compares the segregation measures with qualitative perceptions of marginalization and ghettoization, finding only a limited correspondence.} Other than a concurrent study using similar data in Brazil \citep{harari2024}, we are aware of no prior work studying public service provision or individual outcomes at the neighborhood level in India, or any other major developing country.\footnote{\citet{kumar2025} uses municipal complaints data from Mumbai to show that Muslims have less consistent water access. \citet{bharathi2022services} uses block-level data to find that ward-level access to water and sewerage is correlated with ward-level SC segregation, and inversely correlated with block-level SC segregation; they do not look at outcomes in SC neighborhoods. \citet{harari2024} suggests a segregation measure incorporating distances to every neighborhood (and its demographics) in the city; we cannot calculate this in our setting because we observe neighborhood identifiers but cannot map them to geocoded locations.} Even at the village level in India, economic work on Muslim villages is rare, because data on village Muslim shares has not been previously available. Finally, we are aware of no prior quantitative work systematically studying access disparities \textit{within} villages.
+
+Importantly, the neighborhood-level disparities that we study are in many cases not apparent in aggregate data. Federal and state policies in India largely allocate funding for public services at aggregate levels (state, district, or subdistrict), while the cross-neighborhood distribution of those services is determined through less formal local processes. Consequently, a policy maker observing school allocation only at the district level could arrive at incorrect conclusions regarding access disparities and the efficacy of equalization policies. Our work underscores the return to leveraging high-resolution administrative data --- which is available but under-used in many developing countries --- to better understand and evaluate the performance of public programs.\footnote{A public version of the neighborhood dataset will be published with this paper.}
+
+\section{Context and Background}
+\label{sec:bg}
+
+\subsection{Marginalized Groups in India: Scheduled Castes and Muslims}
+
+Indian society has historically been stratified by social class, most directly through caste and endogamy. India's Scheduled Caste communities are historically endogamous groups that occupy the lowest tiers of the caste system. They have experienced occupational and social segregation for thousands of years. Social norms have historically placed them in low-status occupations---like scavenging, emptying toilets, or handling animal carcasses---with virtually no prospect of upward mobility. The practice of ``untouchability,'' now banned but still practiced in some form by many households, can take the form of segregation in schools, temples, and markets, restrictions against entering the homes or even wearing sandals in the presence of higher caste groups, among others. These restrictions have been enforced with various social sanctions, including violence and murder \citep{girard2021stabbed}. Since independence, the government of India has worked to mitigate the socioeconomic disadvantages of SCs through a range of programs and policies. SC status is often used as a marker of poverty for means-tested welfare programs, and there are reserved positions for SCs in higher education, in politics, and in government. SC communities still experience substantial socioeconomic disadvantages, but by many measures the gap between SCs and general castes has shrunk somewhat over recent decades \citep{hnatkovska2012,emran2015,cassan2017,anr2022mob}.
+
+Muslims occupy a similar share of the population to SCs (14\% for Muslims vs. 17\% for SCs), with a higher share of members living in urban areas than any other social group. Like SCs, they on average have lower socioeconomic status than non-Muslim non-SCs. However, they experience fewer legal protections and have not been targeted by affirmative action policies, a few exceptions notwithstanding. While SCs have been gaining ground on higher-caste groups in socioeconomic terms, Muslims have if anything been losing ground, particularly in educational attainment, and have experienced significant losses in upward mobility in recent decades \citep{anr2022mob}. Post-independence India has been characterized by waves of anti-Muslim activism, sometimes resulting in riots, property destruction, and violence. Various social movements and political parties have mobilized around the idea of Hinduism as a key pillar of Indian identity, to the exclusion of Muslims \citep{jaffrelot2021modi}. Our analysis uses data from 2011--13, and thus predates the rise of the current Modi regime (which has roots in these social movements), though the BJP (Modi's party) held power nationally in the early 2000s, and held power in many states before and during our sample period.
+
+While SCs and Muslims represent the largest disadvantaged groups in India, there are several other social groups not separately considered by our analysis. ``Other Backward Castes'' (OBCs) occupy an intermediate place in the caste system between general castes and SCs, comprising 40\% of the population; IHDS 2011 reports that about half of Muslims are OBCs, though this share varies substantially across years and surveys. OBCs are not coded as such in any of the datasets that we use and their names are less distinctive, making it difficult to identify them (or their prevalence in any neighborhood) in our data. We also exclude Scheduled Tribes (STs) from our analysis; they are among the poorest social groups in India, but are concentrated in rural areas and have small population shares in the majority of cities.\footnote{Only 4\% of urban Indians report Scheduled Tribe status, compared with 15\% who are SCs and 17\% Muslims.} Given the focus of this paper, we use the terms ``marginalized groups'' or ``MGs'' to describe SCs and Muslims, even though other groups in India could also reasonably be classified as such.
+
+\subsection{Marginalized Group Settlement Patterns in Rural and Urban India}
+
+Pre-independence cities in India were often characterized by neighborhoods with homogeneous occupational groups, often with mixed religion. In the absence of an effective municipal state, these neighborhoods were self-governing with respect to many public services, sometimes including even self-defense. Many neighborhoods had only a small number of entries, which made it possible to restrict access; this structure persists in many urban neighborhoods today, resulting in distinct boundaries between neighborhoods \citep{Gist1957TheComparison,Gould1965LucknowCategory1,Lynch1967RuralDiscontinuities,hdoshi1991,sachdev2002building}.\footnote{These closed neighborhoods are described by different terms throughout the country: pols in Ahmedabad, mohallas in much of North India, paras in West Bengal, etc., often with names that reflect the occupational origins of the space. Muchipara, for instance, is ``the neighborhood (para) of cobblers (muchi).''} The ethnographic literature suggests a secular trend of increasing segregation by religion rather than by occupation, as Hindu-Muslim violence has reduced Muslim feelings of safety in mixed neighborhoods. The resulting Muslim neighborhoods can house individuals from many classes, often with income segregation existing within the neighborhoods at a smaller scale. \citet{jaffrelot2012} describe this pattern of Muslim segregation in a series of monographs spanning many parts of the country. In many of the case studies, Muslims report difficulties getting attention from politicians or access to public services in their segregated neighborhoods.
+
+The literature on villages also suggests spatial separation between different classes and religions; individuals from lower status social groups often live in hamlets that are separated by a moderate walking distance from the village's primary agglomeration, where schools and health centers typically are found \citep{beteille2012,palanpur2018}.
+
+While these patterns can be observed in many parts of the country, they are primarily documented in a qualitative literature (with some cites above), due to a general absence of large-scale data with neighborhood identifiers or of sufficient scale to characterize neighborhoods individually. There is a quantitative literature on unequal access to public services by caste \textit{across} districts \citep{banerjee2007} and villages \citep{bailwal2021}. The latter is possible because the Population Censuses record the SC population share of every village, along with a series of public services. Nationwide data on village-level Muslim shares did not exist before this paper, nor were there data on either social group shares or public services at the neighborhood level \textit{within} villages. To our knowledge, there has also been no large-sample study of public service variation \textit{within} cities; a key innovation of this paper is assembling near-universal urban neighborhood-level data that simultaneously describes both public services and marginalized group shares.
+
+\subsection{Public Service Provision and Levels of Government in India}
+
+India has a federal system of government with major powers divided between central, state, and local governments. There are 36 states and union territories (35 at the time of our sample), which have substantial administrative and legislative power. Public services are financed and allocated by both central and state government programs.
+
+Local governance bodies are called panchayats in villages and municipalities in towns and cities. These bodies have elected representatives who can have de jure power over the selection and allocation of public services within their administrative areas, but have little control over their overall budgets, most of which derive from grants from higher levels of government. The 73rd and 74th Constitutional Amendments devolved power to allocate and provide public services to these local bodies. In villages, panchayat leaders often exercise de facto decision-making power over service allocation. Devolution in cities and towns is incomplete, however, and state-controlled authorities are often the final decision-makers.
+
+The process through which urban allocation decisions are made is highly political and depends on citizen organization. Residents often self-organize into neighborhood welfare committees and organize protests, petitions and media to lobby for service access. Local, informal, party-affiliated power brokers are often the key mediators to whom citizens turn for help in accessing resources. The de facto informal struggle for resources, mediated by local brokers, is remarkably similar for the different types of public services studied in this paper --- electricity, water, sewerage, schools, and health clinics \citep{jensenius2017,krukswisner2018,auerbach2019,auerbach2020}.
+
+India's government has implemented many high-profile policies intended to close disparities between marginalized and non-marginalized groups; many of these are conceived and designed at the state and central levels, and have prescribed allocations of public services across regions intended to remedy cross-group inequality, especially for SCs. For instance, the District Primary Education Program targeted funds for building schools to districts with below-median female literacy \citep{khanna2017}. The placement of new public facilities \textit{within} districts, towns, and villages is less often directly prescribed by these high-level policies; it is instead agreed upon through consultation with local elected leaders, bureaucrats, and brokers. The extent to which policies target certain groups can therefore be different at different levels of aggregation; the less formal decision-making process of local bodies could either enhance or undermine the progressivity of policies designed at higher levels of government \citep{alatas2012}.
+
+\section{Neighborhood-level Data on Social Groups and Public Services}
+\label{sec:data}
+
+This section briefly describes the data sources used for this work. Additional detail on sources and data construction can be found in Appendix~\ref{sec:app_data}.
+
+\subsection{Identifying Neighborhoods}
+
+Measuring segregation requires data with neighborhood granularity and a high neighborhood count both within and across cities, which cannot be done in any of India's major sample surveys. We identify and combine several data sources that recorded the internal location identifiers that were created for the administration of India's 2011 Population Census, called ``enumeration blocks;'' we call these neighborhoods. They consist of 100--125 households each (approximately 500 people) and describe a compact cluster of residences that an enumerator could visit in a single work session. In cities, these are typically city blocks, while in rural areas they are grouped clusters of residences or entire villages.\footnote{Appendix Figure~\ref{fig:pop_hist_group} shows the enumeration block population distribution in the sample. We exclude outlier blocks with fewer than 150 (typically small villages) or more than 1000 people, which are less than 1\% of the sample. Note that enumeration blocks are different from census blocks (sometimes simply called blocks), which have populations of about 200,000 each, and are unrelated to any units used in this paper.}
+
+Rural and urban enumeration blocks have similar populations, but the geography of urban and rural access to public facilities is quite different. Urban areas are dense, such that people can travel across many enumeration blocks for work or access to public services. Rural areas are more dispersed: neighboring enumeration blocks can be adjoining but can also be separated by several kilometers in the case of single-block villages. We do not have access to geocoordinates or boundaries for enumeration blocks.\footnote{Enumeration block maps are sold individually as hand-drawn maps by the Indian Census. Geocoding the universe of 1.5 million enumeration blocks would be valuable, but was prohibitively costly. At the time of writing, they were sold for about \$2 per individual block, and would additionally need to be georeferenced, as done by \citet{gechter2023} for Mumbai.}
+
+\subsection{Demographic Data}
+
+Data on individuals comes from the 2011--12 Socioeconomic and Caste Census (SECC), a national census which recorded demographic and asset information on every person in India to determine eligibility for social programs. Individual-level data from SECC was posted online from 2013--14 in PDF format, and included respondent names and Scheduled Caste status; we scraped and cleaned the data in a lengthy process described in detail in \citet{asher2020rural}. Our dataset covers 196 million urban and 571 million rural respondents, compared with 385 million and 834 million in the 2011 Census respectively.\footnote{To the best of our knowledge, missing data was a function of the actions of IT administrators and was unrelated to the data content. Block-level PDFs were to be posted in 30-day rolling periods; at some times, the SECC site was completely inaccessible, and some locations were posted for shorter periods or not posted at all. We discuss the representativeness of these data in Section~\ref{sec:result}. See \citet{asher2020rural} and \citet{almn2019shrug} for more details on the scraping process.} We used respondent names and an LSTM neural network to classify individuals as Muslims or non-Muslims; out-of-sample accuracy was 97\%, due to the distinctive nature of Muslim names.\footnote{For more details, see \citet{ash2025} and Appendix~\ref{sec:app_data}.} For comparisons with the United States, we use data from the 2020 U.S. Census and the Diversities and Disparities project, which is based on the 2010 U.S. Census.
+
+\subsection{Public Facilities and Public Infrastructure}
+
+We identify public facilities at the neighborhood level using the 2013 Economic Census (EC13), which used the same enumeration blocks as the 2011 Population Census. EC13 is a complete enumeration of non-farm establishments in the country, which includes schools, clinics, and hospitals, which are separately coded as private or public.\footnote{Earlier rounds of the Economic Census (1990, 1998, 2005) record similar data, but with neighborhood identifiers (urban frame survey units) that do not match any census. It was thus not possible to study changes in neighborhood-level service access over time.} Health centers include hospitals, inpatient and outpatient clinics, and traditional care providers.\footnote{The Economic Census is imperfect for studying access to public services, given its focus on firms. For instance, \citet{das2022} report that it undercounts health service providers by a factor of two in Madhya Pradesh, likely because it misses birth attendants and untrained providers. But there is no other data source of which we are aware that records universal information on public facilities at the neighborhood level.}
+
+EC13 also records whether a firm owner is Muslim or SC. The employment share in SC or Muslim firms is highly correlated with the group share in each neighborhood, providing some validation for the data on demographic shares below. 
+
+Data on household access to clean water, electricity, and sewerage is recorded at the individual level in the SECC. These are semi-public services, as households sometimes need to pay a hookup fee. In practice, the vast majority of neighborhoods in our sample have access shares close to 0 or 100\%, indicating that the public infrastructure component is the primary determinant of access. We code neighborhoods with a binary access measure for each service if more than 50\% of households report access.\footnote{Because so many neighborhoods were close to 0 or 100\%, different thresholds had no material effect on results.}
+
+Neighborhoods are thus coded with binary access measures for both public facilities and services. While these are imperfect access measures for schools and clinics, which can be accessed in other neighborhoods, there is evidence that distance to schools matters in both cities and villages, especially for girls' schooling \citep{chandra2007,muralidharan2013,borker2023}. For water, sewerage, and electric light, their presence in nearby neighborhoods is clearly a poor substitute for residential access. The presence of neighborhood schools and clinics are also relevant political economy outcomes even if they do not fully define access to those facilities. Additional data sources are described in Appendix B.
+
+\section{Conceptual Framework and Methods} \label{sec:methods}
+
+\subsection{Conceptual Framework}
+\label{sec:cf}
+
+Our empirical analysis is motivated by a model where public service availability and neighborhood choice by members of different groups are jointly determined. People sort across neighborhoods, trading off cost of living and local amenities, which include both local public services and the mix of residents. The segregation of marginalized groups can arise from both discrimination --- the inability to rent or purchase in majority-group neighborhoods --- or from correlated preferences and homophily. Public services, meanwhile, are allocated through a political process which may favor some groups over others. Worse public services in marginalized group neighborhoods could thus arise from compensating differentials (given that marginalized groups have less income), from sorting and correlated preferences, or from discrimination.
+
+These forces may operate differently at different geographic levels. Higher and lower levels of government have different levels of formality and oversight, while homophily and housing discrimination plausibly operate at a personal and local scale.
+
+This paper does not attempt to disentangle homophily versus discrimination in residential sorting or demand-side versus supply-side explanations for public service disparities. Instead, our aim is to document the basic descriptive facts about segregation and service access at very fine spatial scales, which can serve as a foundation for future work on the causes and consequences of the disparities that we describe.
+
+\subsection{Measuring and Comparing Residential Segregation}
+
+Our first objective is to document the extent of residential segregation of Muslims and SCs and to put it into international context. We calculate the canonical dissimilarity and isolation indices, as these are the most widely used measures in other studies. Comparability across contexts is still not straightforward, because calculating each measure requires several decisions which are not made consistently in the prior literature, and are sometimes not even reported. We first describe the measures that we use and then the details of making them comparable across contexts.
+
+We describe each measure for the case of Scheduled Castes and take an analogous approach for the case of Muslims. When measuring Muslim segregation, we treat SCs as majority group members, and vice versa when measuring SC segregation. We take this approach because Muslim and SC segregation may have different dynamics, causes, and consequences, making it less useful to aggregate them in analysis.
+
+\paragraph{The Dissimilarity Index.} The Dissimilarity Index \citep{duncan1955} is the most widely used measure of segregation. It ranges from zero to one and answers the question: what share of the marginalized group would need to change neighborhoods for the group to be evenly distributed within a city? We calculate this index for SCs in a given city as:
+
+\begin{equation}
+  \nonumber
+  DISSIMILARITY=\frac{1}{2}
+  \sum_i^N\left|\frac{SC_i}{SC_{total}}-\frac{NON\_SC_i}{NON\_SC_{total}}\right|\text{,}
+\end{equation}
+
+\noindent where $SC_i$ is the SC population of block $i$ and $SC_{total}$ is the SC population of the city, and similarly for non-SCs.\footnote{In rural areas, we also treat enumeration blocks as neighborhoods, and we treat subdistricts as the aggregate geographic unit analogous to the town. A subdistrict consists of about 110 villages; there are about 5500 subdistricts in India. The rural measure thus captures a combination of segregation across villages and within villages.} 
+
+\paragraph{The Isolation Index.} The Isolation Index \citep{bell1954} measures the extent to which a population group is exposed only to members of its own group. In a given city, we calculate isolation on a $[0,1]$ scale as follows:
+
+\begin{equation}
+  \nonumber
+  ISOLATION=\sum_{i \in I}\left[\frac{SC_i}{SC_{total}} \cdot \frac{SC_i}{N_{total,i}}\right]
+\end{equation}
+
+\noindent where definitions are the same as above and $N_{total,i}$ is the total block population.\footnote{Note that the minimum value of the isolation index under this definition is not zero, but rather the city-level marginalized group share.}
+
+This specification of the isolation index can be directly interpreted as the marginalized group share in the average neighborhood of a member of the given marginalized group. Dissimilarity and isolation are highly correlated, but isolation is more responsive to highly concentrated MG neighborhoods \citep{massey1988}.\footnote{While both measures have their adherents (along with entropy, evenness, exposure, and other highly correlated measures), our view is that neither of these is clearly superior in terms of interpretability or social consequences.}\footnote{Both measures take the value 1 for a maximally segregated city. A fully integrated city has a zero dissimilarity index, and an isolation index equal to the marginalized group share of the city (which in this case would be the MG share of every neighborhood as well). Some authors rescale the isolation index from 0 to 1, at the cost of losing the intuitive interpretation given here. Our international comparison below scales the isolation index as we do here.}\superscript{,}\footnote{Many other measures are available in the literature (exposure, evenness, entropy), but all are highly correlated with the measures we use, and are worse in terms of either comparison availability or interpretability.}
+
+The isolation and dissimilarity measures have some limitations. First, they are invariant to the locations of neighborhoods themselves. As such, they suffer from the ``checkerboard'' problem --- a city with a checkerboard arrangement of neighborhoods has the same segregation measure as a city where all the minority neighborhoods are clustered together. Second, larger neighborhood sizes mechanically decrease dissimilarity and isolation. The extent of this decrease is itself of interest and may vary across cities according to the clustering of segregated neighborhoods \citep{reardon2008,lee2008beyond}. \citet{harari2024} and \citet{reardon2008} suggest alternate measures that are resilient to these problems, but both require neighborhood geocodes, which we do not have. Further analysis of the scale of segregation across Indian cities would be worthwhile but is left for future work.
+
+International comparisons of segregation are challenging, because several measurement factors can directly affect segregation estimates. For example, U.S. segregation is higher when weighted across cities by Black population (to reflect the minority experience), when a smaller subset of large cities is used (because large U.S. cities are more segregated), when using MSA boundaries vs. city boundaries (because MSAs include disproportionately white suburbs), and when neighborhood units are smaller.
+
+When comparing across countries, we choose parameters to maximize comparability with U.S. estimates. U.S. census tracts have a target population of 4000 people, but range from 1000--8000. To approximate these units in the Indian data, we aggregate enumeration blocks by collapsing them based on adjacent block numbers.\footnote{Recall that we do not observe geocodes or location information for enumeration blocks in most of our sample. We have block maps only in a small number of cities and confirm that adjacent block numbers describe adjacent neighborhoods. The U.S. Census additionally aims to create demographically homogeneous tracts; our aggregation may thus reduce measured segregation relative to that approach.} Appendix~\ref{sec:app_seg_def} describes in more detail how we select our sample for the international comparison. Note that we use aggregated neighborhoods only for the international analysis, and otherwise treat enumeration blocks as neighborhoods.
+
+\subsection{Marginalized Group Shares and Neighborhood Public Services}
+\label{sec:method_pub}
+
+Our second objective is to describe differences in access to public services between marginalized groups and non-marginalized-groups, and at which geographic levels they arise. We present an additive decomposition, where the total group disparity is the sum of the cross-state, cross-district, cross-city, and cross-neighborhood disparity.
+
+We begin by describing how a fixed supply of public services is allocated across MG and non-MG neighborhoods within cities with the following neighborhood-level regression:
+
+\begin{equation}
+  \label{eq:pg_share}
+  SERVICE_{i,c} = \beta_c MG\_Share_{i,c} + \Omega_c + \boldsymbol\nu POPULATION_{i,c} + \epsilon_{i,c}\text{.}
+\end{equation}
+
+\noindent $SERVICE_{i,c}$ is a measure of the supply or availability of a given public service in neighborhood $i$ and city $c$, such as an indicator for the presence of a secondary school. $MG\_Share_{i,c}$ is the share of people in neighborhood $i$ from a given marginalized group. We control for neighborhood population, since it could be mechanically related to the supply of public services (though there is not much variation in neighborhood population). The city fixed effect $\Omega_c$ controls for differences in the availability of services in cities with more or fewer members of a given marginalized group.\footnote{Standard errors are clustered at the city level in the urban analysis and at the subdistrict level in the rural analysis, to account for correlated outcomes within regions.} 
+
+The coefficient $\beta_c$ describes how service availability changes as the marginalized group share increases. A negative value indicates that a given public service in a city is allocated \textit{away} from neighborhoods where marginalized groups live. We use the subscript $c$, because this measure describes a characteristic of the political economy equilibrium in each \textit{city}.
+
+We next examine how this local inequality relates to inequalities at higher levels of aggregation. If we replace the city fixed effect ($\Omega_c$) in Equation~\ref{eq:pg_share} with a \textit{district} fixed effect $\Omega_d$, the coefficient on $MG\_Share_{i,c}$ then describes the allocation of services \textit{within} districts; we call this $\beta_d$. This measure describes a combination of (i) the allocation of services across towns within districts; and (ii) the allocation of services across neighborhoods within towns. It is therefore useful to define $\alpha_d = \beta_d - \beta_c$, which specifically identifies the component of service access that comes from variation \textit{within} districts and across towns.\footnote{One could estimate a similar parameter directly in a town-level regression with district fixed effects. The advantage of our approach is that our estimates are additive across geographic levels. The approach is similar to the Blinder-Oaxaca decomposition, but with a disparity measured as a regression coefficient, and where the covariates are hierarchical locations.} We call this $\alpha_d$ because it describes the political economy equilibrium of the district --- the outcome of the process by which public services are allocated within the district.
+
+We repeat this process at progressively higher scales. Equation~\ref{eq:pg_share} with state fixed effects gives us $\alpha_s = \beta_s - \beta_d$, which describes how services are allocated across districts within states. The same equation with no fixed effects gives us $\alpha_f = \beta_o - \beta_s$, where $\alpha_f$ is the allocation of services across states.\footnote{We use subscript ``f'' because $\alpha_f$ describes the federal (i.e. cross-state) political economy equilibrium.} Finally, for notational convenience, let $\alpha_c=\beta_c$, representing the cross-neighborhood of allocation. The total disparity experienced by the marginalized group is $\beta_o$, an additive combination of political economy processes at different scales of geography and government, such that $\beta_o = \alpha_f + \alpha_s + \alpha_d + \alpha_c.$
+
+All of the $\alpha$ terms are independently interesting, as they describe the allocation process at different scales of geography and government, where different forces apply. For example, if a state explicitly allocates services to districts with higher SC shares, this would suggest a positive value of $\alpha_s$; this allocation could then be amplified or undermined at higher or lower geographies.
+
+The decomposition also has implications for progressive policy. For example, suppose that $\alpha_c$ is highly negative (i.e. marginalized group neighborhoods have worse services, conditional on city fixed effects). In this case, the disparity can be reduced through policies that increase $\alpha_s$ (e.g. through affirmative action programs operating across districts), but this district-level targeting will be less efficient at reducing disparities than neighborhood-level targeting (which would affect $\alpha_c$ directly).
+
+Identifying the geographic scale of disparity is particularly relevant given the different institutions controlling public service allocation at different geographic levels. Most policy research in India operates at the district level, as do many programs which allocate public services. High level policy-makers and researchers may not have access to local data, causing them to misunderstand the nature of inequality. Our decomposition clarifies what information is lost by studying differences at aggregate levels. If we studied only the relationship between marginalized group share and public service outcomes at the district level, we would be measuring $\alpha_f + \alpha_s$, which is a biased measure of $\beta_o$ if local disparities are large.
+
+Our estimates do not isolate a causal effect of marginal group share on outcomes. For example, if marginalized groups are poor, and municipal governments undersupply public facilities to poor neighborhoods, then we would find $\beta_c < 0$ even if service provision was orthogonal to MG status, conditional on neighborhood income. In this case, MGs would still have worse access to public services---the outcome that we aim to measure.\footnote{We do not necessarily get closer to causal identification by adding control variables for neighborhood average education or consumption, because these outcomes are plausibly impacted by a shortage of public services.} Our null hypothesis is that the government allocates public facilities across neighborhoods equally, irrespective of neighborhood economic or social group status, in which case we would find $\beta_c = 0$.
+
+We can think of the $\alpha$ terms as allocation rules; they describe the de facto outcomes of the allocation process at different geographic levels. For example, $\alpha_d$ can be thought of as the district allocation rule, which describes how a district's resources are allocated across towns in that district. These ``rules'' are outcomes of the political economy process described in Section~\ref{sec:cf}, and are influenced by choices of politicians, bureaucrats, firms, and citizens. These ``rules'' are jointly determined by the public service allocation process and the decision choices of individuals. A negative $\alpha$ could reflect government discrimination, or it could reflect historical inequalities that make marginalized groups poorer and more likely to select into neighborhoods with worse public services. The $\alpha$'s are particularly informative for a decision-maker who wishes to target services to under-served groups.
+
+\section{Results} \label{sec:result}
+
+\subsection{Segregation in Indian Villages and Cities}
+\label{sec:res_seg}
+
+Table~\ref{tab:sum_stats} presents summary statistics of the neighborhood-level sample, separately for 400,000 urban and 1.1 million rural neighborhoods. The difference in sample size reflects India's low urbanization rate (31\% in 2011), slightly magnified by our worse sample coverage of urban places. SC individuals are relatively more likely to live in rural areas, while Muslims are more likely to live in towns and cities.
+
+Table~\ref{tab:sample_rep} reports town- and rural subdistrict-level summary statistics, including measures of segregation. The ordering of urban segregation of Muslims and SCs depends on the measure used; Muslims have a higher isolation index (0.49 vs. 0.43 for SCs) but lower dissimilarity (0.52 vs 0.59 for SCs). The isolation index effectively puts more weight on neighborhoods with very little exposure to other groups and thus reflects a higher number of very concentrated Muslim neighborhoods. In rural areas, by contrast, SCs are a little bit more segregated by both measures.\footnote{Table~\ref{tab:sample_rep} also compares the sample characteristics with the full set of towns and villages in the Population Census. The rural sample covers 81\% of rural subdistricts and 68\% of rural people, and is highly representative. The urban sample covers 50\% of cities and towns and 51\% of the urban population. The town sample is less representative of small and young cities, which have slightly more public services, but similar marginalized group shares to older/larger towns. Because our sample has better coverage of large than small cities, it covers 83\% of the urban population, making it more representative of people than it is of places. Reweighting the sample to match the full distribution of cities does not substantially alter any of our conclusions; Appendix Table~\ref{tab:summary_reweight} shows the segregation indices after entropy rebalancing town demographic characteristics.} The standard deviations of the segregation indices are between 0.1 and 0.25, reflecting substantial variation in the extent of segregation across cities.
+
+Figure~\ref{fig:share_density} helps to unpack these differences by showing the distribution of MG shares across neighborhoods. The Muslim distribution is notably bimodal, and a greater share of Muslims than SC lives in highly concentrated neighborhoods in both urban and rural areas. 26\% of urban Muslims live in neighborhoods that are $>$80\% Muslim, while 17\% of urban SCs live in neighborhoods that are $>$80\% SC.\footnote{In cities, the median Muslim lives in a neighborhood that is 47\% Muslim. In rural areas, this is 37\%. For SCs, these numbers are 38\% and 46\%, almost exactly the reverse.}
+
+Figure~\ref{fig:seg_compare} compares these results with estimates of minority segregation from other contexts. The comparison is limited by available estimates in the literature; we found few studies of segregation from low- and middle-income countries, and few measures of isolation outside of the United States. Immigrant populations are also emphatically different from the social groups we study here, in that the vast majority of SCs and Muslims are long-resident citizens from minority social groups. As noted in Section~\ref{sec:methods}, isolation and dissimilarity are scale-dependent, so we plot neighborhood size on the X axis, and aggregate our measures to different neighborhood sizes for comparison.\footnote{Unlike the U.S. estimates, Indian segregation is less variable by city size; these estimates use the full sample of 3504 cities/towns. Sources and details of each sample in the graph are described in Appendix Table~\ref{tab:src_seg_compare}.}
+
+After adjusting neighborhood scales, we find that the urban segregation of Indian Muslims is similar but a little bit lower than the current segregation of Black people in U.S. cities and towns. This makes India considerably more segregated than Brazil, the only other low- or middle-income country for which estimates were available, and it occupies a midpoint on the spectrum of immigrant segregation in Europe --- higher than Italy and the Nordic capitals, but lower than immigrant segregation in Spain and non-White segregation in England and Wales.\footnote{The comparisons with the U.S. are the most reliable, as there are enough U.S. estimates to understand the extent to which those differ by sample selection and city definition. The literature does not give us information on how precise or stable are the estimates from the European cities.} 
+
+The segregation of SCs is similar to that of Muslims at the small block scale used in our analysis. Aggregating neighborhoods brings down SC segregation considerably, indicating that segregated SC neighborhoods are less clustered than segregated Muslim neighborhoods.\footnote{The U.S./India comparison is imperfect, because segregation patterns scale differently in different contexts, including across U.S. cities \citep{reardon2008}, and we do not have data to calculate how U.S. estimates would change with smaller units. Nevertheless, our scaling adjustment should be superior to directly comparing estimates at different scales. The relevant scale for segregation-related policy may also differ across countries. Relative to U.S. cities, transport costs (in opportunity cost of both time and money) are higher in Indian cities, suggesting the reduced segregation at higher aggregate levels may be less relevant in India. More examination of the scaling characteristics of segregation would obviously be useful, but would necessitate geocoded enumeration blocks to which we do not have access.}
+
+Appendix Figure~\ref{fig:maps_dissim} shows maps of SC and Muslim segregation across the country. While there are pockets of high and low segregation, they do not follow obvious geographic patterns; the north, which is poorer and where people are less disposed toward cross-caste marriage --- see, for example, \citet{pew2021religion2} --- is no less segregated than the south.
+
+We next examine whether rural segregation patterns are being replicated in cities. Given India's rapid urbanization in the second half of the twentieth century, settlement patterns in cities reflect more recent decisions and norms around integration and separation of social groups. Figure~\ref{fig:seg_rural_urb_dist} shows binscatters of average urban and rural segregation levels in each district; rural and urban segregation are highly correlated for both Muslims and SCs ($\rho \in 0.43-0.73$), suggesting that the regional dynamics that lead to the separation of social groups in rural areas are also important in neighboring cities and towns.
+
+Finally, we marshal the limited data available to examine changes in SC segregation over time, using block-level demographic tables from the 2001 Census District Handbooks (see Appendix B for more details). Table~\ref{tab:seg_time} shows that, as measured by both dissimilarity and isolation, SC segregation decreased marginally from 2001--11, falling by 1--3\%. Residential patterns are often stable, but finding only small changes in segregation is not a foregone conclusion, particularly given the Indian government's efforts to improve SC integration. For comparison, between 1980--2020, the Black/White dissimilarity index fell from 0.579 to 0.425, an average decline of 6\% per decade \citep{logan2021persistence}.\footnote{The Census District Handbooks report block-level population for SCs, but not for Muslims or any other demographic group.} 
+
+\subsection{Correlates of Scheduled Caste and Muslim Segregation}
+\label{sec:correlates}
+
+We next examine the correlates of segregation at the town and city level. We run a regression of each segregation measure (Muslim or SC vs. Dissimilarity or Isolation) on a joint set of 10 covariates that are based on correlates of segregation identified in the literature from other countries. Figure~\ref{fig:corr_coefplot_joint} shows estimates from these regressions, where the X variables are normalized to make them more comparable. A coefficient of 0.1 on this graph implies that a 1 standard deviation increase in the covariate is associated with a 0.1 change in segregation; for reference, the dissimilarity difference between immigrants in Scandinavia and U.S. Blacks is about 0.2. Table~\ref{tab:corr_regs} shows estimates from the four non-normalized regressions.\footnote{The sample size is limited by missing data on upward mobility and urban inequality. The full sample regression without these covariates is displayed in Appendix Table~\ref{tab:corr_regs_full_sample}.}
+
+We also generate non-parametric binscatters of each bivariate relationship; these can be seen at \href{https://devdatalab.org/seg-correlates}{devdatalab.org/seg-correlates}. We show a sample of these in Appendix Figure~\ref{fig:corr_scatters}.\footnote{Note that we exclude the group population shares from the isolation index coefficient plot, as these are mechanically correlated with each other and can be misleading, but they are included in the multivariate regression.} We do not include highly correlated covariates because of multicollinearity; e.g. we include city per capita consumption but exclude average years of education, which was highly correlated.} 
+
+  Larger, poorer, and older cities are more segregated for both Muslims and SCs; consumption is particularly negatively monotonic in Muslim segregation (Appendix Figure~\ref{fig:corr_scatters}). All three social groups (SCs, Muslims, and non-SC non-Muslims) are poorer in more segregated cities, a pattern notably different from the U.S., where Black residents are poorer in more segregated cities but the income slope for White residents is zero. Both MGs in India are more segregated in cities that experienced more Hindu-Muslim violence since 1950. This is consistent with the narrative of Muslim segregation as a defense against violence, but our analysis does not identify causality.
+
+  The remaining correlates differ in direction and significance for the two groups. Cities where upward mobility is low have more segregated Muslim populations; this is notable, since Muslims are the group with the lowest upward mobility in India \citep{anr2022mob}. Group shares are also predictive of segregation; Muslims are more segregated in cities with higher Muslim populations, but the effect is fully explained by city size and consumption level. 
+
+\subsection{Access to Public Services in Marginalized Group Neighborhoods}
+\label{sec:res_pgs}
+
+In this section, we examine how the supply of public services varies across neighborhoods with and without concentrated marginalized groups. We focus on availability of public services at the most granular geographic level---the neighborhood---because it is the most relevant for individual access to services, and is also the least studied in prior work.
+
+Figure~\ref{fig:bin_nbd_secondary} shows a binned scatterplot of the neighborhood-level relationship between the supply of secondary schools (an indicator for the presence of a neighborhood school) and the neighborhood marginalized group share, in both urban and rural areas. The urban series is residualized on city fixed effects and thus describes how schools are distributed across neighborhoods, conditional on the total supply of schools in a city. Secondary school availability falls monotonically with the neighborhood Muslim share (Panel A); raising the Muslim share of a neighborhood by 50 percentage points is associated with a 22\% lower likelihood of the neighborhood having a public secondary school (approximately a 0.5 percentage point decline on a mean of 2.4\%). Neighborhoods with a greater than 50\% Muslim share stand out for being particularly underprovisioned; while only about 10\% of neighborhoods have such a high Muslim share, over half of India's urban Muslims live in them (Figure~\ref{fig:share_density}). Rural locations look broadly similar, with the most Muslim neighborhoods having substantially fewer schools (Panel C).
+
+The relationship between SC share and secondary school access is non-monotonic in both urban and rural areas; at low levels of SC shares, it is flat or rising in the SC share, but above a 20\% SC share, secondary school presence falls precipitously, such that 50\% SC neighborhoods have similar school availability to 50\% Muslim neighborhoods (Panels B and D).\footnote{Rural school shares are higher on average because rural areas are characterized by a greater number of smaller schools, reflecting the greater distance between neighborhoods.}
+
+We summarize this nonparametric relationship between neighborhood MG share and public facility presence with the linear estimator from Equation~\ref{eq:pg_share}, with city fixed effects. SC and Muslim shares are included simultaneously to ensure that the allocation of facilities to one group's neighborhoods does not drive our estimate for the other group. Panel A of Table~\ref{tab:pg_nbd} shows that, in urban areas, SC and Muslim neighborhoods have fewer public services; with the exception of urban primary schools in SC neighborhoods, the point estimates are all negative, substantial, and highly significant. In rural areas (Panel B), the estimates are negative and significant for all facilities, for both groups.\footnote{Results are similar when we use a measure of the scale of the facilities (log employment, shown in the even-numbered table columns). Results are virtually unchanged (i) by the inclusion of a control for whether a neighborhood is classified as a slum; and (ii) by restricting the sample to non-slum villages (Appendix Table~\ref{tab:pg_nbd_slum}).}
+
+Table~\ref{tab:privg_nbd} shows analogous tests with private schools and health facilities, which could substitute for the absence of public sector facilities. In fact, we find that private facilities are also disproportionately less common in marginalized group neighborhoods, possibly because people in those neighborhoods have limited ability to pay for services. There are some exceptions: out of 12 group x urban/rural x facility estimates, 10 show statistically and economically significant allocation away from MG neighborhoods. The exceptions are private primary schools and health facilities, which are more common in rural Muslim neighborhoods.
+
+We find similar results for household infrastructure services (access to electricity, closed drainage, and clean water, Table~\ref{tab:water_nbd}). These services are only measured in urban areas. All three services are less available in both Muslim and SC neighborhoods. For these infrastructure goods, the coefficients on the SC share are more negative than those on the Muslim share, suggesting that SC neighborhoods are the most poorly served by public infrastructure.\footnote{Note that these infrastructure services are not strictly public. They typically require some kind of household investment in addition to a base level of public infrastructure, but none of them can be accessed if that public infrastructure is not in place. Our estimations are run at the neighborhood level, and thus do not identify off of within-neighborhood differences in whether members of different social groups choose whether or not to hook up to each infrastructure service. The distributions of neighborhood availability of these services are highly bimodal, suggesting that the public component of the infrastructure is the key determinant of individual access.} 
+
+In short, neighborhoods with high marginalized group shares consistently have fewer public services, conditional on city totals. Urban residents may be able to travel to nearby schools and clinics in other neighborhoods, but water, electricity, and sewerage in nearby neighborhoods are less useful substitutes for own-neighborhood access.
+
+\subsection{Access Disparities at Different Geographic Levels of Aggregation}
+\label{sec:res_aggs}
+
+The disparities described in the previous section do not summarize the total access disparities faced by marginalized groups, because there could be favorable or unfavorable differences in the supply of services at higher geographic levels of aggregation. For instance, districts with more SCs might have more schools or better sanitation infrastructure; indeed, the Indian government has used the district or subdistrict SC share as a targeting mechanism for many programs (see Section~\ref{sec:bg}).
+
+We measure allocation at each geographic level of aggregation by varying the fixed effects in Equation~\ref{eq:pg_share}. We can thus additively decompose the total urban access disparity into a disparity across neighborhoods, towns, districts, and states.
+
+Panel A of Figure~\ref{fig:pe_public_functions_muslim} summarizes the results for Muslim access to urban primary schools. We explain these figures in detail as they describe a central result of this paper. The outcome variable is the number of primary schools per 100,000 people; the sample mean of this variable is 15. The rightmost (dark gray) box (positioned at $-1.9$) tells us that a 100\% Muslim neighborhood is estimated to have 1.9 fewer primary schools per 100,000 people than a 0\% Muslim neighborhood.\footnote{The sample means for the other variables are in the figure note.} This is the coefficient from a regression of the primary school measure on the neighborhood Muslim share, with no fixed effects ($\beta_o$ from Section~\ref{sec:method_pub}). This coefficient reflects the total access disparity in Muslim neighborhoods, combining effects at all geographic levels.
+
+This gap can then be decomposed into different geographic levels. The leftmost estimate $\alpha_f=-0.4$ tells us that states with more Muslims have fewer schools, and that 0.4 out of the 1.9 school gap above can be accounted for by this variation across states. The second estimate from the left ($\alpha_s=+1.1$) implies that --- conditional on the number of primary schools in a state --- districts with more Muslims on average have \textit{more} primary schools.\footnote{We denote this $\alpha_s$ because it is informative about allocation choices at the \textit{state government} level --- it describes how schools are allocated across districts within states.} The next two bars respectively give us $\alpha_d$, which tells us how schools are allocated across towns/cities within districts, and $\alpha_c$, which tells us how schools are allocated across neighborhoods within towns.\footnote{The calculation of $\alpha_c$ is identical to that used for the coefficients in Table~\ref{tab:pg_nbd}, except that the outcome here is denoted in schools per 100,000 individuals for easier interpretability of the effects across different geographies.}
+
+The sum of all the $\alpha$ coefficients gives us the final estimate of $-1.9$ schools per 100,000 people. The graph shows that the neighborhood disadvantage faced by Muslims is driven almost entirely by the allocation of primary schools across urban neighborhoods within towns. In fact, the allocation combining all aggregates \textit{above} the town level is marginally favorable to Muslims; but this small advantage is swamped by the unfavorable allocation across neighborhoods.
+
+The remaining five panels of Figure~\ref{fig:pe_public_functions_muslim} show how the other public facilities (secondary schools and health centers) are allocated across Muslim and non-Muslim neighborhoods, towns, districts, and states. We highlight several features of the combined results. First, the cross-neighborhood allocation (labeled ``x-block'') is consistently unfavorable for Muslims --- as we saw in Table~\ref{tab:pg_nbd}. Second, in urban areas, the magnitude of the cross-neighborhood inequality swamps the magnitude of the inequality at every other level of aggregation. It is at the lowest and most informal level of governance where Muslim neighborhoods are the most left out. In rural areas, allocation is unfavorable at every level of aggregation for all three facility types, and the impact is more uniform across geographic scales. Third, without neighborhood-level data, we would detect no disadvantage in access to public facilities for Muslims in cities, and we would substantially underestimate the disadvantage in rural areas. Since the Indian government does not release data on Muslim shares below the subdistrict level, about half of the rural inequality in service access is invisible in the data available prior to this paper, as is all of the urban inequality.
+
+The total disparity faced by urban Muslim neighborhoods is economically substantial. A fully Muslim neighborhood---recall that over half of urban Muslims live in neighborhoods that are more than 50\% Muslim---has 13\% fewer primary schools, 46\% fewer secondary schools, and 20\% fewer health centers than a neighborhood with no Muslims.
+
+Figure~\ref{fig:pe_public_functions_sc} shows the same results for SC neighborhoods. The patterns are distinct from those observed for Muslims, even though both groups face substantial disadvantages at the most local level. A clear pattern emerges for secondary schools and health centers, in both rural and urban areas (Panels C--F). The allocation of these services is progressive across states, districts, towns, and villages; at all of these levels, areas with more SCs have more secondary schools and clinics. But \textit{within} towns and villages, the distribution of schools and clinics is highly regressive across neighborhoods, undoing almost all of the progressivity at higher levels of government. Ignoring the cross-neighborhood allocation of secondary schools and clinics (which no prior data source has made visible) would make it appear that public services are strongly favorably targeted to places where SCs live, but in fact the total allocation is approximately neutral.
+
+The allocation of primary schools to SC neighborhoods does not follow this pattern. Urban primary schools have progressive allocations for SCs at all levels of aggregation, while the allocation of rural primary schools is unfavorable to SCs at all geographic levels, but with the neighborhood being relatively unimportant. This distinct result could arise from the government's efforts to make primary schools universal across India, though clearly Muslim neighborhoods have been left out. The neutral to positive neighborhood allocation of primary schools could result from an interaction of that universal goal with a preference for segregating upper class children from SC children, but testing this mechanism is left as a topic for future work.
+
+Section~\ref{sec:res_pgs} showed that the cross-neighborhood allocation of public facilities was more unfavorable to Muslims than to SCs. Here, we show that when aggregate effects are considered, Muslim neighborhoods still have fewer public facilities on average, while SC neighborhoods have similar service levels to non-SC neighborhoods. While our empirical analysis does not isolate the mechanisms of unequal access, these results are notably consistent with affirmative action for SCs (but not Muslims) affecting service allocation across districts --- as suggested by \citet{banerjee2007} --- while discrimination and sorting generate inequalities for both groups across neighborhoods.
+
+Figure~\ref{fig:pe_urban_infra} shows the same analysis for the infrastructure services: electric lighting, piped water, and closed drainage. For SCs, the cross-neighborhood variation in access drives almost all of the substantial access disparity, and there is little association between the SC share and infrastructure availability at the state, district, or town level. For Muslims, at the state and district levels, we find that piped water access is more common in districts with many Muslims, while electric light and drainage are less common. As noted above, the allocation across neighborhoods is economically significant and adverse for all of these services, for both groups.\footnote{Appendix Figure~\ref{fig:pg_intersection} shows that there is no ``intersectionality'' effect, in that the SC disadvantage does not appear to be worse in neighborhoods with many Muslims, and vice versa. Appendix Figure~\ref{fig:pg_by_seg} shows the results as a function of city segregation. Interestingly, there is no clear relationship between city-level segregation and the access cost of living in a segregated neighborhood; that is, segregated neighborhoods are not more disadvantaged in cities with more of them. However, the average disadvantage naturally affects more members of marginalized groups in cities where more of them live in segregated neighborhoods.} 
+
+For the infrastructure services, there is thus less evidence of affirmative action in favor of any marginalized group, but both groups fare worse at the neighborhood level. Indeed, we are aware of no national programs to improve urban infrastructure services like these or to equalize access to them from the time period up to our sample. It is also notable that the relative access of the two groups is reversed for the infrastructure services; at both the cross-neighborhood and the overall level, SC neighborhoods have disproportionately worse access to water, electricity, and sewerage infrastructure than Muslims.\footnote{Appendix Figures~\ref{fig:pe_private_functions_muslim} and ~\ref{fig:pe_private_functions_sc} shows similar estimates to Figures 6 and 7 for private facilities. We spend less attention on these since there are few political forces driving their allocation at higher levels of aggregation. As noted in the prior section, cross-neighborhood allocation of private services is strongly unfavorable for marginalized group neighborhoods. Appendix Table~\ref{tab:pg_ineq_w_controls} shows the neighborhood-level public service estimates with controls for neighborhood consumption. Neighborhood consumption explains some but not all of the disparity in MG neighborhoods; results vary by group and public service. But these estimates do not help distinguish the existence of discrimination, because low consumption in MG neighborhoods could be in part the result of poor service access or other disamenities of those neighborhoods.} 
+
+\section{Discussion} \label{sec:discussion}
+
+  Our descriptive results raise three questions for future work. First, is segregation driven by discrimination or homophily? Second, why do segregated neighborhoods have worse public services? And third, are the poor outcomes in these neighborhoods \textit{caused} by living in these neighborhoods? Answering these questions is beyond the scope of this descriptive work; but in this section, we discuss possible mechanisms and some of the existing evidence supporting it.
+
+  Empirical research on segregation in other contexts suggests that both selection and treatment play a role, and there is evidence of the same in India \citep{blank2004measuring}. Consistent with social groups in many other contexts, a large fraction of Indians from all social groups expresses preferences for living around members of their own group \citep{pew2021religion2}, and social group networks provide valuable services (such as insurance), for which members are willing to give up economic opportunities \citep{munshi2006,munshi2014}. These choices are then further reinforced by formal and informal discrimination, such as landlords and home sellers refusing to work with buyers and renters from marginalized groups, another practice that echoes the U.S. experience \citep{banerjee1985caste, sachar2006, thorat2007legacy, madheswaran2007caste, ThoratHousing2015}.
+
+  Since members of marginalized groups are poorer on average, these forces cause poor people to cluster together in neighborhoods with fewer amenities where they can afford to live. Any discrimination in state service provision (whether against the poor or against marginalized groups) further exacerbates that disadvantage. We do not have data to test whether specific public services and facilities appeared before or after social group settlement patterns were established. But settlement patterns move slowly, and a large share of India's public services have been built in the modern era. The number of urban high schools increased by a factor of three between 1990 and 2013, a period during which the urban population rose by only 75\%.\footnote{The high school statistic is from the 1990 and 2013 Economic Censuses. The DISE 2012 school survey reports that 55\% of urban high schools were built in the last 30 years. Meanwhile, in IHDS 2012, 75\% of urban households have been in the same location for the last 30 years or longer. A large fraction of urban residents have been in place before their nearest high school was built.} We thus view it as unlikely that all of our neighborhood results could be explained away by selection of poor people into neighborhoods with few services, but that is undoubtedly an economic factor that exists. In villages, demographic characteristics are highly stable over time and thus predate the expansion of modern public schooling and infrastructure.
+
+  We are doubtful that disparities are meaningfully caused by low preference for public services among members of marginalized groups. Qualitative evidence suggests that Muslims would prefer better access to public services, but are unable to extract them from local politicians \citep{jaffrelot2012,tariq2025}. The aggregate service access improvements for lower caste groups happened exactly as these groups were mobilizing politically and creating political parties to represent their interests \citep{banerjee2007,aneja2022}. Finally, we note that arguments about homophily and low demand for public services were frequently and erroneously invoked as a justification for U.S. policies like red-lining, which entrenched or increased disparities across races \citep{blank2004measuring}. The U.S. historical record suggests caution about treating cross-group inequalities in public services as benign.
+
+Studies in other contexts have tackled the question of whether segregation causes adverse outcomes by identifying instruments, such as train tracks, that facilitated greater segregation in some areas than in others \citep{cutler1997, ananat2011wrong, aaronson2020}; this would be a useful direction for future work in India.
+
+  \section{Conclusion} \label{sec:conclusion}
+
+Our paper presents a national-scale analysis of segregation and access to public services in India's urban and rural neighborhoods. Analysis of this kind has previously been impossible on a large scale due to the absence of sufficient neighborhood-level data to characterize neighborhood demographics and service access.
+
+  India's growing cities are significantly segregated. They are only marginally less segregated than rural areas, where neighborhood structure is strongly conditioned by centuries of occupation- and status-based division via the caste system. The religious and caste identity of the people who live in a given urban neighborhood are strongly predictive of public services in those neighborhoods. India's rapidly growing cities, considered to be engines of upward mobility, to a large degree have replicated the caste and religious disparities of its villages.
+
+  The public data generated by this project is a starting point for the systematic study of state resources and economic opportunity across Indian cities. While data on past segregation is scarce, our project will make time series analysis possible going forward. We have also identified substantial variation across cities and rural subdistricts in both segregation and the relative public service disadvantages experienced by marginalized groups. Future work that addresses the causes and consequences of these disparities is essential.
+  
+Concentration of marginalized groups and unequal provision of public services are persistent characteristics of the political economy of many countries. Modern India has had few of the types of state policies that contributed to racial segregation in the United States --- there are thus fewer overtly harmful policies to remove. However, housing discrimination in India's cities is widely documented and has even been explicitly tolerated by the judiciary, echoing patterns from a too recent era in the U.S.
+
+  The historic tolerance for residential segregation and unequal access to public services in the U.S. has prevented generations of individuals from accessing opportunity, and is a central fracture in a highly polarized political system. At an earlier stage of development and with cities still rapidly growing, India has the opportunity to make a different set of choices. By highlighting segregation in India and documenting the concomitant disparities in access to public services, we draw attention to the critical choices that lie ahead for India and other urbanizing lower- and middle-income countries around the world.
+  
+  \onehalfspacing
+  \medskip
+
+  %%%%%%%%%%%%%%%%
+  %% References %%
+  %%%%%%%%%%%%%%%%
+
+  \clearpage
+  \bibliographystyle{aer}
+  \bibliography{segregation}
+  
+  %%%%%%%%%%%%%
+  %% Figures %%
+  %%%%%%%%%%%%%
+  \clearpage
+  \onehalfspacing
+  % \section*{Figures} \label{sec:fig}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: SC/Muslim neighborhood share distribution      %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \begin{figure}[htbp]
+    % Created in a/graph_group_shares.do
+    \caption{Population Distribution \cnewline as a Function of Marginalized Group Share}
+    \label{fig:share_density}
+    \begin{center}
+      \begin{tabular}{c}
+        \panel{A. Urban} \\
+        \includegraphics[width=0.65\textwidth]{\segpath/group_share_density_urban.pdf} \\
+        \panel{B. Rural} \\ 
+        \includegraphics[width=0.65\textwidth]{\segpath/group_share_density_rural.pdf} \\
+      \end{tabular}
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} The figure shows the
+    distribution of SC and Muslim population shares across their own neighborhood group share. For instance, the rightmost red triangle in Panel B shows that 7\% (Y-axis) of Muslims live in neighborhoods where the Muslim share is between 95 and 100\%.}  \end{figure}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: International Comparison of Segregation %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{India's Urban Segregation in International Comparison}
+    \label{fig:seg_compare}
+    \begin{center}
+      \begin{tabular}{c}
+        \panel{A. Dissimilarity Index} \\
+        \includegraphics[width=0.8\textwidth]{\segpath/seg_compare_dissim.pdf} \\
+        \panel{B. Isolation Index} \\
+        \includegraphics[width=0.8\textwidth]{\segpath/seg_compare_iso.pdf} \\
+      \end{tabular}
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} The figure shows indices measuring residential segregation in cities across different countries and minority groups (points), compared to Muslim and SC segregation measures (lines). U.S. estimates are Black/White segregation; European and English estimates describe immigrant segregation. Appendix Table~\ref{tab:src_seg_compare} describes the data sources and additional details of each sample.}
+  \end{figure}
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE 3: Urban vs Rural Segregation  %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Urban vs Rural Segregation: District-level Comparisons}
+    \label{fig:seg_rural_urb_dist}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Muslim/Non-Muslim Dissimilarity} &
+        \panel{B. SC/Non-SC Dissimilarity} \\
+        \includegraphics[width=0.45\textwidth]{\segpath/bin_seg_muslim_urban_rural_corr_200.pdf} &
+        \includegraphics[width=0.45\textwidth]{\segpath/bin_seg_sc_urban_rural_corr_200.pdf} \\
+        \panel{C. Muslim Isolation} &
+        \panel{D. SC Isolation} \\
+        \includegraphics[width=0.45\textwidth]{\segpath/bin_iso_muslim_urban_rural_corr_200.pdf} &
+        \includegraphics[width=0.45\textwidth]{\segpath/bin_iso_sc_urban_rural_corr_200.pdf} \\
+      \end{tabular}
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} Each graph is a binscatter which compares urban and rural segregation measures in the same district, for Muslim and SC communities. Panels A--B use the dissimilarity index; Panels C--D use the isolation index. Each point is the mean urban value for roughly 20 subdistricts with mean rural value near the corresponding X-axis value. Source: SECC (2012).}
+  \end{figure}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: MULTIVARIATE CORRELATES OF SEGREGATION: COEFPLOT  %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Multivariate Correlates of Muslim and Scheduled Caste Segregation}
+    \label{fig:corr_coefplot_joint}
+    \begin{center}
+\includegraphics[scale=0.63]{\segpath/coefplot_std_joint.pdf}      
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} The figure shows estimates from four regressions on a set of normalized covariates, where the left-hand side variable was respectively SC dissimilarity, SC isolation, Muslim dissimilarity, and Muslim isolation. Each panel of the figure shows estimates from four regressions. For example, the estimates from the SC Dissimilarity regression are described by the first coefficient in every set of four. Estimates from a regression on raw (non-normalized) covariates are shown in Table~\ref{tab:corr_regs}. Muslim and SC shares were included in the isolation regression, but are excluded from the figure as their high positive correlation is mechanical and thus less informative.}
+  \end{figure}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: Political economy function: local secondary schools      %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Access to Secondary Schools vs. \cnewline Neighborhood Marginalized Group Share}
+    \label{fig:bin_nbd_secondary}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban (Muslim) } & \panel{B. Urban (SC) } \\
+        \includegraphics[width=0.50\textwidth]{\segpath/block_secondary_by_mus_dum_cfe_urban_200_pub.pdf}
+        & \includegraphics[width=0.50\textwidth]{\segpath/block_secondary_by_sc_dum_cfe_urban_200_pub.pdf} \\
+        \panel{C. Rural (Muslim)} & \panel{D. Rural (SC) } \\
+        \includegraphics[width=0.50\textwidth]{\segpath/block_secondary_by_mus_dum_cfe_rural_200_pub.pdf}
+        & \includegraphics[width=0.50\textwidth]{\segpath/block_secondary_by_sc_dum_cfe_rural_200_pub.pdf}
+      \end{tabular}
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} The figure shows binscatter plots of the percentage of neighborhoods that have a secondary school at a given level of SC/Muslim share. Each point represents the mean of 20,000 urban or 55,000 rural neighborhoods with a given marginalized group share. Sources: Economic Census 2013, SECC 2012.}
+  \end{figure}
+
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: Political economy functions at each level of aggregation %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+
+  \begin{figure}[htbp]
+    \caption{Disparities in Public Facilities as a \cnewline Function of Neighborhood Muslim Share}
+    \label{fig:pe_public_functions_muslim}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban Primary Schools} & \panel{B. Rural Primary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_muslim_primary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_muslim_primary_all.pdf} \\
+        
+        \panel{C. Urban Secondary Schools} & \panel{D. Rural Secondary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_muslim_secondary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_muslim_secondary_all.pdf} \\
+        
+        \panel{E. Urban Health Centers} & \panel{F. Rural Health Centers}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_muslim_hospital_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_muslim_hospital_all.pdf} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \clearpage
+
+  \footnotesize{\noindent \textit{Notes:} The figure describes the cross-neighborhood relationship between a neighborhood's Muslim share and a neighborhood's access to public facilities: primary and secondary schools, and health centers. The dark gray box shows the coefficient of a regression of public facility availability on the Muslim share in the full sample. A negative value implies that Muslim neighborhoods have fewer public facilities on average. The boxes to the left decompose that average effect into the effect arising at the cross-state, cross-district, cross-town/village, and cross-block levels. The outcome is the number of facilities per 100,000 people. The mean of this variable in rural areas is 74 for primary schools, 15 for secondary, and 12 for health centers. In urban areas, the means are respectively 15, 5, and 5. Sources: Economic Census 2013, SECC 2012.}
+
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE: Same as above but for SCs %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+
+  \begin{figure}[htbp]
+    \caption{Disparities in Public Facilities as a \cnewline Function of Neighborhood Scheduled Caste Share}
+    \label{fig:pe_public_functions_sc}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban Primary Schools} & \panel{B. Rural Primary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_sc_primary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_sc_primary_all.pdf} \\
+        
+        \panel{C. Urban Secondary Schools} & \panel{D. Rural Secondary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_sc_secondary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_sc_secondary_all.pdf} \\
+        
+        \panel{E. Urban Health Centers} & \panel{F. Rural Health Centers}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_urban_sc_hospital_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_pub_rural_sc_hospital_all.pdf} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \clearpage
+
+  \footnotesize{\noindent \textit{Notes:} The figure describes the cross-neighborhood relationship between a neighborhood's SC share and a neighborhood's access to public facilities: primary and secondary schools, and health centers. The dark gray box shows the coefficient of a regression of public facility availability on the SC share in the full sample. A negative value implies that SC neighborhoods have fewer public facilities on average. The boxes to the left decompose that average effect into the effect arising at the cross-state, cross-district, cross-town/village, and cross-block levels. The outcome is the number of facilities per 100,000 people. The mean of this variable in rural areas is 74 for primary schools, 15 for secondary, and 12 for health centers. In urban areas, the means are respectively 15, 5, and 5. Source: Economic Census 2013, SECC 2012.}
+
+  \clearpage
+
+  \begin{figure}[htbp]
+    \caption{Disparities in Urban Infrastructure Access \cnewline as a Function of Neighborhood Marginalized Group Share}
+    \label{fig:pe_urban_infra}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Electric Light (Muslim)} & \panel{B. Electric Light (SC)}  \\
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_muslim_light_source_elec_all.pdf} &
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_sc_light_source_elec_all.pdf} \\
+        
+        \panel{C. Piped Water (Muslim)} & \panel{D. Piped Water (SC)}  \\
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_muslim_wat_source_home_all.pdf} &
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_sc_wat_source_home_all.pdf} \\
+
+        \panel{E. Closed Drainage (Muslim)} & \panel{F. Closed Drainage (SC)}  \\
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_muslim_closed_drain_all.pdf} &
+        \includegraphics[width=0.43\textwidth]{\segpath/pe_urban_sc_closed_drain_all.pdf} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \clearpage
+
+  \footnotesize{\noindent \textit{Notes:} The figure describes the cross-neighborhood relationship between a neighborhood's marginalized group share (SC or Muslim) and a neighborhood's access to public infrastructure. The sample is entirely urban. Each infrastructure measure is the share of people in a neighborhood who have access to that type of infrastructure. The dark gray box shows the coefficient of a regression of the infrastructure measure on the marginalized group share. This is the average disadvantage for this infrastructure service in marginalized group neighborhoods. The boxes to the left decompose that average effect into the effect arising at the cross-state, cross-district, cross-subdistrict, cross-town/village, and cross-block levels. The mean of the outcome variables are 0.95 for electric lighting, 0.73 for piped water and 0.56 for closed drainage. Source: SECC 2012.}
+
+
+  \clearpage
+
+  %%%%%%%%%%%%
+  %% Tables %%
+  %%%%%%%%%%%%
+
+  %\section*{Tables} \label{sec:tab}
+
+  \begin{table}[H]
+	  \caption{Neighborhood Summary Statistics}
+    \label{tab:sum_stats}
+    \begin{center}
+		  \scalebox{1}{\input{\segpath/sum_stats_tbl_200.tex}}
+    \end{center}
+    \\
+  \footnotesize{\noindent \textit{Notes:} Standard deviations are in parentheses. The table shows average statistics at the enumeration block level for the analysis sample, separately for urban and rural areas. Semi-private goods (such as closed drains) are not measured in the SECC for rural areas. Consumption is measured in Indian Rupees per month. Sources: SECC (2012), Economic Census (2013).}
+  \end{table}
+
+  \clearpage
+  
+  \begin{table}[H]
+	  \caption{Sample Representativeness for Towns and Rural Subdistricts}
+    \label{tab:sample_rep}
+    \begin{center}
+		  \scalebox{0.9}{\input{\segpath/town_subd_repres.tex}}
+    \end{center}
+    \\
+  \footnotesize{\noindent \textit{Notes:} The table shows summary statistics at the town level (Columns 1-2) and subdistrict level (Columns 3-4) for key variables, comparing our sample (based on SECC 2012) and the all-India 2011 Population Census. The subdistrict data consists of the set of all villages in each subdistrict. Schools and health centers are measured per 100,000 people. Dissimilarity and isolation are weighted by the subdistrict/town marginalized group population. All other variables are unweighted. We do not show the SECC public infrastructure measures (e.g. electricity), because we do not observe these out of sample or in rural areas. Standard errors are in parentheses.}
+  \end{table}
+    
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% TABLE: Seg changes over time  %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \clearpage
+  
+  \begin{table}[htbp]
+    \caption{Changes in Urban Scheduled Caste Segregation Over Time}
+    \label{tab:seg_time}
+    \begin{center}
+      \input{\segpath/seg_time_01_11_pc01_secc.tex}
+    \end{center}
+    \footnotesize{\noindent \textit{Notes:} The table shows changes in SC segregation from 2001--11. Segregation in 2001 is measured using the town enumeration block tables from the Census District Handbooks (see Appendix B). Segregation in 2011 is measured using the 2012 SECC as described in the paper body.All samples are weighted by the SC town population in the given year; the changes are weighted by SC population 2001, and thus may not correspond to the exact difference between the 2001 and 2011 estimates displayed. The representation weights additionally weight towns by population, SC share, and literacy rate, to make the sample representative of the full set of cities and towns in India.}
+  \end{table}
+
+    \clearpage
+    
+    \begin{table}[H]
+  	  \caption{Correlates of Urban Segregation}
+      \label{tab:corr_regs}
+      \begin{center}
+            \begin{tabular}{c}
+  	      \scalebox{0.88}{\input{\segpath/seg_multivar_regs.tex}}
+            \end{tabular}
+      \end{center}
+        \end{table}
+    \footnotesize{\noindent \textit{Notes:} The table shows estimates from city-level regressions of urban segregation measures on a set of city characteristics. The sample size is limited by the covariates for upward mobility and the urban gini. The larger-sample regression with these measures excluded is in Appendix Table~\ref{tab:corr_regs_full_sample}.}
+
+  \clearpage
+  
+    \begin{table}[H]
+    \caption{Neighborhood-level Public Facilities \cnewline vs Marginalized Group Share}
+    \label{tab:pg_nbd}
+
+    \begin{adjustwidth}{-1cm}{}
+      \begin{center}
+        \begin{tabular}{c}
+          \panel{A. Urban Neighborhoods} \\
+	        \scalebox{1}{\input{\segpath/nbd_pg_share_urban_200.tex}} \\
+          \\
+          \panel{B. Rural Neighborhoods} \\
+	        \scalebox{1}{\input{\segpath/nbd_pg_share_rural_200.tex}} \\
+        \end{tabular}
+      \end{center}
+    \end{adjustwidth}
+    \\
+  \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of public facility presence on marginalized group share, for towns and rural subdistricts. Public facilities are measured either as an indicator for facility presence, or $log(employment + 1)$ in the given type of facility. All regressions control for log neighborhood population and are clustered at the town (Panel A) or subdistrict (Panel B) levels.}
+  \end{table}
+
+    \clearpage
+    
+  \begin{table}[H]
+    \caption{Neighborhood-level Private Facilities \cnewline vs. Marginalized Group Share}
+    \label{tab:privg_nbd}
+    
+    \begin{adjustwidth}{-1cm}{}
+      \begin{center}
+        \begin{tabular}{c}
+          \panel{A. Urban Neighborhoods} \\
+	        \scalebox{1}{\input{\segpath/nbd_privg_share_urban_200.tex}} \\
+          \\
+          \panel{B. Rural Neighborhoods} \\
+	        \scalebox{1}{\input{\segpath/nbd_privg_share_rural_200.tex}} \\
+        \end{tabular}
+      \end{center}
+    \end{adjustwidth}
+    \\
+  \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of \textit{private} facility presence on marginalized group share, for towns and rural subdistricts. Private facilities are measured either as an indicator for facility presence, or $log(employment + 1)$ in the given type of facility. All regressions control for log neighborhood population and are clustered at the town (Panel A) and subdistrict (Panel B) levels.}
+  \end{table}
+
+  \clearpage
+
+  \begin{table}[H]
+    \caption{Neighborhood-level Urban Infrastructure Services \cnewline vs Marginalized Group Share}
+    \label{tab:water_nbd}
+    \begin{center}
+	    \scalebox{1}{\input{\segpath/nbd_wash_mean_urban_200.tex}}
+    \end{center}
+    \\
+  \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of neighborhood-level infrastructure presence on marginalized group share. Results are only for cities; the given infrastructure is not measured in the rural data. Infrastructure is measured as the share of households in a neighborhood who have access to the service in question; in practice, this share is almost always very close to zero or one. All regressions control for log neighborhood population and are clustered at the town level.}
+  \end{table}
+
+  \clearpage
+  \newpage
+  
+  \appendix
+
+  %%%%%%%%%%%%%%%%%%%%%%
+  %% APPENDIX FIGURES %%
+  %%%%%%%%%%%%%%%%%%%%%%
+
+  \counterwithin{figure}{section}
+  \counterwithin{table}{section}
+  \section{Appendix: Additional Figures and Tables} \label{sec:app_a}
+
+  \begin{figure}[htbp]
+    \caption{Neighborhood Population Distributions}
+    \label{fig:pop_hist_group}
+    \begin{center}
+      \includegraphics[width=0.65\textwidth]{\segpath/block_pop_hist_200.pdf}
+    \end{center}
+  \end{figure}
+  \footnotesize{\noindent \textit{Notes:} The figure shows the
+    sample distribution of populations for neighborhoods in urban and rural areas used in our main results. Neighborhoods are excluded from the sample if they have fewer than 150 people or more than 1000.}
+
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Validation of Muslim Name Classification: \\ Subdistrict Muslim Share in SECC vs Population Census}
+    \label{fig:pc_secc_mus_comparision}
+    \includegraphics[width=0.9\textwidth]{\segpath/city_share_muslim_pc_classify_urban_nofe.pdf}
+  \end{figure}
+  \footnotesize{\noindent \textit{Notes:} The figure shows a binned scatterplot
+    of subdistrict-level Muslim shares using our classifier of SECC
+    names, plotted against the subdistrict Muslim share recorded in the 2011 Population Census.}
+
+  \clearpage
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% FIGURE 2: SEGREGATION MAPS %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{figure}[htbp]
+    \caption{Segregation Maps}
+    \label{fig:maps_dissim}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban (SC)} & \panel{B. Urban (Muslim)} \\
+        \includegraphics[width=0.50\textwidth]{\segpath/india_segregation_sc_urban.png}
+        & \includegraphics[width=0.50\textwidth]{\segpath/india_segregation_muslim_urban.png}
+        \\
+        \panel{C. Rural (SC)} & \panel{D. Rural (Muslim)} \\
+        \includegraphics[width=0.50\textwidth]{\segpath/india_segregation_sc_rural.png}
+        & \includegraphics[width=0.50\textwidth]{\segpath/india_segregation_muslim_rural.png}
+        \\
+      \end{tabular}
+    \end{center}
+  \end{figure}
+  \footnotesize{\noindent \textit{Notes:} The maps show the distribution of SC and Muslim segregation across rural and urban India. The town and subdistrict-level measures are aggregated to the district level for better visibility. For each district, the map shows the population-weighted mean of dissimilarity of locations in that district. Source: SECC 2012.}
+
+  \clearpage
+  \begin{figure}[htbp]
+    \caption{City-Level Bivariate Correlates of Segregation}
+    \label{fig:corr_scatters}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Log Consumption x Muslim Dissimilarity} & \panel{B. Log Consumption x SC Dissimilarity} \\
+        \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_muslim_ln_cons_pc.pdf}
+        & \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_sc_ln_cons_pc.pdf}
+        \\
+        \panel{C. Log City Population x Muslim Dissimilarity} & \panel{D. Log City Population x SC Dissimilarity} \\
+        \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_muslim_ln_city_pop.pdf}
+        & \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_sc_ln_city_pop.pdf}
+        \\
+        \panel{E. Upward Mobility (p25) x Muslim Dissimilarity} & \panel{F. Upward Mobility (p25) x SC Dissimilarity} \\
+        \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_muslim_p25.pdf}
+        & \includegraphics[width=0.48\textwidth]{\segpath/bin_dissim_sc_p25.pdf}
+        \\
+      \end{tabular}
+    \end{center}
+  \footnotesize{\noindent \textit{Notes:} Each panel shows the bivariate relationship between a segregation measure and a selected socioeconomic indicator at the city level. Upward mobility is the education percentile of a child born in the bottom half of the parent education distribution \citep{anr2022mob}. Additional covariates and can be viewed at \href{https://devdatalab.org/seg-correlates}{https://devdatalab.org/seg-correlates}, along with these same graphs using the isolation index.}
+  \end{figure}
+
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Disparities in Private Facilities as a \cnewline Function of Muslim Share}
+    \label{fig:pe_private_functions_muslim}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban Primary Schools} & \panel{B. Rural Primary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_muslim_primary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_muslim_primary_all.pdf} \\
+        
+        \panel{C. Urban Secondary Schools} & \panel{D. Rural Secondary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_muslim_secondary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_muslim_secondary_all.pdf} \\
+        
+        \panel{E. Urban Health Centers} & \panel{F. Rural Health Centers}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_muslim_hospital_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_muslim_hospital_all.pdf} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \clearpage
+  
+  \footnotesize{\noindent \textit{Notes:} The figure describes the cross-neighborhood relationship between a neighborhood's Muslim share and a neighborhood's access to private facilities: primary and secondary schools, and health centers. The dark gray box shows the coefficient of a regression of a private facility availability on the Muslim share. This is the national advantage or disadvantage in access to the given facility in Muslim neighborhoods. The boxes to the left decompose that average effect into the effect arising at the cross-state, cross-district, cross-town/village, and cross-block levels. The outcome is the number of facilities per 100,000 people. The mean of this variable in rural areas is 38 for primary schools, 10 for secondary, and 26 for health centers. In urban areas, the means are respectively 31, 19, and 71. Sources: Economic Census 2013, SECC 2012.}
+
+  \clearpage
+  
+  \begin{figure}[htbp]
+    \caption{Disparities in Private Facilities as a \cnewline Function of Neighborhood Scheduled Caste Share}
+    \label{fig:pe_private_functions_sc}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban Primary Schools} & \panel{B. Rural Primary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_sc_primary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_sc_primary_all.pdf} \\
+        
+        \panel{C. Urban Secondary Schools} & \panel{D. Rural Secondary Schools}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_sc_secondary_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_sc_secondary_all.pdf} \\
+        
+        \panel{E. Urban Health Centers} & \panel{F. Rural Health Centers}  \\
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_urban_sc_hospital_all.pdf} &
+        \includegraphics[width=0.53\textwidth]{\segpath/pe_priv_rural_sc_hospital_all.pdf} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \clearpage
+  
+  \footnotesize{\noindent \textit{Notes:} The figure describes the cross-neighborhood relationship between a neighborhood's SC share and a neighborhood's access to private facilities: primary and secondary schools, and health centers. The dark gray box shows the coefficient of a regression of private facility availability on the SC share. This is the national advantage or disadvantage in access to the given facility in SC neighborhoods. The boxes to the left decompose that average effect into the effect arising at the cross-state, cross-district, cross-town/village, and cross-block levels. The outcome is the number of facilities per 100,000 people. The mean of this variable in rural areas is 38 for primary schools, 10 for secondary, and 26 for health centers. In urban areas, the means are respectively 31, 19, and 71. Sources: Economic Census 2013, SECC 2012.}
+
+  \clearpage
+  
+  %%% APPENDIX TABLE: PUBLIC FACILITIES, WITH INTERSECTIONALITY COEFFICIENT %%%
+  \begin{figure}[htbp]
+    \caption{Neighborhood Disparities in Public Facilities: \cnewline Social Group Interactions}
+    \label{fig:pg_intersection}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. Urban Primary Schools (SC Share)} & \panel{B. Urban Primary Schools (Muslim Share)}  \\
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_prim_muslim_share} &
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_prim_sc_share} \\
+        
+        \panel{C. Urban Secondary Schools (SC Share)} & \panel{D. Urban Secondary Schools (Muslim Share)}  \\
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_sec_muslim_share} &
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_sec_sc_share} \\
+        
+        \panel{E. Urban Health Centers (SC Share)} & \panel{F. Urban Health Centers (Muslim Share)}  \\
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_hosp_muslim_share} &
+        \includegraphics[width=0.45\textwidth]{\segpath/pg_interaction_coefplot_hosp_sc_share} \\
+        
+      \end{tabular}
+    \end{center}
+  \end{figure}
+
+  \footnotesize{\noindent \textit{Notes:} The figure shows how estimates of one marginalized social group's neighborhood disadvantage change with the population share of the other marginalized social group. Each graph estimate shows the coefficient on the group share, split by the population share of the other group in 10 percentage point bins. We omit bins 9 and 10, since they leave too little variation in the first group share. For example, for Panel A, we estimate $\text{SEC}_{nc} = \beta_0 \sum_{i=1}^{10} \delta_i \mathbf{1}\{\text{MuslimBin}_{inc} = i\} + \sum_{i=1}^{10} \gamma_i \text{SCShare}_{inc} \cdot \mathbf{1}\{\text{MuslimBin}_{inc} = i\}$, where SEC is an indicator for secondary school presence in neighborhood $n$ and city $c$, and MuslimBin indicates the Muslim neighborhood population share. The estimates tell us whether the relationship between SC share and secondary school access is different in neighborhoods with many and few Muslims.}
+  
+  \clearpage
+
+\begin{landscape}
+  %%% APPENDIX FIGURE: PUBLIC SERVICES BY SEGREGATION QUARTILE %%%
+  \begin{figure}[htbp]
+    \caption{Neighborhood Disparities in Public Facilities: \cnewline By Quartile of Segregation}
+    \label{fig:pg_by_seg}
+    \begin{center}
+      \begin{tabular}{cc}
+        \panel{A. SC Service Disparity by SC Segregation} & \panel{B. Muslim Service Disparity by Muslim Segregation}  \\
+        \includegraphics[width=0.58\textwidth]{\segpath/quartiles_sc_dissim} &
+        \includegraphics[width=0.58\textwidth]{\segpath/quartiles_muslim_dissim} \\
+        
+      \end{tabular}
+    \end{center}
+
+  \footnotesize{\noindent \textit{Notes:} The figure shows estimates from a neighborhood-level regression of public service availability on the marginalized group share of the neighborhood, with town fixed effects. The regression is identical to those presented in Table~\ref{tab:pg_nbd}, but split by city dissimilarity quartile. For SC disparities (Panel A), we split on SC dissimilarity, and for Muslim disparities (Panel B), we split on Muslim dissimilarity. The coefficients are scaled by the mean value of the public service in question.}
+  \end{figure}
+\end{landscape}
+  
+\clearpage
+
+  %%%%%%%%%%%%%%%%%%%%%
+  %% APPENDIX TABLES %%
+  %%%%%%%%%%%%%%%%%%%%%
+
+  %%% APP TABLE: TOWN/SUBDISTRICT SUMMARY STATS, WITH ENTROPY WEIGHTED
+  \begin{table}[H]
+    \caption{Segregation Indices with Town Reweighting}
+    \label{tab:summary_reweight}
+    \begin{center}
+		  \input{\segpath/reweighted_means.tex}
+    \end{center}
+  \end{table}
+  \footnotesize{\noindent \textit{Notes:} The table shows dissimilarity and isolation indices where towns have been reweighted to match the full sample of towns. Column 1 shows the primary sample of the paper. Column 3 shows summary statistics from the complete set of towns in the 2011 Population Census. Column 2 shows our sample means   after entropy-weighting to rebalance our sample on these variables to match the Population Census. The dissimilarity and isolation indices are further weighted by the marginalized group's own population, as described in Section~\ref{sec:methods}.}
+
+  \clearpage
+  
+  %%% APP TABLE: SOURCES FOR INTERNATIONAL SEGREGATION ESTIMATES
+  \begin{sidewaystable}[p]
+    \caption{Sources for International Segregation Estimates}
+    \label{tab:src_seg_compare}
+    \begin{center}
+      \input{exhibits/src_seg_compare.tex}
+    \end{center}
+    \footnotesize{\noindent \textit{Notes:} The table shows the data sources and details for the international segregation estimates shown in Figure~\ref{fig:seg_compare}.}
+  \end{sidewaystable}
+  \nocite{logan2020,logan2022,cutler1999,valente2020,catney2023,andersen2015,benassi2020}
+
+  \clearpage
+
+
+  %%% APP TABLE 3: Multivariate regression of segregation on outcomes except mobility and cons_gini
+  \begin{table}[H]
+	  \caption{Multivariate Correlates of Urban Segregation}
+    \label{tab:corr_regs_full_sample}
+    \begin{center}
+          \begin{tabular}{c}
+	      \scalebox{0.88}{\input{\segpath/seg_multivar_regs_app1.tex}}
+          \end{tabular}
+    \end{center}
+    \footnotesize{\noindent \textit{Notes:} The table shows estimates from city-level regressions of urban segregation measures on a set of city characteristics. The regression is identical to that in Table~\ref{tab:corr_regs}, but upward mobility and the city Gini coefficient are excluded, to enable a larger sample.}
+      \end{table}
+
+  \clearpage
+
+  %%% APPENDIX TABLE: PUBLIC FACILITIES, SLUM CONTROL %%%
+  \begin{table}[H]
+		\begin{center}
+    \caption{Neighborhood-level Public Facilities vs. \cnewline Marginalized Group Share: Controlling/Excluding Slums}
+    \label{tab:pg_nbd_slum}
+		\scalebox{0.8}{\input{\segpath/nbd_pg_slum_200.tex}}
+    \end{center}
+    \\
+    \footnotesize{\noindent \textit{Notes:} The table shows results from a neighborhood-level regression of public facilities on the neighborhood marginalized group share, for towns, analogous to Table~\ref{tab:pg_nbd}. Columns 1--3 show results with a control for whether or not the neighborhood is in a slum. Columns 4--6 show results for the set of urban neighborhoods that are not classified as slums.}
+	\end{table}
+
+  \clearpage
+  
+%%% APPENDIX TABLE: PUBLIC FACILITIES, SLUM CONTROL %%%
+\begin{landscape}
+  \begin{table}[H]
+		\begin{center}
+    \caption{Neighborhood-level Public Services and Marginalized Group Shares: \cnewline Estimates Controlling for Neighborhood Consumption}
+    \label{tab:pg_ineq_w_controls}
+		\input{\segpath/pg_ineq_w_controls.tex}
+    \end{center}
+    \\
+    \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of urban public service availability on neighborhood marginalized group shares. Odd-numbered columns replicate results from Tables~\ref{tab:pg_nbd}A and \ref{tab:water_nbd}. Even-numbered columns show estimates from the same regression, with a control for average neighborhood per-capita consumption.}
+	\end{table}
+\end{landscape}
+
+\clearpage
+
+  \section{Appendix: Data Sources} \label{sec:app_b}
+
+  \subsection{Data Sources}
+  \label{sec:app_data}
+  \subsubsection{More Detail on SECC Collection and Use}
+  
+  The Socioeconomic and Caste Census (SECC) was a rapid poverty survey covering every household and individual in India. It collected a short list of assets, and demographic and education information. The data were made publicly available by the Government of India in fragmented form, spread across more than two million PDF files covering 825 million rural and 400 million urban individuals. The data were posted publicly to enable individuals to look up their entries and contest their content. The data were posted intermittently over a period of about two years, with each given file posted for several months at a time. We scraped the data as they were posted; our coverage is incomplete either because the server was down while some PDFs were posted, or some may not have been posted at all.
+
+  We developed a data extraction pipeline in Python to convert the PDF content into tables, and transliterated contents from regional languages and text into Latin characters and English words. We then matched each household record to 2011 Census urban and rural location codes using string cleaning and fuzzy name matching. The merge rate was high because the location names in the SECC were drawn directly from the Population Census. The enumeration block identifiers listed in each PDF match exactly to enumeration block identifiers in the 2013 Economic Census, enabling us to match neighborhood demographics to neighborhood public facilities.
+
+Consumption is not directly recorded in the SECC, so we generated small area estimates of household per capita consumption using the SECC asset list and IHDS-II (2011--12), following \citet{elbers2003}. Rural and urban consumption distributions were broadly similar to direct survey measures from the same period \citep{almn2019shrug}.
+
+\subsubsection{Classifying Muslim Names}
+
+The SECC surveyed individual caste and religion, but religion was not released in the public data.\footnote{Subcaste (also called jati) was also recorded but not released. The only caste identifiers are broad indicators for Scheduled Caste or Scheduled Tribe status.}  We therefore classify individuals as Muslims or non-Muslims using their first and last names, which were posted in the public data.
+
+We developed a bidirectional LSTM neural network to classify individual names (combined first and last) as either Muslim or non-Muslim \citep{ash2025}, using labeled training data obtained from the National Railway Exam (N = 1.4 million). The classifier outperformed a traditional fuzzy matching technique because it can effectively distinguish names with high string similarity, such as Khan (typically Muslim) vs. Khanna (typically non-Muslim).
+
+SECC names originated in many different scripts (e.g. Kannada, Assamese, Devanagiri, Gujarati); we transliterated these to Latin, and normalized formatting before applying the classifier. We found that the same approach was not sufficiently accurate to classify individuals as SC/non-SC, ST/non-ST, or into jati categories.
+
+We evaluated classifier performance with hold-out test sets, as well as on lists of names from SECC that were manually classified as characteristically Muslim or not by individuals with local knowledge. The Muslim classifier achieved 0.98 balanced accuracy and an F1 of 0.99, indicating extremely high reliability. This works well because Muslim names are very characteristic; caste names have more variation and cross categories more often. If the classifier predicted a Muslim probability between 0.35 and 0.65, we left the entry unlabeled; about 10\% of individuals were unclassifiable in this way. In most case, failure to classify was not because of the name, but because the scanned text in the SECC was unreadable.
+
+Our classification also closely predicts the subdistrict-level population share of Muslims (Appendix Figure~\ref{fig:pc_secc_mus_comparision}).\footnote{Note that the Population Census reports the Muslim share only down to the subdistrict level.} We pool Hindus with the 6\% of Indians who are Jain, Christian, Sikh, or some other non-Hindu religion; we describe this group as ``non-Muslims.''\footnote{The non-Hindu, non-Muslim groups are small and we do not yet have an algorithm that can accurately classify them on the basis of names.}
+
+\subsubsection{Additional Data Sources}
+
+Data on Hindu-Muslim violence is from \citet{varshney2006}. It describes all Hindu-Muslim riots recorded between 1950--95 in the Times of India, India's newspaper of record at the time. We assign a riot to a town if it is described as occurred in the town or in the district in which the town is contained. We find similar results when we restricted to riots resulting in significant numbers of casualties.
+
+U.S. segregation statistics were obtained from the Diversity and Disparities Project \citet{logan2020}. The project harmonizes long-form census samples and ACS data into tract-level files, and provides measures of dissimilarity and isolation indices calculated in standard formats over time. For details of the specific indices used, see Section~\ref{sec:app_seg_def}.
+
+Urban and rural inequality are both calculated from household-level SECC data. Rural land inequality is based on reported land (adding together irrigated, unirrigated, and other). In cities (where land ownership data is not available), we use the small area consumption estimates described above. The urban inequality measures clearly dramatically understate urban inequality as the small area estimates are effectively top-coded for the people in the sample who have every listed SECC asset, but it captures inequality amongst the bottom 90\%.
+
+Upward mobility is the expected education level of a child born to a father in the bottom half of the education distribution. Details on its calculation are found in \citet{anr2022mob}.
+
+City origin year is calculated from the Population Census, which lists city populations in every prior census going back to 1901. We define the origin year as the first year in which the city has a listed population over 5000 (the population threshold at which the Indian Census considers a location eligible for town status). Urban growth is calculated using population from the 1991 and 2011 Population Censuses.
+
+  \subsubsection{Calculating segregation in 2001 from Census District Handbooks}
+
+  The Indian Census publishes District Handbooks for every district, large ($\sim$ 500--1000 page) volumes with detailed information on district demographics. Most of the district handbooks contain a 20--100 page listing of the population and SC population of every enumeration block in every town in the district. These are PDF tables, making data extraction somewhat more difficult. We use a heuristic search in the district handbooks to identify pages with urban enumeration block lists, and then use Google Gemini Pro 2.5 to transform the relevant PDF pages into tabular CSV files. The LLM has a much higher accuracy rate than human coders (98\% accuracy against a double-entered series of pages), and (unlike human coders) is feasible to run on the complete set of handbook pages.
+
+  Our sample is contrained by the limited availability of 2001 District Handbooks in digital format. Out of 581 districts with at least one town with over 1000 people, we are able to obtain legible district handbooks covering 3540 towns and cities. After merging to the 2012 SECC and restricting to cities where the block-level data covered at least 50\% of the census population, we have a sample of 2095 towns covering 38.5\% of the national urban population for the time series.
+
+  The District Handbooks do not contain information on block-level Muslim populations. The enumeration block boundaries are not necessarily consistent between 2001 and 2011, but this is unlikely to be a source of error, as they were constructed with exactly the same goal of providing enumerators with a list of residences that they could visit in sequence in a day or half-day of work. As such, in both periods they are likely to represent buildings, city blocks, or compact neighborhoods. The population size distribution of enumeration blocks is very similar in the two periods.
+
+  District Handbooks with similar data were produced for the 1991 and 2011 Censuses, but at this time we do not have a large sample of digital files. 
+  
+  \subsection{Parameters for segregation indices}
+  \label{sec:app_seg_def}
+  We describe each factor and the approach we take. We focus most on the U.S. comparison, as the U.S. is by far the most studied country in terms of segregation.
+
+ \paragraph{Neighborhood size:} As the neighborhood grows larger, segregation measures fall mechanically.\footnote{To take an extreme example, if we defined a ``neighborhood'' as a single household, we would calculate a dissimilarity index close to 1, given the very high rates of caste and religious endogamy.} Neighborhood size is determined by the census, and thus cannot be selected by the researcher. U.S. census tracts range from 1000--8000, with target population of 4000. Given the mechanical relationship between unit size, we show neighborhood size in every comparison. When we benchmark our segregation measures against the United States (and at no other place in the paper), we aggregate enumeration blocks based on their numeric identifiers to form neighborhoods of at least 4000 people.\footnote{In the handful of cities where we have enumeration block maps or neighborhood names, we confirmed that enumeration blocks with adjoining numbers are almost always geographically adjacent. Aggregating to 4000-person units based on block number inevitably adds noise to the neighborhood definition, which is why we use the disaggregated neighborhoods for everything except the U.S. comparison. Note that the U.S. Census defines neighborhoods according to existing informal boundaries, which are more likely to divide racial groups, and thus overstates segregation relative to an approach with arbitrary geographic units.}
+
+ \paragraph{Weighting:} To construct national estimates, we weight city-level segregation by the marginalized population in each city, so that measures reflect the experience of the marginalized group. We weight SC segregation by SC population, and Muslim segregation by Muslim population. The literature is mixed on weighting and sometimes does not specify whether weights are used; where possible, we use weights for international comparisons.
+
+ \paragraph{Town sample:} In the U.S., large cities are more segregated. The sample city size threshold therefore mechanically affects national estimates. When comparing to the U.S., we use a similar city population threshold to achieve comparability. Otherwise we use the complete sample.
+
+ \paragraph{City boundaries:} If suburbs and exurbs have group-correlated settlement patterns, segregation will be affected by the city boundaries used. In India, we use cities plus their outgrowths as defined by the Population Census; in the U.S., we use Metropolitan Statistical Areas which are the most comparable unit.
+
+
+\end{document}

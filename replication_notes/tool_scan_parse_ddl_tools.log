@@ -1,0 +1,30 @@
+\Adding the following programs to tools.do:
+
+flag_outliers
+disp_nice
+estout_default
+quireg
+append_to_file
+winsorize
+ddrop
+capdrop
+town_name_clean
+fail
+estmod_footer
+group
+is_unique
+graphout
+tag
+append_est_to_file
+name_clean
+interaction_term
+pyfunc
+
+
+Adding the following ado files:
+
+reghdfe
+gcollapse
+estadd
+Creating tools/do/tools.do
+Copying ado files into ado folder

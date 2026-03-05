@@ -1,0 +1,15 @@
+tool_name,language,how_provided,location_or_install
+binscatter,stata,ssc,ssc install binscatter
+_gwtmean,stata,ssc,ssc install _gwtmean
+rangestat,stata,ssc,ssc install rangestat
+ebalance,stata,ssc,ssc install ebalance
+labutil (labmask),stata,ssc,ssc install labutil
+reghdfe,stata,ssc,ssc install reghdfe
+estout,stata,ssc,ssc install estout
+distinct,stata,ssc,ssc install distinct
+gtools (gcollapse),stata,ssc,ssc install gtools
+ftools,stata,ssc,ssc install ftools
+tools.do subset,stata,local_stata,REPO/tools/do/tools.do
+stata-tex,stata,local_stata,REPO/tools/stata-tex/
+masala-merge,stata,local_stata,REPO/tools/masala-merge/
+python scientific stack,python,system,conda env from REPO/environment.yml

@@ -1,0 +1,64 @@
+figure_id,figure_label,rel_path,master_path,out_fixed_path
+Figure 1,1,group_share_density_urban.pdf,/Users/f0018fb/iec/output/seg/group_share_density_urban.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/group_share_density_urban.pdf
+Figure 1,1,group_share_density_rural.pdf,/Users/f0018fb/iec/output/seg/group_share_density_rural.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/group_share_density_rural.pdf
+Figure 2,2,seg_compare_dissim.pdf,/Users/f0018fb/iec/output/seg/seg_compare_dissim.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/seg_compare_dissim.pdf
+Figure 2,2,seg_compare_iso.pdf,/Users/f0018fb/iec/output/seg/seg_compare_iso.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/seg_compare_iso.pdf
+Figure 3,3,bin_seg_muslim_urban_rural_corr_200.pdf,/Users/f0018fb/iec/output/seg/bin_seg_muslim_urban_rural_corr_200.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_seg_muslim_urban_rural_corr_200.pdf
+Figure 3,3,bin_seg_sc_urban_rural_corr_200.pdf,/Users/f0018fb/iec/output/seg/bin_seg_sc_urban_rural_corr_200.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_seg_sc_urban_rural_corr_200.pdf
+Figure 3,3,bin_iso_muslim_urban_rural_corr_200.pdf,/Users/f0018fb/iec/output/seg/bin_iso_muslim_urban_rural_corr_200.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_iso_muslim_urban_rural_corr_200.pdf
+Figure 3,3,bin_iso_sc_urban_rural_corr_200.pdf,/Users/f0018fb/iec/output/seg/bin_iso_sc_urban_rural_corr_200.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_iso_sc_urban_rural_corr_200.pdf
+Figure 4,4,coefplot_std_joint.pdf,/Users/f0018fb/iec/output/seg/coefplot_std_joint.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/coefplot_std_joint.pdf
+Figure 5,5,block_secondary_by_mus_dum_cfe_urban_200_pub.pdf,/Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_urban_200_pub.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_urban_200_pub.pdf
+Figure 5,5,block_secondary_by_sc_dum_cfe_urban_200_pub.pdf,/Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_urban_200_pub.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_urban_200_pub.pdf
+Figure 5,5,block_secondary_by_mus_dum_cfe_rural_200_pub.pdf,/Users/f0018fb/iec/output/seg/block_secondary_by_mus_dum_cfe_rural_200_pub.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_mus_dum_cfe_rural_200_pub.pdf
+Figure 5,5,block_secondary_by_sc_dum_cfe_rural_200_pub.pdf,/Users/f0018fb/iec/output/seg/block_secondary_by_sc_dum_cfe_rural_200_pub.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_secondary_by_sc_dum_cfe_rural_200_pub.pdf
+Figure 6,6,pe_pub_urban_muslim_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_muslim_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_muslim_primary_all.pdf
+Figure 6,6,pe_pub_rural_muslim_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_muslim_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_muslim_primary_all.pdf
+Figure 6,6,pe_pub_urban_muslim_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_muslim_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_muslim_secondary_all.pdf
+Figure 6,6,pe_pub_rural_muslim_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_muslim_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_muslim_secondary_all.pdf
+Figure 6,6,pe_pub_urban_muslim_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_muslim_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_muslim_hospital_all.pdf
+Figure 6,6,pe_pub_rural_muslim_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_muslim_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_muslim_hospital_all.pdf
+Figure 7,7,pe_pub_urban_sc_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_sc_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_sc_primary_all.pdf
+Figure 7,7,pe_pub_rural_sc_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_sc_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_sc_primary_all.pdf
+Figure 7,7,pe_pub_urban_sc_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_sc_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_sc_secondary_all.pdf
+Figure 7,7,pe_pub_rural_sc_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_sc_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_sc_secondary_all.pdf
+Figure 7,7,pe_pub_urban_sc_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_urban_sc_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_urban_sc_hospital_all.pdf
+Figure 7,7,pe_pub_rural_sc_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_pub_rural_sc_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_pub_rural_sc_hospital_all.pdf
+Figure 8,8,pe_urban_muslim_light_source_elec_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_muslim_light_source_elec_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_muslim_light_source_elec_all.pdf
+Figure 8,8,pe_urban_sc_light_source_elec_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_sc_light_source_elec_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_sc_light_source_elec_all.pdf
+Figure 8,8,pe_urban_muslim_wat_source_home_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_muslim_wat_source_home_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_muslim_wat_source_home_all.pdf
+Figure 8,8,pe_urban_sc_wat_source_home_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_sc_wat_source_home_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_sc_wat_source_home_all.pdf
+Figure 8,8,pe_urban_muslim_closed_drain_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_muslim_closed_drain_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_muslim_closed_drain_all.pdf
+Figure 8,8,pe_urban_sc_closed_drain_all.pdf,/Users/f0018fb/iec/output/seg/pe_urban_sc_closed_drain_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_urban_sc_closed_drain_all.pdf
+Appendix Figure A.1,A1,block_pop_hist_200.pdf,/Users/f0018fb/iec/output/seg/block_pop_hist_200.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/block_pop_hist_200.pdf
+Appendix Figure A.2,A2,city_share_muslim_pc_classify_urban_nofe.pdf,/Users/f0018fb/iec/output/seg/city_share_muslim_pc_classify_urban_nofe.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/city_share_muslim_pc_classify_urban_nofe.pdf
+Appendix Figure A.3,A3,india_segregation_sc_urban.png,/Users/f0018fb/iec/output/seg/india_segregation_sc_urban.png,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/india_segregation_sc_urban.png
+Appendix Figure A.3,A3,india_segregation_muslim_urban.png,/Users/f0018fb/iec/output/seg/india_segregation_muslim_urban.png,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/india_segregation_muslim_urban.png
+Appendix Figure A.3,A3,india_segregation_sc_rural.png,/Users/f0018fb/iec/output/seg/india_segregation_sc_rural.png,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/india_segregation_sc_rural.png
+Appendix Figure A.3,A3,india_segregation_muslim_rural.png,/Users/f0018fb/iec/output/seg/india_segregation_muslim_rural.png,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/india_segregation_muslim_rural.png
+Appendix Figure A.4,A4,bin_dissim_muslim_ln_cons_pc.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_muslim_ln_cons_pc.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_muslim_ln_cons_pc.pdf
+Appendix Figure A.4,A4,bin_dissim_sc_ln_cons_pc.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_sc_ln_cons_pc.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_sc_ln_cons_pc.pdf
+Appendix Figure A.4,A4,bin_dissim_muslim_ln_city_pop.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_muslim_ln_city_pop.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_muslim_ln_city_pop.pdf
+Appendix Figure A.4,A4,bin_dissim_sc_ln_city_pop.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_sc_ln_city_pop.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_sc_ln_city_pop.pdf
+Appendix Figure A.4,A4,bin_dissim_muslim_p25.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_muslim_p25.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_muslim_p25.pdf
+Appendix Figure A.4,A4,bin_dissim_sc_p25.pdf,/Users/f0018fb/iec/output/seg/bin_dissim_sc_p25.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/bin_dissim_sc_p25.pdf
+Appendix Figure A.5,A5,pe_priv_urban_muslim_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_muslim_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_muslim_primary_all.pdf
+Appendix Figure A.5,A5,pe_priv_rural_muslim_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_muslim_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_muslim_primary_all.pdf
+Appendix Figure A.5,A5,pe_priv_urban_muslim_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_muslim_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_muslim_secondary_all.pdf
+Appendix Figure A.5,A5,pe_priv_rural_muslim_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_muslim_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_muslim_secondary_all.pdf
+Appendix Figure A.5,A5,pe_priv_urban_muslim_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_muslim_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_muslim_hospital_all.pdf
+Appendix Figure A.5,A5,pe_priv_rural_muslim_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_muslim_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_muslim_hospital_all.pdf
+Appendix Figure A.6,A6,pe_priv_urban_sc_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_sc_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_sc_primary_all.pdf
+Appendix Figure A.6,A6,pe_priv_rural_sc_primary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_sc_primary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_sc_primary_all.pdf
+Appendix Figure A.6,A6,pe_priv_urban_sc_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_sc_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_sc_secondary_all.pdf
+Appendix Figure A.6,A6,pe_priv_rural_sc_secondary_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_sc_secondary_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_sc_secondary_all.pdf
+Appendix Figure A.6,A6,pe_priv_urban_sc_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_urban_sc_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_urban_sc_hospital_all.pdf
+Appendix Figure A.6,A6,pe_priv_rural_sc_hospital_all.pdf,/Users/f0018fb/iec/output/seg/pe_priv_rural_sc_hospital_all.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pe_priv_rural_sc_hospital_all.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_prim_muslim_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_prim_muslim_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_prim_muslim_share.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_prim_sc_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_prim_sc_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_prim_sc_share.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_sec_muslim_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_sec_muslim_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_sec_muslim_share.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_sec_sc_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_sec_sc_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_sec_sc_share.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_hosp_muslim_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_hosp_muslim_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_hosp_muslim_share.pdf
+Appendix Figure A.7,A7,pg_interaction_coefplot_hosp_sc_share.pdf,/Users/f0018fb/iec/output/seg/pg_interaction_coefplot_hosp_sc_share.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/pg_interaction_coefplot_hosp_sc_share.pdf
+Appendix Figure A.8,A8,quartiles_sc_dissim.pdf,/Users/f0018fb/iec/output/seg/quartiles_sc_dissim.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/quartiles_sc_dissim.pdf
+Appendix Figure A.8,A8,quartiles_muslim_dissim.pdf,/Users/f0018fb/iec/output/seg/quartiles_muslim_dissim.pdf,/Users/f0018fb/Dropbox/tmp/segdata/out-fixed/quartiles_muslim_dissim.pdf

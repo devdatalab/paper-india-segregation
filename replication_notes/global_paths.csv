@@ -1,0 +1,16 @@
+alias,src_root,target_root,description,set_in
+scode,~/ddl/segregation,REPO/,project code root,make_seg_rebuild.do;set_paths.do;set_paths.py;.env
+sc,$scode,REPO/,legacy code-root alias,set_paths.do
+sdata,~/Dropbox/tmp/segdata/,DATA_ROOT/,project data root for replication,make_seg_rebuild.do;set_paths.py;.env
+tools,$scode/tools,TOOLS/,project-local tools root,set_paths.do;set_paths.py
+raw,$sdata/raw,RAW/,replication raw-data root,set_paths.do;set_paths.py
+seg,$raw,RAW/,legacy raw root alias used by active scripts,set_paths.do
+shrug,$raw/shrug,RAW/shrug/,shrug datasets and keys,set_paths.do;set_paths.py
+mobility,$raw/mobility,RAW/mobility/,mobility datasets used as raw inputs,set_paths.do;set_paths.py
+pc11,$raw/pc11,RAW/pc11/,pc11 datasets used as raw inputs,set_paths.do;set_paths.py
+pc01,$raw/pc01,RAW/pc01/,pc01 datasets used as raw inputs,set_paths.do;set_paths.py
+tmp,$sdata/tmp,TMP/,intermediate outputs safe to delete,set_paths.do;set_paths.py
+out,$sdata/out,OUT/,generated figures and tex tables from replication run,set_paths.do;set_paths.py
+tex,$scode/tex,TEX/,latex source root,set_paths.do
+exhibits,$tex/exhibits,TEX/exhibits/,manual exhibits included directly in tex repo,set_paths.do
+ado,$scode/ado,ADO/,stata ado dependencies copied into replication repo,set_paths.do
