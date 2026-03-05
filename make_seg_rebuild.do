@@ -9,8 +9,14 @@ ssc install distinct, replace
 /**********************/
 /* Initialize Paths   */
 /**********************/
+
+/* Set scode to the base repo path (where this file lives) */
 global scode "~/ddl/segregation"
+
+/* Set base to the replication data folder */
 global base "~/Dropbox/tmp/segdata/"
+
+/* Set python to your python executable. (Activate conda and run `which python` to find it) */
 global python "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python"
 
 /****************************/
@@ -18,22 +24,20 @@ global python "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/pytho
 /****************************/
 local scode_probe "$scode/set_paths.do"
 if !fileexists("`scode_probe'") {
-  di as error "Path validation failed for global scode."
+  di as error "Repo code not found in scode. Fix scode global."
   di as error "Expected file not found: `scode_probe'"
   exit 601
 }
 
 local base_probe "$base/raw/clean/secc_urban_collapsed.dta"
 if !fileexists("`base_probe'") {
-  di as error "Path validation failed for global base (or missing raw extraction)."
-  di as error "Expected raw file not found: `base_probe'"
+  di as error "Expected raw data file not found: `base_probe'"
   di as error "Ensure global base points to the data root containing raw/, tmp/, and out/."
   exit 601
 }
 
 local python_probe "$python"
 if !fileexists("`python_probe'") {
-  di as error "Path validation failed for global python."
   di as error "Expected python executable not found: `python_probe'"
   exit 601
 }
