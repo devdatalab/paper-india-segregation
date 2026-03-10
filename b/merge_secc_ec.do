@@ -2,9 +2,9 @@
 /* AI SUMMARY                                                          */
 /* INPUTS:                                                             */
 /*   - $raw/clean/secc_[rural/urban]_collapsed[_block].dta            */
-/*   - $sdata/ec13_[rural/urban]_[city/block].dta                       */
+/*   - $raw/clean/ec13_[rural/urban]_[city/block].dta                 */
 /* OUTPUTS:                                                            */
-/*   - $sdata/secc_ec_[city/block]data_[rural/urban].dta                */
+/*   - $tmp/secc/secc_ec_[city/block]data_[rural/urban].dta           */
 /* GOAL:                                                               */
 /*   Merge SECC and EC data at city and block level.                    */
 /*                                                                     */
@@ -15,11 +15,11 @@
 /* Input:                                                              */
 /* 1. $raw/clean/secc_[rural/urban]_collapsed[_block] : SECC Block    */
 /*    Data collapsed at Block or upper(subdistrict or shrid) level      */
-/* 2. $sdata/ec13_[rural/urban]_[city/block] : Collapsed EC13 data at   */
+/* 2. $raw/clean/ec13_[rural/urban]_[city/block] : Collapsed EC13 data at */
 /*    Block or upper(subdistrict or shrid) level                        */
 /*                                                                     */
 /* Output:                                                             */
-/* 1. $sdata/secc_ec_[city/block]data_[rural/urban]                     */
+/* 1. $tmp/secc/secc_ec_[city/block]data_[rural/urban]                  */
 /***********************************************************************/
 
 

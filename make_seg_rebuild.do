@@ -7,6 +7,9 @@ ssc install labutil, replace
 ssc install distinct, replace
 ssc install gtools, replace
 ssc install savesome, replace
+ssc install reghdfe, replace
+ssc install estout, replace
+ssc install ftools, replace
 
 /**********************/
 /* Initialize Paths   */

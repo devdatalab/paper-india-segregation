@@ -2,10 +2,10 @@
 /* AI SUMMARY                                                          */
 /* INPUTS:                                                             */
 /*   - $raw/clean/secc_`loc'_collapsed_block.dta                      */
-/*   - $sdata/secc_ec_blockdata_`loc'.dta                               */
+/*   - $tmp/secc/secc_ec_blockdata_`loc'.dta                          */
 /*   - $shrug/keys/shrug_pc11`l'_key.dta                                */
 /* OUTPUTS:                                                            */
-/*   - $sdata/secc_ec_blockdata_`loc'_pooled_`bgroup'.dta               */
+/*   - $tmp/secc/secc_ec_blockdata_`loc'_pooled_`bgroup'.dta          */
 /* SUBCALLS:                                                           */
 /*   - seg_programs.do                                                  */
 /* GOAL:                                                               */
