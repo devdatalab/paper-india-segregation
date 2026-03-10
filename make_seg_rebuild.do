@@ -5,8 +5,6 @@ ssc install rangestat, replace
 ssc install ebalance, replace
 ssc install labutil, replace
 ssc install distinct, replace
-ssc install gtools, replace
-ssc install savesome, replace
 
 /**********************/
 /* Initialize Paths   */
