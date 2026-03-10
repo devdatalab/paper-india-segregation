@@ -3,8 +3,9 @@
 /* INPUTS:                                                             */
 /*   - $tmp/secc/segregation_`geo'data_`loc'_`bgroup'.dta               */
 /* OUTPUTS:                                                            */
-/*   - $tmp/secc/segregation_blockdata_`loc'_`bgroup'.dta             */
-/*   - $tmp/secc/segregation_citydata_`loc'_`bgroup'.dta              */
+/*   - $tmp/secc/segregation_blockdata_`loc'_`bgroup'.dta            */
+/*   - $tmp/secc/segregation_citydata_`loc'_`bgroup'.dta             */
+/*   - $raw/clean/segregation_villagedata_rural.dta                   */
 /* GOAL:                                                               */
 /*   Apply variable labels to block and city segregation datasets.      */
 /*                                                                     */

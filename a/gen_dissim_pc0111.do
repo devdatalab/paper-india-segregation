@@ -7,12 +7,12 @@
 /*   - $raw/clean/handbooks/pc11_pdf_shrid_key.dta                    */
 /*   - $tmp/secc/segregation_citydata_urban_200.dta                  */
 /* OUTPUTS:                                                            */
-/*   - $tmp/handbooks/pc01_pdf_shrid_dissim.dta                       */
-/*   - $tmp/handbooks/pc11_pdf_shrid_dissim.dta                       */
-/*   - $tmp/seg_pc0111.dta                                            */
-/*   - $tmp/segregation_pc0111.dta                                    */
-/*   - $tmp/a/tables/seg_time.csv                                     */
-/*   - $out/seg_time.tex                                              */
+/*   - $raw/clean/handbooks/pc01_pdf_shrid_dissim.dta                 */
+/*   - $raw/clean/handbooks/pc11_pdf_shrid_dissim.dta                 */
+/*   - $raw/clean/segregation_pc0111.dta                              */
+/*   - $tmp/seg_pc0111.dta                                              */
+/*   - $tmp/a/tables/seg_time.csv                                       */
+/*   - $out/seg_time.tex                                                */
 /* GOAL:                                                               */
 /*   Compute PC01/PC11 dissimilarity series and compare to SECC.        */
 /*                                                                     */

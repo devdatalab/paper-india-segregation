@@ -4,7 +4,7 @@
 /* set this to 1 to skip binscatters and go faster */
 global skip_bins 0
 
-use $tmp/seg_correlates, clear
+use $tmp/seg_correlates, replace
 
 /* variable list for binscatters (just make all of the bivariates!) */
 global vlist ln_cons_pc city_pop_pc11 ln_city_pop ln_growth log_area_pc11 city_origin_year muslim_pop_share sc_pop_share muslim_job_share sc_job_share ed_yrs ed_yrs_muslim ed_yrs_sc muslim_ed_gap sc_ed_gap p25 cons_pc cons_pc_sc cons_pc_muslim muslim_ln_cons_gap sc_ln_cons_gap slum event_count religious_event_count non_rel_event_count town_cons_gini rural_land_gini rural_cons_gini 
