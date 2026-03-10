@@ -10,6 +10,7 @@ ssc install savesome, replace
 ssc install reghdfe, replace
 ssc install estout, replace
 ssc install ftools, replace
+ssc install require, replace
 
 /**********************/
 /* Initialize Paths   */
