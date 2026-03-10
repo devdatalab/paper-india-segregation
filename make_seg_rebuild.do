@@ -16,14 +16,14 @@ ssc install require, replace
 /* Initialize Paths   */
 /**********************/
 
-/* Set scode to the base repo path (where this file lives) unless already provided */
-if mi("$scode") global scode "~/ddl/segregation"
+/* Set scode to the base repo path (where this file lives) */
+global scode "~/ddl/segregation"
 
-/* Set base to the replication data folder unless already provided */
-if mi("$base") global base "~/Dropbox/tmp/segdata/"
+/* Set base to the replication data folder */
+global base "~/Dropbox/tmp/segdata/"
 
-/* Set python to your python executable unless already provided */
-if mi("$python") global python "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python"
+/* Set python to your python executable. (Activate conda and run `which python` to find it) */
+global python "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python"
 
 /****************************/
 /* Validate root globals    */
