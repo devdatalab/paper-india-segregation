@@ -582,13 +582,13 @@ qui foreach pg in primary secondary hospital  {
       /* Run Regressions with different fixed effects and save the differentials */
       /***************************************************************************/
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id pc11_district_id pc11_subdistrict_id pc11_town_id)
-      local b_fe_town = _b["`demo'_share"]
+      local b_fe_town = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id pc11_district_id)
-      local b_fe_dist = _b["`demo'_share"]
+      local b_fe_dist = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id)
-      local b_fe_state = _b["`demo'_share"]
+      local b_fe_state = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop]
-      local b_fe_none = _b["`demo'_share"]
+      local b_fe_none = r(b)
       
       /* calculate the alphas from the betas */
       local a_town  : di %5.1f `b_fe_town'
@@ -653,15 +653,15 @@ qui foreach pg in primary secondary hospital {
       gen_pcaps
       
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id pc11_district_id pc11_subdistrict_id pc11_village_id)
-      local b_fe_village = _b["`demo'_share"]
+      local b_fe_village = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id pc11_district_id pc11_subdistrict_id)
-      local b_fe_subd = _b["`demo'_share"]
+      local b_fe_subd = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id pc11_district_id)
-      local b_fe_dist = _b["`demo'_share"]
+      local b_fe_dist = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop], absorb(pc11_state_id)
-      local b_fe_state = _b["`demo'_share"]
+      local b_fe_state = r(b)
       quireg `pg'_dum_`pubpriv'_pcap `demo'_share [aw=block_pop]
-      local b_fe_none = _b["`demo'_share"]
+      local b_fe_none = r(b)
       
       /* calculate the alphas from the betas */
       local a_village  : di %5.1f `b_fe_village'
