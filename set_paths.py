@@ -3,8 +3,9 @@ Canonical Python path aliases for the segregation project.
 
 Contract:
 - PYTHONPATH must include SCODE so scripts can import `set_paths`.
-- A `.env` file must exist at REPO/.env and define SCODE and SDATA.
-- All derived paths are rooted in SCODE or SDATA.
+- Runtime env vars from the Stata caller take precedence.
+- `.env` is a fallback for local interactive use and should define SCODE and SDATA.
+- All derived paths are rooted in SCODE, SDATA, TMP, or OUT.
 """
 
 from __future__ import annotations
@@ -13,11 +14,6 @@ import os
 from pathlib import Path
 
 ENV_FILE = Path(__file__).with_name(".env")
-if not ENV_FILE.exists():
-    raise FileNotFoundError(
-        f"Missing required env file: {ENV_FILE}. "
-        "Create REPO/.env with SCODE and SDATA."
-    )
 
 
 def _load_env_file(env_file: Path) -> None:
@@ -32,7 +28,8 @@ def _load_env_file(env_file: Path) -> None:
             os.environ[key] = value
 
 
-_load_env_file(ENV_FILE)
+if ENV_FILE.exists():
+    _load_env_file(ENV_FILE)
 
 
 def _required_path(var_name: str) -> Path:
@@ -42,6 +39,13 @@ def _required_path(var_name: str) -> Path:
             f"Missing required environment variable: {var_name}. "
             "Set it in REPO/.env."
         )
+    return Path(value).expanduser()
+
+
+def _optional_path(var_name: str) -> Path | None:
+    value = os.getenv(var_name)
+    if not value:
+        return None
     return Path(value).expanduser()
 
 
@@ -57,8 +61,8 @@ PC11 = RAW / "pc11"
 PC01 = RAW / "pc01"
 
 # Runtime/output roots
-TMP = SDATA / "tmp"
-OUT = SDATA / "out"
+TMP = _optional_path("TMP") or (SDATA / "tmp")
+OUT = _optional_path("OUT") or (SDATA / "out")
 
 # Code/tool roots
 TOOLS = SCODE / "tools"

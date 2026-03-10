@@ -82,5 +82,5 @@ foreach pg in prim sec hosp water elec drain {
 }
 cat $f
 
-shell PYTHONPATH=$scode $python $scode/a/pg_intersection.py
+shell SCODE="$scode" SDATA="$base" TMP="$tmp" OUT="$out" PYTHONPATH="$scode" "$python" "$scode/a/pg_intersection.py"
 check_file_update_status "$out/pg_interaction_coefplot_drain_sc_share.pdf"
