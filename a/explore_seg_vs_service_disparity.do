@@ -164,5 +164,5 @@ foreach group in muslim sc {
 save $tmp/pg_by_seg, replace
 
 /* generate the coefplot in python */
-shell PYTHONPATH=$scode $python $scode/a/graph_seg_vs_pg.py
+shell SCODE="$scode" SDATA="$base" TMP="$tmp" OUT="$out" RAW="$raw" PYTHONPATH="$scode" "$python" "$scode/a/graph_seg_vs_pg.py"
 check_file_update_status "$out/quartiles_muslim_iso.pdf"
