@@ -871,15 +871,7 @@ end
       }
     }
     local n = `e(N)'
-    cap local b = _b[`xvar']
-    if _rc {
-      di %`s's "`title' `xvar': omitted or not estimated (n=" %6.0f `n' ")"
-      return scalar b = .
-      return scalar se = .
-      return scalar n = `n'
-      return scalar p = .
-      exit
-    }
+    local b = _b[`xvar']
     local se = _se[`xvar']
 
     quietly test `xvar' = 0
@@ -894,10 +886,10 @@ end
       local star = "***"
     }
     di %`s's "`title' `xvar': " %10.5f `b' " (" %10.5f `se' ")  (p=" %5.2f r(p) ") (n=" %6.0f `n' ")`star'"
-    return scalar b = `b'
-    return scalar se = `se'
-    return scalar n = `n'
-    return scalar p = r(p)
+    return local b = `b'
+    return local se = `se'
+    return local n = `n'
+    return local p = r(p)
   }
   end
   /* *********** END program quireg **********************************************************************************************/
