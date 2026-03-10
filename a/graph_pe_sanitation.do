@@ -240,13 +240,13 @@ foreach pg in closed_drain wat_source_home light_source_elec   {
     gen_pcaps
     
     quireg `pg' `demo'_share [aw=block_pop] if slum == 0, absorb(pc11_state_id pc11_district_id pc11_subdistrict_id pc11_town_id)
-    local b_fe_town = _b["`demo'_share"]
+    local b_fe_town = r(b)
     quireg `pg' `demo'_share [aw=block_pop] if slum == 0, absorb(pc11_state_id pc11_district_id)
-    local b_fe_dist = _b["`demo'_share"]
+    local b_fe_dist = r(b)
     quireg `pg' `demo'_share [aw=block_pop] if slum == 0, absorb(pc11_state_id)
-    local b_fe_state = _b["`demo'_share"]
+    local b_fe_state = r(b)
     quireg `pg' `demo'_share [aw=block_pop] if slum == 0
-    local b_fe_none = _b["`demo'_share"]
+    local b_fe_none = r(b)
     
     /* calculate the alphas from the betas */
     local a_town  : di %6.3f `b_fe_town'
