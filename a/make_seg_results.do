@@ -23,7 +23,7 @@ if ($fast == 0) {
   /* make sure python environment is set to py_spatial before this is run */
   /* this can randomly throw tex errors, in which case restart the emacs sessions and try again */
   /* currently excluded from replication runtime */
-  shell SCODE="$scode" SDATA="$base" TMP="$tmp" OUT="$out" RAW="$raw" PYTHONPATH="$scode" "$python" "$scode/a/seg_maps.py"
+  shell PYTHONPATH=$scode $python $scode/a/seg_maps.py
   // billy write $out/india_segregation_sc_urban.png
   // billy write $out/india_segregation_sc_rural.png
   // billy write $out/india_segregation_muslim_urban.png

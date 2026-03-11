@@ -207,7 +207,7 @@ export delimited using $f, replace
 
 /* ---------------------------- cell ---------------------------- */
 /* CELL: COEFPLOTS OF ESTIMATES */
-shell SCODE="$scode" SDATA="$base" TMP="$tmp" OUT="$out" RAW="$raw" PYTHONPATH="$scode" "$python" "$scode/a/correlate_coefplots.py"
+shell PYTHONPATH=$scode $python $scode/a/correlate_coefplots.py
 check_file_update_status "$out/coefplot_std_bivar.pdf"
 
 
