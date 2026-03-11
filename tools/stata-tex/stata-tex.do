@@ -99,21 +99,16 @@ prog def table_from_tpl
   else {
       local v
   }
-  
-  
-  /* prefer an explicit path, then the repo tools root, then current folder */
-  if !mi("$STATATEX_PATH") {
-      local path $STATATEX_PATH
-  }
-  else if !mi("$tools") {
-      local path $tools/stata-tex
+  /* if python path is not set, use current folder */
+  if mi("$STATATEX_PATH") {
+      local path .
   }
   else {
-      local path .
+      local path $STATATEX_PATH
   }
 
   /* check for deprecated path definition */
-  if mi("$STATATEX_PATH") & mi("$tools") & !mi("$PYTHONPATH") {
+  if mi("$STATATEX_PATH") & !mi("$PYTHONPATH") {
       display as error "ERROR: global \$STATATEX_PATH not set, but \$PYTHONPATH is. \$PYTHONPATH is deprecated; please define \$STATATEX_PATH instead"
       error -1
   }
@@ -121,7 +116,7 @@ prog def table_from_tpl
   /* check python file existence */
   cap confirm file `path'/table_from_tpl.py
   if _rc {
-      display as error "ERROR: table_from_tpl.py not found. Put it in the current folder, \$tools/stata-tex, or the folder defined by global \$STATATEX_PATH"
+      display as error "ERROR: table_from_tpl.py not found. Put in current folder or folder defined by global \$STATATEX_PATH"
       error -1
   }
 

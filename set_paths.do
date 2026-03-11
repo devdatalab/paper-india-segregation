@@ -13,6 +13,7 @@ global sdata "$base/raw"
 /* code root aliases */
 global sc "$scode"
 global tools "$scode/tools"
+global STATATEX_PATH "$tools/stata-tex"
 global tmp "$base/tmp"
 global out "$base/out"
 global tex "$scode/tex"
