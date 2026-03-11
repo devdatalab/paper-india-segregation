@@ -48,6 +48,15 @@ if !fileexists("`python_probe'") {
   exit 601
 }
 
+/****************************/
+/* Sync Python Root Paths   */
+/****************************/
+cap file close envfh
+file open envfh using "$scode/.env", write replace
+file write envfh "SCODE=$scode" _n
+file write envfh "SDATA=$base" _n
+file close envfh
+
 do "$scode/set_paths.do"
 do "$tools/stata-tex/stata-tex.do"
 do "$tools/do/tools.do"
