@@ -613,8 +613,6 @@ qui foreach pg in primary secondary hospital  {
       /* make the graph */
       /******************/
       graph_pe_function, demo(`demo') pg(`pg') loc(urban) pubpriv(`pubpriv') fast
-      // billy write $out/pe_priv_urban_`demo'_`pg'_all.pdf
-      // billy write $out/pe_own1_urban_`demo'_`pg'_all.pdf      
       
     }
   }
@@ -688,8 +686,6 @@ qui foreach pg in primary secondary hospital {
       /* make the graph */
       /******************/
       graph_pe_function, demo(`demo') pg(`pg') loc(rural) pubpriv(`pubpriv') fast
-      // billy write $out/pe_priv_rural_`demo'_`pg'_all.pdf
-      // billy write $out/pe_own1_rural_`demo'_`pg'_all.pdf      
 
     }
   }

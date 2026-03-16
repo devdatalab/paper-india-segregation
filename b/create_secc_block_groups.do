@@ -50,7 +50,7 @@ else {
 /* create all the aggregated neighborhoods */
 foreach group_min in $group_min_list {
 	foreach loc in rural urban {
-    // billy write $tmp/secc/secc_ec_blockdata_`loc'_pooled_`group_min'
+
     local fp_out $tmp/secc/secc_ec_blockdata_`loc'_pooled_`group_min'
     create_block_groups, bgroup(`group_min') sector(`loc') outfile(`fp_out')
   }

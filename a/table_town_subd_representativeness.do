@@ -135,8 +135,6 @@ save $tmp/shrug_rural_seg_key, replace
 
 /* merge rural data to subdistrict key */
 use $tmp/secc/segregation_citydata_rural_200, clear
-
-/* kj: get these back from subdistrict at a later point */
 drop if pc11_subdistrict_id == ""
 merge 1:1 pc11_state_id pc11_district_id pc11_subdistrict_id using $tmp/shrug_rural_seg_key, gen(m2)
 

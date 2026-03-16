@@ -26,7 +26,7 @@
 /* 4. Merge 2011 shrid dissimilarity with SECC shrid dissimilarity     */
 /*    (to check how correlated it is)                                 */
 /*                                                                     */
-/* Note: Since the District handbooks only have, total, sc and st       */
+/* Note: Since the District handbooks only have total, sc and st       */
 /* population, we can get the sc dissimilarity but not the muslim       */
 /* dissimilarity                                                      */
 /***********************************************************************/
@@ -382,11 +382,11 @@ foreach seg in dissim iso {
     local pc11_`seg'_`s'_wtd : di %5.3f `r(mean)'    
     insert_into_file using $tmp/a/tables/seg_time.csv, key(pc11_`seg'_`s'_wtd) val(`pc11_`seg'_`s'_wtd') format(%5.3f)
 
-    /* save diferences: no weights */
+    /* save differences: no weights */
     local diff_`seg'_`s'_uwtd: di %5.3f (`pc11_`seg'_`s'_uwtd' - `pc01_`seg'_`s'_uwtd')
     insert_into_file using $tmp/a/tables/seg_time.csv, key(diff_`seg'_`s'_uwtd) val(`diff_`seg'_`s'_uwtd') format(%5.3f)
     
-    /* save diferences: weights */
+    /* save differences: weights */
     local diff_`seg'_`s'_wtd: di %5.3f (`pc11_`seg'_`s'_wtd' - `pc01_`seg'_`s'_wtd')
     insert_into_file using $tmp/a/tables/seg_time.csv, key(diff_`seg'_`s'_wtd) val(`diff_`seg'_`s'_wtd') format(%5.3f)
   }
@@ -394,8 +394,6 @@ foreach seg in dissim iso {
 
 /* make table */
 table_from_tpl, t($scode/a/tpl/seg_time_tpl.tex) r($tmp/a/tables/seg_time.csv) o($out/seg_time.tex)
-
-
 
 
 /* ---------------------------- cell: graph of segregation change vs. city size ---------- */

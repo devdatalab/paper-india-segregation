@@ -81,7 +81,7 @@ foreach bgroup in 200 4000 {
       }
 
       
-      /* figure 5 and appendix figure 5 and 6 binscatter with dummy for school/hosp */
+      /* public-goods dummy binscatters for education and health outcomes */
       /* sc binscatter */
       cap erase $out/block_`pg'_by_sc_dum_cfe_`loc'_`bgroup'_bindata_pub.csv
       cap erase $out/block_`pg'_by_sc_dum_cfe_`loc'_`bgroup'_bindata_pub.do
@@ -137,15 +137,3 @@ binscatter dum_secondary_pub_pcap  muslim_share , control(sc_share log_block_pop
     name(blocksecondarymuslimurban, replace) linetype(none) savedata($out/binscatter_viz_muslim)
 graphout binscatter_viz_muslim, pdf
 
-/* billy block */
-//billy write $out/binscatter_viz_muslim.csv
-//billy write $out/binscatter_viz_sc.csv
-
-/* modify the binscatter data files and drop points less than zero, to avoid unnecessary confusion */
-/* (you can have shares less than zero b/c this is residual of city fixed effects) */
-import delimited using $out/binscatter_viz_sc, clear varnames(1)
-drop if sc_share < 0
-export delimited using $out/binscatter_viz_sc, replace
-import delimited using $out/binscatter_viz_muslim, clear varnames(1)
-drop if muslim_share < 0
-export delimited using $out/binscatter_viz_muslim, replace

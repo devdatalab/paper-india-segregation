@@ -67,7 +67,8 @@ if "$skip_bins" != "1" {
   la var city_iso_muslim "Muslim Isolation"
   la var city_dissim_sc "SC Dissimilarity"
   la var city_iso_sc "SC Isolation"
-  /* CORRELATES TABLE 2: bivariate binscatters of ed_yrs, ln_city_pop, muslim/sc_pop_share, p25 */
+  
+  /* CORRELATES BINSCATTERS: bivariate binscatters of ed_yrs, ln_city_pop, muslim/sc_pop_share, p25 */
   foreach v in $vlist {
     foreach group in sc muslim {
       foreach measure in iso dissim {
@@ -88,7 +89,7 @@ append_to_file using $f, s("beta,se,p,n,spec,measure,group,varname") format(stri
 
 use $tmp/seg_correlates_analysis, clear
 
-/* CORRELATES TABLE 1: Multivariate correlates of segregation */
+/* CORRELATES TABLE 4: Multivariate correlates of segregation */
 /* run a single joint regression with the best version of each concept */
 foreach group in muslim sc {
   foreach measure in dissim iso {
@@ -157,7 +158,7 @@ esttab city_dissim_muslim city_iso_muslim city_dissim_sc city_iso_sc  ///
 est clear
 
 /* standardized version of the regression to understand relative magnitudes */
-/* CORRELATES APP TABLE 2: Multivariate correlates, standardized coefs */
+/* CORRELATES STANDARDIZED REGRESSIONS: multivariate correlates, standardized coefs */
 
 la var ln_city_pop_std "(Log) City Population"
 la var ln_growth_std "City Growth Rate"
@@ -209,85 +210,3 @@ export delimited using $f, replace
 /* CELL: COEFPLOTS OF ESTIMATES */
 shell PYTHONPATH=$scode $python $scode/a/correlate_coefplots.py
 check_file_update_status "$out/coefplot_std_bivar.pdf"
-
-
-
-/* ---------------------------- cell:  ---------------------------- */
-
-/* review estimates */
-import delimited using $f, clear varnames(1)
-
-/* count the number of statistically significant entries by var */
-gen vgroup = varname + "::" + group
-
-gen direction = 1 if beta > 0
-replace direction = -1 if beta < 0
-gen sig = (p < 0.10) * direction
-
-collapse (sum) sig (mean) beta, by(varname group)
-
-sort varname group
-order varname group
-list, sepby(varname)
-
-/* ---------------------------- cell ---------------------------- */
-
-
-/* the most consistent correlates are:
-
- - origin year: younger cities are less segregated
- - population: bigger cities more segregated (esp for muslims). Survives
-   - muslim pop share big effect on muslim segregation
-   - SC pop share not much of an effect.
- - consumption: richer cities are less segregated (and same for education)
- - subgroup consumption:
-   - richer muslims = MORE muslim segregation. Same finding for consumption gap ---
-                      when muslims are further behind, they are less segregated.
-   - no relationship for SCs.
-   - 
- - education: more education = less segregation
- - subgroup education:
-   - more educated muslims and SCs == less segregation
-   - bigger muslim education gap == more muslim segregation
-   - unclear effect for SCs education gap
- - violence:
-   - yes, especially for Muslims. SC positive but maybe not with fixed effects.
-   - remarkably, non-religious event count is barely significant.
-
-  - high upward mobility, less segregation
-  - faster growing, more segregated
-
-**************************
-One concept at a time:
-
-Population: big cities are more segregated
-Pop growth: Positive for Muslims, negative for SCs.
-City age: Younger cities are less segregated for both groups.
-Group shares: More SCs, weakly less dissimilarity. Non-linear for Muslims, most dissimilarity in cities with very few or very many. The latter is more important b/c of weights.
-Consumption / Education: Majorly inverse with segregation. Weird if they go in together, but they shouldn't
-Violence: highly correlated with Muslim, not with SC segregation.
-Rural land gini: positive for SCs, no effect for Muslims.
-City consumption gini: neg for SCs. More dissimilar cities have less urban inequality
-P25: lowest when Muslims are segregated, a little higher when SCs are segregated.
-
-
-*/
-/* ---------------------------- cell ---------------------------- */
-
-/* bivariate binscatter of group consumption vs. segregation */
-use $tmp/seg_correlates_analysis, clear
-
-foreach measure in dissim iso {
-  local xtitle_dissim Dissimilarity
-  local xtitle_iso Isolation
-  binscatter ln_cons_pc_sc ln_cons_pc_muslim ln_cons_pc_nonscmuslim city_`measure'_muslim, linetype(none) ylabel(9.5(.2)10.8) ///
-      ytitle(Log Consumption) xtitle(Muslim `xtitle_`measure'') ///
-      legend(lab(1 "SC Consumption") lab(2 "Muslim Consumption") lab(3 "Non-MG Consumption") pos(5) ring(0) region(lpattern(solid) lcolor(black)))
-  graphout `measure'_muslim, pdf
-  
-  binscatter ln_cons_pc_sc ln_cons_pc_muslim ln_cons_pc_nonscmuslim city_`measure'_sc, linetype(none) ylabel(9.5(.2)10.8) ///
-      ytitle(Log Consumption) xtitle(SC `xtitle_`measure'') ///
-      legend(lab(1 "SC Consumption") lab(2 "Muslim Consumption") lab(3 "Non-MG Consumption") pos(5) ring(0) region(lpattern(solid) lcolor(black)))
-  graphout `measure'_sc, pdf
-
-}

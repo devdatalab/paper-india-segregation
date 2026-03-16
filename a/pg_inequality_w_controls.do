@@ -54,19 +54,3 @@ foreach pg in prim sec hosp water elec drain {
 
 table_from_tpl, t($scode/a/tpl/app_table_pg_ineq_w_controls_tpl.tex) r($f) o($output) 
 
-/* urban takeaways.
-
-- For Muslims, consumption explains very little of public service disadvantage.
-  - but it overexplains the infrastructure disadvantage. conditional on consumption, Muslims
-    have *more* access to those public services. So Muslims live in poor neighborhoods, but those
-    neighborhoods are actually better services by infrastructure than would be expected.
-
-- For SCs, consumption explains very little of public service disadvantage, and about half of the
-  infrastructure disadvantage.
-
-*/
-
-
-/************************************************************************/
-/* Appendix Table: Neighborhood dis/advantage with consumption controls */
-/************************************************************************/

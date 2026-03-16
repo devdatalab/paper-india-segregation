@@ -32,10 +32,6 @@ foreach loc in rural urban {
   /*****************************/
   /* I. Merge EC and SECC data */
   /*****************************/
-  /* Note that the SECC covers about ~75%(rural) - ~57%(urban) as many Enumeration Blocks the EC.
-  However, we keep only the blocks from the SECC data, since all our calculations of sc/muslim
-  shares and dissimilarity etc. come from here  */
-
   /* This data comes from an earlier EC build which has upper*/
   /* merge city (upper) level ec and secc data */
   use $raw/clean/secc_`loc'_collapsed, clear

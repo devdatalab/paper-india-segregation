@@ -287,12 +287,6 @@ prog def gen_dissimilarity
     label var `gen'  "dissimilarity: `label'"
     drop temp
     
-    /* White, 1986, also suggests this alternative expansion of the term to calculate dissimilarity.
-    It's way more complicated to understand so we're going with the simpler, easier
-    definition of dissimilarity. The older expression:*/
-//    gen minority_share_block = `minority_pop_block' / total_pop_block
-//    gen temp = (total_pop_block * abs(minority_share_block - minority_share_town)) / (2 * total_pop_town_sd * minority_share_town * (1 - minority_share_town))
-
     /* drop intermediate terms unless otherwise specified */
     if "`drop'" == "" {
       drop total_pop_block  minority_pop_town_sd majority_pop_town_sd total_pop_town_sd minority_share_town
@@ -776,7 +770,7 @@ global seccstatelist uttarpradesh westbengal tamilnadu rajasthan andamannicobari
 
 
 /**********************************************************************/
-/* program set_scheme: set scheme pn. That's it, that's the program   */
+/* program set_scheme: set scheme pn.    */
 /**********************************************************************/
 cap prog drop set_scheme
 prog def set_scheme

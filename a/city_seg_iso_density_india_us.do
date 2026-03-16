@@ -15,7 +15,7 @@
 /*                                                                     */
 /* This do file creates segregation density graphs for the appendix    */
 /* figures comparing US and India segregation and isolation measures.  */
-/* These are used in Fig A4.                                           */
+/* These support the India-vs-US comparison appendix graphs.           */
 /*                                                                     */
 /* Data for the US Census is created $scode/b/gen_us_seg_variables.do.     */
 /* All the datasets are stored in $raw/clean/us. Run this file here   */
@@ -123,8 +123,6 @@ foreach nbd in 200 4000 {
 2 5% minority share (careful with dropping! don't drop <5% SC share for the Muslim graphs)
 3 weighted by MG population
 
-See issue #87 for details:
-https://github.com/devdatalab/segregation/issues/87
 */
 
 /* Alternative India-vs-US neighborhood-share graphs (primary paper version is in $scode/a/graph_group_shares.do). */

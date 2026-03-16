@@ -12,80 +12,19 @@ global fast 0
 cap mkdir $tmp/a/
 cap mkdir $tmp/a/tables/
 
-if ($fast == 0) {
+/******************************************************/
+/* analysis effect of reweighting the town sample     */
+/* Appendix Table A.1                                 */
+/******************************************************/
+do $scode/a/reweight_town_subd_representativeness.do
 
-  /***********/
-  /* Figures */
-  /***********/
-  /***************************/
-  /* figure 2: segregation maps */
-  /***************************/
-  /* make sure python environment is set to py_spatial before this is run */
-  /* this can randomly throw tex errors, in which case restart the emacs sessions and try again */
-  /* currently excluded from replication runtime */
-  shell PYTHONPATH=$scode $python $scode/a/seg_maps.py
-  // billy write $out/india_segregation_sc_urban.png
-  // billy write $out/india_segregation_sc_rural.png
-  // billy write $out/india_segregation_muslim_urban.png
-  // billy write $out/india_segregation_muslim_rural.png
+/*****************************************/
+/* appendix figure A.3: segregation maps */
+/*****************************************/
+shell PYTHONPATH=$scode $python $scode/a/seg_maps.py
 
-  
-  /********************/
-  /* Appendix Figures */
-  /********************/
-
-  /*************************/
-  /* figure A.10 and A.11: */
-  /*************************/
-  /* excluded from replication runtime */
-  // do $scode/a/coefplot_block_individual_ed_age.do
-  
-  /*********************************************************************/
-  /* appendix figure A.13: educational attainment across neighborhoods */
-  /*********************************************************************/
-  /* takes a couple hours to run */
-  /* excluded from replication runtime */
-  // do $scode/a/block_individual_ed_coefplot.do
-
-  /*************************************************************************/
-  /* appendix figure A.13: Individual Educational Attainment (No Controls) */
-  /*************************************************************************/
-  /* note resist the temptation to combine the two lengthy coefplot do files, they take a while to run
-  and have specific labels that need to be changed with every edit. Handle them separately.*/
-  /* excluded from replication runtime */
-  // do $scode/a/block_individual_ed_no_control_coefplot.do
-
-  /**********/
-  /* Tables */
-  /**********/
-  /****************************************/
-  /* tables 7 and 8: Individual ed tables */
-  /****************************************/
-  /* excluded from replication runtime */
-  // do $scode/a/table_block_individual_ed.do
-  
-  /*******************/
-  /* Appendix Tables */
-  /*******************/
-  /*************************************************************/
-  /* appendix table A.2 and A.3: Individual ed by demographics */
-  /*************************************************************/
-  /* excluded from replication runtime */
-  // do $scode/a/table_block_individual_ed_demo.do
-  
-  /******************************/
-  /* appendix table A.4 and A.5 */
-  /******************************/
-  /* excluded from replication runtime */
-  // do $scode/a/table_block_individual_ed_age.do
-
-}
-
-/*****************/
-/* Paper Figures */
-/*****************/
 /********************************/
-/* figure 1: extent of segregation */
+/* city segregation/isolation density plots */
 /********************************/
 do $scode/a/city_seg_iso_density.do
 
@@ -101,11 +40,13 @@ do $scode/a/graph_urban_rural_dissim_correlation.do
 
 /*****************************/
 /* correlates of segregation */
+/* Table 4; Figure 4; Appendix Figure A.4; Appendix Table A.3 */
 /*****************************/
 do $scode/a/analyze_correlates.do
 
 /************************************/
 /* segregation vs service disparity */
+/* Appendix Figure A.8 */
 /************************************/
 do $scode/a/explore_seg_vs_service_disparity.do
 
@@ -115,7 +56,7 @@ do $scode/a/explore_seg_vs_service_disparity.do
 do $scode/a/gen_dissim_pc0111.do
 
 /*****************************************************/
-/* figure 4: pg provision vs nbd mg share binscatter */
+/* figure 5: public-good provision vs neighborhood minority-share binscatter */
 /*****************************************************/
 do $scode/a/block_pg_share_binscatter_pub_dummy.do
 
@@ -126,19 +67,15 @@ do $scode/a/block_pg_share_binscatter_priv_dummy.do
 do $scode/a/block_pg_share_binscatter_semipriv.do
 
 /*****************************************************************/
-/* figure 5-6 & appendix figure A.7 & A.8: pe function visualise */
+/* figures 6-7 and appendix figures A.5-A.6: PE function visualizations */
 /*****************************************************************/
 do $scode/a/graph_pe_functions.do
 
 /*********************************************************************/
-/* figure 7: pe function for urban wash amenities/infrastructure access */
+/* figure 8: PE function for urban wash amenities/infrastructure access */
 /*********************************************************************/
 do $scode/a/graph_pe_sanitation.do
 
-
-/**********/
-/* Tables */
-/**********/
 /*************************************/
 /* table 1: summary statistics table */
 /*************************************/
@@ -155,7 +92,7 @@ do $scode/a/table_town_subd_representativeness.do
 do $scode/a/analyze_seg_changes.do
 
 /*********************************************/
-/* table 4 : dissim on town char regressions */
+/* city dissimilarity/isolation regressions on city characteristics */
 /*********************************************/
 do $scode/a/city_dissim_town_char.do
 
@@ -164,13 +101,6 @@ do $scode/a/city_dissim_town_char.do
 /****************************************************************/
 do $scode/a/table_block_pg_share_educ_health.do
 
-/****************************************************/
-/* tables 7 & 8: look to fast == 0 block at the top */
-/****************************************************/
-
-/*********************/
-/* Appendix Figures: */
-/*********************/
 /************************************************************/
 /* appendix figure A.1: enumeration block groups distributions */
 /************************************************************/
@@ -182,42 +112,42 @@ do $scode/a/block_group_pop_histogram_density.do
 do $scode/a/city_share_muslim_pc_classify.do
 
 /*********************************************************/
-/* appendix figure A.3: MG Pop distribution in MG share nbd */
+/* figure 1: group-share distributions across neighborhoods */
 /*********************************************************/
 do $scode/a/graph_group_shares.do
 
 /********************************************************/
-/* appendix figure A.4: Comparision on India Seg vs US Seg */
+/* India-vs-US segregation comparison graphs */
 /********************************************************/
 do $scode/a/city_seg_iso_density_india_us.do
 
 /***********************************/
-/* appendix figure A.5: lowess graphs */
+/* additional lowess graphs */
 /***********************************/
 do $scode/a/fig_lowess_city_age.do
 
 /*************************************************************/
-/* appendix figure A.6: log emp secondary school binscatters */
+/* additional log-employment secondary-school binscatters */
 /*************************************************************/
 do $scode/a/block_pg_share_binscatter_pub_log_emp.do
+
 // for the online appendix, add private goods too
 do $scode/a/block_pg_share_binscatter_priv_log_emp.do
 
-/*******************/
-/* Appendix Tables */
-/*******************/
 /**************************************************/
-/* appendix table A.1: nbd pg in and out of slums */
+/* appendix table A.4: neighborhood PG regressions in and out of slums */
 /**************************************************/
 do $scode/a/table_block_pg_share_educ_health_slum.do
 
 /************************************************************/
 /* appendix table: nbd regs controlling for nbd consumption */
+/* Appendix Table A.5 */
 /************************************************************/
 do $scode/a/pg_inequality_w_controls.do
 
 /***************************************************************/
 /* appendix table: PG supply, intersectionality of Muslim * SC */
+/* Appendix Figure A.7 */
 /***************************************************************/
 do $scode/a/pg_intersection.do
 

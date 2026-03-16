@@ -13,9 +13,6 @@
 /* GOAL:                                                               */
 /*   Build US tract/MSA segregation inputs for cross-country analysis.  */
 /*                                                                     */
-/* This do file uses code from issue #81 and incorporates it into our   */
-/* main do file.                                                       */
-/*                                                                     */
 /* DATA SOURCES                                                        */
 /*                                                                     */
 /* TRACT DATA:                                                         */
@@ -149,7 +146,7 @@ drop if mi(share)
 replace tpop_b = tpop_b * 100
 format tpop_b %2.0f
 
-/* save share dataset to merge with SC/Muslim shares for Figure 2 */
+/* save share dataset to merge with SC/Muslim shares for the India-vs-US comparison graph */
 save $tmp/us/us_tpop_b, replace
 
 /* shift share to middle of bin */

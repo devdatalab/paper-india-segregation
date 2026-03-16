@@ -129,7 +129,7 @@ foreach loc in urban /* rural */ {
     sum city_dissim_muslim [aw = upper_pop_muslim] if place_tag == 1
     local mean_muslim_dissim `r(mean)'
 
-    /* REPEAT FOR ISOLATION */
+    /* repeat for isolation */
     sum city_iso_sc [aw = upper_pop_sc] if place_tag == 1
     local mean_sc_iso `r(mean)'
     sum city_iso_muslim [aw = upper_pop_muslim] if place_tag == 1

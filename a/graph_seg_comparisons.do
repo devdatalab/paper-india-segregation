@@ -11,8 +11,6 @@ ren value dissim
 keep year mean_pop dissim graph_desc
 save $tmp/seg_compare_dissim, replace
 
-/* Download seg comparisons from the google sheet and save to a dataset */
-
 /* ---------------------------- cell:  ---------------------------- */
 
 import delimited using $seg/comparisons/seg_comparisons_i_raw.csv, clear varnames(1)

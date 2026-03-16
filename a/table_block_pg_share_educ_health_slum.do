@@ -40,4 +40,4 @@ estout primary_slum_cont secondary_slum_cont hospital_slum_cont primary_no_slum 
     mlabel("Primary School" "Secondary School" "Health Facility" "Primary School" "Secondary School" "Health Facility") collabels(,none) prehead("{" "\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}" "\begin{tabular}{l*{7}{c}}" "\hline" "\hline" " &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\" "&\multicolumn{3}{c}{Slum Controls}&\multicolumn{3}{c}{No Slum}\\" "\cmidrule(lr){2-4} \cmidrule(lr){5-7}") ///
     posthead("\hline") prefoot("\hline") postfoot("Town FE & Yes & Yes & Yes & Yes & Yes & Yes \\" "\hline" "\hline" "\end{tabular}" "}")
 
-// billy write $out/nbd_pg_slum_200.tex
+

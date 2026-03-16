@@ -271,8 +271,6 @@ foreach pg in closed_drain wat_source_home light_source_elec   {
     /* make the graph */
     /******************/
     graph_pe_function, demo(`demo') pg(`pg')
-    // billy write $out/pe_urban_`demo'_`pg'_all.pdf
-    
   }
 }
 

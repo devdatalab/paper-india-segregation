@@ -9,8 +9,9 @@
 /* GOAL:                                                               */
 /*   Plot distributions of group shares across neighborhoods.           */
 /*                                                                     */
-/* This do file graphs the share of mg group living in by mg            */
-/* neighborhoods arranged by mg-share. In the paper this is Fig A3     */
+/* This do file graphs the share of each group living in same-group     */
+/* neighborhoods arranged by neighborhood share. Figure 1 uses the      */
+/* main density outputs from this file.                                 */
 /***********************************************************************/
 
 /********************************************************************************************/

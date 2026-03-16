@@ -717,21 +717,9 @@ prog def estout_default
     /* output html file for easy reading */
     estout `anything' using "`using'.html", `mlabel' `keep' `order' `title' $estout_params_html
 
-    /* if HTMLVIEW is on, copy the html file to caligari/ */
+    /* if HTMLVIEW is on, do nothing */
     if ("$HTMLVIEW" == "1") {
-
-      /* make sure output folder exists */
-      cap confirm file ~/public_html/html/
-      if _rc shell mkdir ~/public_html/html/
-
-      /* copy the file to HTML folder */
-      shell cp  `using'.html ~/public_html/html/
-
-      /* strip path component from the link */
-      local filepart = regexr("`using'", ".*/", "")
-      if !strpos("`using'", "/") local filepart `using'
-      local linkpath "http://caligari.dartmouth.edu/~`c(username)'/html/`filepart'.html"
-      di "View table at `linkpath'"
+      di "."
     }
   }
 end
@@ -893,29 +881,6 @@ end
   }
   end
   /* *********** END program quireg **********************************************************************************************/
-
-
-  /******************************************************************************************************/
-  /* program pyfunc: Run externally defined python function without silent failures.   */
-  /******************************************************************************************************/
-  /* note: pyfunc exists in ~/ddl/tools/do/ado/, which is auto-loaded on polaris */
-  /****** END program pyfunc ****************/
-
-
-/**********************************************************************************/
-/* program estmod_footer : add a footer row to an estout set */
-/***********************************************************************************/
-cap prog drop estmod_footer
-prog def estmod_footer
-  syntax using/, cstring(string)
-
-  /* add .tex suffix to using if not there */
-  if !regexm("`using'", "\.tex$") local using `using'.tex
-
-  shell python ~/ddl/tools/py/scripts/est_modify.py -c footer -i `using' -o `using' --cstring "`cstring'"
-end
-/* *********** END program estmod_footer ***************************************** */
-
 
   /**********************************************************************************/
   /* program tag : Fast way to run egen tag(), using first letter of var for tag    */

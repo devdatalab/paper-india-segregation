@@ -14,8 +14,8 @@
 /*   Reweight the urban sample to match population covariates.          */
 /*                                                                     */
 /* Reweight the urban sample data so it aligns more with the full      */
-/* India population (Table 2). Use the new sampling weights to         */
-/* regenerate segregation and isolation results (Figure 1).            */
+/* India population. Use the new sampling weights to regenerate        */
+/* urban segregation and isolation summaries.                          */
 /***********************************************************************/
 
 /**********************************************************/

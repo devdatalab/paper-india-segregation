@@ -7,8 +7,7 @@
 /* GOAL:                                                               */
 /*   Compute segregation and dissimilarity measures by demographics.    */
 /*                                                                     */
-/* This do file contains the part of erstwhile gen_segregation_         */
-/* variables.do that creates the dissimilarity measure. This do file   */
+/* This do file                                                        */
 /* calculates various segregation measures. For now we only use        */
 /* segregation by demographics.                                       */
 /*                                                                     */

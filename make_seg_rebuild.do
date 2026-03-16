@@ -17,13 +17,13 @@ ssc install require, replace
 /**********************/
 
 /* Set scode to the base repo path (where this file lives) */
-global scode "~/ddl/segregation"
+global scode "~/ddl/segregation/"
 
 /* Set base to the replication data folder */
 global base "~/Dropbox/tmp/segdata/"
 
 /* Set python to your python executable. (Activate conda and run `which python` to find it) */
-global python "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python"
+global python "/usr/local/Caskroom/miniconda/base/envs/py3/bin/python"
 
 /****************************/
 /* Validate root globals    */
@@ -48,15 +48,36 @@ if !fileexists("`python_probe'") {
   exit 601
 }
 
-/****************************/
-/* Sync Python Root Paths   */
-/****************************/
-cap file close envfh
-file open envfh using "$scode/.env", write replace
-file write envfh "SCODE=$scode" _n
-file write envfh "SDATA=$base" _n
-file close envfh
+/* validate .env exists */
+local env_file "$scode/.env"
+if !fileexists("`env_file'") {
+  di as error "Expected file '$scode/.env' does not exist. It should look something like this: "
+  di as error ""
+  di as error "SCODE=~/path/to/seg/repo/"
+  di as error "SDATA=~/path/to/data/"
+  error 601
+}
+/* validate .env has the right content */
+local found_scode = 0
+local found_sdata = 0
 
+file open fh using "`env_file'", read text
+file read fh line
+
+while r(eof)==0 {
+    if strpos("`line'", "SCODE") local found_scode = 1
+    if strpos("`line'", "SDATA") local found_sdata = 1
+    file read fh line
+}
+
+file close fh
+
+assert `found_scode'
+assert `found_sdata'
+
+/**************************************************/
+/* validation checks passed; load project configs */
+/**************************************************/
 do "$scode/set_paths.do"
 do "$tools/stata-tex/stata-tex.do"
 do "$tools/do/tools.do"
@@ -70,7 +91,7 @@ global start_time "$S_DATE $S_TIME"
 /* Set Globals */
 /***************/
 
-/* In replication make, this flag controls block-group thresholds in create_secc_block_groups.do */
+/* Set rebuild on to make sure all code runs */
 global rebuild 1
 
 /*****************************/
@@ -80,26 +101,26 @@ global rebuild 1
 /***********************************/
 /* create main segregation dataset */
 /***********************************/
-/* 4. aggregate blocks to groups of 200 people and 4000 people */
+/* 1. aggregate blocks to groups of 200 people and 4000 people */
 /* combine SECC and EC block-level data for collapse to block groups */
 do $scode/b/merge_secc_ec.do 
   
-/* 5. create SECC block group key, and collapse SECC and EC data to group */
+/* 2. create SECC block group key, and collapse SECC and EC data to group */
 do $scode/b/create_secc_block_groups.do
 
-/* 6. compute muslim PC shares at the subdistrict (rural) and town level */
+/* 3. compute muslim PC shares at the subdistrict (rural) and town level */
 do $scode/b/gen_pc_muslim_share.do
   
-/* 7. create public goods and consumption analysis variables */
+/* 4. create public goods and consumption analysis variables */
 do $scode/b/gen_pg_cons_variables.do
 
-/* 8. generate segregation variables */
+/* 5. generate segregation variables */
 do $scode/b/gen_seg_variables.do
 
-/* 9.  save secc data at the block and city level*/
+/* 6.  save secc data at the block and city level*/
 do $scode/b/gen_segregation_city_block_data.do
 
-/* 10. add variable labels and save labeled datasets in $tmp/secc */
+/* 7. add variable labels and save labeled datasets in $tmp/secc */
 do $scode/b/add_variable_labels.do
 
 /* Prepare segregation correlates */
@@ -108,23 +129,17 @@ do $scode/b/prep_correlates.do
 /*******************************/
 /* miscellaneous/appendix data */
 /*******************************/
-/* 11. create the village level pc11 dataset independently*/
+/* 8. create the village level pc11 dataset independently*/
 do $scode/b/create_census_village_pg_shares.do
 
-/* 12. generate district-level analysis data for comparing nearby rural-urban */
+/* 9. generate district-level analysis data for comparing nearby rural-urban */
 do $scode/b/gen_district_correlates_urban_rural.do
 
-/* 13. generate data for seg decreasing with increasing block size graph */
+/* 10. generate data for seg decreasing with increasing block size graph */
 do $scode/b/gen_seg_block_groups.do
 
-/* 14. skipped in replication run: confirmatory EC village build not used downstream */
-// do $scode/b/gen_ec_all_village.do
-
-/* 15. generate us data */
+/* 11. generate us data */
 do $scode/b/gen_us_seg_variables.do
-
-/* 17. analysis effect of reweighting the town sample  */
-do $scode/a/reweight_town_subd_representativeness.do
 
 /*****************/
 /* Save End Time */
@@ -134,10 +149,4 @@ di  "Build started at: $start_time"
 di "Build ended at: $end_time"
 
 /* run the analysis */
-/* note, individual 1%/education results take a day or so
-to run and have been commented out. If there's a need to re-run those results 
-change **global fast 1** to **global fast 0** in make_seg_results.do  */
 do $scode/a/make_seg_results.do
-
-/* create time series of segregation from pc0111 district handbooks */
-// do $scode/b/handbooks/make_handbooks.do
