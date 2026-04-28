@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import io
 import json
 import os
 import re
+import shutil
 import subprocess
 import zipfile
 from dataclasses import dataclass
@@ -62,6 +64,23 @@ ANALYSIS_MARKERS = (
     "segregation_blockdata",
     "ed_health",
 )
+
+TRACKED_CHANGE_COLUMNS = [
+    "file_size_bytes",
+    "n_obs",
+    "n_vars",
+    "variable_list",
+    "dataset_role",
+    "pipeline_stage",
+    "is_analysis_ready_standalone",
+    "master_pooled_file",
+    "master_mapping_status",
+    "master_mapping_basis",
+    "master_mapping_note",
+    "linked_complete_dataset_file",
+    "linked_complete_dataset_status",
+    "linked_complete_dataset_note",
+]
 
 
 @dataclass(frozen=True)
@@ -968,6 +987,21 @@ def master_mapping_for_row(row: pd.Series) -> tuple[object, str, str, str]:
                 "",
             )
 
+    if rel_dir == "partitioned/individual_sample":
+        individual_sample_match = re.fullmatch(
+            r"seg_individual_sample_(?P<sector>rural|urban)_\d{5}\.dta",
+            basename,
+            re.I,
+        )
+        if individual_sample_match:
+            sector = individual_sample_match.group("sector").lower()
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/secc_{sector}_individual_sample.dta",
+                "mapped",
+                "explicit_creator_lineage",
+                "Partitioned individual-sample shard written by individual_1p_regression.do and appended in assemble_individual_1p.do into the clean full individual sample dataset.",
+            )
+
     if rel_dir == "raw/us":
         if basename == "census-tract-pop-2020.csv":
             return (
@@ -1301,6 +1335,209 @@ def write_xlsx(workbook_path: Path, sheets: list[tuple[str, pd.DataFrame]]) -> N
         )
 
 
+def try_read_existing_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path, low_memory=False)
+
+
+def normalize_compare_value(value: object) -> str:
+    if pd.isna(value):
+        return ""
+    if isinstance(value, bool):
+        return str(value)
+    text = str(value).strip()
+    if not text:
+        return ""
+    try:
+        numeric_value = float(text)
+        if numeric_value.is_integer():
+            return str(int(numeric_value))
+        return f"{numeric_value:.12g}"
+    except ValueError:
+        return text
+
+
+def build_change_report(
+    previous_inventory: pd.DataFrame,
+    current_inventory: pd.DataFrame,
+) -> pd.DataFrame:
+    if previous_inventory.empty:
+        return pd.DataFrame(
+            [
+                {
+                    "filename": "",
+                    "change_type": "initial_build",
+                    "changed_fields": "",
+                    "old_value": "",
+                    "new_value": "",
+                }
+            ]
+        )
+
+    previous = previous_inventory.set_index("filename", drop=False)
+    current = current_inventory.set_index("filename", drop=False)
+    all_filenames = sorted(set(previous.index) | set(current.index))
+    records: list[dict[str, str]] = []
+
+    for filename in all_filenames:
+        in_previous = filename in previous.index
+        in_current = filename in current.index
+        if not in_previous:
+            records.append(
+                {
+                    "filename": filename,
+                    "change_type": "added",
+                    "changed_fields": "",
+                    "old_value": "",
+                    "new_value": "",
+                }
+            )
+            continue
+        if not in_current:
+            records.append(
+                {
+                    "filename": filename,
+                    "change_type": "removed",
+                    "changed_fields": "",
+                    "old_value": "",
+                    "new_value": "",
+                }
+            )
+            continue
+
+        previous_row = previous.loc[filename]
+        current_row = current.loc[filename]
+        changed_fields: list[str] = []
+        for column in TRACKED_CHANGE_COLUMNS:
+            if column not in previous_row.index or column not in current_row.index:
+                continue
+            old_value = normalize_compare_value(previous_row[column])
+            new_value = normalize_compare_value(current_row[column])
+            if old_value != new_value:
+                changed_fields.append(column)
+
+        if changed_fields:
+            for column in changed_fields:
+                records.append(
+                    {
+                        "filename": filename,
+                        "change_type": "changed",
+                        "changed_fields": column,
+                        "old_value": normalize_compare_value(previous_row[column]),
+                        "new_value": normalize_compare_value(current_row[column]),
+                    }
+                )
+
+    if not records:
+        records.append(
+            {
+                "filename": "",
+                "change_type": "no_tracked_changes",
+                "changed_fields": "",
+                "old_value": "",
+                "new_value": "",
+            }
+        )
+    return pd.DataFrame(records)
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def current_git_commit() -> str:
+    result = subprocess.run(
+        ["git", "rev-parse", "--short", "HEAD"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return ""
+    return result.stdout.strip()
+
+
+def write_tracking_artifacts(
+    *,
+    output_dir: Path,
+    inventory: pd.DataFrame,
+    standalone: pd.DataFrame,
+    errors: pd.DataFrame,
+    workbook_path: Path,
+    all_files_path: Path,
+    standalone_path: Path,
+    errors_path: Path,
+    previous_inventory: pd.DataFrame,
+) -> None:
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    history_dir = output_dir / "history"
+    history_dir.mkdir(parents=True, exist_ok=True)
+
+    change_report = build_change_report(previous_inventory, inventory)
+    change_report_path = output_dir / "seg_dataset_inventory_change_report.csv"
+    change_report.to_csv(change_report_path, index=False)
+
+    snapshot_workbook_path = history_dir / f"seg_dataset_inventory_{timestamp}.xlsx"
+    shutil.copy2(workbook_path, snapshot_workbook_path)
+
+    manifest = {
+        "generated_at_utc": timestamp,
+        "git_commit": current_git_commit(),
+        "outputs": {
+            "workbook": {
+                "path": str(workbook_path),
+                "sha256": sha256_file(workbook_path),
+                "snapshot_path": str(snapshot_workbook_path),
+            },
+            "all_files_csv": {
+                "path": str(all_files_path),
+                "sha256": sha256_file(all_files_path),
+                "row_count": int(len(inventory)),
+            },
+            "standalone_csv": {
+                "path": str(standalone_path),
+                "sha256": sha256_file(standalone_path),
+                "row_count": int(len(standalone)),
+            },
+            "errors_csv": {
+                "path": str(errors_path),
+                "sha256": sha256_file(errors_path),
+                "row_count": int(len(errors)),
+            },
+            "change_report_csv": {
+                "path": str(change_report_path),
+                "sha256": sha256_file(change_report_path),
+                "row_count": int(len(change_report)),
+            },
+        },
+        "summary": {
+            "all_files_rows": int(len(inventory)),
+            "standalone_rows": int(len(standalone)),
+            "error_rows": int(len(errors)),
+            "tracked_change_rows": int(len(change_report)),
+            "tracked_changed_files": int(
+                change_report.loc[change_report["change_type"] == "changed", "filename"].nunique()
+            ),
+            "tracked_added_files": int(
+                change_report.loc[change_report["change_type"] == "added", "filename"].nunique()
+            ),
+            "tracked_removed_files": int(
+                change_report.loc[change_report["change_type"] == "removed", "filename"].nunique()
+            ),
+        },
+    }
+
+    latest_manifest_path = output_dir / "seg_dataset_inventory_manifest.json"
+    history_manifest_path = history_dir / f"seg_dataset_inventory_manifest_{timestamp}.json"
+    latest_manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    history_manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+
 def build_inventory(root: Path, dta_inventory_path: Path, limit: int | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     dta_inventory = load_dta_inventory(dta_inventory_path)
     rows: list[dict[str, object]] = []
@@ -1412,12 +1649,13 @@ def main() -> None:
     output_dir = args.output_dir.expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    inventory, standalone, errors = build_inventory(root, dta_inventory_path, limit=args.limit)
-
     all_files_path = output_dir / "seg_dataset_inventory_all_files.csv"
     standalone_path = output_dir / "seg_dataset_inventory_standalone.csv"
     errors_path = output_dir / "seg_dataset_inventory_read_errors.csv"
     workbook_path = output_dir / "seg_dataset_inventory.xlsx"
+    previous_inventory = try_read_existing_csv(all_files_path)
+
+    inventory, standalone, errors = build_inventory(root, dta_inventory_path, limit=args.limit)
 
     inventory.to_csv(all_files_path, index=False)
     standalone.to_csv(standalone_path, index=False)
@@ -1429,11 +1667,24 @@ def main() -> None:
             ("standalone_datasets", standalone),
         ],
     )
+    write_tracking_artifacts(
+        output_dir=output_dir,
+        inventory=inventory,
+        standalone=standalone,
+        errors=errors,
+        workbook_path=workbook_path,
+        all_files_path=all_files_path,
+        standalone_path=standalone_path,
+        errors_path=errors_path,
+        previous_inventory=previous_inventory,
+    )
 
     print(f"Wrote all-files inventory: {all_files_path}")
     print(f"Wrote standalone dataset inventory: {standalone_path}")
     print(f"Wrote read errors: {errors_path}")
     print(f"Wrote workbook: {workbook_path}")
+    print(f"Wrote manifest: {output_dir / 'seg_dataset_inventory_manifest.json'}")
+    print(f"Wrote change report: {output_dir / 'seg_dataset_inventory_change_report.csv'}")
 
 
 if __name__ == "__main__":
