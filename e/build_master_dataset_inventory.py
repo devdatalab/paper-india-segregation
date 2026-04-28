@@ -925,6 +925,21 @@ def master_mapping_for_row(row: pd.Series) -> tuple[object, str, str, str]:
         )
         return pooled_master, "mapped", "explicit_creator_lineage", note
 
+    if rel_dir == "partitioned/secc_collapse/muslim_classification":
+        muslim_household_match = re.fullmatch(
+            r"secc_(?P<sector>rural|urban)_\d{4,5}_muslim_household\.dta",
+            basename,
+            re.I,
+        )
+        if muslim_household_match:
+            sector = muslim_household_match.group("sector").lower()
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/secc_{sector}_collapsed_block.dta",
+                "mapped",
+                "explicit_creator_lineage",
+                "Partitioned muslim-household classification shard merged into the block-collapse build for the clean collapsed block master; the same shard is also merged into the full clean individual sample build.",
+            )
+
     if rel_dir == "partitioned/secc_collapse":
         block_master_patterns = (
             r"secc_(?:members|household|educ_)?block_rural_\d{4,5}\.dta",
