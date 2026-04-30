@@ -31,6 +31,7 @@ COLUMNS = [
     "dataset_path",
     "dataset_root",
     "dataset_stage",
+    "analysis_handoff",
     "required_before_analysis",
     "producer_script",
     "consumer_scripts",
@@ -45,6 +46,7 @@ FLAGS_COLUMNS = [
     "dataset_root",
     "needed_replication",
     "dataset_stage",
+    "analysis_handoff",
     "required_before_analysis",
     "producer_script",
     "consumer_scripts",
@@ -229,7 +231,11 @@ def path_sort_key(path: str) -> tuple[int, str]:
 
 
 def row_to_dict(row: ManifestRow) -> dict[str, str]:
-    return {column: getattr(row, column) for column in COLUMNS}
+    values = {column: getattr(row, column) for column in COLUMNS if column != "analysis_handoff"}
+    values["analysis_handoff"] = (
+        "1" if row.dataset_stage == "analysis_generated_handoff" else "0"
+    )
+    return values
 
 
 def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]:
@@ -238,6 +244,9 @@ def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]
         "dataset_root": row.dataset_root,
         "needed_replication": "1" if row.dataset_path in needed_paths else "0",
         "dataset_stage": row.dataset_stage,
+        "analysis_handoff": "1"
+        if row.dataset_stage == "analysis_generated_handoff"
+        else "0",
         "required_before_analysis": row.required_before_analysis,
         "producer_script": row.producer_script,
         "consumer_scripts": row.consumer_scripts,

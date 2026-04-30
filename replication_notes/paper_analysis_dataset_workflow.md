@@ -11,6 +11,8 @@ The key output is a replication flag:
 - `needed_replication = 1`: needed for the active paper-results replication
 - `needed_replication = 0`: present in the raw or intermediate manifests, but
   not directly needed for the active paper-results replication set
+- `analysis_handoff = 1`: created inside the `a/` analysis pipeline and not
+  required before analysis starts
 
 This distinction matters because the full build has many raw inputs,
 intermediate handoffs, variants, and skipped workflow files. Those are useful
@@ -94,8 +96,8 @@ city datasets, correlates, US comparison datasets, and PC11 Muslim-share files.
 
 Files created inside the `a/` analysis stage and then consumed later by another
 analysis step, Python plotting step, or TeX table generation. These are marked
-`required_before_analysis = FALSE` because they do not need to exist before
-`a/make_seg_results.do` starts.
+`analysis_handoff = 1` and `required_before_analysis = FALSE` because they do
+not need to exist before `a/make_seg_results.do` starts.
 
 `raw_manifest_not_needed_for_analysis`
 
@@ -116,6 +118,8 @@ paper-results replication packet.
 - Keep rows with `needed_replication = 1`.
 - Rows with `needed_replication = 0` can be excluded from the compact
   paper-results replication packet.
+- If preparing only the files that must exist before analysis starts, keep rows
+  with `needed_replication = 1` and `analysis_handoff = 0`.
 - Do not interpret `0` as "never useful." It means "not required for active
   paper-results replication from prepared/generated analysis inputs."
 
@@ -130,5 +134,7 @@ As of the latest generated outputs:
 - `dataset_replication_flags.csv`: 155 rows
 - `needed_replication = 1`: 67 rows
 - `needed_replication = 0`: 88 rows
+- `analysis_handoff = 1`: 12 rows
+- upfront files required before analysis: 55 rows
 
 The 67 needed rows are exactly the rows in `paper_analysis_datasets.csv`.
