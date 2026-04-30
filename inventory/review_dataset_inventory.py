@@ -641,10 +641,12 @@ def build_review() -> tuple[dict[str, pd.DataFrame], pd.DataFrame, pd.DataFrame,
     decision_changes = decision_changes.sort_values(["old_standalone_flag", "final_inventory_class", "relative_dir", "basename"])
 
     dataset_nodes = build_dataset_nodes(enriched_all, events)
+    support_weights_keys = build_support_weights_keys_sheet(enriched_all, dataset_nodes)
 
     reviewed_sheets["final_standalone_datasets"] = final_standalone
     reviewed_sheets["manual_review_queue"] = manual_queue
     reviewed_sheets["decision_changes"] = decision_changes
+    reviewed_sheets["support_weights_keys"] = support_weights_keys
     return reviewed_sheets, edges, dataset_nodes, decision_changes, manual_queue
 
 
@@ -687,6 +689,74 @@ def build_dataset_nodes(enriched_all: pd.DataFrame, events: list[CodeEvent]) -> 
             },
         )
     return pd.DataFrame(records.values()).sort_values(["in_inventory", "dataset_file"], ascending=[False, True])
+
+
+def build_support_weights_keys_sheet(enriched_all: pd.DataFrame, dataset_nodes: pd.DataFrame) -> pd.DataFrame:
+    support_pattern = r"weight|weights|key|keys|crosswalk|lookup|bridge"
+    inventory_support = enriched_all.loc[
+        enriched_all["filename"].astype(str).str.contains(support_pattern, case=False, regex=True)
+        | enriched_all["final_inventory_class"].eq("support_or_key")
+    ].copy()
+    lineage_only_support = dataset_nodes.loc[
+        dataset_nodes["in_inventory"].eq("FALSE")
+        & dataset_nodes["dataset_file"].astype(str).str.contains(support_pattern, case=False, regex=True)
+    ].copy()
+    inventory_cols = [
+        "filename",
+        "basename",
+        "relative_dir",
+        "final_inventory_class",
+        "primary_standalone_flag",
+        "family_id",
+        "unit_of_observation",
+        "conceptual_object",
+        "canonical_parent_file",
+        "lineage_inputs",
+        "lineage_outputs",
+        "writer_script",
+        "writer_line",
+        "reader_scripts",
+        "used_in_analysis",
+        "evidence_summary",
+        "confidence",
+        "manual_review_reason",
+    ]
+    support_sheet = inventory_support.loc[:, inventory_cols].copy()
+    support_sheet.insert(0, "support_review_scope", "inventory_row")
+    support_sheet = support_sheet.rename(columns={"filename": "dataset_file"})
+    if not lineage_only_support.empty:
+        lineage_only_rows = pd.DataFrame(
+            {
+                "support_review_scope": "lineage_only_node",
+                "dataset_file": lineage_only_support["dataset_file"],
+                "basename": lineage_only_support["dataset_file"].map(lambda value: Path(str(value)).name),
+                "relative_dir": lineage_only_support["dataset_file"].map(relative_dir_for_dataset_file),
+                "final_inventory_class": lineage_only_support["final_inventory_class"],
+                "primary_standalone_flag": lineage_only_support["primary_standalone_flag"],
+                "family_id": lineage_only_support["family_id"],
+                "unit_of_observation": lineage_only_support["unit_of_observation"],
+                "conceptual_object": lineage_only_support["conceptual_object"],
+                "canonical_parent_file": "",
+                "lineage_inputs": "",
+                "lineage_outputs": "",
+                "writer_script": "",
+                "writer_line": "",
+                "reader_scripts": "",
+                "used_in_analysis": "",
+                "evidence_summary": "Appears in scanned repo code but is not a row in the base workbook.",
+                "confidence": lineage_only_support["confidence"],
+                "manual_review_reason": "",
+            }
+        )
+        support_sheet = pd.concat([support_sheet, lineage_only_rows], ignore_index=True)
+    return support_sheet.sort_values(["support_review_scope", "final_inventory_class", "relative_dir", "basename"]).reset_index(drop=True)
+
+
+def relative_dir_for_dataset_file(dataset_file: str) -> str:
+    try:
+        return Path(dataset_file).parent.relative_to(SEG_ROOT).as_posix()
+    except ValueError:
+        return str(Path(dataset_file).parent)
 
 
 def validate_outputs(sheets: dict[str, pd.DataFrame]) -> list[str]:
@@ -805,6 +875,7 @@ def main() -> None:
     dataset_nodes.to_csv(DATA_OUT_DIR / "dataset_nodes.csv", index=False)
     decision_changes.to_csv(DATA_OUT_DIR / "decision_changes.csv", index=False)
     manual_queue.to_csv(DATA_OUT_DIR / "manual_review_queue.csv", index=False)
+    sheets["support_weights_keys"].to_csv(DATA_OUT_DIR / "support_weights_keys.csv", index=False)
     write_memo(sheets, validation_errors)
 
     write_xlsx = load_write_xlsx()
@@ -818,12 +889,14 @@ def main() -> None:
         "excluded_complete_candidates",
         "column_guide",
         "final_standalone_datasets",
+        "support_weights_keys",
         "manual_review_queue",
         "decision_changes",
     ]
     write_xlsx(DATA_OUT_DIR / "seg_dataset_inventory_reviewed.xlsx", [(name, sheets[name]) for name in sheet_order])
     print(f"Wrote {DATA_OUT_DIR / 'seg_dataset_inventory_reviewed.xlsx'}")
     print(f"Final standalone datasets: {len(sheets['final_standalone_datasets'])}")
+    print(f"Support/weights/key rows: {len(sheets['support_weights_keys'])}")
     print(f"Manual review queue: {len(sheets['manual_review_queue'])}")
     print(f"Decision changes: {len(sheets['decision_changes'])}")
 
