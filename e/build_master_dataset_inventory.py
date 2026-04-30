@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import zipfile
+from collections import deque
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from functools import lru_cache
@@ -24,6 +25,7 @@ SEG_ROOT = Path("/dartfs/rc/lab/I/IEC/seg")
 HANDBOOK_ROOT = SEG_ROOT / "raw" / "handbook_ebs"
 HANDBOOK_APPENDED = HANDBOOK_ROOT / "handbook_appended.csv"
 HANDBOOK_COMBINED = HANDBOOK_ROOT / "combined_dataset.csv"
+HANDBOOK_PC0111_ANALYSIS = SEG_ROOT / "clean" / "segregation_pc0111.dta"
 DEFAULT_DTA_INVENTORY = Path("/dartfs-hpc/scratch/siddiqui/seg_cleanup/segdata_file_inventory.csv")
 DEFAULT_OUTPUT_DIR = Path("/dartfs-hpc/scratch/siddiqui/seg_cleanup/metadata")
 CODE_SEARCH_ROOTS = [
@@ -80,7 +82,24 @@ TRACKED_CHANGE_COLUMNS = [
     "linked_complete_dataset_file",
     "linked_complete_dataset_status",
     "linked_complete_dataset_note",
+    "complete_dataset_class",
+    "canonical_parent_file",
+    "lineage_basis",
+    "inventory_decision",
+    "inventory_decision_note",
+    "excluded_from_canonical_reason",
 ]
+
+COMPLETE_DATASET_CLASSES = ("canonical", "derived", "source", "legacy")
+COMPLETE_SHEET_NAMES = {
+    "canonical": "canonical_complete_datasets",
+    "derived": "derived_complete_datasets",
+    "source": "source_complete_datasets",
+    "legacy": "legacy_complete_datasets",
+    "excluded": "excluded_complete_candidates",
+}
+
+REFERENCE_REPO_NOTE = "reference_repo_lineage"
 
 
 @dataclass(frozen=True)
@@ -508,6 +527,40 @@ def build_rule_match(
 
 RULES: list[DatasetRule] = [
     DatasetRule(
+        pattern=re.compile(r"^ec13__city\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="artifact_misnamed_crosswalk",
+            pipeline_stage="bad collapsed EC13 artifact",
+            represents=(
+                "Misnamed EC13/PC11 identifier crosswalk artifact. It is not a "
+                "complete city-level EC13 dataset and is excluded from complete inventories."
+            ),
+            creator_script=pd.NA,
+            creator_line=pd.NA,
+            creator_basis="artifact_no_creator_found",
+            documentation_confidence="high",
+            is_complete_standalone=False,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^ec13_(?P<sector>rural|urban)_(?P<unit>city|block)\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="ec13_collapsed_master",
+            pipeline_stage="clean collapsed EC13 master",
+            represents=(
+                f"Complete collapsed EC13 {m.group('unit')}-level dataset for "
+                f"{m.group('sector')} areas, used as an input to SECC-EC merges."
+            ),
+            creator_script="ddl/segregation/b/not-used/gen_ec_block_city_data.do",
+            creator_line=341 if m.group("unit").lower() == "city" else 326,
+            creator_basis="template_save_match",
+            documentation_confidence="high",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
         pattern=re.compile(r"^secc_(?P<sector>rural|urban)_collapsed_block\.dta$", re.I),
         value_builder=lambda m, *_: build_rule_match(
             dataset_role="collapsed_master",
@@ -531,6 +584,51 @@ RULES: list[DatasetRule] = [
             creator_line=74,
             creator_basis="template_save_match",
             documentation_confidence="high",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^secc_(?P<sector>rural|urban)_individual_sample\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="individual_sample_master",
+            pipeline_stage="clean full individual sample",
+            represents=f"Full clean SECC {m.group('sector')} individual-level sample assembled from partitioned individual-sample files.",
+            creator_script="reference_repo:b/clean_individual_sample.do",
+            creator_line=72,
+            creator_basis=REFERENCE_REPO_NOTE,
+            documentation_confidence="medium",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^secc_(?P<sector>rural|urban)_individual_sample_(?P<variant>10p|1p|slum)\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="derived_individual_sample",
+            pipeline_stage="derived individual sample variant",
+            represents=(
+                f"Derived SECC {m.group('sector')} individual-level "
+                f"{m.group('variant')} variant of the full clean individual sample."
+            ),
+            creator_script=(
+                "reference_repo:b/clean_individual_sample.do"
+                if m.group("variant").lower() in {"10p", "1p"}
+                else pd.NA
+            ),
+            creator_line=(
+                78
+                if m.group("variant").lower() == "10p"
+                else 84
+                if m.group("variant").lower() == "1p"
+                else pd.NA
+            ),
+            creator_basis=(
+                REFERENCE_REPO_NOTE
+                if m.group("variant").lower() in {"10p", "1p"}
+                else "derived_variant_no_creator_found"
+            ),
+            documentation_confidence="medium",
             is_complete_standalone=True,
             is_analysis_ready_standalone=True,
         ),
@@ -564,14 +662,88 @@ RULES: list[DatasetRule] = [
         ),
     ),
     DatasetRule(
+        pattern=re.compile(r"^pc11_muslims_(?P<sector>rural|urban)\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="support_key_lookup",
+            pipeline_stage="pc11 religion support key",
+            represents=(
+                f"PC11 {m.group('sector')} Muslim population share key by "
+                f"{'subdistrict' if m.group('sector').lower() == 'rural' else 'town'} "
+                "used in segregation citydata builds and representativeness checks."
+            ),
+            creator_script="ddl/paper-india-segregation/b/gen_pc_muslim_share.do",
+            creator_line=42 if m.group("sector").lower() == "rural" else 62,
+            creator_basis="exact_save_match",
+            documentation_confidence="high",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^violence_matched_except_jk\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="raw_source_extract",
+            pipeline_stage="raw input to violence analysis build",
+            represents="Matched violence-event source data outside Jammu and Kashmir used to build shrid-level violence measures.",
+            creator_script="ddl/paper-india-segregation/b/prep_correlates.do",
+            creator_line=31,
+            creator_basis="downstream_usage_only",
+            documentation_confidence="high",
+            is_complete_standalone=False,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^violence_matched_jk\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="raw_source_extract",
+            pipeline_stage="raw input to violence analysis build",
+            represents="Matched violence-event source data for Jammu and Kashmir used to build shrid-level violence measures.",
+            creator_script="ddl/paper-india-segregation/b/prep_correlates.do",
+            creator_line=40,
+            creator_basis="downstream_usage_only",
+            documentation_confidence="high",
+            is_complete_standalone=False,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^AV_Data_matched\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="raw_source_extract",
+            pipeline_stage="matched violence source dataset",
+            represents="Matched violence source dataset retained alongside the final violence analysis file.",
+            creator_script=pd.NA,
+            creator_line=pd.NA,
+            creator_basis="unknown",
+            documentation_confidence="unknown",
+            is_complete_standalone=False,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^AV_Data\.xls$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="raw_source_extract",
+            pipeline_stage="raw violence spreadsheet source",
+            represents="Spreadsheet source in the violence-analysis input family.",
+            creator_script=pd.NA,
+            creator_line=pd.NA,
+            creator_basis="unknown",
+            documentation_confidence="unknown",
+            is_complete_standalone=False,
+            is_analysis_ready_standalone=False,
+        ),
+    ),
+    DatasetRule(
         pattern=re.compile(r"^secc_ec_blockdata_(?P<sector>rural|urban)_pooled_(?P<threshold>.+)\.dta$", re.I),
         value_builder=lambda m, *_: build_rule_match(
             dataset_role="pooled_analysis_dataset",
             pipeline_stage="pooled block-group analysis dataset",
             represents=f"Pooled SECC-EC block-group dataset for {m.group('sector')} areas at threshold {m.group('threshold')}.",
-            creator_script="ddl/paper-india-segregation/seg_programs.do",
-            creator_line=1118,
-            creator_basis="exact_save_match",
+            creator_script="ddl/paper-india-segregation/b/create_secc_block_groups.do",
+            creator_line=54,
+            creator_basis="template_save_match",
             documentation_confidence="high",
             is_complete_standalone=True,
             is_analysis_ready_standalone=True,
@@ -587,6 +759,76 @@ RULES: list[DatasetRule] = [
             creator_line=149,
             creator_basis="exact_save_match",
             documentation_confidence="high",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^segregation_citydata_(?P<sector>rural|urban)_(?P<threshold>.+)\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="final_analysis_dataset",
+            pipeline_stage="segregation city metric dataset",
+            represents=f"City-level segregation-metric dataset for {m.group('sector')} areas at threshold {m.group('threshold')}.",
+            creator_script="ddl/paper-india-segregation/b/gen_segregation_city_block_data.do",
+            creator_line=163,
+            creator_basis="template_save_match",
+            documentation_confidence="high",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^violence_seg_analysis\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="analysis_dataset",
+            pipeline_stage="standalone violence analysis dataset",
+            represents="Complete violence-enriched segregation analysis dataset at the urban/shrid level.",
+            creator_script="ddl/paper-india-segregation/b/prep_correlates.do",
+            creator_line=31,
+            creator_basis="downstream_usage_only",
+            documentation_confidence="medium",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^pg_discrimination_counts_(?P<sector>rural|urban)_200\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="analysis_dataset",
+            pipeline_stage="standalone discrimination summary dataset",
+            represents=f"Neighborhood-count summary dataset for the {m.group('sector')} discrimination analysis at threshold 200.",
+            creator_script=pd.NA,
+            creator_line=pd.NA,
+            creator_basis="unknown",
+            documentation_confidence="unknown",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^pg_discrimination_(?P<sector>rural|urban)_200\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="analysis_dataset",
+            pipeline_stage="standalone discrimination analysis dataset",
+            represents=f"Complete {m.group('sector')} discrimination analysis dataset at threshold 200.",
+            creator_script=pd.NA,
+            creator_line=pd.NA,
+            creator_basis="unknown",
+            documentation_confidence="unknown",
+            is_complete_standalone=True,
+            is_analysis_ready_standalone=True,
+        ),
+    ),
+    DatasetRule(
+        pattern=re.compile(r"^ias_collectors_01012021\.dta$", re.I),
+        value_builder=lambda m, *_: build_rule_match(
+            dataset_role="analysis_dataset",
+            pipeline_stage="cleaned side-analysis dataset",
+            represents="Cleaned district-level IAS collectors dataset for the January 1, 2021 COVID/administrative side analysis.",
+            creator_script="ddl/core/misc/sam/covid_ias.do",
+            creator_line=139,
+            creator_basis="template_save_match",
+            documentation_confidence="medium",
             is_complete_standalone=True,
             is_analysis_ready_standalone=True,
         ),
@@ -723,6 +965,20 @@ def explicit_us_rule(row: pd.Series) -> RuleMatch | None:
                 is_analysis_ready_standalone=True,
             )
 
+    if rel_dir == "clean/us":
+        if lower_basename == "2020_ua_blocks.csv":
+            return build_rule_match(
+                dataset_role="clean_us_support_dataset",
+                pipeline_stage="clean US geography support input",
+                represents="Clean 2020 US urban-area block geography file used in a side analysis of urban tract coverage.",
+                creator_script="ddl/segregation/a/not-used/calc_us_black_share_over_80.do",
+                creator_line=13,
+                creator_basis="downstream_usage_only",
+                documentation_confidence="medium",
+                is_complete_standalone=True,
+                is_analysis_ready_standalone=True,
+            )
+
     if rel_dir == "raw/us/brown":
         if lower_basename in {
             "cc20d20.dta",
@@ -823,7 +1079,646 @@ def explicit_us_rule(row: pd.Series) -> RuleMatch | None:
                 is_analysis_ready_standalone=True,
             )
 
+    if rel_dir == "old-2020/raw/us":
+        if lower_basename in {
+            "us_cityleveldata.dta",
+            "us_dissim.xlsx",
+            "us_edu.csv",
+            "us_income.csv",
+            "us_iso.xlsx",
+            "uscityincome.dta",
+        }:
+            return build_rule_match(
+                dataset_role="standalone_source_dataset",
+                pipeline_stage="legacy standalone source",
+                represents=f"Legacy complete US source dataset `{basename}` retained as a standalone archive copy.",
+                creator_script=pd.NA,
+                creator_line=pd.NA,
+                creator_basis="unknown",
+                documentation_confidence="unknown",
+                is_complete_standalone=True,
+                is_analysis_ready_standalone=True,
+            )
+
     return None
+
+
+def is_missing_value(value: object) -> bool:
+    if value is None:
+        return True
+    try:
+        return bool(pd.isna(value))
+    except TypeError:
+        return False
+
+
+def explicit_creator_override(row: pd.Series) -> tuple[object, object, str, str] | None:
+    basename = str(row["basename"])
+    lower_basename = basename.lower()
+    rel_dir = str(row["relative_dir"])
+
+    exact: dict[str, tuple[str, int, str, str]] = {
+        "census_village_pg_shares.dta": (
+            "ddl/paper-india-segregation/b/create_census_village_pg_shares.do",
+            93,
+            "exact_save_match",
+            "high",
+        ),
+        "pc11r_pca_clean.dta": (
+            "ddl/core/pc/pc11/gen_pc11_pca_clean.do",
+            252,
+            "exact_save_match",
+            "high",
+        ),
+        "pc11u_pca_clean.dta": (
+            "ddl/core/pc/pc11/gen_pc11_pca_clean.do",
+            403,
+            "exact_save_match",
+            "high",
+        ),
+        "pc11r_subdistrict_social_group.dta": (
+            "ddl/core/pc/pc11/create_religion_pca.do",
+            276,
+            "template_save_match",
+            "high",
+        ),
+        "pc11u_town_social_group.dta": (
+            "ddl/core/pc/pc11/create_religion_pca.do",
+            343,
+            "exact_save_match",
+            "high",
+        ),
+        "segregation_pc0111.dta": (
+            "ddl/paper-india-segregation/a/gen_dissim_pc0111.do",
+            295,
+            "template_save_match",
+            "high",
+        ),
+        "segregation_pc910111.dta": (
+            "reference_repo:b/handbooks/old-2/gen_dissim_pc910111.do",
+            76,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "seg_sc_changes_2001_2011.dta": (
+            "ddl/segregation/b/not-used/calc_2001_segregation.do",
+            237,
+            "exact_save_match",
+            "high",
+        ),
+        "mumbai_blockdata.dta": (
+            "reference_repo:old/7_cleanmumbaimuslims.do",
+            50,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "us_dissim.xlsx": (
+            "reference_repo:old/gen_us_data.do",
+            57,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "uscityincome.dta": (
+            "reference_repo:old/gen_us_data.do",
+            48,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "us_cityleveldata.dta": (
+            "reference_repo:old/5a_usclean.do",
+            40,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "usa_msa_dissim.xlsx": (
+            "reference_repo:old/gen_us_data.do",
+            57,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        ),
+        "cityallp20.csv": (
+            "ddl/segregation/e/us/brown_isolation_indices.do",
+            6,
+            "downstream_usage_only",
+            "medium",
+        ),
+        "frey_msa_100_dissimilarity.dta": (
+            pd.NA,
+            pd.NA,
+            "external_source_no_creator_found",
+            "unknown",
+        ),
+        "us_tract_pop.dta": (
+            "ddl/paper-india-segregation/b/gen_us_seg_variables.do",
+            131,
+            "template_save_match",
+            "high",
+        ),
+        "us_tpop_b.dta": (
+            "ddl/paper-india-segregation/b/gen_us_seg_variables.do",
+            153,
+            "template_save_match",
+            "high",
+        ),
+        "msa_tract_race_pop.dta": (
+            "ddl/paper-india-segregation/b/gen_us_seg_variables.do",
+            275,
+            "template_save_match",
+            "high",
+        ),
+    }
+    if lower_basename in exact:
+        return exact[lower_basename]
+
+    city_district_match = re.fullmatch(
+        r"city_seg_district_rural_urban_(?:200|4000)\.dta",
+        lower_basename,
+    )
+    if city_district_match:
+        return (
+            "ddl/paper-india-segregation/b/gen_district_correlates_urban_rural.do",
+            61,
+            "template_save_match",
+            "high",
+        )
+
+    ec_appended_or_health = re.fullmatch(r"ec(?:05|13|90|98)_(?:appended|ed_health)\.dta", lower_basename)
+    if rel_dir == "clean/ec" and ec_appended_or_health:
+        return (
+            "reference_repo:b/gen_ec_all_village.do",
+            213 if "ed_health" in lower_basename else 33,
+            REFERENCE_REPO_NOTE,
+            "medium",
+        )
+
+    return None
+
+
+CANONICAL_COMPLETE_PATTERNS = (
+    re.compile(r"^secc_(rural|urban)_collapsed(_block)?\.dta$", re.I),
+    re.compile(r"^secc_ec_blockdata_(rural|urban)\.dta$", re.I),
+    re.compile(r"^secc_(rural|urban)_individual_sample\.dta$", re.I),
+    re.compile(r"^census_village_pg_shares\.dta$", re.I),
+    re.compile(r"^pc11r_pca_clean\.dta$", re.I),
+    re.compile(r"^pc11u_pca_clean\.dta$", re.I),
+    re.compile(r"^ec13_(rural|urban)_(city|block)\.dta$", re.I),
+)
+
+DERIVED_COMPLETE_PATTERNS = (
+    re.compile(r"^secc_ec_blockdata_(rural|urban)_pooled_.+\.dta$", re.I),
+    re.compile(r"^secc_(rural|urban)_individual_sample_(10p|1p|slum)\.dta$", re.I),
+    re.compile(r"^2020_UA_BLOCKS\.csv$", re.I),
+    re.compile(r"^us_tract_pop\.dta$", re.I),
+    re.compile(r"^us_tpop_b\.dta$", re.I),
+    re.compile(r"^msa_tract_race_pop\.dta$", re.I),
+    re.compile(r"^segregation_blockdata_(rural|urban)_(200|4000)\.dta$", re.I),
+    re.compile(r"^segregation_citydata_(rural|urban)_(200|4000)\.dta$", re.I),
+    re.compile(r"^city_seg_district_rural_urban_(200|4000)\.dta$", re.I),
+    re.compile(r"^segregation_pc0111\.dta$", re.I),
+    re.compile(r"^segregation_pc910111\.dta$", re.I),
+    re.compile(r"^seg_sc_changes_2001_2011\.dta$", re.I),
+    re.compile(r"^pc11[ru]_(subdistrict|town)_social_group\.dta$", re.I),
+    re.compile(r"^ec(?:05|13|90|98)_(?:appended|ed_health)\.dta$", re.I),
+    re.compile(r"^ec13_appended\.dta$", re.I),
+    re.compile(r"^violence_seg_analysis\.dta$", re.I),
+    re.compile(r"^pg_discrimination(_counts)?_(rural|urban)_200\.dta$", re.I),
+    re.compile(r"^ias_collectors_01012021\.dta$", re.I),
+    re.compile(r"^dissim(_iso)?_block_groups\.dta$", re.I),
+)
+
+SOURCE_COMPLETE_PATTERNS = (
+    re.compile(r"^frey_msa_100_dissimilarity\.dta$", re.I),
+    re.compile(r"^cityallp20\.csv$", re.I),
+    re.compile(r"^tract-place-key\.csv$", re.I),
+    re.compile(r"^oi-tract-data\.dta$", re.I),
+)
+
+
+def match_any_pattern(patterns: tuple[re.Pattern[str], ...], value: str) -> bool:
+    return any(pattern.fullmatch(value) for pattern in patterns)
+
+
+def complete_parent_for_row(row: pd.Series, inventory_class: str) -> object:
+    basename = str(row["basename"])
+    lower_basename = basename.lower()
+    rel_dir = str(row["relative_dir"])
+
+    if inventory_class in {"canonical", "source", "legacy"}:
+        return str(row["filename"])
+
+    individual_sample_variant = re.fullmatch(
+        r"secc_(rural|urban)_individual_sample_(?:10p|1p|slum)\.dta",
+        lower_basename,
+        re.I,
+    )
+    if individual_sample_variant:
+        sector = individual_sample_variant.group(1)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/secc_{sector}_individual_sample.dta"
+
+    nbd_old_pooled_variant = re.fullmatch(
+        r"secc_ec_blockdata_(rural|urban)_pooled_.+\.dta",
+        lower_basename,
+        re.I,
+    )
+    if rel_dir == "clean/nbd_sizes_old" and nbd_old_pooled_variant:
+        sector = nbd_old_pooled_variant.group(1)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/nbd_sizes_old/secc_ec_blockdata_{sector}_pooled_.dta"
+
+    if lower_basename == "2020_ua_blocks.csv":
+        return pd.NA
+
+    if lower_basename == "us_tract_pop.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/raw/us/census-tract-pop-2020.csv"
+
+    if lower_basename == "us_tpop_b.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/clean/us/us_tract_pop.dta"
+
+    if lower_basename == "msa_tract_race_pop.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/clean/us/us_tract_pop.dta"
+
+    if re.fullmatch(r"secc_ec_blockdata_(rural|urban)_pooled_.+\.dta", lower_basename, re.I):
+        sector = re.fullmatch(r"secc_ec_blockdata_(rural|urban)_pooled_.+\.dta", lower_basename, re.I).group(1)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/secc_ec_blockdata_{sector}.dta"
+
+    if re.fullmatch(r"segregation_blockdata_(rural|urban)_(200|4000)\.dta", lower_basename, re.I):
+        m = re.fullmatch(r"segregation_blockdata_(rural|urban)_(200|4000)\.dta", lower_basename, re.I)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/secc_ec_blockdata_{m.group(1)}_pooled_{m.group(2)}.dta"
+
+    if re.fullmatch(r"segregation_citydata_(rural|urban)_(200|4000)\.dta", lower_basename, re.I):
+        m = re.fullmatch(r"segregation_citydata_(rural|urban)_(200|4000)\.dta", lower_basename, re.I)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/segregation_blockdata_{m.group(1)}_{m.group(2)}.dta"
+
+    if re.fullmatch(r"city_seg_district_rural_urban_(200|4000)\.dta", lower_basename, re.I):
+        m = re.fullmatch(r"city_seg_district_rural_urban_(200|4000)\.dta", lower_basename, re.I)
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/segregation_citydata_urban_{m.group(1)}.dta"
+
+    if lower_basename == "segregation_pc0111.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/clean/segregation_citydata_urban_200.dta"
+
+    if lower_basename == "segregation_pc910111.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/clean/segregation_pc0111.dta"
+
+    if lower_basename == "seg_sc_changes_2001_2011.dta":
+        return "/dartfs/rc/lab/I/IEC/seg/clean/segregation_pc0111.dta"
+
+    if lower_basename in {"pc11r_subdistrict_social_group.dta", "pc11u_town_social_group.dta"}:
+        return (
+            "/dartfs/rc/lab/I/IEC/seg/clean/pc11/pc11r_pca_clean.dta"
+            if "pc11r_" in lower_basename
+            else "/dartfs/rc/lab/I/IEC/seg/clean/pc11/pc11u_pca_clean.dta"
+        )
+
+    if lower_basename in {"ec05_appended.dta", "ec13_appended.dta", "ec90_appended.dta", "ec98_appended.dta"}:
+        return pd.NA
+
+    if lower_basename in {"ec05_ed_health.dta", "ec13_ed_health.dta", "ec90_ed_health.dta", "ec98_ed_health.dta"}:
+        appended_name = lower_basename.replace("_ed_health", "_appended")
+        return f"/dartfs/rc/lab/I/IEC/seg/clean/ec/{appended_name}"
+
+    if lower_basename == "violence_seg_analysis.dta":
+        return pd.NA
+
+    if lower_basename == "ias_collectors_01012021.dta":
+        return pd.NA
+
+    return pd.NA
+
+
+def classify_complete_dataset(row: pd.Series) -> dict[str, object]:
+    filename = str(row["filename"])
+    basename = str(row["basename"])
+    lower_basename = basename.lower()
+    rel_dir = str(row["relative_dir"])
+    dataset_role = str(row["dataset_role"])
+    likely_legacy = bool(row["likely_legacy"])
+    is_complete = bool(row["is_complete_standalone"])
+    is_analysis_ready = bool(row["is_analysis_ready_standalone"])
+
+    result = {
+        "complete_dataset_class": pd.NA,
+        "canonical_parent_file": pd.NA,
+        "lineage_basis": pd.NA,
+        "inventory_decision": "excluded",
+        "inventory_decision_note": "",
+        "excluded_from_canonical_reason": "",
+    }
+
+    if lower_basename == "ec13__city.dta":
+        result.update(
+            {
+                "complete_dataset_class": "excluded",
+                "lineage_basis": "artifact_no_creator_found",
+                "inventory_decision": "excluded",
+                "inventory_decision_note": "Misnamed EC13/PC11 crosswalk artifact excluded from complete dataset sheets.",
+                "excluded_from_canonical_reason": "misnamed crosswalk artifact",
+            }
+        )
+        return result
+
+    if rel_dir == "clean/pc11" and lower_basename in {"pc11_muslims_rural.dta", "pc11_muslims_urban.dta"}:
+        result.update(
+            {
+                "complete_dataset_class": "canonical",
+                "canonical_parent_file": filename,
+                "lineage_basis": "promoted_support_master_rule",
+                "inventory_decision": "canonical",
+                "inventory_decision_note": "Primary PC11 Muslim-share master promoted to the standalone sheet.",
+                "excluded_from_canonical_reason": "",
+            }
+        )
+        return result
+
+    if rel_dir == "violence" and lower_basename == "violence_seg_analysis.dta":
+        result.update(
+            {
+                "complete_dataset_class": "canonical",
+                "canonical_parent_file": filename,
+                "lineage_basis": "promoted_analysis_master_rule",
+                "inventory_decision": "canonical",
+                "inventory_decision_note": "Primary violence analysis master promoted to the standalone sheet.",
+                "excluded_from_canonical_reason": "",
+            }
+        )
+        return result
+
+    if rel_dir == "raw/us/old" and lower_basename == "us_cityleveldata.dta":
+        result.update(
+            {
+                "complete_dataset_class": "canonical",
+                "canonical_parent_file": filename,
+                "lineage_basis": "promoted_legacy_master_rule",
+                "inventory_decision": "canonical",
+                "inventory_decision_note": "Legacy US city-level master promoted because no active standalone dataset captures this family.",
+                "excluded_from_canonical_reason": "",
+            }
+        )
+        return result
+
+    if not is_complete and not is_analysis_ready:
+        result["inventory_decision_note"] = "Not a complete standalone dataset."
+        result["excluded_from_canonical_reason"] = "not complete standalone"
+        result["inventory_decision"] = "not_complete"
+        return result
+
+    if dataset_role == "support_key_lookup":
+        result.update(
+            {
+                "complete_dataset_class": "excluded",
+                "lineage_basis": "support_key_lookup",
+                "inventory_decision": "excluded",
+                "inventory_decision_note": "Support key or lookup file; not treated as a complete dataset.",
+                "excluded_from_canonical_reason": "support key / lookup",
+            }
+        )
+        return result
+
+    if rel_dir == "clean/nbd_sizes_old" and re.fullmatch(
+        r"secc_ec_blockdata_(rural|urban)_pooled_.+\.dta",
+        lower_basename,
+        re.I,
+    ):
+        result.update(
+            {
+                "complete_dataset_class": "derived",
+                "canonical_parent_file": complete_parent_for_row(row, "derived"),
+                "lineage_basis": "legacy_threshold_family_rule",
+                "inventory_decision": "derived",
+                "inventory_decision_note": "Legacy thresholded pooled file derived from the archived pooled parent.",
+                "excluded_from_canonical_reason": "derived legacy threshold output",
+            }
+        )
+        return result
+
+    if likely_legacy:
+        result.update(
+            {
+                "complete_dataset_class": "legacy",
+                "canonical_parent_file": filename,
+                "lineage_basis": "legacy_archive_rule",
+                "inventory_decision": "legacy",
+                "inventory_decision_note": "Legacy archive copy retained on its own sheet.",
+                "excluded_from_canonical_reason": "legacy archive copy",
+            }
+        )
+        return result
+
+    if match_any_pattern(SOURCE_COMPLETE_PATTERNS, basename) or dataset_role == "standalone_source_dataset":
+        result.update(
+            {
+                "complete_dataset_class": "source",
+                "canonical_parent_file": filename,
+                "lineage_basis": "standalone_source_unit",
+                "inventory_decision": "source",
+                "inventory_decision_note": "Standalone source dataset retained separately from clean canonical masters.",
+                "excluded_from_canonical_reason": "standalone source unit",
+            }
+        )
+        return result
+
+    if match_any_pattern(DERIVED_COMPLETE_PATTERNS, basename) or dataset_role in {
+        "analysis_dataset",
+        "final_analysis_dataset",
+        "pooled_analysis_dataset",
+        "ec13_collapsed_master",
+        "derived_individual_sample",
+        "clean_us_support_dataset",
+    }:
+        result.update(
+            {
+                "complete_dataset_class": "derived",
+                "canonical_parent_file": complete_parent_for_row(row, "derived"),
+                "lineage_basis": "family_derivation_rule",
+                "inventory_decision": "derived",
+                "inventory_decision_note": "Complete dataset, but derived from another complete dataset family.",
+                "excluded_from_canonical_reason": "derived family output",
+            }
+        )
+        return result
+
+    if match_any_pattern(CANONICAL_COMPLETE_PATTERNS, basename) or dataset_role in {
+        "collapsed_master",
+        "merged_analysis_input",
+        "clean_dataset",
+        "individual_sample_master",
+    }:
+        result.update(
+            {
+                "complete_dataset_class": "canonical",
+                "canonical_parent_file": filename,
+                "lineage_basis": "canonical_master_rule",
+                "inventory_decision": "canonical",
+                "inventory_decision_note": "Canonical complete dataset retained in the primary sheet.",
+                "excluded_from_canonical_reason": "",
+            }
+        )
+        return result
+
+    if is_analysis_ready:
+        result.update(
+            {
+                "complete_dataset_class": "derived",
+                "canonical_parent_file": pd.NA,
+                "lineage_basis": "fallback_analysis_ready_rule",
+                "inventory_decision": "derived",
+                "inventory_decision_note": "Analysis-ready complete dataset without a tighter family rule.",
+                "excluded_from_canonical_reason": "derived analysis-ready output",
+            }
+        )
+        return result
+
+    result["inventory_decision_note"] = "Complete candidate could not be classified into a retained class."
+    result["excluded_from_canonical_reason"] = "unclassified complete candidate"
+    return result
+
+
+def build_column_guide() -> pd.DataFrame:
+    descriptions = {
+        "filename": "Absolute file path for the structured dataset.",
+        "file_format": "Normalized file format without the leading dot.",
+        "file_extension_normalized": "Normalized extension used by the scanner.",
+        "file_size_bytes": "File size in bytes.",
+        "top_level_section": "Top-level directory immediately under `seg`.",
+        "subfolder": "Nested folder path below the top-level section.",
+        "relative_dir": "Directory path relative to `seg`.",
+        "basename": "Leaf filename.",
+        "legacy_reason": "Semicolon-delimited legacy markers inferred from the path.",
+        "likely_legacy": "Boolean flag for files in old/archive locations.",
+        "read_error_type": "Read error type if file metadata could not be parsed.",
+        "read_error_message": "Read error message if metadata parsing failed.",
+        "structure_notes": "Short note about how structure metadata was obtained.",
+        "n_obs": "Observed row count from metadata extraction.",
+        "n_vars": "Observed variable count from metadata extraction.",
+        "variable_list": "Semicolon-delimited list of column or variable names.",
+        "structure_metadata_status": "Status of structure metadata extraction.",
+        "dataset_role": "Heuristic role assigned from filename, path, and code lineage.",
+        "pipeline_stage": "High-level pipeline stage inferred from code and path.",
+        "represents": "Human-readable description of what the file contains.",
+        "creator_script": "Script most likely responsible for creating the file.",
+        "creator_line": "Line number in the creator script or reference source.",
+        "creator_basis": "Basis for the creator mapping, such as exact save match or reference repo lineage.",
+        "documentation_confidence": "Confidence in the creator mapping.",
+        "is_complete_standalone": "Boolean flag for complete standalone datasets.",
+        "is_analysis_ready_standalone": "Boolean flag for complete datasets suitable for direct analysis use.",
+        "master_pooled_file": "Mapped master file used for lineage or comparison.",
+        "master_mapping_status": "Whether the row maps to itself or another master.",
+        "master_mapping_basis": "Rule or evidence used for the master mapping.",
+        "master_mapping_note": "Short note explaining the master mapping decision.",
+        "linked_complete_dataset_file": "Complete dataset linked to this row when it is an input or fragment.",
+        "linked_complete_dataset_in_standalone": "Boolean flag indicating whether the linked complete dataset is in the standalone inventory.",
+        "linked_complete_dataset_status": "Status of the linked complete dataset relation.",
+        "linked_complete_dataset_note": "Short note explaining the linked complete dataset relation.",
+        "complete_dataset_class": "Canonical, derived, source, legacy, or excluded class for the complete dataset inventory.",
+        "canonical_parent_file": "Immediate parent complete dataset used for lineage tracing.",
+        "lineage_basis": "Rule basis used to assign the complete dataset class and parent.",
+        "inventory_decision": "Final inventory decision for the complete-dataset workbook sheets.",
+        "inventory_decision_note": "Short explanation of the inventory decision.",
+        "excluded_from_canonical_reason": "Reason the file is not on the canonical sheet.",
+        "needs_complete_dataset_flag": "Boolean flag marking rows that need complete-dataset linkage work.",
+    }
+    records = [
+        {
+            "column_name": column,
+            "meaning": descriptions.get(column, ""),
+        }
+        for column in [
+            "filename",
+            "file_format",
+            "file_extension_normalized",
+            "file_size_bytes",
+            "top_level_section",
+            "subfolder",
+            "relative_dir",
+            "basename",
+            "legacy_reason",
+            "likely_legacy",
+            "read_error_type",
+            "read_error_message",
+            "structure_notes",
+            "n_obs",
+            "n_vars",
+            "variable_list",
+            "structure_metadata_status",
+            "dataset_role",
+            "pipeline_stage",
+            "represents",
+            "creator_script",
+            "creator_line",
+            "creator_basis",
+            "documentation_confidence",
+            "is_complete_standalone",
+            "is_analysis_ready_standalone",
+            "master_pooled_file",
+            "master_mapping_status",
+            "master_mapping_basis",
+            "master_mapping_note",
+            "linked_complete_dataset_file",
+            "linked_complete_dataset_in_standalone",
+            "linked_complete_dataset_status",
+            "linked_complete_dataset_note",
+            "complete_dataset_class",
+            "canonical_parent_file",
+            "lineage_basis",
+            "inventory_decision",
+            "inventory_decision_note",
+            "excluded_from_canonical_reason",
+            "needs_complete_dataset_flag",
+        ]
+    ]
+    return pd.DataFrame(records)
+
+
+def split_complete_inventory(inventory: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    complete_mask = inventory["inventory_decision"].isin(COMPLETE_DATASET_CLASSES)
+    filename_index = {
+        str(row["filename"]): row for _, row in inventory.loc[complete_mask].iterrows()
+    }
+    standalone_files = set(
+        inventory.loc[inventory["inventory_decision"].isin({"canonical", "source", "legacy"}), "filename"]
+        .astype(str)
+        .tolist()
+    )
+    parent_queue: deque[str] = deque()
+    for _, row in inventory.loc[inventory["inventory_decision"].eq("derived")].iterrows():
+        for parent_col in ("canonical_parent_file", "linked_complete_dataset_file"):
+            parent = row.get(parent_col)
+            if pd.notna(parent) and str(parent).strip():
+                parent_queue.append(str(parent))
+
+    seen_parents: set[str] = set()
+    while parent_queue:
+        parent = parent_queue.popleft()
+        if parent in seen_parents:
+            continue
+        seen_parents.add(parent)
+        parent_row = filename_index.get(parent)
+        if parent_row is None:
+            continue
+        if parent not in standalone_files:
+            standalone_files.add(parent)
+            for parent_col in ("canonical_parent_file", "linked_complete_dataset_file"):
+                upstream = parent_row.get(parent_col)
+                if pd.notna(upstream) and str(upstream).strip():
+                    upstream = str(upstream)
+                    if upstream != parent:
+                        parent_queue.append(upstream)
+    frames = {}
+    for complete_class in COMPLETE_DATASET_CLASSES:
+        frames[complete_class] = (
+            inventory.loc[inventory["inventory_decision"].eq(complete_class)]
+            .sort_values(["top_level_section", "relative_dir", "basename", "filename"])
+            .reset_index(drop=True)
+        )
+    frames["excluded"] = (
+        inventory.loc[inventory["inventory_decision"].eq("excluded")]
+        .sort_values(["top_level_section", "relative_dir", "basename", "filename"])
+        .reset_index(drop=True)
+    )
+    frames["standalone"] = (
+        inventory.loc[inventory["filename"].astype(str).isin(standalone_files)]
+        .sort_values(["top_level_section", "relative_dir", "basename", "filename"])
+        .reset_index(drop=True)
+    )
+    return frames
 
 
 def is_support_dataset(filename: str, basename: str, relative_dir: str) -> bool:
@@ -908,6 +1803,33 @@ def master_mapping_for_row(row: pd.Series) -> tuple[object, str, str, str]:
             "EB page CSV matched to handbook_appended.csv on shared town/ward/EB/pop fields.",
         )
 
+    handbook_pc0111_inputs = {
+        "pc01_eb_appendix.csv",
+        "pc01_pca_key.dta",
+        "pc01_pdf.dta",
+        "pc01_pdf_eb_clean.dta",
+        "pc01_pdf_key.dta",
+        "pc01_pdf_shrid_dissim.dta",
+        "pc01_pdf_shrid_key.dta",
+        "pc01_pdf_town_clean.dta",
+        "pc01_unmerged_pdf.dta",
+        "pc11_eb_appendix.csv",
+        "pc11_pca_key.dta",
+        "pc11_pdf.dta",
+        "pc11_pdf_eb_clean.dta",
+        "pc11_pdf_key.dta",
+        "pc11_pdf_shrid_dissim.dta",
+        "pc11_pdf_shrid_key.dta",
+        "pc11_pdf_town_clean.dta",
+    }
+    if rel_dir == "clean/handbooks" and basename in handbook_pc0111_inputs:
+        return (
+            str(HANDBOOK_PC0111_ANALYSIS),
+            "mapped",
+            "explicit_creator_lineage",
+            "Handbook support or intermediate dataset used in gen_dissim_pc0111.do to build the merged cross-year handbook segregation analysis dataset.",
+        )
+
     block_to_nbd_match = re.fullmatch(
         r"secc_(?P<sector>rural|urban)_block_to_nbd_(?P<threshold>.+)_key\.dta",
         basename,
@@ -924,6 +1846,33 @@ def master_mapping_for_row(row: pd.Series) -> tuple[object, str, str, str]:
             "mapped to pooled DTA as the analysis master."
         )
         return pooled_master, "mapped", "explicit_creator_lineage", note
+
+    if rel_dir == "religion":
+        religion_match = re.fullmatch(r"pc11_muslims_(?P<sector>rural|urban)\.dta", basename, re.I)
+        if religion_match:
+            sector = religion_match.group("sector").lower()
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/pc11/pc11_muslims_{sector}.dta",
+                "mapped",
+                "family_lineage_rule",
+                "Duplicate religion-folder copy of the PC11 Muslim-share master; mapped to the promoted clean/pc11 master dataset.",
+            )
+
+    if rel_dir == "violence":
+        if basename in {"violence_matched_except_jk.dta", "violence_matched_jk.dta"}:
+            return (
+                "/dartfs/rc/lab/I/IEC/seg/violence/violence_seg_analysis.dta",
+                "mapped",
+                "explicit_creator_lineage",
+                "Matched violence event input merged in prep_correlates.do to build shrid-level violence measures; mapped to the complete violence analysis dataset.",
+            )
+        if basename in {"AV_Data_matched.dta", "AV_Data.xls"}:
+            return (
+                "/dartfs/rc/lab/I/IEC/seg/violence/violence_seg_analysis.dta",
+                "mapped",
+                "family_lineage_rule",
+                "Violence source file in the same matched-analysis family; mapped to the complete violence analysis dataset.",
+            )
 
     if rel_dir == "partitioned/secc_collapse/muslim_classification":
         muslim_household_match = re.fullmatch(
@@ -1017,6 +1966,52 @@ def master_mapping_for_row(row: pd.Series) -> tuple[object, str, str, str]:
                 "Partitioned individual-sample shard written by individual_1p_regression.do and appended in assemble_individual_1p.do into the clean full individual sample dataset.",
             )
 
+    if rel_dir in {"partitioned/parsed_draft/rural", "partitioned/parsed_draft/urban"}:
+        parsed_draft_match = re.fullmatch(
+            r"secc_(?P<sector>rural|urban)_\d{4,5}_(?P<unit>members|household)\.dta",
+            basename,
+            re.I,
+        )
+        if parsed_draft_match:
+            sector = parsed_draft_match.group("sector").lower()
+            unit = parsed_draft_match.group("unit").lower()
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/secc_{sector}_individual_sample.dta",
+                "mapped",
+                "explicit_creator_lineage",
+                f"Partitioned parsed-draft {unit} shard used as input to both the block-collapse build and the full clean individual sample build; mapped to the pooled individual-level master dataset.",
+            )
+
+    if rel_dir in {
+        "old-2020/raw/muslims/lstm_classifications/rural",
+        "old-2020/raw/muslims/lstm_classifications/urban",
+    }:
+        names_pred_match = re.fullmatch(r"names_pred_[a-z0-9]+\.csv\*?", basename, re.I)
+        if names_pred_match:
+            sector = "rural" if rel_dir.endswith("/rural") else "urban"
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/secc_{sector}_collapsed_block.dta",
+                "mapped",
+                "explicit_creator_lineage",
+                "State-level LSTM Muslim-name classification output imported by classify_names.do, converted into member and household Muslim keys, and then merged into the collapsed block build; the same pipeline also feeds the full individual sample build.",
+            )
+
+    if rel_dir == "clean/shrug" and basename == "shrug_pc11_subdistrict_key.dta":
+        return (
+            "/dartfs/rc/lab/I/IEC/seg/clean/segregation_citydata_rural_200.dta",
+            "mapped",
+            "explicit_creator_lineage",
+            "Support key merged into the segregation city-data build, especially the rural subdistrict pipeline; mapped to the canonical rural city-level analysis dataset.",
+        )
+
+    if rel_dir == "clean/us" and basename == "msa_keys.dta":
+        return (
+            "/dartfs/rc/lab/I/IEC/seg/clean/us/us_census_msa_dissim.dta",
+            "mapped",
+            "explicit_creator_lineage",
+            "Clean MSA key merged into the downstream US census MSA dissimilarity dataset.",
+        )
+
     if rel_dir == "raw/us":
         if basename == "census-tract-pop-2020.csv":
             return (
@@ -1097,6 +2092,161 @@ def complete_dataset_link_for_row(row: pd.Series) -> tuple[object, bool, str, st
         if lowered.endswith("/raw/handbook_ebs/_file_manifest.csv"):
             return combined, False, "linked_complete_nonstandalone", "manifest points to handbook combined aggregate"
         return combined, False, "linked_complete_nonstandalone", "handbook page/raw fragment linked to combined handbook aggregate"
+    if str(row["relative_dir"]) == "clean/handbooks":
+        handbook_pc0111_inputs = {
+            "pc01_eb_appendix.csv",
+            "pc01_pca_key.dta",
+            "pc01_pdf.dta",
+            "pc01_pdf_eb_clean.dta",
+            "pc01_pdf_key.dta",
+            "pc01_pdf_shrid_dissim.dta",
+            "pc01_pdf_shrid_key.dta",
+            "pc01_pdf_town_clean.dta",
+            "pc01_unmerged_pdf.dta",
+            "pc11_eb_appendix.csv",
+            "pc11_pca_key.dta",
+            "pc11_pdf.dta",
+            "pc11_pdf_eb_clean.dta",
+            "pc11_pdf_key.dta",
+            "pc11_pdf_shrid_dissim.dta",
+            "pc11_pdf_shrid_key.dta",
+            "pc11_pdf_town_clean.dta",
+        }
+        if str(row["basename"]) in handbook_pc0111_inputs:
+            return (
+                str(HANDBOOK_PC0111_ANALYSIS),
+                True,
+                "linked_complete_standalone",
+                "Linked to the merged PC01-PC11 handbook analysis dataset.",
+            )
+    basename = str(row["basename"])
+    rel_dir = str(row["relative_dir"])
+    if rel_dir == "clean/us" and basename == "msa_keys.dta":
+        return (
+            "/dartfs/rc/lab/I/IEC/seg/clean/us/us_census_msa_dissim.dta",
+            False,
+            "linked_complete_nonstandalone",
+            "Clean MSA key merged into the downstream US census MSA dissimilarity dataset.",
+        )
+    if rel_dir == "raw/us":
+        raw_us_links = {
+            "census-tract-pop-2020.csv": (
+                "/dartfs/rc/lab/I/IEC/seg/clean/us/us_tract_pop.dta",
+                "Raw Census tract population CSV cleaned by gen_us_seg_variables.do.",
+            ),
+            "MSA_key.csv": (
+                "/dartfs/rc/lab/I/IEC/seg/clean/us/msa_keys.dta",
+                "Raw MSA-county key cleaned by gen_us_seg_variables.do.",
+            ),
+            "msa-level-pop-2020.csv": (
+                "/dartfs/rc/lab/I/IEC/seg/clean/us/us_census_msa_dissim.dta",
+                "Raw Census MSA population CSV merged into the clean US census MSA dissimilarity dataset.",
+            ),
+            "brown_city_dissimilarity.dta": (
+                "/dartfs/rc/lab/I/IEC/seg/clean/us/brown_city_dissim_1980_2020.dta",
+                "Raw Brown city dissimilarity panel underlying the clean Brown city comparison series.",
+            ),
+            "brown_msa_dissimilarity.dta": (
+                "/dartfs/rc/lab/I/IEC/seg/clean/us/brown_msa_dissim_1980_2020.dta",
+                "Raw Brown MSA dissimilarity panel underlying the clean Brown MSA comparison series.",
+            ),
+        }
+        if basename in raw_us_links:
+            linked_file, note = raw_us_links[basename]
+            return linked_file, False, "linked_complete_nonstandalone", note
+        if basename in {"frey_msa_100_dissimilarity.dta", "oi-tract-data.dta", "tract-place-key.csv"}:
+            return (
+                pd.NA,
+                False,
+                "no_clean_counterpart_found",
+                "Current code search found this as a raw/source comparison input, but not as a creator input for an active clean complete dataset.",
+            )
+    if rel_dir == "raw/us/brown":
+        brown_clean_links = {
+            "city20d20.dta": "/dartfs/rc/lab/I/IEC/seg/clean/us/brown_city_dissim_1980_2020.dta",
+            "msa20d20.dta": "/dartfs/rc/lab/I/IEC/seg/clean/us/brown_msa_dissim_1980_2020.dta",
+        }
+        if basename in brown_clean_links:
+            return (
+                brown_clean_links[basename],
+                False,
+                "linked_complete_nonstandalone",
+                "Brown 2020 dissimilarity source linked to the clean Brown dissimilarity comparison series.",
+            )
+        if basename in {
+            "cc20d20.dta",
+            "cc20p20.dta",
+            "city20p20.dta",
+            "cityallp20.csv",
+            "msa20p20.dta",
+            "sb20d20.dta",
+            "sb20p20.dta",
+        }:
+            return (
+                pd.NA,
+                False,
+                "no_clean_counterpart_found",
+                "Current code search found this as a Brown comparison source, but not as a creator input for an active clean complete dataset.",
+            )
+    if rel_dir == "raw/us/old":
+        legacy_us_links = {
+            "US_dissim.xlsx": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_iso.xlsx": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "usa_msa_dissim.xlsx": "/dartfs/rc/lab/I/IEC/seg/clean/us/us_census_msa_dissim.dta",
+            "US_cityleveldata.dta": "/dartfs/rc/lab/I/IEC/seg/clean/us/brown_city_dissim_1980_2020.dta",
+            "US_edu.csv": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_income.csv": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "uscityincome.dta": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+        }
+        if basename in legacy_us_links:
+            note = "Legacy US source/crosswalk predecessor linked to the current clean US comparison dataset."
+            if basename in {"US_dissim.xlsx", "US_iso.xlsx", "US_edu.csv", "US_income.csv", "uscityincome.dta"}:
+                note = "Legacy US income/education intermediate linked to the old generated city-level US clean dataset."
+            return (
+                legacy_us_links[basename],
+                False,
+                "legacy_counterpart_link",
+                note,
+            )
+    if rel_dir == "old-2020/raw/us":
+        old_2020_us_links = {
+            "US_dissim.xlsx": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_iso.xlsx": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_edu.csv": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_income.csv": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "uscityincome.dta": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+            "US_cityleveldata.dta": "/dartfs/rc/lab/I/IEC/seg/raw/us/old/US_cityleveldata.dta",
+        }
+        if basename in old_2020_us_links:
+            return (
+                old_2020_us_links[basename],
+                False,
+                "legacy_counterpart_link",
+                "Old-2020 US archive copy linked to the promoted legacy city-level US master dataset.",
+            )
+
+    if rel_dir == "religion":
+        religion_match = re.fullmatch(r"pc11_muslims_(?P<sector>rural|urban)\.dta", basename, re.I)
+        if religion_match:
+            sector = religion_match.group("sector").lower()
+            return (
+                f"/dartfs/rc/lab/I/IEC/seg/clean/pc11/pc11_muslims_{sector}.dta",
+                True,
+                "linked_complete_standalone",
+                "Religion-folder duplicate linked to the promoted clean/pc11 Muslim-share master dataset.",
+            )
+    if str(row["relative_dir"]) == "violence" and str(row["basename"]) in {
+        "violence_matched_except_jk.dta",
+        "violence_matched_jk.dta",
+        "AV_Data_matched.dta",
+        "AV_Data.xls",
+    }:
+        return (
+            "/dartfs/rc/lab/I/IEC/seg/violence/violence_seg_analysis.dta",
+            True,
+            "linked_complete_standalone",
+            "Linked to the complete violence analysis dataset built from the matched violence source files.",
+        )
     return pd.NA, pd.NA, "", ""
 
 
@@ -1482,10 +2632,16 @@ def write_tracking_artifacts(
     output_dir: Path,
     inventory: pd.DataFrame,
     standalone: pd.DataFrame,
+    complete_views: dict[str, pd.DataFrame] | None,
     errors: pd.DataFrame,
     workbook_path: Path,
     all_files_path: Path,
     standalone_path: Path,
+    canonical_path: Path,
+    derived_path: Path,
+    source_path: Path,
+    legacy_path: Path,
+    excluded_path: Path,
     errors_path: Path,
     previous_inventory: pd.DataFrame,
 ) -> None:
@@ -1519,6 +2675,31 @@ def write_tracking_artifacts(
                 "sha256": sha256_file(standalone_path),
                 "row_count": int(len(standalone)),
             },
+            "canonical_csv": {
+                "path": str(canonical_path),
+                "sha256": sha256_file(canonical_path),
+                "row_count": int(len(complete_views["canonical"])) if complete_views else 0,
+            },
+            "derived_csv": {
+                "path": str(derived_path),
+                "sha256": sha256_file(derived_path),
+                "row_count": int(len(complete_views["derived"])) if complete_views else 0,
+            },
+            "source_csv": {
+                "path": str(source_path),
+                "sha256": sha256_file(source_path),
+                "row_count": int(len(complete_views["source"])) if complete_views else 0,
+            },
+            "legacy_csv": {
+                "path": str(legacy_path),
+                "sha256": sha256_file(legacy_path),
+                "row_count": int(len(complete_views["legacy"])) if complete_views else 0,
+            },
+            "excluded_csv": {
+                "path": str(excluded_path),
+                "sha256": sha256_file(excluded_path),
+                "row_count": int(len(complete_views["excluded"])) if complete_views else 0,
+            },
             "errors_csv": {
                 "path": str(errors_path),
                 "sha256": sha256_file(errors_path),
@@ -1533,6 +2714,11 @@ def write_tracking_artifacts(
         "summary": {
             "all_files_rows": int(len(inventory)),
             "standalone_rows": int(len(standalone)),
+            "canonical_rows": int(len(complete_views["canonical"])) if complete_views else 0,
+            "derived_rows": int(len(complete_views["derived"])) if complete_views else 0,
+            "source_rows": int(len(complete_views["source"])) if complete_views else 0,
+            "legacy_rows": int(len(complete_views["legacy"])) if complete_views else 0,
+            "excluded_rows": int(len(complete_views["excluded"])) if complete_views else 0,
             "error_rows": int(len(errors)),
             "tracked_change_rows": int(len(change_report)),
             "tracked_changed_files": int(
@@ -1608,6 +2794,12 @@ def build_inventory(root: Path, dta_inventory_path: Path, limit: int | None = No
                     "unknown",
                 )
 
+        creator_override = explicit_creator_override(row)
+        if creator_override is not None and (
+            is_missing_value(creator_script) or creator_basis in {"unknown", "downstream_usage_only", "template_save_match"}
+        ):
+            creator_script, creator_line, creator_basis, documentation_confidence = creator_override
+
         documentation_records.append(
             {
                 "dataset_role": dataset_role,
@@ -1639,16 +2831,15 @@ def build_inventory(root: Path, dta_inventory_path: Path, limit: int | None = No
         "linked_complete_dataset_note",
     ]
     inventory = pd.concat([inventory, complete_links], axis=1)
+    complete_class_records = inventory.apply(classify_complete_dataset, axis=1, result_type="expand")
+    inventory = pd.concat([inventory, complete_class_records], axis=1)
     inventory["needs_complete_dataset_flag"] = (
         inventory["master_mapping_status"].eq("unmapped")
         & inventory["linked_complete_dataset_file"].notna()
     )
 
-    standalone = (
-        inventory.loc[inventory["is_analysis_ready_standalone"]]
-        .sort_values(["top_level_section", "relative_dir", "basename", "filename"])
-        .reset_index(drop=True)
-    )
+    frames = split_complete_inventory(inventory)
+    standalone = frames["standalone"]
     errors = (
         pd.DataFrame(error_rows).sort_values(["file_format", "filename"]).reset_index(drop=True)
         if error_rows
@@ -1666,36 +2857,65 @@ def main() -> None:
 
     all_files_path = output_dir / "seg_dataset_inventory_all_files.csv"
     standalone_path = output_dir / "seg_dataset_inventory_standalone.csv"
+    canonical_path = output_dir / "seg_dataset_inventory_canonical_complete.csv"
+    derived_path = output_dir / "seg_dataset_inventory_derived_complete.csv"
+    source_path = output_dir / "seg_dataset_inventory_source_complete.csv"
+    legacy_path = output_dir / "seg_dataset_inventory_legacy_complete.csv"
+    excluded_path = output_dir / "seg_dataset_inventory_excluded_complete_candidates.csv"
     errors_path = output_dir / "seg_dataset_inventory_read_errors.csv"
     workbook_path = output_dir / "seg_dataset_inventory.xlsx"
     previous_inventory = try_read_existing_csv(all_files_path)
 
     inventory, standalone, errors = build_inventory(root, dta_inventory_path, limit=args.limit)
+    complete_views = split_complete_inventory(inventory)
 
     inventory.to_csv(all_files_path, index=False)
     standalone.to_csv(standalone_path, index=False)
+    complete_views["canonical"].to_csv(canonical_path, index=False)
+    complete_views["derived"].to_csv(derived_path, index=False)
+    complete_views["source"].to_csv(source_path, index=False)
+    complete_views["legacy"].to_csv(legacy_path, index=False)
+    complete_views["excluded"].to_csv(excluded_path, index=False)
     errors.to_csv(errors_path, index=False)
+    column_guide = build_column_guide()
     write_xlsx(
         workbook_path,
         [
             ("all_files_with_master", inventory),
             ("standalone_datasets", standalone),
+            ("canonical_complete_datasets", complete_views["canonical"]),
+            ("derived_complete_datasets", complete_views["derived"]),
+            ("source_complete_datasets", complete_views["source"]),
+            ("legacy_complete_datasets", complete_views["legacy"]),
+            ("excluded_complete_candidates", complete_views["excluded"]),
+            ("column_guide", column_guide),
         ],
     )
     write_tracking_artifacts(
         output_dir=output_dir,
         inventory=inventory,
         standalone=standalone,
+        complete_views=complete_views,
         errors=errors,
         workbook_path=workbook_path,
         all_files_path=all_files_path,
         standalone_path=standalone_path,
+        canonical_path=canonical_path,
+        derived_path=derived_path,
+        source_path=source_path,
+        legacy_path=legacy_path,
+        excluded_path=excluded_path,
         errors_path=errors_path,
         previous_inventory=previous_inventory,
     )
 
     print(f"Wrote all-files inventory: {all_files_path}")
     print(f"Wrote standalone dataset inventory: {standalone_path}")
+    print(f"Wrote canonical complete datasets: {canonical_path}")
+    print(f"Wrote derived complete datasets: {derived_path}")
+    print(f"Wrote source complete datasets: {source_path}")
+    print(f"Wrote legacy complete datasets: {legacy_path}")
+    print(f"Wrote excluded complete candidates: {excluded_path}")
     print(f"Wrote read errors: {errors_path}")
     print(f"Wrote workbook: {workbook_path}")
     print(f"Wrote manifest: {output_dir / 'seg_dataset_inventory_manifest.json'}")
