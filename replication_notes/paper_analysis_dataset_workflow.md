@@ -13,6 +13,8 @@ The key output is a replication flag:
   not directly needed for the active paper-results replication set
 - `analysis_handoff = 1`: created inside the `a/` analysis pipeline and not
   required before analysis starts
+- `absolute_dataset_path`: best resolved persisted path for the dataset on the
+  IEC filesystem, when one exists
 - `clean_equivalent_path`: persisted clean-copy path for generated `TMP`
   datasets where an exact clean equivalent was found
 
@@ -45,6 +47,8 @@ REPLICATION_DATASET_MANIFEST_DIR=/path/to/output \
 ```
 
 The CSVs are not committed to GitHub by default. They are generated artifacts.
+The `dataset_path` column remains the logical path used by the replication code.
+Use `absolute_dataset_path` to locate the persisted file on the IEC filesystem.
 
 ## Inputs To The Workflow
 
@@ -101,6 +105,8 @@ city datasets, correlates, US comparison datasets, and PC11 Muslim-share files.
 Several generated inputs are read from `$tmp` by the analysis code but also
 exist as persisted clean datasets under `/dartfs/rc/lab/I/IEC/seg/clean`; those
 rows carry the clean path in `clean_equivalent_path`.
+Generated inputs that are persisted elsewhere in `/dartfs/rc/lab/I/IEC/seg`
+are recorded in `absolute_dataset_path` even when they are not clean-copy files.
 
 `analysis_generated_handoff`
 

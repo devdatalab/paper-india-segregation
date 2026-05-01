@@ -14,6 +14,7 @@ import os
 import re
 from collections import defaultdict
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -27,10 +28,13 @@ OUTPUT_DIR = Path(
 OUTPUT = OUTPUT_DIR / "paper_analysis_datasets.csv"
 FLAGS_OUTPUT = OUTPUT_DIR / "dataset_replication_flags.csv"
 CLEAN_ROOT = "/dartfs/rc/lab/I/IEC/seg/clean"
+IEC_ROOT = "/dartfs/rc/lab/I"
+SEG_ROOT = "/dartfs/rc/lab/I/IEC/seg"
 
 COLUMNS = [
     "basename",
     "dataset_path",
+    "absolute_dataset_path",
     "clean_equivalent_path",
     "dataset_root",
     "dataset_stage",
@@ -48,6 +52,7 @@ COLUMNS = [
 FLAGS_COLUMNS = [
     "basename",
     "dataset_path",
+    "absolute_dataset_path",
     "clean_equivalent_path",
     "dataset_root",
     "needed_replication",
@@ -249,12 +254,14 @@ def row_to_dict(row: ManifestRow) -> dict[str, str]:
         not in {
             "analysis_handoff",
             "basename",
+            "absolute_dataset_path",
             "clean_equivalent_path",
             "creator_script",
             "notes",
         }
     }
     values["basename"] = Path(row.dataset_path).name
+    values["absolute_dataset_path"] = absolute_dataset_path(row.dataset_path)
     values["clean_equivalent_path"] = clean_equivalent_path(row.dataset_path)
     values["creator_script"] = row.producer_script
     values["analysis_handoff"] = (
@@ -268,6 +275,7 @@ def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]
     return {
         "basename": Path(row.dataset_path).name,
         "dataset_path": row.dataset_path,
+        "absolute_dataset_path": absolute_dataset_path(row.dataset_path),
         "clean_equivalent_path": clean_equivalent_path(row.dataset_path),
         "dataset_root": row.dataset_root,
         "needed_replication": "1" if row.dataset_path in needed_paths else "0",
@@ -298,6 +306,10 @@ def notes_for_output(row: ManifestRow) -> str:
 
 def clean_equivalent_path(dataset_path: str) -> str:
     basename = Path(dataset_path).name
+    if dataset_path.startswith("TMP/handbooks/pc") and dataset_path.endswith("_pdf_shrid_dissim.dta"):
+        return f"{CLEAN_ROOT}/handbooks/{basename}"
+    if dataset_path == "TMP/segregation_pc0111.dta":
+        return f"{CLEAN_ROOT}/segregation_pc0111.dta"
     if dataset_path.startswith("TMP/city_seg_district_rural_urban_"):
         return f"{CLEAN_ROOT}/{basename}"
     if dataset_path.startswith("TMP/pc11/pc11_muslims_"):
@@ -308,6 +320,53 @@ def clean_equivalent_path(dataset_path: str) -> str:
         return f"{CLEAN_ROOT}/{basename}"
     if dataset_path.startswith("TMP/us/"):
         return f"{CLEAN_ROOT}/us/{basename}"
+    return ""
+
+
+@lru_cache(maxsize=1)
+def raw_source_lookup() -> dict[str, str]:
+    lookup: dict[str, str] = {}
+    raw = read_csv("raw_datasets.csv")
+    for record in raw.to_dict("records"):
+        targets = expand_braces(record["target_path"])
+        sources = expand_braces(record["current_path"])
+        if len(sources) != len(targets):
+            continue
+        for target, source in zip(targets, sources):
+            lookup[normalize_manifest_path(target)] = source
+    return lookup
+
+
+def source_to_absolute_path(source: str) -> str:
+    if not source:
+        return ""
+    if source.startswith("IEC/"):
+        return f"{IEC_ROOT}/{source}"
+    if source.startswith("/"):
+        return source
+    if source.startswith("http"):
+        return source
+    return ""
+
+
+def direct_iec_seg_path(dataset_path: str) -> str:
+    direct_paths = {
+        "TMP/dissim_iso_block_groups.dta": f"{SEG_ROOT}/dissim_iso_block_groups.dta",
+    }
+    if dataset_path in direct_paths:
+        return direct_paths[dataset_path]
+    return ""
+
+
+def absolute_dataset_path(dataset_path: str) -> str:
+    clean_path = clean_equivalent_path(dataset_path)
+    if clean_path:
+        return clean_path
+    direct_path = direct_iec_seg_path(dataset_path)
+    if direct_path:
+        return direct_path
+    if dataset_path.startswith("RAW/"):
+        return source_to_absolute_path(raw_source_lookup().get(dataset_path, ""))
     return ""
 
 
