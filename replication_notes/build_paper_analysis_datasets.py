@@ -26,10 +26,12 @@ OUTPUT_DIR = Path(
 )
 OUTPUT = OUTPUT_DIR / "paper_analysis_datasets.csv"
 FLAGS_OUTPUT = OUTPUT_DIR / "dataset_replication_flags.csv"
+CLEAN_ROOT = "/dartfs/rc/lab/I/IEC/seg/clean"
 
 COLUMNS = [
     "basename",
     "dataset_path",
+    "clean_equivalent_path",
     "dataset_root",
     "dataset_stage",
     "analysis_handoff",
@@ -46,6 +48,7 @@ COLUMNS = [
 FLAGS_COLUMNS = [
     "basename",
     "dataset_path",
+    "clean_equivalent_path",
     "dataset_root",
     "needed_replication",
     "dataset_stage",
@@ -242,9 +245,17 @@ def row_to_dict(row: ManifestRow) -> dict[str, str]:
     values = {
         column: getattr(row, column)
         for column in COLUMNS
-        if column not in {"analysis_handoff", "basename", "creator_script", "notes"}
+        if column
+        not in {
+            "analysis_handoff",
+            "basename",
+            "clean_equivalent_path",
+            "creator_script",
+            "notes",
+        }
     }
     values["basename"] = Path(row.dataset_path).name
+    values["clean_equivalent_path"] = clean_equivalent_path(row.dataset_path)
     values["creator_script"] = row.producer_script
     values["analysis_handoff"] = (
         "1" if row.dataset_stage == "analysis_generated_handoff" else "0"
@@ -257,6 +268,7 @@ def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]
     return {
         "basename": Path(row.dataset_path).name,
         "dataset_path": row.dataset_path,
+        "clean_equivalent_path": clean_equivalent_path(row.dataset_path),
         "dataset_root": row.dataset_root,
         "needed_replication": "1" if row.dataset_path in needed_paths else "0",
         "dataset_stage": row.dataset_stage,
@@ -282,6 +294,21 @@ def notes_for_output(row: ManifestRow) -> str:
         if SUPPLIED_RAW_NOTE not in notes:
             return f"{notes} {SUPPLIED_RAW_NOTE}"
     return notes
+
+
+def clean_equivalent_path(dataset_path: str) -> str:
+    basename = Path(dataset_path).name
+    if dataset_path.startswith("TMP/city_seg_district_rural_urban_"):
+        return f"{CLEAN_ROOT}/{basename}"
+    if dataset_path.startswith("TMP/pc11/pc11_muslims_"):
+        return f"{CLEAN_ROOT}/pc11/{basename}"
+    if dataset_path.startswith("TMP/secc/segregation_blockdata_"):
+        return f"{CLEAN_ROOT}/{basename}"
+    if dataset_path.startswith("TMP/secc/segregation_citydata_"):
+        return f"{CLEAN_ROOT}/{basename}"
+    if dataset_path.startswith("TMP/us/"):
+        return f"{CLEAN_ROOT}/us/{basename}"
+    return ""
 
 
 def parse_do_reads(analysis_scripts: set[str]) -> dict[str, set[str]]:

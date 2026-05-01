@@ -13,6 +13,8 @@ The key output is a replication flag:
   not directly needed for the active paper-results replication set
 - `analysis_handoff = 1`: created inside the `a/` analysis pipeline and not
   required before analysis starts
+- `clean_equivalent_path`: persisted clean-copy path for generated `TMP`
+  datasets where an exact clean equivalent was found
 
 This distinction matters because the full build has many raw inputs,
 intermediate handoffs, variants, and skipped workflow files. Those are useful
@@ -96,6 +98,9 @@ as supplied raw inputs.
 Prepared datasets that should exist before running the active analysis stage.
 Most are produced by `b/` build scripts, such as the SECC segregation block and
 city datasets, correlates, US comparison datasets, and PC11 Muslim-share files.
+Several generated inputs are read from `$tmp` by the analysis code but also
+exist as persisted clean datasets under `/dartfs/rc/lab/I/IEC/seg/clean`; those
+rows carry the clean path in `clean_equivalent_path`.
 
 `analysis_generated_handoff`
 
