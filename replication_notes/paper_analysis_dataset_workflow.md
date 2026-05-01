@@ -85,6 +85,11 @@ analysis inputs.
 Raw or supplied files read directly by active analysis scripts. These remain
 needed even when using generated analysis datasets, because some paper exhibits
 still read raw comparison, handbook, PC01/PC11, SHRUG, or GIS files directly.
+The manifest leaves `creator_script` blank for these rows unless a script that
+writes the exact file is found. A scan of `segregation/b/` found consumers of
+several PC11/SHRUG inputs, but no active `b/` script that creates the exact
+`RAW` files required by the paper analysis packet, so those rows are annotated
+as supplied raw inputs.
 
 `generated_analysis_input`
 

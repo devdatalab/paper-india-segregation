@@ -105,6 +105,10 @@ COMMENT_FALSE_POSITIVES = {
     "non-rescaled",
 }
 
+SUPPLIED_RAW_NOTE = (
+    "No creator script found in segregation/b; treated as supplied raw input."
+)
+
 
 @dataclass
 class ManifestRow:
@@ -238,13 +242,14 @@ def row_to_dict(row: ManifestRow) -> dict[str, str]:
     values = {
         column: getattr(row, column)
         for column in COLUMNS
-        if column not in {"analysis_handoff", "basename", "creator_script"}
+        if column not in {"analysis_handoff", "basename", "creator_script", "notes"}
     }
     values["basename"] = Path(row.dataset_path).name
     values["creator_script"] = row.producer_script
     values["analysis_handoff"] = (
         "1" if row.dataset_stage == "analysis_generated_handoff" else "0"
     )
+    values["notes"] = notes_for_output(row)
     return values
 
 
@@ -265,8 +270,18 @@ def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]
         "first_used_by": row.first_used_by,
         "original_pattern": row.original_pattern,
         "source_manifest": row.source_manifest,
-        "notes": row.notes,
+        "notes": notes_for_output(row),
     }
+
+
+def notes_for_output(row: ManifestRow) -> str:
+    notes = row.notes
+    if row.dataset_root == "RAW" and not row.producer_script:
+        if not notes:
+            return SUPPLIED_RAW_NOTE
+        if SUPPLIED_RAW_NOTE not in notes:
+            return f"{notes} {SUPPLIED_RAW_NOTE}"
+    return notes
 
 
 def parse_do_reads(analysis_scripts: set[str]) -> dict[str, set[str]]:
