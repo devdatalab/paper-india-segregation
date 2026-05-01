@@ -28,11 +28,13 @@ OUTPUT = OUTPUT_DIR / "paper_analysis_datasets.csv"
 FLAGS_OUTPUT = OUTPUT_DIR / "dataset_replication_flags.csv"
 
 COLUMNS = [
+    "basename",
     "dataset_path",
     "dataset_root",
     "dataset_stage",
     "analysis_handoff",
     "required_before_analysis",
+    "creator_script",
     "producer_script",
     "consumer_scripts",
     "first_used_by",
@@ -42,12 +44,14 @@ COLUMNS = [
 ]
 
 FLAGS_COLUMNS = [
+    "basename",
     "dataset_path",
     "dataset_root",
     "needed_replication",
     "dataset_stage",
     "analysis_handoff",
     "required_before_analysis",
+    "creator_script",
     "producer_script",
     "consumer_scripts",
     "first_used_by",
@@ -231,7 +235,13 @@ def path_sort_key(path: str) -> tuple[int, str]:
 
 
 def row_to_dict(row: ManifestRow) -> dict[str, str]:
-    values = {column: getattr(row, column) for column in COLUMNS if column != "analysis_handoff"}
+    values = {
+        column: getattr(row, column)
+        for column in COLUMNS
+        if column not in {"analysis_handoff", "basename", "creator_script"}
+    }
+    values["basename"] = Path(row.dataset_path).name
+    values["creator_script"] = row.producer_script
     values["analysis_handoff"] = (
         "1" if row.dataset_stage == "analysis_generated_handoff" else "0"
     )
@@ -240,6 +250,7 @@ def row_to_dict(row: ManifestRow) -> dict[str, str]:
 
 def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]:
     return {
+        "basename": Path(row.dataset_path).name,
         "dataset_path": row.dataset_path,
         "dataset_root": row.dataset_root,
         "needed_replication": "1" if row.dataset_path in needed_paths else "0",
@@ -248,6 +259,7 @@ def flag_row_to_dict(row: ManifestRow, needed_paths: set[str]) -> dict[str, str]
         if row.dataset_stage == "analysis_generated_handoff"
         else "0",
         "required_before_analysis": row.required_before_analysis,
+        "creator_script": row.producer_script,
         "producer_script": row.producer_script,
         "consumer_scripts": row.consumer_scripts,
         "first_used_by": row.first_used_by,
