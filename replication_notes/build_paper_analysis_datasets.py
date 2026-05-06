@@ -69,12 +69,19 @@ FLAGS_COLUMNS = [
 ]
 
 DO_READ_PATTERNS = [
+    re.compile(r"\buse\b.+?\busing\s+([^,\s]+)", re.I),
     re.compile(r"\buse\s+([^,\s]+)", re.I),
     re.compile(r"\bmerge\b.+?\busing\s+([^,\s]+)", re.I),
     re.compile(r"\bappend\s+using\s+([^,\s]+)", re.I),
     re.compile(r"\bimport\s+delimited(?:\s+using)?\s+([^,\s]+)", re.I),
     re.compile(r"\bimport\s+excel(?:\s+using)?\s+([^,\s]+)", re.I),
+    re.compile(r"\binsheet(?:\s+using)?\s+([^,\s]+)", re.I),
 ]
+
+STATA_MACRO_ASSIGN_PATTERN = re.compile(
+    r"^\s*(?P<kind>global|local)\s+(?P<name>[A-Za-z_][A-Za-z0-9_]*)\s+(?P<value>[^\s,]+)",
+    re.I,
+)
 
 PY_READ_PATTERNS = [
     re.compile(r"^\s*(?P<name>[A-Za-z_][A-Za-z0-9_]*)\s*=\s*(?P<root>RAW|TMP|OUT)\s*/\s*(?P<expr>.+)$"),
@@ -233,6 +240,27 @@ def normalize_stata_token(token: str) -> str | None:
     return add_dta_suffix(token)
 
 
+def store_stata_path_macro(line: str, macros: dict[str, str]) -> None:
+    match = STATA_MACRO_ASSIGN_PATTERN.match(line)
+    if not match:
+        return
+    value = match.group("value").strip().strip('"').strip("'").rstrip(",);]")
+    if normalize_stata_token(value) is None:
+        return
+
+    name = match.group("name")
+    if match.group("kind").lower() == "global":
+        macros[f"${name}"] = value
+        macros[f"${{{name}}}"] = value
+    else:
+        macros[f"`{name}'"] = value
+
+
+def resolve_stata_path_macro(token: str, macros: dict[str, str]) -> str:
+    stripped = token.strip().strip('"').strip("'").rstrip(",);]")
+    return macros.get(stripped, token)
+
+
 def normalize_manifest_path(path: str) -> str:
     return add_dta_suffix(path.strip())
 
@@ -376,6 +404,7 @@ def parse_do_reads(analysis_scripts: set[str]) -> dict[str, set[str]]:
         path = REPO_ROOT / script
         if path.suffix.lower() != ".do" or not path.exists():
             continue
+        script_macros: dict[str, str] = {}
         in_block_comment = False
         for raw_line in path.read_text(errors="ignore").splitlines():
             line = raw_line
@@ -396,11 +425,13 @@ def parse_do_reads(analysis_scripts: set[str]) -> dict[str, set[str]]:
             stripped = line.strip()
             if not stripped or stripped.startswith(("*", "//")):
                 continue
+            store_stata_path_macro(stripped, script_macros)
             for pattern in DO_READ_PATTERNS:
                 match = pattern.search(line)
                 if not match:
                     continue
-                for token in expand_stata_macros(match.group(1)):
+                resolved = resolve_stata_path_macro(match.group(1), script_macros)
+                for token in expand_stata_macros(resolved):
                     normalized = normalize_stata_token(token)
                     if normalized:
                         for expanded in expand_braces(normalized):
@@ -652,12 +683,17 @@ def write_flag_rows(rows: list[ManifestRow], needed_paths: set[str]) -> None:
 
 
 def main() -> None:
-    rows = build_rows()
-    validate(rows)
-    write_rows(rows)
-    flag_rows = build_flag_rows(rows)
-    write_flag_rows(flag_rows, {row.dataset_path for row in rows})
-    print(f"Wrote {len(rows)} rows to {OUTPUT}")
+    all_rows = build_rows()
+    validate(all_rows)
+    paper_rows = [
+        row
+        for row in all_rows
+        if row.dataset_stage != "analysis_generated_handoff"
+    ]
+    write_rows(paper_rows)
+    flag_rows = build_flag_rows(all_rows)
+    write_flag_rows(flag_rows, {row.dataset_path for row in paper_rows})
+    print(f"Wrote {len(paper_rows)} rows to {OUTPUT}")
     print(f"Wrote {len(flag_rows)} rows to {FLAGS_OUTPUT}")
 
 

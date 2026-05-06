@@ -6,11 +6,13 @@ This workflow identifies the dataset files needed to reproduce the active paper
 results from the replication code. It is intentionally narrower than a full
 raw-data rebuild manifest.
 
-The key output is a replication flag:
+The key outputs are:
 
-- `needed_replication = 1`: needed for the active paper-results replication
+- `paper_analysis_datasets.csv`: files that must exist before the active `a/`
+  analysis stage starts
+- `needed_replication = 1`: needed in the upfront paper-results input packet
 - `needed_replication = 0`: present in the raw or intermediate manifests, but
-  not directly needed for the active paper-results replication set
+  not needed in the upfront paper-results input packet
 - `analysis_handoff = 1`: created inside the `a/` analysis pipeline and not
   required before analysis starts
 - `absolute_dataset_path`: best resolved persisted path for the dataset on the
@@ -64,18 +66,18 @@ The script combines three sources of evidence:
 The active analysis stage is defined as scripts called from
 `a/make_seg_results.do`, plus their active Python subcalls.
 
-## Why The Needed Set Has 67 Files
+## Why The Needed Set Has 52 Files
 
-The paper-results replication set has 67 files because it includes only files
-that the active analysis scripts directly need:
+The upfront paper-results input set has 52 files because it includes only files
+that must exist before `a/make_seg_results.do` starts:
 
 - 34 `raw_analysis_input` files
-- 21 `generated_analysis_input` files
-- 12 `analysis_generated_handoff` files
+- 18 `generated_analysis_input` files
 
-These 67 files are enough for active paper-results replication because they
-cover the actual data reads in the analysis chain that creates the paper tables,
-figures, and TeX inputs.
+These 52 files are enough to start active paper-results replication from
+prepared analysis inputs. Analysis handoffs are deliberately excluded from
+`paper_analysis_datasets.csv` because they are created by the `a/` scripts while
+the paper tables, figures, and TeX inputs are being generated.
 
 They are not the same as the full raw build packet. A full raw rebuild also
 needs additional SECC, EC, mobility, violence, SHRUG, label, and US source files
@@ -113,7 +115,9 @@ are recorded in `absolute_dataset_path` even when they are not clean-copy files.
 Files created inside the `a/` analysis stage and then consumed later by another
 analysis step, Python plotting step, or TeX table generation. These are marked
 `analysis_handoff = 1` and `required_before_analysis = FALSE` because they do
-not need to exist before `a/make_seg_results.do` starts.
+not need to exist before `a/make_seg_results.do` starts. They are retained in
+`dataset_replication_flags.csv` for provenance, but they are excluded from
+`paper_analysis_datasets.csv`.
 
 `raw_manifest_not_needed_for_analysis`
 
@@ -133,9 +137,9 @@ paper-results replication packet.
 
 - Keep rows with `needed_replication = 1`.
 - Rows with `needed_replication = 0` can be excluded from the compact
-  paper-results replication packet.
-- If preparing only the files that must exist before analysis starts, keep rows
-  with `needed_replication = 1` and `analysis_handoff = 0`.
+  upfront paper-results input packet.
+- Analysis handoffs should normally have `needed_replication = 0` because the
+  analysis scripts produce them during the run.
 - Do not interpret `0` as "never useful." It means "not required for active
   paper-results replication from prepared/generated analysis inputs."
 
@@ -146,11 +150,11 @@ manifests instead.
 
 As of the latest generated outputs:
 
-- `paper_analysis_datasets.csv`: 67 rows
-- `dataset_replication_flags.csv`: 155 rows
-- `needed_replication = 1`: 67 rows
-- `needed_replication = 0`: 88 rows
-- `analysis_handoff = 1`: 12 rows
-- upfront files required before analysis: 55 rows
+- `paper_analysis_datasets.csv`: 52 rows
+- `dataset_replication_flags.csv`: 156 rows
+- `needed_replication = 1`: 52 rows
+- `needed_replication = 0`: 104 rows
+- `analysis_handoff = 1`: 16 rows
+- upfront files required before analysis: 52 rows
 
-The 67 needed rows are exactly the rows in `paper_analysis_datasets.csv`.
+The 52 needed rows are exactly the rows in `paper_analysis_datasets.csv`.

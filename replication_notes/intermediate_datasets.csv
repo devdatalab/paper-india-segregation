@@ -8,6 +8,8 @@ TMP/secc/segregation_citydata_{rural|urban}_{200|4000}.dta,b/gen_segregation_cit
 TMP/subdist_{rural|urban}_{200|4000}.dta,b/gen_segregation_city_block_data.do,b/gen_segregation_city_block_data.do
 TMP/pc11/pc11_muslims_{rural|urban}.dta,b/gen_pc_muslim_share.do,b/gen_segregation_city_block_data.do;a/table_town_subd_representativeness.do;a/reweight_town_subd_representativeness.do
 TMP/seg_correlates.dta,b/prep_correlates.do,a/analyze_correlates.do
+TMP/seg_correlates_analysis.dta,a/analyze_correlates.do,a/analyze_correlates.do
+TMP/seg_corr_estimates.csv,a/analyze_correlates.do,a/analyze_correlates.do;a/correlate_coefplots.py
 TMP/seg_{violence|mobility|rural_district_gini|town_gini|growth}.dta,b/prep_correlates.do,b/prep_correlates.do
 TMP/city_seg_district_{urban|rural}.dta,b/gen_district_correlates_urban_rural.do,b/gen_district_correlates_urban_rural.do
 TMP/city_seg_district_rural_urban_{200|4000}.dta,b/gen_district_correlates_urban_rural.do,a/graph_urban_rural_dissim_correlation.do
@@ -21,6 +23,8 @@ TMP/us/{us_tract_pop|us_tpop_b|msa_keys|msa_tract_race_pop|us_census_msa_dissim}
 TMP/handbooks/pc{01|11}_pdf_shrid_dissim.dta,a/gen_dissim_pc0111.do,a/gen_dissim_pc0111.do
 TMP/segregation_pc0111.dta,a/gen_dissim_pc0111.do,a/gen_dissim_pc0111.do
 TMP/seg_pc0111.dta,a/gen_dissim_pc0111.do,a/gen_dissim_pc0111.do
+TMP/pg_by_seg_ests.csv,a/explore_seg_vs_service_disparity.do,a/explore_seg_vs_service_disparity.do
+TMP/pg_by_seg.dta,a/explore_seg_vs_service_disparity.do,a/graph_seg_vs_pg.py
 TMP/entropy_weights.dta,a/reweight_town_subd_representativeness.do,not consumed in active paper run
 TMP/a/tables/{sum_stats_tbl|seg_time|neighborhood_public_goods_reg|neighborhood_private_goods_reg}.csv,a/table_sum_stats.do;a/gen_dissim_pc0111.do;a/table_block_pg_share_educ_health.do,tex tables via out/*.tex
 TMP/alphas_*.csv,a/graph_pe_functions.do;a/graph_pe_sanitation.do,a/graph_pe_functions.do;a/graph_pe_sanitation.do
