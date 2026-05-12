@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
+import csv
+import itertools
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -31,11 +34,86 @@ SPECIAL_VARIABLES = {
     "__load_error__",
 }
 
+IDENTIFIER_EXACT_NAMES = {
+    "shrid",
+    "town",
+    "town_id",
+    "town_name",
+    "subdistrict",
+    "subdistrict_id",
+    "district",
+    "district_id",
+    "state",
+    "state_id",
+    "village",
+    "village_id",
+    "block",
+    "block_id",
+    "eb",
+    "eb_number",
+}
+IDENTIFIER_SUFFIXES = (
+    "_id",
+    "_key",
+    "_code",
+    "_number",
+    "_name",
+    "_shrid",
+)
+ANALYSIS_COLUMNS = ["used_analysis", "used_analysis_scripts"]
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Scan variable_listing.xlsx for cross-dataset conflicts.",
+    )
+    parser.add_argument(
+        "--workbook",
+        type=Path,
+        default=WORKBOOK_PATH,
+        help="Workbook to update. Defaults to inventory/variable_listing.xlsx.",
+    )
+    parser.add_argument(
+        "--csv-dir",
+        type=Path,
+        default=CSV_DIR,
+        help="Directory for per-sheet CSV mirrors.",
+    )
+    parser.add_argument(
+        "--manifest",
+        type=Path,
+        default=None,
+        help="Optional paper_analysis_datasets.csv for used_analysis mapping.",
+    )
+    parser.add_argument(
+        "--analysis-dir",
+        type=Path,
+        default=ROOT / "a",
+        help="Directory containing analysis scripts. Defaults to repo a/.",
+    )
+    return parser.parse_args()
+
 
 def normalize_text(value: object) -> str:
     text = str(value or "").lower()
     text = re.sub(r"[^a-z0-9]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def is_identifier_variable(variable_name: str, variable_label: str = "") -> bool:
+    name = normalize_text(variable_name).replace(" ", "_")
+    label = normalize_text(variable_label)
+    if name in IDENTIFIER_EXACT_NAMES:
+        return True
+    if any(name.endswith(suffix) for suffix in IDENTIFIER_SUFFIXES):
+        return True
+    if name.startswith(("pc01_", "pc11_")) and name.endswith(("_state_id", "_district_id", "_town_id", "_subdistrict_id")):
+        return True
+    if name in {"pdf", "sheet", "page"} or name.endswith(("_pdf", "_sheet", "_page")):
+        return True
+    if " identifier" in f" {label}" or label.endswith(" id") or " id " in f" {label} ":
+        return True
+    return False
 
 
 def normalize_code(value: str) -> str:
@@ -188,6 +266,105 @@ def derivable_reason(variable: str, available: set[str]) -> str:
     return ""
 
 
+def strip_comments(text: str, suffix: str) -> str:
+    text = re.sub(r"/\*.*?\*/", " ", text, flags=re.S)
+    if suffix == ".py":
+        return re.sub(r"#.*", " ", text)
+
+    cleaned = []
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if stripped.startswith("*"):
+            continue
+        cleaned.append(re.sub(r"//.*", " ", line))
+    return "\n".join(cleaned)
+
+
+def split_macro_values(value: str) -> list[str]:
+    value = value.replace("{", " ").replace("}", " ")
+    value = re.sub(r"[,()=:+\-*/\\\[\]\"]", " ", value)
+    values = []
+    for token in re.findall(r"\$?[A-Za-z_][A-Za-z0-9_]*", value):
+        if token.startswith("$"):
+            continue
+        if token in {
+            "if",
+            "in",
+            "using",
+            "clear",
+            "replace",
+            "gen",
+            "local",
+            "global",
+        }:
+            continue
+        values.append(token)
+    return values
+
+
+def collect_stata_macros(text: str) -> dict[str, set[str]]:
+    macros: dict[str, set[str]] = defaultdict(set)
+    for match in re.finditer(r"\bforeach\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+([^\{\n]+)", text):
+        macros[match.group(1)].update(split_macro_values(match.group(2)))
+    for match in re.finditer(r"^\s*(?:global|local)\s+([A-Za-z_][A-Za-z0-9_]*)\s+(.+)$", text, flags=re.M):
+        macros[match.group(1)].update(split_macro_values(match.group(2)))
+    return macros
+
+
+def expand_stata_template(template: str, macros: dict[str, set[str]], limit: int = 5000) -> set[str]:
+    macro_names = re.findall(r"`([A-Za-z_][A-Za-z0-9_]*)'", template)
+    if not macro_names:
+        return set()
+    options = []
+    for macro_name in macro_names:
+        values = sorted(macros.get(macro_name, set()))
+        if not values:
+            return set()
+        options.append(values[:50])
+
+    expanded = set()
+    for combo in itertools.product(*options):
+        candidate = template
+        for macro_name, value in zip(macro_names, combo):
+            candidate = candidate.replace(f"`{macro_name}'", value)
+        if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", candidate):
+            expanded.add(candidate)
+        if len(expanded) >= limit:
+            break
+    return expanded
+
+
+def analysis_variables_in_script(script_path: Path) -> set[str]:
+    text = strip_comments(script_path.read_text(encoding="utf-8", errors="ignore"), script_path.suffix)
+    variables = set(re.findall(r"(?<![A-Za-z0-9_])([A-Za-z_][A-Za-z0-9_]*)(?![A-Za-z0-9_])", text))
+
+    if script_path.suffix == ".do":
+        macros = collect_stata_macros(text)
+        for values in macros.values():
+            variables.update(values)
+        for template in re.findall(r"[A-Za-z_][A-Za-z0-9_]*(?:_?`[A-Za-z_][A-Za-z0-9_]*')+[A-Za-z0-9_]*", text):
+            variables.update(expand_stata_template(template, macros))
+
+    return variables
+
+
+def manifest_consumers(manifest_path: Path | None) -> dict[str, set[str]]:
+    consumers: dict[str, set[str]] = defaultdict(set)
+    if manifest_path is None or not manifest_path.exists():
+        return consumers
+
+    with manifest_path.open(newline="", encoding="utf-8-sig") as handle:
+        for row in csv.DictReader(handle):
+            basename = row.get("basename", "").strip()
+            if not basename:
+                continue
+            for script in row.get("consumer_scripts", "").split(";"):
+                script = script.strip()
+                if script.startswith("a/"):
+                    consumers[basename].add(script)
+    return consumers
+
+
 def collect_records(
     data_sheets: list[tuple[str, list[dict[str, str]], list[str]]],
 ) -> list[dict[str, Any]]:
@@ -232,7 +409,12 @@ def scan_conflicts(records: list[dict[str, Any]]) -> tuple[list[dict[str, str]],
         if len(datasets) < 2:
             continue
 
-        if len({record["storage_type"] for record in same_name_records}) > 1:
+        identifier_only = is_identifier_variable(
+            variable_name,
+            " ".join(str(record.get("variable_label", "")) for record in same_name_records),
+        )
+
+        if len({record["storage_type"] for record in same_name_records}) > 1 and not identifier_only:
             evidence = signature_diff(same_name_records, "storage_type", "storage_type")
             add_conflict(
                 conflicts,
@@ -246,7 +428,7 @@ def scan_conflicts(records: list[dict[str, Any]]) -> tuple[list[dict[str, str]],
             )
             mark(affected, same_name_records, "naming", "Same variable name has inconsistent storage type.")
 
-        if different_label_records(same_name_records):
+        if different_label_records(same_name_records) and not identifier_only:
             evidence = signature_diff(same_name_records, "variable_label", "variable_label")
             add_conflict(
                 conflicts,
@@ -291,7 +473,7 @@ def scan_conflicts(records: list[dict[str, Any]]) -> tuple[list[dict[str, str]],
                 mark(affected, mapped_records, "coding", "Same variable name has non-identical value-label mappings.")
 
             nonoverlap = disjoint_value_label_evidence(mapped_records)
-            if nonoverlap:
+            if nonoverlap and not identifier_only:
                 add_conflict(
                     conflicts,
                     seen,
@@ -305,6 +487,11 @@ def scan_conflicts(records: list[dict[str, Any]]) -> tuple[list[dict[str, str]],
                 mark(affected, mapped_records, "naming", "Same variable name has non-overlapping value-label codes.")
 
     for normalized_label, same_label_records in sorted(by_label.items()):
+        same_label_records = [
+            record
+            for record in same_label_records
+            if not is_identifier_variable(record["variable_name"], record.get("variable_label", ""))
+        ]
         variable_names = sorted({record["variable_name"] for record in same_label_records})
         if len(variable_names) < 2:
             continue
@@ -351,16 +538,66 @@ def scan_conflicts(records: list[dict[str, Any]]) -> tuple[list[dict[str, str]],
     return conflicts, affected
 
 
+def ensure_columns(columns: list[str], new_columns: list[str], after: str | None = None) -> list[str]:
+    columns = list(columns)
+    for column in new_columns:
+        if column in columns:
+            continue
+        if after and after in columns:
+            columns.insert(columns.index(after) + 1, column)
+            after = column
+        else:
+            columns.append(column)
+    return columns
+
+
+def apply_analysis_usage(
+    data_sheets: list[tuple[str, list[dict[str, str]], list[str]]],
+    index_rows: list[dict[str, str]],
+    manifest_path: Path | None,
+    analysis_dir: Path,
+) -> list[tuple[str, list[dict[str, str]], list[str]]]:
+    consumers_by_dataset = manifest_consumers(manifest_path)
+    dataset_by_sheet = {
+        row.get("sheet_name", ""): row.get("dataset_name", "")
+        for row in index_rows
+    }
+
+    script_cache: dict[str, set[str]] = {}
+    for scripts in consumers_by_dataset.values():
+        for script in scripts:
+            script_path = analysis_dir.parent / script
+            if script_path.exists():
+                script_cache[script] = analysis_variables_in_script(script_path)
+            else:
+                script_cache[script] = set()
+
+    updated: list[tuple[str, list[dict[str, str]], list[str]]] = []
+    for sheet_name, rows, columns in data_sheets:
+        columns = ensure_columns(list(columns), ANALYSIS_COLUMNS, after="pct_missing")
+        dataset_name = dataset_by_sheet.get(sheet_name) or (rows[0].get("dataset_name", sheet_name) if rows else sheet_name)
+        consumer_scripts = sorted(consumers_by_dataset.get(dataset_name, set()))
+
+        for row in rows:
+            variable = row.get("variable_name", "")
+            used_scripts = [
+                script
+                for script in consumer_scripts
+                if variable and variable in script_cache.get(script, set())
+            ]
+            row["used_analysis"] = "1" if used_scripts else "0"
+            row["used_analysis_scripts"] = "; ".join(used_scripts)
+        updated.append((sheet_name, rows, columns))
+    return updated
+
+
 def apply_conflict_flags(
     data_sheets: list[tuple[str, list[dict[str, str]], list[str]]],
     affected: dict[tuple[str, str], dict[str, Any]],
 ) -> list[tuple[str, list[dict[str, str]], list[str]]]:
     updated: list[tuple[str, list[dict[str, str]], list[str]]] = []
     for sheet_name, rows, columns in data_sheets:
-        columns = list(columns)
-        for column in ("conflict_flag", "remedial_note"):
-            if column not in columns:
-                columns.append(column)
+        columns = ensure_columns(list(columns), ["conflict_flag", "remedial_note"])
 
         for row in rows:
             key = (sheet_name, row.get("variable_name", ""))
@@ -376,20 +613,28 @@ def apply_conflict_flags(
 
 
 def main() -> int:
-    if not WORKBOOK_PATH.exists():
+    args = parse_args()
+    workbook_path = args.workbook.expanduser().resolve()
+    csv_dir = args.csv_dir.expanduser().resolve()
+    manifest_path = args.manifest.expanduser().resolve() if args.manifest else None
+    analysis_dir = args.analysis_dir.expanduser().resolve()
+
+    if not workbook_path.exists():
         raise SystemExit(
-            "Missing inventory/variable_listing.xlsx. "
+            f"Missing {workbook_path}. "
             "Run inventory/build_variable_listing.py first."
         )
 
-    sheets = read_xlsx(WORKBOOK_PATH)
+    sheets = read_xlsx(workbook_path)
     index_sheet = next((sheet for sheet in sheets if sheet[0] == "_index"), None)
+    index_rows = index_sheet[1] if index_sheet is not None else []
     data_sheets = [
         (name, rows, columns)
         for name, rows, columns in sheets
         if name not in {"_index", "_conflicts"}
     ]
 
+    data_sheets = apply_analysis_usage(data_sheets, index_rows, manifest_path, analysis_dir)
     records = collect_records(data_sheets)
     conflicts, affected = scan_conflicts(records)
     updated_data_sheets = apply_conflict_flags(data_sheets, affected)
@@ -400,8 +645,8 @@ def main() -> int:
     output_sheets.append(("_conflicts", conflicts, CONFLICT_COLUMNS))
     output_sheets.extend(updated_data_sheets)
 
-    write_xlsx(WORKBOOK_PATH, output_sheets)
-    write_csv_mirrors(CSV_DIR, output_sheets)
+    write_xlsx(workbook_path, output_sheets)
+    write_csv_mirrors(csv_dir, output_sheets)
 
     counts = Counter(row["conflict_type"] for row in conflicts)
     categorical_count = sum(

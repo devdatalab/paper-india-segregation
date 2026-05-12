@@ -51,6 +51,8 @@ VARIABLE_COLUMNS = [
     "n_missing",
     "n_obs",
     "pct_missing",
+    "used_analysis",
+    "used_analysis_scripts",
     "cleaning_flag",
     "rename_suggestion",
     "conflict_flag",
@@ -160,6 +162,18 @@ def parse_args() -> argparse.Namespace:
             "format-specific handlers."
         ),
     )
+    parser.add_argument(
+        "--workbook",
+        type=Path,
+        default=WORKBOOK_PATH,
+        help="Output workbook path. Defaults to inventory/variable_listing.xlsx.",
+    )
+    parser.add_argument(
+        "--csv-dir",
+        type=Path,
+        default=CSV_DIR,
+        help="Output directory for per-sheet CSV mirrors.",
+    )
     return parser.parse_args()
 
 
@@ -213,6 +227,7 @@ def storage_type_from_stata_type(stata_type: object) -> str:
         "l": "long",
         "f": "float",
         "d": "double",
+        "Q": "strL",
     }.get(type_code, type_code)
 
 
@@ -342,6 +357,8 @@ def blank_variable_row(
         "n_missing": n_missing,
         "n_obs": n_obs,
         "pct_missing": f"{pct_missing:.3f}",
+        "used_analysis": 0,
+        "used_analysis_scripts": "",
         "cleaning_flag": "",
         "rename_suggestion": "",
         "conflict_flag": "",
@@ -396,6 +413,8 @@ def variable_rows_for_frame(
                 "n_missing": n_missing,
                 "n_obs": n_obs,
                 "pct_missing": f"{pct_missing:.3f}",
+                "used_analysis": 0,
+                "used_analysis_scripts": "",
                 "cleaning_flag": "",
                 "rename_suggestion": "",
                 "conflict_flag": "",
@@ -453,6 +472,8 @@ def variable_rows_for_dta(dataset_name: str, path: Path) -> tuple[list[dict[str,
                 "n_missing": n_missing,
                 "n_obs": n_obs,
                 "pct_missing": f"{pct_missing:.3f}",
+                "used_analysis": 0,
+                "used_analysis_scripts": "",
                 "cleaning_flag": "",
                 "rename_suggestion": "",
                 "conflict_flag": "",
@@ -529,6 +550,8 @@ def variable_rows_for_dataset(dataset_name: str, path: Path) -> tuple[list[dict[
 def main() -> int:
     args = parse_args()
     manifest_path = args.manifest.expanduser().resolve()
+    workbook_path = args.workbook.expanduser().resolve()
+    csv_dir = args.csv_dir.expanduser().resolve()
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     LOG_PATH.write_text(f"Manifest: {manifest_path}\n", encoding="utf-8")
 
@@ -597,8 +620,8 @@ def main() -> int:
 
     sheets.append(("_index", index_rows, INDEX_COLUMNS))
     sheets.extend(dataset_sheets)
-    write_xlsx(WORKBOOK_PATH, sheets)
-    write_csv_mirrors(CSV_DIR, sheets)
+    write_xlsx(workbook_path, sheets)
+    write_csv_mirrors(csv_dir, sheets)
 
     print(f"Datasets scanned: {len(index_rows)}")
     print(f"Total variables: {total_vars}")

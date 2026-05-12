@@ -120,7 +120,7 @@ def read_stata_metadata(path: Path) -> dict[str, object]:
 
 def build_inventory(
     root: Path, limit: int | None = None
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     rows: list[dict[str, object]] = []
     duplicate_groups: defaultdict[tuple[int, tuple[str, ...]], list[str]] = defaultdict(list)
     error_rows: list[dict[str, str]] = []
@@ -140,6 +140,7 @@ def build_inventory(
                     "n_vars": metadata["n_vars"],
                     "variable_list": ";".join(variable_names),
                     "file_size_bytes": metadata["file_size_bytes"],
+                    "duplicate_group": pd.NA,
                 }
             )
             duplicate_key = (int(metadata["n_obs"]), tuple(variable_names))
@@ -152,6 +153,7 @@ def build_inventory(
                     "n_vars": "",
                     "variable_list": "",
                     "file_size_bytes": path.stat().st_size,
+                    "duplicate_group": pd.NA,
                 }
             )
             error_rows.append(
@@ -166,31 +168,15 @@ def build_inventory(
             print(f"Processed {index} files...")
 
     inventory = pd.DataFrame(rows).sort_values("filename").reset_index(drop=True)
+    inventory["duplicate_group"] = inventory["duplicate_group"].astype("Int64")
 
-    duplicate_rows: list[dict[str, object]] = []
     duplicate_group_id = 0
     for (n_obs, variable_names), filenames in duplicate_groups.items():
         if len(filenames) < 2:
             continue
         duplicate_group_id += 1
-        for filename in sorted(filenames):
-            duplicate_rows.append(
-                {
-                    "duplicate_group": duplicate_group_id,
-                    "filename": filename,
-                    "n_obs": n_obs,
-                    "n_vars": len(variable_names),
-                    "variable_list": ";".join(variable_names),
-                }
-            )
-
-    if duplicate_rows:
-        duplicates = pd.DataFrame(duplicate_rows).sort_values(
-            ["duplicate_group", "filename"]
-        ).reset_index(drop=True)
-    else:
-        duplicates = pd.DataFrame(
-            columns=["duplicate_group", "filename", "n_obs", "n_vars", "variable_list"]
+        inventory.loc[inventory["filename"].isin(filenames), "duplicate_group"] = (
+            duplicate_group_id
         )
 
     if error_rows:
@@ -198,8 +184,7 @@ def build_inventory(
     else:
         errors = pd.DataFrame(columns=["filename", "error_type", "error_message"])
 
-    file_sizes = inventory.loc[:, ["filename", "file_size_bytes"]].copy()
-    return inventory, file_sizes, duplicates, errors
+    return inventory, errors
 
 
 def main() -> None:
@@ -211,25 +196,25 @@ def main() -> None:
     if not root.exists():
         raise FileNotFoundError(f"Data root does not exist: {root}")
 
-    inventory, file_sizes, duplicates, errors = build_inventory(
-        root=root, limit=args.limit
-    )
+    inventory, errors = build_inventory(root=root, limit=args.limit)
 
     inventory_path = output_dir / "segdata_file_inventory.csv"
-    sizes_path = output_dir / "segdata_file_sizes.csv"
-    duplicates_path = output_dir / "segdata_duplicate_groups.csv"
     errors_path = output_dir / "segdata_read_errors.csv"
 
-    inventory.loc[:, ["filename", "n_obs", "n_vars", "variable_list"]].to_csv(
-        inventory_path, index=False
-    )
-    file_sizes.to_csv(sizes_path, index=False)
-    duplicates.to_csv(duplicates_path, index=False)
+    inventory.loc[
+        :,
+        [
+            "filename",
+            "file_size_bytes",
+            "n_obs",
+            "n_vars",
+            "variable_list",
+            "duplicate_group",
+        ],
+    ].to_csv(inventory_path, index=False)
     errors.to_csv(errors_path, index=False)
 
     print(f"Wrote inventory: {inventory_path}")
-    print(f"Wrote file sizes: {sizes_path}")
-    print(f"Wrote duplicate groups: {duplicates_path}")
     print(f"Wrote read errors: {errors_path}")
 
 
