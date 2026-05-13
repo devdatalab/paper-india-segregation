@@ -1,4 +1,3 @@
-import pdb
 import time
 import io
 import os
@@ -121,15 +120,6 @@ def read_id_string_data(filename):
 
     # return dictionary
     return g
-
-def print_matrix(m):
-    print(' ')
-    for row in m:
-        print("")
-        for item in row:
-            sys.stdout.write("%5s," % str(item) )
-    print(' ')
-
 
 # specify single-letter pairs that have a low cost match.
 # specify each one twice, i.e. both directions so can be a fast lookup

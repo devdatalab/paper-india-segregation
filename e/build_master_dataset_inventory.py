@@ -91,14 +91,6 @@ TRACKED_CHANGE_COLUMNS = [
 ]
 
 COMPLETE_DATASET_CLASSES = ("canonical", "derived", "source", "legacy")
-COMPLETE_SHEET_NAMES = {
-    "canonical": "canonical_complete_datasets",
-    "derived": "derived_complete_datasets",
-    "source": "source_complete_datasets",
-    "legacy": "legacy_complete_datasets",
-    "excluded": "excluded_complete_candidates",
-}
-
 REFERENCE_REPO_NOTE = "reference_repo_lineage"
 
 

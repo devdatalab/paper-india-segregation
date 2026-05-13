@@ -26,10 +26,6 @@ SERVICE_LABELS = {
 }
 
 GROUPS = ["muslim_share", "sc_share"]  # as present in CSV
-GROUP_LABELS = {
-    "muslim_share": "Muslim Share",
-    "sc_share": "SC Share",
-}
 
 # ----------- load -----------
 if not os.path.exists(INFILE):

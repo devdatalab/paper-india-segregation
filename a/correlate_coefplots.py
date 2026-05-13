@@ -1,11 +1,9 @@
 # ------------------------------------------
 # coefplot_generator.py
 # ------------------------------------------
-import os, shutil
-import io
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import pdb
 import numpy as np
 import textwrap
 from pathlib import Path
@@ -84,7 +82,7 @@ xvar_labels = {
     "rural_land_gini_std": "Rural District Land Gini",
 }
 
-def make_plot(dsub, spec_name, outfile):
+def make_plot(dsub, outfile):
     # preserve x-var order
     xvars = list(dict.fromkeys(dsub["xvar"]))
     combos = ["dissim_sc", "iso_sc", "dissim_muslim", "iso_muslim"]
@@ -173,8 +171,6 @@ def make_plot(dsub, spec_name, outfile):
 
     # right margin based on legend width
     leg_w_in = leg.get_window_extent(renderer).width / fig.dpi
-    right_pad = 1.0 - min(0.80, 1.0 - (leg_w_in + 0.20) / fig_w_in)  # leave ~0.20in buffer
-
     fig.subplots_adjust(left=left_pad, right=1.0 - (leg_w_in + 0.20) / fig_w_in)
 
     # save without tight layout cropping
@@ -183,4 +179,4 @@ def make_plot(dsub, spec_name, outfile):
 
 # ----------- generate the four plots -----------
 for spec, outfile in OUTFILE.items():
-    make_plot(df[df["specification_name"] == spec], spec, outfile)
+    make_plot(df[df["specification_name"] == spec], outfile)

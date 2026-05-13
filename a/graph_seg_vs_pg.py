@@ -39,7 +39,7 @@ df["se"] = pd.to_numeric(df["se"], errors="coerce")
 df["key"] = df["group"] + "_" + df["measure"]  # e.g. "muslim_dissim"
 
 # ----------- plotting -----------
-def plot_quartiles(dfsub, title, outfile):
+def plot_quartiles(dfsub, outfile):
     services = list(SERVICE_LABELS.keys())
     service_labels = [SERVICE_LABELS[s] for s in services]
     n_services = len(services)
@@ -89,4 +89,4 @@ def plot_quartiles(dfsub, title, outfile):
 for key, outfile in OUTFILES.items():
     _, group, measure = key.split("_")
     dfsub = df[(df["group"] == group) & (df["measure"] == measure)]
-    plot_quartiles(dfsub, key, outfile)
+    plot_quartiles(dfsub, outfile)

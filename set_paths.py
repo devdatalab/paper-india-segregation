@@ -12,6 +12,20 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+__all__ = (
+    "SCODE",
+    "SDATA",
+    "RAW",
+    "SEG",
+    "SHRUG",
+    "MOBILITY",
+    "PC11",
+    "PC01",
+    "TMP",
+    "OUT",
+    "TOOLS",
+)
+
 ENV_FILE = Path(__file__).with_name(".env")
 if not ENV_FILE.exists():
     raise FileNotFoundError(
