@@ -1,0 +1,9 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11r_subdistrict_social_group.dta,pc11_state_id,,State ID,str2,0,,,0,5952,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_district_id,,District ID,str3,0,,,0,5952,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_subdistrict_id,,Subdistrict (tehsil/taluk) ID,str5,0,,,0,5952,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_tot_p,,Total Population,long,0,,,0,5952,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_p_sc,,Scheduled Castes Population Total,long,0,,,0,5952,0.000,,,conceptual,Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_p_st,,Scheduled Tribes Population Total,long,0,,,0,5952,0.000,,,conceptual,Same normalized label appears under different variable names.
+pc11r_subdistrict_social_group.dta,pc11_p_muslim,,Rural Muslim population,long,0,,,0,5952,0.000,,,label,Same variable name has inconsistent labels.
+pc11r_subdistrict_social_group.dta,pc11_p_else,,,float,0,,,0,5952,0.000,,,,

@@ -1,0 +1,6 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+shrug_names.dta,state_name,shrug_state_name,State name,str23,0,,,11,642049,0.000,,shrug_state_name,conceptual,Same normalized label appears under different variable names.
+shrug_names.dta,district_name,shrug_district_name,District name,str27,0,,,11,642049,0.000,,shrug_district_name,,
+shrug_names.dta,subdistrict_name,shrug_subdistrict_name,Subdistrict name,str36,0,,,556,642049,0.001,,shrug_subdistrict_name,,
+shrug_names.dta,place_name,shrug_place_name,SHRUG town or village name,str57,0,,,0,642049,0.000,,shrug_place_name,,
+shrug_names.dta,shrid,shrug_id,SHRUG Identifier,str16,0,,,0,642049,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.

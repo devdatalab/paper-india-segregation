@@ -1,0 +1,65 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+seg_correlates.dta,shrid,shrug_id,,str16,0,,,1,3638,0.000,,shrug_id,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+seg_correlates.dta,city_pop,,(rawsum) population at the town level,double,0,,,0,3638,0.000,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,cons_pc,cons_per_capita,(mean) (mean) cons_pc,float,0,,,69,3638,0.019,,cons_per_capita,,
+seg_correlates.dta,cons_pc_sc,cons_per_capita_sc,(mean) (mean) cons_pc_sc,float,0,,,180,3638,0.049,,cons_per_capita_sc,,
+seg_correlates.dta,cons_pc_muslim,cons_per_capita_muslim,(mean) (mean) cons_pc_muslim,float,0,,,86,3638,0.024,,cons_per_capita_muslim,,
+seg_correlates.dta,cons_pc_nonscmuslim,cons_per_capita_other,(mean) (mean) cons_pc_nonscmuslim,float,0,,,70,3638,0.019,,cons_per_capita_other,,
+seg_correlates.dta,ed_yrs,education_years,(mean) (mean) (mean) RECODE of ed (highest level of attained education),float,0,,,20,3638,0.005,,education_years,,
+seg_correlates.dta,ed_yrs_sc,education_years_sc,(mean) (mean) ed_yrs_sc,float,0,,,118,3638,0.032,,education_years_sc,,
+seg_correlates.dta,ed_yrs_muslim,education_years_muslim,(mean) (mean) ed_yrs_muslim,float,0,,,46,3638,0.013,,education_years_muslim,,
+seg_correlates.dta,ed_yrs_nonscmuslim,education_years_other,(mean) (mean) ed_yrs_nonscmuslim,float,0,,,21,3638,0.006,,education_years_other,,
+seg_correlates.dta,slum,,(mean) (mean) slum & non-slum,float,0,,,15,3638,0.004,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,muslim_job_share,,,float,0,,,9,3638,0.002,,,,
+seg_correlates.dta,sc_job_share,,,float,0,,,9,3638,0.002,,,,
+seg_correlates.dta,ln_cons_pc,log_cons_per_capita,,float,0,,,69,3638,0.019,,log_cons_per_capita,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,ln_cons_pc_sc,log_cons_per_capita_sc,,float,0,,,180,3638,0.049,,log_cons_per_capita_sc,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,ln_cons_pc_muslim,log_cons_per_capita_muslim,,float,0,,,86,3638,0.024,,log_cons_per_capita_muslim,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,ln_cons_pc_nonscmuslim,log_cons_per_capita_other,,float,0,,,70,3638,0.019,,log_cons_per_capita_other,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,ln_city_pop,,,float,0,,,0,3638,0.000,,,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,muslim_ed_gap,muslim_education_gap,,float,0,,,46,3638,0.013,,muslim_education_gap,,
+seg_correlates.dta,sc_ed_gap,sc_education_gap,,float,0,,,118,3638,0.032,,sc_education_gap,,
+seg_correlates.dta,muslim_ln_cons_gap,,,float,0,,,86,3638,0.024,,,,
+seg_correlates.dta,sc_ln_cons_gap,,,float,0,,,180,3638,0.049,,,,
+seg_correlates.dta,city_dissim_sc,,dissimilarity: sc (town),float,0,,,86,3638,0.024,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,city_iso_sc,,Isolation: sc (town),float,0,,,86,3638,0.024,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,city_iso_sc_rescaled,,Rescaled Isolation (0-1): sc (town),float,0,,,26,3638,0.007,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,city_dissim_muslim,,dissimilarity: muslim (town),float,0,,,86,3638,0.024,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,city_iso_muslim,,Isolation: muslim (town),float,0,,,86,3638,0.024,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,city_iso_muslim_rescaled,,Rescaled Isolation (0-1): muslim (town),float,0,,,26,3638,0.007,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,sc_pop_share,,SC share (town),float,0,,,26,3638,0.007,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,muslim_pop_share,,Muslim share (town),float,0,,,26,3638,0.007,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,nonscmuslim_pop_share,other_pop_share,Other share (town),float,0,,,26,3638,0.007,,other_pop_share,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,city_pop_pc11,,Total Population (town) PC11,float,0,,,26,3638,0.007,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,log_area_pc11,,,float,0,,,74,3638,0.020,,,,
+seg_correlates.dta,city_origin_year,,,float,0,,,59,3638,0.016,,,,
+seg_correlates.dta,prim_pc,primary_school_per_100k,,float,0,,,26,3638,0.007,,primary_school_per_100k,,
+seg_correlates.dta,mid_pc,middle_school_per_100k,,float,0,,,166,3638,0.046,,middle_school_per_100k,,
+seg_correlates.dta,sec_pc,secondary_school_per_100k,,float,0,,,26,3638,0.007,,secondary_school_per_100k,,
+seg_correlates.dta,hosp_pc,hospital_per_100k,,float,0,,,105,3638,0.029,,hospital_per_100k,,
+seg_correlates.dta,pc11_state_id,,2011 state id,str2,0,,,26,3638,0.007,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+seg_correlates.dta,pc11_district_id,,2011 district id,str3,0,,,57,3638,0.016,,,label,Same variable name has inconsistent labels.
+seg_correlates.dta,violence_index,,(sum) violence_index,double,0,,,3353,3638,0.922,,,,
+seg_correlates.dta,killed,,(sum) killed,double,0,,,0,3638,0.000,,,,
+seg_correlates.dta,injured,,(sum) injured,double,0,,,0,3638,0.000,,,,
+seg_correlates.dta,event_count,,(sum) event_count,double,0,,,0,3638,0.000,,,,
+seg_correlates.dta,religious_event_count,,(sum) religious,double,0,,,0,3638,0.000,,,,
+seg_correlates.dta,ln_killed,,,float,0,,,0,3638,0.000,,,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,ln_injured,,,float,0,,,0,3638,0.000,,,derivable,Variable appears derivable from another variable in the same dataset.
+seg_correlates.dta,any_event,,,float,0,,,0,3638,0.000,,,,
+seg_correlates.dta,any_rel_event,,,float,0,,,0,3638,0.000,,,,
+seg_correlates.dta,any_killed,,,float,0,,,0,3638,0.000,,,,
+seg_correlates.dta,any_injured,,,float,0,,,0,3638,0.000,,,,
+seg_correlates.dta,non_rel_event_count,,,float,0,,,0,3638,0.000,,,,
+seg_correlates.dta,_m_violence,,Matching result from merge,byte,1,1; 3,1=Master only (1); 2=Using only (2); 3=Matched (3); 4=Missing updated (4); 5=Nonmissing conflict (5),0,3638,0.000,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,p25,,(mean) p25,float,0,,,1867,3638,0.513,,,,
+seg_correlates.dta,_m_mobility,,Matching result from merge,byte,1,1; 3,1=Master only (1); 2=Using only (2); 3=Matched (3); 4=Missing updated (4); 5=Nonmissing conflict (5),0,3638,0.000,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,town_cons_gini,,(mean) town_cons_gini,float,0,,,1095,3638,0.301,,,,
+seg_correlates.dta,town_cons_pc_gini,town_cons_per_capita_gini,(mean) town_cons_pc_gini,float,0,,,1095,3638,0.301,,town_cons_per_capita_gini,,
+seg_correlates.dta,_m_town_gini,,Matching result from merge,byte,1,1; 3,1=Master only (1); 2=Using only (2); 3=Matched (3); 4=Missing updated (4); 5=Nonmissing conflict (5),0,3638,0.000,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,rural_land_gini,,,float,0,,,60,3638,0.016,,,,
+seg_correlates.dta,rural_cons_gini,,,float,0,,,60,3638,0.016,,,,
+seg_correlates.dta,rural_cons_pc_gini,rural_cons_per_capita_gini,,float,0,,,60,3638,0.016,,rural_cons_per_capita_gini,,
+seg_correlates.dta,_m_rural_gini,,Matching result from merge,byte,1,1; 3,1=Master only (1); 2=Using only (2); 3=Matched (3); 4=Missing updated (4); 5=Nonmissing conflict (5),0,3638,0.000,,,conceptual,Same normalized label appears under different variable names.
+seg_correlates.dta,ln_growth,,,float,0,,,442,3638,0.121,,,,
+seg_correlates.dta,_m_growth,,Matching result from merge,byte,1,1; 3,1=Master only (1); 2=Using only (2); 3=Matched (3); 4=Missing updated (4); 5=Nonmissing conflict (5),0,3638,0.000,,,conceptual,Same normalized label appears under different variable names.

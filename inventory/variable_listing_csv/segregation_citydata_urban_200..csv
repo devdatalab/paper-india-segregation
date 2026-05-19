@@ -1,0 +1,167 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+segregation_citydata_urban_200.dta,town,shrug_town_id,town (upper) control,str12,0,,,0,3612,0.000,,shrug_town_id,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_dissim_sc,,dissimilarity: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_interact_maj_sc,,Interaction Index- majority: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_interact_min_sc,,Interaction Index- minority: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_iso_sc,,Isolation: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_iso_sc_rescaled,,Rescaled Isolation (0-1): sc (town),float,0,,,0,3612,0.000,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_correlation_sc,,Correlation: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_gini_sc,,gini: sc (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_dissim_muslim,,dissimilarity: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_interact_maj_muslim,,Interaction Index- majority: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_interact_min_muslim,,Interaction Index- minority: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_iso_muslim,,Isolation: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_iso_muslim_rescaled,,Rescaled Isolation (0-1): muslim (town),float,0,,,0,3612,0.000,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_correlation_muslim,,Correlation: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_gini_muslim,,gini: muslim (town),float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,ent_hindex,,Entropy Index,float,0,,,103,3612,0.029,,,,
+segregation_citydata_urban_200.dta,elf,,Fractionalisation,float,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,city_pop_with_invalid,city_pop_including_unclassified,City Population with ,double,0,,,0,3612,0.000,,city_pop_including_unclassified,,
+segregation_citydata_urban_200.dta,sc,sc_pop,SC count,double,0,,,0,3612,0.000,,sc_pop,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,muslim,muslim_pop,Muslim count,double,0,,,0,3612,0.000,,muslim_pop,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,nonsc,non_sc_pop,Non-SC Count,double,0,,,0,3612,0.000,,non_sc_pop,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,nonmuslim,non_muslim_pop,Non-Muslim Count,double,0,,,0,3612,0.000,,non_muslim_pop,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,nonscmuslim,other_pop,Other/General Count,double,0,,,0,3612,0.000,,other_pop,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,bad_sc,invalid_sc_flag,Pop with missing SC/ST classification,double,0,,,0,3612,0.000,,invalid_sc_flag,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,bad_muslim,invalid_muslim_flag,Pop with missing Muslim classification,double,0,,,0,3612,0.000,,invalid_muslim_flag,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,city_pop,,total city population (doesn't include those with missing sc/st classification),double,0,,,0,3612,0.000,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,hh,household_count,number of households,double,0,,,0,3612,0.000,,household_count,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,city_pop_sc,,Total city population sc,double,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,city_pop_muslim,,Total city population muslim,double,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,city_pop_nonsc,city_pop_non_sc,Total city population nonsc,double,0,,,0,3612,0.000,,city_pop_non_sc,,
+segregation_citydata_urban_200.dta,city_pop_nonmuslim,city_pop_non_muslim,Total city population nonmuslim,double,0,,,0,3612,0.000,,city_pop_non_muslim,,
+segregation_citydata_urban_200.dta,city_pop_nonscmuslim,city_pop_other,Total city population nonscmuslim,double,0,,,0,3612,0.000,,city_pop_other,,
+segregation_citydata_urban_200.dta,bad_ed,invalid_education_flag,Population count with missing education ,double,0,,,5,3612,0.001,,invalid_education_flag,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain,,(mean) (mean) closed_drain,float,0,,,61,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain_sc,,(mean) (mean) closed_drain_sc,float,0,,,169,3612,0.047,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain_muslim,,(mean) (mean) closed_drain_muslim,float,0,,,75,3612,0.021,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain_nonsc,closed_drain_non_sc,(mean) (mean) closed_drain_nonsc,float,0,,,62,3612,0.017,,closed_drain_non_sc,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain_nonmuslim,closed_drain_non_muslim,(mean) (mean) closed_drain_nonmuslim,float,0,,,61,3612,0.017,,closed_drain_non_muslim,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,closed_drain_nonscmuslim,closed_drain_other,(mean) (mean) closed_drain_nonscmuslim,float,0,,,62,3612,0.017,,closed_drain_other,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home,,(mean) (mean) wat_source_home,float,0,,,18,3612,0.005,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home_sc,,(mean) (mean) wat_source_home_sc,float,0,,,110,3612,0.030,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home_muslim,,(mean) (mean) wat_source_home_muslim,float,0,,,31,3612,0.009,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home_nonsc,wat_source_home_non_sc,(mean) (mean) wat_source_home_nonsc,float,0,,,18,3612,0.005,,wat_source_home_non_sc,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home_nonmuslim,wat_source_home_non_muslim,(mean) (mean) wat_source_home_nonmuslim,float,0,,,18,3612,0.005,,wat_source_home_non_muslim,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,wat_source_home_nonscmuslim,wat_source_home_other,(mean) (mean) wat_source_home_nonscmuslim,float,0,,,18,3612,0.005,,wat_source_home_other,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home,,(mean) (mean) latrine_home,float,0,,,47,3612,0.013,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home_sc,,(mean) (mean) latrine_home_sc,float,0,,,154,3612,0.043,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home_muslim,,(mean) (mean) latrine_home_muslim,float,0,,,60,3612,0.017,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home_nonsc,latrine_home_non_sc,(mean) (mean) latrine_home_nonsc,float,0,,,48,3612,0.013,,latrine_home_non_sc,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home_nonmuslim,latrine_home_non_muslim,(mean) (mean) latrine_home_nonmuslim,float,0,,,47,3612,0.013,,latrine_home_non_muslim,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,latrine_home_nonscmuslim,latrine_home_other,(mean) (mean) latrine_home_nonscmuslim,float,0,,,48,3612,0.013,,latrine_home_other,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec,,(mean) (mean) light_source_elec,float,0,,,46,3612,0.013,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec_sc,,(mean) (mean) light_source_elec_sc,float,0,,,155,3612,0.043,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec_muslim,,(mean) (mean) light_source_elec_muslim,float,0,,,59,3612,0.016,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec_nonsc,light_source_elec_non_sc,(mean) (mean) light_source_elec_nonsc,float,0,,,47,3612,0.013,,light_source_elec_non_sc,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec_nonmuslim,light_source_elec_non_muslim,(mean) (mean) light_source_elec_nonmuslim,float,0,,,46,3612,0.013,,light_source_elec_non_muslim,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,light_source_elec_nonscmuslim,light_source_elec_other,(mean) (mean) light_source_elec_nonscmuslim,float,0,,,47,3612,0.013,,light_source_elec_other,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,slum,,(mean) (mean) slum & non-slum,float,0,,,2,3612,0.001,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pub,,(sum) own1,int,0,,,8,3612,0.002,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,cons_pcap,cons_per_capita,,float,0,,,54,3612,0.015,,cons_per_capita,,
+segregation_citydata_urban_200.dta,log_cons_pcap,log_cons_per_capita,Log (cons per capita),float,0,,,54,3612,0.015,,log_cons_per_capita,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,cons_pcap_sc,cons_per_capita_sc,,float,0,,,159,3612,0.044,,cons_per_capita_sc,,
+segregation_citydata_urban_200.dta,log_cons_pcap_sc,log_cons_per_capita_sc,Log (cons per capita sc),float,0,,,159,3612,0.044,,log_cons_per_capita_sc,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,cons_pcap_muslim,cons_per_capita_muslim,,float,0,,,67,3612,0.019,,cons_per_capita_muslim,,
+segregation_citydata_urban_200.dta,log_cons_pcap_muslim,log_cons_per_capita_muslim,Log (cons per capita muslim),float,0,,,67,3612,0.019,,log_cons_per_capita_muslim,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,cons_pcap_nonscmuslim,cons_per_capita_other,,float,0,,,55,3612,0.015,,cons_per_capita_other,,
+segregation_citydata_urban_200.dta,log_cons_pcap_nonscmuslim,log_cons_per_capita_other,Log (cons per capita other),float,0,,,55,3612,0.015,,log_cons_per_capita_other,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,log_city_pop,,Log (city population),float,0,,,0,3612,0.000,,,conceptual;derivable,Same normalized label appears under different variable names. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,sc_share,,SC share (town),float,0,,,0,3612,0.000,,,label;conceptual;derivable,Same variable name has inconsistent labels. | Same normalized label appears under different variable names. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,muslim_share,,Muslim share (town),float,0,,,0,3612,0.000,,,label;conceptual;derivable,Same variable name has inconsistent labels. | Same normalized label appears under different variable names. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,nonscmuslim_share,other_share,Other share (town),float,0,,,0,3612,0.000,,other_share,label;conceptual;derivable,Same variable name has inconsistent labels. | Same normalized label appears under different variable names. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,primary,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_primary,,Dummy for primary school (town),float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_primary,,Log (primary schools) ,float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,secondary,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_secondary,,Dummy for secondary school in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_secondary,,Log (secondary schools),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,higher,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_higher,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,log_higher,,,float,0,,,8,3612,0.002,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,hospital,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_hospital,,Dummy for hospitals in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_hospital,,Log (hospitals),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,primary_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_primary_pub,,Dummy for public primary school (town),float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_primary_pub,,Log (public primary schools) ,float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,secondary_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_secondary_pub,,Dummy for public secondary school in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_secondary_pub,,Log (public secondary schools),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,higher_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_higher_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,log_higher_pub,,,float,0,,,8,3612,0.002,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,hospital_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_hospital_pub,,Dummy for public hospitals in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_hospital_pub,,Log (public hospitals),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,primary_emp_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_primary_emp_pub,,Dummy for public primary school employment (town),float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_primary_emp_pub,,Log (public primary school employment) ,float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,secondary_emp_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_secondary_emp_pub,,Dummy for public secondary school employment in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_secondary_emp_pub,,Log (public secondary school employment),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,higher_emp_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_higher_emp_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,log_higher_emp_pub,,,float,0,,,8,3612,0.002,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,hospital_emp_pub,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_hospital_emp_pub,,Dummy for public hospital employment in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_hospital_emp_pub,,Log (public hospital employment),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,primary_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_primary_priv,,Dummy for private primary school (town),float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_primary_priv,,Log (private primary schools) ,float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,secondary_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_secondary_priv,,Dummy for private secondary school in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_secondary_priv,,Log (private secondary schools),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,higher_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_higher_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,log_higher_priv,,,float,0,,,8,3612,0.002,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,hospital_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_hospital_priv,,Dummy for private hospitals in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_hospital_priv,,Log (private hospitals),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,primary_emp_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_primary_emp_priv,,Dummy for private primary school employment (town),float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_primary_emp_priv,,Log (private primary school employment) ,float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,secondary_emp_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_secondary_emp_priv,,Dummy for private secondary school employment in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_secondary_emp_priv,,Log (private secondary school employment),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,higher_emp_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_higher_emp_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,log_higher_emp_priv,,,float,0,,,8,3612,0.002,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,hospital_emp_priv,,,float,0,,,8,3612,0.002,,,,
+segregation_citydata_urban_200.dta,dum_hospital_emp_priv,,Dummy for private hospital employment in town,float,0,,,8,3612,0.002,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,log_hospital_emp_priv,,Log (private hospital employment),float,0,,,8,3612,0.002,,,label;derivable,Same variable name has inconsistent labels. | Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,city_log_pop,,log (city population),float,0,,,0,3612,0.000,,,conceptual,Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,shrid,shrug_id,,str12,0,,,0,3612,0.000,,shrug_id,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pc11_td_tot_p,,Total Population of Town,long,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,pc11_td_area,,area in square km,double,0,,,22,3612,0.006,,,,
+segregation_citydata_urban_200.dta,pc11_td_p_sc,,Scheduled Castes Population (2011 Census),long,0,,,100,3612,0.028,,,,
+segregation_citydata_urban_200.dta,pc11_td_p_st,,Scheduled Tribes Population (2011 Census),long,0,,,53,3612,0.015,,,,
+segregation_citydata_urban_200.dta,pc11_td_all_hospital,,Hospital Allopathic (Numbers),byte,0,,,79,3612,0.022,,,conceptual,Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,pc11_td_primary_gov,,Govt. Primary School (Numbers),int,0,,,0,3612,0.000,,,conceptual,Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,pc11_td_sec_gov,,Govt. Secondary School (Numbers),int,0,,,0,3612,0.000,,,conceptual,Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,pc11_td_p_sch,,,int,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,pc11_td_m_sch,,,int,0,,,140,3612,0.039,,,,
+segregation_citydata_urban_200.dta,pc11_td_s_sch,,,int,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,pc11_pca_tot_p,,total population,float,0,,,0,3612,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+segregation_citydata_urban_200.dta,city_pop_pc11,,Total Population (town) PC11,float,0,,,0,3612,0.000,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,primary_pub_pc11,,public primary schools pc11,float,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,secondary_pub_pc11,,public secondary schools pc11,float,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,log_primary_pub_pc11,,log(public primary schools pc11),float,0,,,22,3612,0.006,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,log_secondary_pub_pc11,,log(public secondary schools pc11),float,0,,,374,3612,0.104,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,log_area_pc11,,,float,0,,,48,3612,0.013,,,,
+segregation_citydata_urban_200.dta,log_city_pop_pc11,,Log (city population pc11),float,0,,,0,3612,0.000,,,derivable,Variable appears derivable from another variable in the same dataset.
+segregation_citydata_urban_200.dta,city_origin_year,,,float,0,,,33,3612,0.009,,,,
+segregation_citydata_urban_200.dta,scst_share_pc11,,SCST Share PC11,float,0,,,102,3612,0.028,,,,
+segregation_citydata_urban_200.dta,sc_share_pc11,,SC Share PC11,float,0,,,100,3612,0.028,,,,
+segregation_citydata_urban_200.dta,st_share_pc11,,ST Share PC11,float,0,,,53,3612,0.015,,,,
+segregation_citydata_urban_200.dta,prim_pc,primary_school_per_100k,,float,0,,,0,3612,0.000,,primary_school_per_100k,,
+segregation_citydata_urban_200.dta,mid_pc,middle_school_per_100k,,float,0,,,140,3612,0.039,,middle_school_per_100k,,
+segregation_citydata_urban_200.dta,sec_pc,secondary_school_per_100k,,float,0,,,0,3612,0.000,,secondary_school_per_100k,,
+segregation_citydata_urban_200.dta,hosp_pc,hospital_per_100k,,float,0,,,79,3612,0.022,,hospital_per_100k,,
+segregation_citydata_urban_200.dta,muslim_share_pc11,,Muslim Share PC11,float,0,,,0,3612,0.000,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pc11_state_id,,2011 state id,str2,0,,,0,3612,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pc11_state_name,,2011 state name,str23,0,,,0,3612,0.000,,,,
+segregation_citydata_urban_200.dta,pc11_district_id,,2011 district id,str3,0,,,31,3612,0.009,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pc11_district_name,,2011 district name,str27,0,,,31,3612,0.009,,,,
+segregation_citydata_urban_200.dta,pc11_subdistrict_id,,2011 subdistrict id,str5,0,,,103,3612,0.029,,,label,Same variable name has inconsistent labels.
+segregation_citydata_urban_200.dta,pc11_subdistrict_name,,2011 subdistrict name,str36,0,,,153,3612,0.042,,,,

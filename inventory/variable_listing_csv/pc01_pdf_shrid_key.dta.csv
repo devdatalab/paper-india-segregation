@@ -1,0 +1,18 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc01_pdf_shrid_key.dta,shrid,shrug_id,SHRUG Identifier,str14,0,,,0,2467,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_state_id,,State ID,str2,0,,,0,2467,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_district_id,,District ID,str2,0,,,0,2467,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_subdistrict_id,,Subdistrict (tehsil/taluk) ID,str4,0,,,0,2467,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_town_id,,Town ID,str8,0,,,0,2467,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,town_name_pc01_pdf,pc01_pdf_town_name,Town Name in the PDF,str43,0,,,0,2467,0.000,,pc01_pdf_town_name,,
+pc01_pdf_shrid_key.dta,pc01_town_name,,,str41,0,,,0,2467,0.000,,,naming,Same variable name has inconsistent storage type.
+pc01_pdf_shrid_key.dta,pc01_state_name,,PC01 state name,str17,0,,,0,2467,0.000,,,naming,Same variable name has inconsistent storage type.
+pc01_pdf_shrid_key.dta,pc01_district_name,,PC01 district name,str26,0,,,0,2467,0.000,,,,
+pc01_pdf_shrid_key.dta,pc01_subdistrict_name,,PC01 subdistrict name,str36,0,,,80,2467,0.032,,,,
+pc01_pdf_shrid_key.dta,pc01_pca_town_name,,Town name,str72,0,,,0,2467,0.000,,,conceptual,Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pdf_tot_pop,,(sum) pop_tot,double,0,,,0,2467,0.000,,,,
+pc01_pdf_shrid_key.dta,pdf_sc_pop,,(sum) pop_sc,double,0,,,0,2467,0.000,,,,
+pc01_pdf_shrid_key.dta,pdf_st_pop,,(sum) pop_st,double,0,,,0,2467,0.000,,,,
+pc01_pdf_shrid_key.dta,pc01_pca_tot_p,,Total Population,long,0,,,0,2467,0.000,,,naming;conceptual,Same variable name has inconsistent storage type. | Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_pca_p_sc,,Scheduled Castes Population Total,long,0,,,0,2467,0.000,,,conceptual,Same normalized label appears under different variable names.
+pc01_pdf_shrid_key.dta,pc01_pca_p_st,,Scheduled Tribes Population Total,long,0,,,0,2467,0.000,,,conceptual,Same normalized label appears under different variable names.

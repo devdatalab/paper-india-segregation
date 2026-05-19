@@ -1,0 +1,3 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+us_tpop_b.dta,share,,,float,0,,,0,20,0.000,,,,
+us_tpop_b.dta,tpop_b,,(firstnm) tpop_b,float,0,,,0,20,0.000,,,label,Same variable name has inconsistent labels.

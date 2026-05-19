@@ -1,0 +1,3 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11-state.shp,pc11_s_id,,,strL,0,,,0,35,0.000,,,,
+pc11-state.shp,geometry,,,geometry,0,,,0,35,0.000,,,,

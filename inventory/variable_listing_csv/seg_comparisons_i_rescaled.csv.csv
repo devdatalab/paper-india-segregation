@@ -1,0 +1,2 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+seg_comparisons_i_rescaled.csv,__missing_file__,,File listed in manifest but not found on this server: /Users/f0018fb/Dropbox/tmp/stata/seg_comparisons_i_rescaled.csv,missing_file,0,,,0,0,0.000,,,,

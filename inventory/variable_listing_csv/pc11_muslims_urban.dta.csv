@@ -1,0 +1,4 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11_muslims_urban.dta,shrid,shrug_id,SHRUG Identifier,str12,0,,,0,7528,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_muslims_urban.dta,town,shrug_town_id,,str12,0,,,0,7528,0.000,,shrug_town_id,label,Same variable name has inconsistent labels.
+pc11_muslims_urban.dta,muslim_share_pc11,,,float,0,,,0,7528,0.000,,,label,Same variable name has inconsistent labels.

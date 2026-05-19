@@ -1,0 +1,389 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+shrug_pc11_vd.dta,shrid,shrug_id,SHRUG Identifier,str12,0,,,0,583572,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_power_dom_win,,power supply for domestic use in winter (October-March) per day (in hours),float,0,,,57189,583572,0.098,,,,
+shrug_pc11_vd.dta,pc11_vd_power_agr_sum,,power supply for agricultural use in summer (April-September) per day (in hours),float,0,,,76313,583572,0.131,,,,
+shrug_pc11_vd.dta,pc11_vd_power_agr_win,,power supply for agricultural use in winter (October-March) per day (in hours),float,0,,,76325,583572,0.131,,,,
+shrug_pc11_vd.dta,pc11_vd_power_all_sum,,power supply for all uses in summer (April-September) per day (in hours),float,0,,,45278,583572,0.078,,,,
+shrug_pc11_vd.dta,pc11_vd_power_all_win,,power supply for all uses in winter (October-March) per day (in hours),float,0,,,45310,583572,0.078,,,,
+shrug_pc11_vd.dta,pc11_vd_power_dom_sum,,power supply for domestic use in summer (April-September) per day (in hours),float,0,,,57536,583572,0.099,,,,
+shrug_pc11_vd.dta,pc11_vd_power_com_sum,,power supply for commercial use in summer (April-September) per day (in hours),float,0,,,80278,583572,0.138,,,,
+shrug_pc11_vd.dta,pc11_vd_power_com_win,,power supply for commercial use in winter (October-March) per day (in hours),float,0,,,80319,583572,0.138,,,,
+shrug_pc11_vd.dta,pc11_vd_subdistrict_hq_dist,,Sub District Head Quarter (Distance in km),float,0,,,54842,583572,0.094,,,,
+shrug_pc11_vd.dta,pc11_vd_district_hq_dist,,District Head Quarter  (Distance in km),float,0,,,42610,583572,0.073,,,,
+shrug_pc11_vd.dta,pc11_vd_wi_st_town_dist,,Within the State/UT (Distance in km),float,0,,,280017,583572,0.480,,,,
+shrug_pc11_vd.dta,pc11_vd_out_st_town_dist,,"Outside the State/UT distance, if nearest one is not within the State/UT (Distan",float,0,,,536755,583572,0.920,,,,
+shrug_pc11_vd.dta,pc11_vd_t_hh,,Total   Households,long,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_t_p,,Total Population of Village,long,0,,,0,583572,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_t_m,,Total Male Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_t_f,,Total Female Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_sc_p,,Total Scheduled Castes Population of Village,long,0,,,0,583572,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_sc_m,,Total Scheduled Castes  Male Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_sc_f,,Total Scheduled Castes  Female Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_st_p,,Total Scheduled Tribes Population of Village,long,0,,,0,583572,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_st_m,,Total Scheduled Tribes  Male Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_st_f,,Total Scheduled Tribes  Female Population of Village,long,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_gov,,Govt  Pre - Primary School (Nursery/LKG/UKG) (Numbers),int,0,,,68,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_priv,,Private Pre - Primary School (Nursery/LKG/UKG) (Numbers),int,0,,,1431,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_p_sch_gov,,Govt Primary School (Numbers),int,0,,,139,583572,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_priv,,Private  Primary School (Numbers),int,0,,,1983,583572,0.003,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_gov,,Govt  Middle School (Numbers),int,0,,,511,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_priv,,Private Middle School (Numbers),int,0,,,2354,583572,0.004,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_gov,,Govt  Secondary School (Numbers),int,0,,,18,583572,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_priv,,Private Secondary  School (Numbers),int,0,,,329,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_gov,,Govt Senior Secondary School (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 11; 12; 13; 18; 30; 36; 42; 66,,15,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_priv,,Private Senior Secondary  School (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 11; 13; 36; 56; 70,,223,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_gov,,Govt  Arts and Science Degree College (Numbers),byte,1,0; 1; 2; 3; 4; 5; 7; 11; 18; 21,,20,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_priv,,Private  Arts and Science Degree College (Numbers),byte,1,0; 1; 2; 3; 4; 5; 11; 18; 24,,44,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_engg_coll_gov,,Govt Engineering College (Numbers),byte,1,0; 1; 2; 4,,1477,583572,0.003,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_priv,,Private Engineering College (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 9; 121,,1485,583572,0.003,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_medi_coll_gov,,Govt Medicine  College (Numbers),byte,1,0; 1; 2; 3; 4; 11,,1480,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_medi_coll_priv,,Private Medicine College (Numbers),byte,1,0; 1; 2; 3; 4; 6; 8,,1436,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_gov,,Govt Management Institute (Numbers),byte,1,0; 1; 2,,555,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_priv,,Private Management Institute (Numbers),byte,1,0; 1; 2; 3; 4; 7; 15; 67,,554,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_gov,,Govt Polytechnic (Numbers),byte,1,0; 1; 2; 3; 11,,628,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_priv,,Private Polytechnic (Numbers),byte,1,0; 1; 2; 3; 14,,637,583572,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_voct_sch_gov,,Govt Vocational Training School/ITI (Numbers),byte,1,0; 1; 2; 3; 4; 5; 10; 11; 13,,616,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_voct_sch_priv,,Private Vocational Training School/ITI (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 14,,649,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_gov,,Government Non Formal Training Centre (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 12; 14; 59,,502,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_priv,,Private Non Formal Training Centre (Numbers),byte,1,0; 1; 2; 3; 4; 5; 7; 40,,561,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_disab_sch_gov,,Government School For Disabled (Numbers),byte,1,0; 1; 2; 3; 4; 7; 10,,420,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_disab_sch_priv,,Private School For Disabled (Numbers),byte,1,0; 1; 2; 3; 4; 5; 10,,427,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_oth_sch_gov,,Government Others (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 11; 12; 13; 14; 16; 31; 32,,77,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_oth_sch_priv,,Private Others (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10,,176,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_ch_cntr,,Community Health Centre (Numbers),int,1,0; 1; 2; 3; 4; 5; 7; 8; 12; 15; 20; 30; 2500,,2023,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_ch_cntr_doc_tot,,Community Health Centre Doctors Total Strength (Numbers),byte,0,,,8540,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_ch_cntr_doc_pos,,Community Health Centre Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 13; 17; 19; 21; 44; 50,,8621,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_ch_cntr_pmed_tot,,Community Health Centre Para Medical  Staff Total Strength (Numbers),int,0,,,8657,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_ch_cntr_pmed_pos,,Community Health Centre Para Medical Staff In Position (Numbers),int,0,,,8721,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_ph_cntr,,Primary Health Centre (Numbers),int,0,,,1881,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_ph_cntr_doc_tot,,Primary Health Centre  Doctors Total Strength (Numbers),int,0,,,9656,583572,0.017,,,,
+shrug_pc11_vd.dta,pc11_vd_ph_cntr_doc_pos,,Primary Health  Centre Doctors In Position (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 25; 31; 50; 68; 178,,8312,583572,0.014,,,,
+shrug_pc11_vd.dta,pc11_vd_ph_cntr_pmed_tot,,Primary  Health Centre Para Medical  Staff Total Strength (Numbers),int,0,,,8411,583572,0.014,,,,
+shrug_pc11_vd.dta,pc11_vd_ph_cntr_pmed_pos,,Primary  Health Centre Para Medical Staff In Position (Numbers),int,0,,,8565,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_phs_cntr,,Primary Heallth Sub Centre (Numbers),long,0,,,2237,583572,0.004,,,,
+shrug_pc11_vd.dta,pc11_vd_phs_cntr_doc_tot,,Primary Heallth Sub Centre Doctors Total Strength (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 20; 22; 50; 800; 2000; 3000,,12815,583572,0.022,,,,
+shrug_pc11_vd.dta,pc11_vd_phs_cntr_doc_pos,,Primary Heallth Sub Centre Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 20; 21; 50,,13443,583572,0.023,,,,
+shrug_pc11_vd.dta,pc11_vd_phs_cntr_pmed_tot,,Primary Heallth Sub Centre Para Medical  Staff Total Strength (Numbers),int,0,,,11169,583572,0.019,,,,
+shrug_pc11_vd.dta,pc11_vd_mcw_cntr,,Maternity And Child Welfare Centre (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 13; 20; 31; 33; 36; 49; 50; 96,,2381,583572,0.004,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mcw_cntr_doc_tot,,Maternity And Child Welfare Centre Doctors Total Strength (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 14; 16; 17; 18; 31,,9711,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mcw_cntr_doc_pos,,Maternity And Child Welfare Centre Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 14; 17; 31,,9859,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mcw_cntr_pmed_tot,,Maternity And Child Welfare Centre Para Medical  Staff Total Strength (Numbers),int,0,,,9421,583572,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mcw_cntr_pmed_pos,,Maternity And Child Welfare Centre Para Medical Staff In Position (Numbers),int,0,,,9612,583572,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_tb_cln,,TB Clinic (Numbers),byte,1,0; 1; 2; 3; 4; 5; 10; 18; 31,,2436,583572,0.004,,,,
+shrug_pc11_vd.dta,pc11_vd_tb_cln_doc_tot,,TB Clinic Doctors Total Strength (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 15; 22; 31,,8890,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_tb_cln_doc_pos,,TB Clinic Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 9; 10; 15; 19; 31,,8971,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_tb_cln_pmed_tot,,TB Clinic Para Medical Para Medical  Staff Total Strength (Numbers),int,0,,,8820,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_tb_cln_pmed_pos,,TB Clinic Para Medical Para Medical Staff In Position (Numbers),int,0,,,8894,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_all_hosp,,Hospital Allopathic (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 9; 11; 13; 20; 22; 30; 300,,3060,583572,0.005,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_hosp_doc_tot,,Hospital Allopathic Doctors Total Strength (Numbers),int,0,,,9026,583572,0.015,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_hosp_doc_pos,,Hospital Allopathic Doctors In Position (Numbers),int,0,,,9097,583572,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_hosp_pmed_tot,,Hospital Allopathic Para Medical  Staff Total Strength (Numbers),int,0,,,9121,583572,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_hosp_pmed_pos,,Hospital Allopathic Para Medical Staff In Position (Numbers),int,0,,,9163,583572,0.016,,,,
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp,,Hospiltal Alternative Medicine (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 13; 16; 110,,3215,583572,0.006,,,,
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp_doc_tot,,Hospiltal Alternative Medicine Doctors Total Strength (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 13; 17; 25; 64,,8990,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp_doc_pos,,Hospiltal Alternative Medicine Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 16; 17; 64,,9026,583572,0.015,,,,
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp_pmed_tot,,Hospiltal Alternative Medicine Para Medical  Staff Total Strength (Numbers),byte,0,,,9060,583572,0.016,,,,
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp_pmed_pos,,Hospiltal Alternative Medicine Para Medical Staff In Position (Numbers),byte,0,,,9093,583572,0.016,,,,
+shrug_pc11_vd.dta,pc11_vd_disp,,Dispensary (Numbers),int,0,,,2945,583572,0.005,,,,
+shrug_pc11_vd.dta,pc11_vd_all_disp_doc_tot,,Dispensary Doctors Total Strength (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 13; 14; 16; 17; 20; 21; 25; 51,,9995,583572,0.017,,,,
+shrug_pc11_vd.dta,pc11_vd_all_disp_doc_pos,,Dispensary Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 13; 16; 17; 20; 25; 50,,10255,583572,0.018,,,,
+shrug_pc11_vd.dta,pc11_vd_all_disp_pmed_tot,,Dispensary Para Medical  Staff Total Strength (Numbers),int,0,,,10271,583572,0.018,,,,
+shrug_pc11_vd.dta,pc11_vd_all_disp_pmed_pos,,Dispensary Para Medical Staff In Position (Numbers),byte,0,,,10382,583572,0.018,,,,
+shrug_pc11_vd.dta,pc11_vd_vet_hosp,,Veterinary Hospital (Numbers),int,1,0; 1; 2; 3; 4; 5; 7; 8; 10; 12; 17; 20; 29; 37; 50; 200; 323,,2631,583572,0.005,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vet_hosp_doc_tot,,Veterinary Hospital Doctors Total Strength (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 15; 17; 24; 31; 33; 37; 327,,8679,583572,0.015,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vet_hosp_doc_pos,,Veterinary Hospital Doctors In Position (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 8; 10; 13; 16; 24; 33; 326,,8824,583572,0.015,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vet_hosp_pmed_tot,,Veterinary Hospital Para Medical  Staff Total Strength (Numbers),int,0,,,8897,583572,0.015,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vet_hosp_pmed_pos,,Veterinary Hospital Para Medical Staff In Position (Numbers),int,0,,,9084,583572,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mh_cln,,Mobile Health Clinic (Numbers),int,1,0; 1; 2; 3; 4; 5; 7; 8; 9; 10; 17; 43; 219; 935,,4125,583572,0.007,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mh_cln_doc_tot,,Mobile Health Clinic Doctors Total Strength (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 11; 21,,10042,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mh_cln_doc_pos,,Mobile Health Clinic Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8,,10070,583572,0.017,,,,
+shrug_pc11_vd.dta,pc11_vd_mh_cln_pmed_tot,,Mobile Health Clinic Para Medical  Staff Total Strength (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 15; 22; 669,,10073,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mh_cln_pmed_pos,,Mobile Health Clinic Para Medical Staff In Position(Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 15; 22; 669,,10856,583572,0.019,,,,
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr,,Family Welfare Centre (Numbers),int,0,,,3498,583572,0.006,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr_doc_tot,,Family Welfare Centre Doctors Total Strength (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 13; 18; 25; 150,,10173,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr_doc_pos,,Family Welfare Centre Doctors In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 18; 25,,10270,583572,0.018,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr_pmed_tot,,Family Welfare Centre Para Medical  Staff Total Strength (Numbers),byte,0,,,9950,583572,0.017,,,,
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr_pmed_pos,,Family Welfare Centre Para Medical Staff In Position (Numbers),byte,0,,,10064,583572,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_med_out_pat,,Non Government Medical facilities Out Patient (Numbers),int,0,,,29754,583572,0.051,,,,
+shrug_pc11_vd.dta,pc11_vd_med_in_out_pat,,Non Government Medical facilities In And Out Patient (Numbers),int,0,,,30116,583572,0.052,,,,
+shrug_pc11_vd.dta,pc11_vd_med_c_hosp_home,,Non Government Medical facilities Charitable (Numbers),int,0,,,30085,583572,0.052,,,,
+shrug_pc11_vd.dta,pc11_vd_med_prac_mbbs,,Non Government Medical facilities Medical Prctitioner with MBBS Degree (Numbers),int,0,,,29410,583572,0.050,,,,
+shrug_pc11_vd.dta,pc11_vd_med_prac_other,,Non Government Medical facilities Medical Prctitioner with other Degree (Numbers,int,0,,,27534,583572,0.047,,,,
+shrug_pc11_vd.dta,pc11_vd_med_prac_nodeg,,Non Government Medical facilities Medical Practitioner with no  Degree (Numbers),int,0,,,25007,583572,0.043,,,,
+shrug_pc11_vd.dta,pc11_vd_med_trad_fth,,Non Government Medical facilities Traditional Practitioner and Faith  Healer (Nu,int,0,,,28652,583572,0.049,,,,
+shrug_pc11_vd.dta,pc11_vd_med_shops,,Non Government Medical facilities Medicine Shop (Numbers),int,0,,,27763,583572,0.048,,,,
+shrug_pc11_vd.dta,pc11_vd_med_oth_fac,,Non Government Medical facilities Others (Numbers),int,0,,,36429,583572,0.062,,,,
+shrug_pc11_vd.dta,pc11_vd_area,,Total Geographical Area (in Hectares),double,0,,,2,583572,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_phs_cntr_pmed_pos,,Primary Heallth Sub Centre Para Medical Staff In Position (Numbers),double,0,,,12011,583572,0.021,,,,
+shrug_pc11_vd.dta,pc11_vd_land_fores,,Forest Area (in Hectares),double,0,,,31,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_non_agri,,Area under Non-Agricultural Uses (in Hectares),double,0,,,17,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_uncult,,Barren & Un-cultivable Land Area (in Hectares),double,0,,,29,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_pst_grz,,Permanent Pastures and Other Grazing Land Area (in Hectares),double,0,,,32,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_misc_trcp,,Land Under Miscellaneous Tree Crops etc. Area (in Hectares),double,0,,,28,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_cult_waste,,Culturable Waste Land Area (in Hectares),double,0,,,30,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_fallow,,Fallows Land other than Current Fallows Area (in Hectares),double,0,,,27,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_cur_fal,,Current Fallows Area (in Hectares),double,0,,,30,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_nt_swn,,Net Area Sown (in Hectares),double,0,,,8,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_un_irr,,Total Unirrigated Land Area (in Hectares),double,0,,,230,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_land_src_irr,,Area Irrigated by Source (in Hectares),double,0,,,632,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_land_canal_irr,,Area Irrigated by Canals  (in Hectares),double,0,,,912,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_land_wl_tw_irr,,Area Irrigated by Wells/Tube Wells  (in Hectares),double,0,,,1162,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_land_tnk_lk_irr,,Area Irrigated by Tanks/Lakes  (in Hectares),double,0,,,1943,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_land_w_fall_irr,,Area Irrigated by Waterfall  (in Hectares),double,0,,,2227,583572,0.004,,,,
+shrug_pc11_vd.dta,pc11_vd_land_oth_src_irr,,Area Irrigated by Other Source (specify) (in Hectares),double,0,,,1902,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_gov_status,,Govt Pre-Primary School (Nursery/LKG/UKG) (Status A(1)/NA(0)),byte,1,0; 1,,29,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_priv_status,,Private Pre - Primary School (Nursery/LKG/UKG) (Status A(1)/NA(0)),byte,1,0; 1,,155,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,223904,583572,0.384,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_gov_status,,Govt Primary School (Status A(1)/NA(0)),byte,1,0; 1,,7,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_priv_status,,Private Primary School (Status A(1)/NA(0)),byte,1,0; 1,,1506,583572,0.003,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,490707,583572,0.841,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_gov_status,,Govt Middle  School (Status A(1)/NA(0)),byte,1,0; 1,,6,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_priv_status,,Private Middle  School (Status A(1)/NA(0)),byte,1,0; 1,,1109,583572,0.002,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,289865,583572,0.497,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_gov_status,,Govt Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,2,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_priv_status,,Private Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,266,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,121181,583572,0.208,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_gov_status,,Govt Senior Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,1,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_priv_status,,Private Senior Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,196,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,62440,583572,0.107,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_gov_status,,Govt  Arts and Science Degree College (Status A(1)/NA(0)),byte,1,0; 1,,167,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_priv_status,,Private  Arts and Science Degree College (Status A(1)/NA(0)),byte,1,0; 1,,24,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,29802,583572,0.051,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_gov_status,,Govt Engineering College (Status A(1)/NA(0)),byte,1,0; 1,,22,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_priv_status,,Private Engineering College (Status A(1)/NA(0)),byte,1,0; 1,,32,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,30960,583572,0.053,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_medi_coll_gov_status,,Govt Medicine College (Status A(1)/NA(0)),byte,1,0; 1,,19,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_medi_coll_priv_status,,Private Medicine  College (Status A(1)/NA(0)),byte,1,0; 1,,17,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_medi_coll_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,31688,583572,0.054,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_gov_status,,Govt Management Institute (Status A(1)/NA(0)),byte,1,0; 1,,21,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_priv_status,,Private Management Institute (Status A(1)/NA(0)),byte,1,0; 1,,23,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,40406,583572,0.069,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_gov_status,,Govt Polytechnic (Status A(1)/NA(0)),byte,1,0; 1,,7,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_priv_status,,Private Polytechnic (Status A(1)/NA(0)),byte,1,0; 1,,21,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,41566,583572,0.071,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_voct_sch_gov_status,,Govt Vocational Training School/ITI (Status A(1)/NA(0)),byte,1,0; 1,,6,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_voct_sch_priv_status,,Private Vocational Training School/ITI (Status A(1)/NA(0)),byte,1,0; 1,,34,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_voct_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,41590,583572,0.071,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_gov_status,,Government Non Formal Training Centre (Status A(1)/NA(0)),byte,1,0; 1,,13,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_priv_status,,Private Non Formal Training Centre (Status A(1)/NA(0)),byte,1,0; 1,,59,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,115504,583572,0.198,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_disab_sch_gov_status,,Government School For Disabled (Status A(1)/NA(0)),byte,1,0; 1,,15,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_disab_sch_priv_status,,Private School For Disabled ( Status A(1)/NA(0)),byte,1,0; 1,,27,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_disab_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,83695,583572,0.143,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_oth_sch_gov_status,,Government Others (Status A(1)/NA(0)),byte,1,0; 1,,102,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_oth_sch_priv_status,,Private Others (Status A(1)/NA(0)),byte,1,0; 1,,76,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_oth_sch_near_status,,Nearest Facility Status (Govt(1)/Private(0)),byte,1,0; 1,,374242,583572,0.641,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_wat_tap_trt,,Tap Water-Treated (Status A(1)/NA(0)),byte,1,0; 1,,805,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tap_trt_allyr,,Tap Water-Treated Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,230677,583572,0.395,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tap_trt_sum,,Tap Water-Treated Functioning in Summer months (April-September) (Status A(1)/NA,byte,1,0; 1,,231870,583572,0.397,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tap_untrt,,Tap Water Untreated (Status A(1)/NA(0)),byte,1,0; 1,,1021,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tap_untrt_allyr,,Tap Water Untreated Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,228040,583572,0.391,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tap_untrt_sum,,Tap Water Untreated Functioning in Summer months (April-September) (Status A(1)/,byte,1,0; 1,,235058,583572,0.403,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_cov_well,,Covered Well (Status A(1)/NA(0)),byte,1,0; 1,,919,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_cov_well_allyr,,Covered Well Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,287144,583572,0.492,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_cov_well_sum,,Covered Well Functioning in Summer months (April-September) (Status A(1)/NA(0)),byte,1,0; 1,,289485,583572,0.496,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_uncov_well,,Uncovered  Well (Status A(1)/NA(0)),byte,1,0; 1,,683,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_uncov_well_allyr,,Uncovered  Well Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,129901,583572,0.223,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_uncov_well_sum,,Uncovered  Well Functioning in Summer months (April-September) (Status A(1)/NA(0,byte,1,0; 1,,154500,583572,0.265,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_handpump,,Hand Pump (Status A(1)/NA(0)),byte,1,0; 1,,356,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_handpump_allyr,,Hand Pump Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,60305,583572,0.103,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_handpump_sum,,Hand Pump Functioning in Summer months (April-September) (Status A(1)/NA(0)),byte,1,0; 1,,97915,583572,0.168,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tubewell,,Tube Wells/Borehole (Status A(1)/NA(0)),byte,1,0; 1,,747,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tubewell_allyr,,Tube Wells/Borehole Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,183274,583572,0.314,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tubewell_sum,,Tube Wells/Borehole Functioning in Summer months (April-September) (Status A(1)/,byte,1,0; 1,,198407,583572,0.340,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_spring,,Spring (Status A(1)/NA(0)),byte,1,0; 1,,1290,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_spring_allyr,,Spring Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,294704,583572,0.505,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_spring_sum,,Spring Functioning in Summer months (April-September) (Status A(1)/NA(0)),byte,1,0; 1,,297395,583572,0.510,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_rivcan,,River/Canal (Status A(1)/NA(0)),byte,1,0; 1,,915,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_rivcan_allyr,,River/Canal Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,229509,583572,0.393,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_rivcan_sum,,River/Canal Functioning in Summer months (April-September) (Status A(1)/NA(0)),byte,1,0; 1,,240890,583572,0.413,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tnkpndlk,,Tank/Pond/Lake (Status A(1)/NA(0)),byte,1,0; 1,,930,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tnkpndlk_allyr,,Tank/Pond/Lake Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,211880,583572,0.363,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_tnkpndlk_sum,,Tank/Pond/Lake Functioning in Summer months (April-September) (Status A(1)/NA(0),byte,1,0; 1,,216842,583572,0.372,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_oth,,Other water sources  (Status A(1)/NA(0)),byte,1,0; 1,,10315,583572,0.018,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_oth_allyr,,Other water sources  Functioning All round the year (Status A(1)/NA(0)),byte,1,0; 1,,302349,583572,0.518,,,,
+shrug_pc11_vd.dta,pc11_vd_wat_oth_sum,,Other water sources  Functioning in Summer months (April-September) (Status A(1),byte,1,0; 1,,303516,583572,0.520,,,,
+shrug_pc11_vd.dta,pc11_vd_san_cls_drn,,Closed Drainage (Status A(1)/NA(0)),byte,1,0; 1,,1241,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_san_opn_drn,,Open Drainage (Status A(1)/NA(0)),byte,1,0; 1,,756,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_san_no_drn,,No  Drainage (Status A(1)/NA(0)),byte,1,0; 1,,3880,583572,0.007,,,,
+shrug_pc11_vd.dta,pc11_vd_san_opn_pk_drn_cov,,Open Pucca Drainage Covered with Tiles Slabs (Status A(1)/NA(0)),byte,1,0; 1,,43366,583572,0.074,,,,
+shrug_pc11_vd.dta,pc11_vd_san_opn_pk_drn_uncov,,Open Pucca Drainage Uncovered (Status A(1)/NA(0)),byte,1,0; 1,,43418,583572,0.074,,,,
+shrug_pc11_vd.dta,pc11_vd_san_opn_kut_drn,,Open Kuccha Drainage (Status A(1)/NA(0)),byte,1,0; 1,,39287,583572,0.067,,,,
+shrug_pc11_vd.dta,pc11_vd_san_drn_disch_wbsp,,Whether Drain water is discharged directly into water bodies or to sewar plant (,byte,1,0; 1,,3566,583572,0.006,,,,
+shrug_pc11_vd.dta,pc11_vd_san_tsc,,Is the Area Covered under Total Sanitation Campaign (TSC)? (Status A(1)/NA(0)),byte,1,0; 1,,730,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_san_ctc_ib,,Community Toilet Complex (including Bath) for General Public (Status A(1)/NA(0)),byte,1,0; 1,,722,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_san_ctc_eb,,Community Toilet Complex (excluding Bath) for General Public (Status A(1)/NA(0)),byte,1,0; 1,,826,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_san_rpc_sho,,Rural Production Centres or Sanitary hardware outlet availability near the villa,byte,1,0; 1,,831,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_san_rpm_sho,,Rural Production mart or Sanitary hardware outlet availability near the village,byte,1,0; 1,,1296,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_san_cwds,,Community waste disposal system after house to house collection (Status A(1)/NA(,byte,1,0; 1,,1385,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_san_biogs_rcyl,,Community Bio-gas or recycle of waste for production use (Status A(1)/NA(0)),byte,1,0; 1,,1402,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_san_no_wst_sys,,No System (Garbage on road/street) (Status A(1)/NA(0)),byte,1,0; 1,,1304,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_post_off,,Post Office (Status A(1)/NA(0)),byte,1,0; 1,,823,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_s_post_off,,Sub Post Office (Status A(1)/NA(0)),byte,1,0; 1,,983,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_post_tele,,Post And Telegraph Office (Status A(1)/NA(0)),byte,1,0; 1,,16753,583572,0.029,,,,
+shrug_pc11_vd.dta,pc11_vd_pincd_status,,Village Pin Code (Status A(1)/NA(0)),byte,1,0; 1,,11342,583572,0.019,,,,
+shrug_pc11_vd.dta,pc11_vd_phone,,Telephone (landlines) (Status A(1)/NA(0)),byte,1,0; 1,,598,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_pco,,Public Call Office /Mobile (PCO) (Status A(1)/NA(0)),byte,1,0; 1,,676,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_mobl_cov,,Mobile Phone Coverage (Status A(1)/NA(0)),byte,1,0; 1,,504,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_int_caf_csc,,Internet Cafes / Common Service Centre (CSC) (Status A(1)/NA(0)),byte,1,0; 1,,939,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_cour_priv,,Private Courier Facility (Status A(1)/NA(0)),byte,1,0; 1,,974,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_bus_gov,,Public Bus Service (Status A(1)/NA(0)),byte,1,0; 1,,482,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_bus_priv,,Private Bus Service (Status A(1)/NA(0)),byte,1,0; 1,,505,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_rs_fac,,Railway Station (Status A(1)/NA(0)),byte,1,0; 1,,463,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_auto,,Auto/Modified Autos (Status A(1)/NA(0)),byte,1,0; 1,,626,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_taxi,,Taxi  (Status A(1)/NA(0)),byte,1,0; 1,,540,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_vans,,Vans (Status A(1)/NA(0)),byte,1,0; 1,,599,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_trctr,,Tractors (Status A(1)/NA(0)),byte,1,0; 1,,1122,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_cyrick_man,,Cycle-pulled Rickshaws   (manual driven) (Status A(1)/NA(0)),byte,1,0; 1,,17015,583572,0.029,,,,
+shrug_pc11_vd.dta,pc11_vd_cyrick_mac,,Cycle-pulled Rickshaws (machine driven) (Status A(1)/NA(0)),byte,1,0; 1,,1179,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_ani_cart,,Carts Drivens by Animals (Status A(1)/NA(0)),byte,1,0; 1,,599,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_ferry,,Sea/River/Ferry Service (Status A(1)/NA(0)),byte,1,0; 1,,1334,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_nhw,,National Highway (Status A(1)/NA(0)),byte,1,0; 1,,679,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_shw,,State Highway (Status A(1)/NA(0)),byte,1,0; 1,,688,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_mdr,,Major District Road (Status A(1)/NA(0)),byte,1,0; 1,,739,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_odr,,Other District Road (Status A(1)/NA(0)),byte,1,0; 1,,1611,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_tar_road,,Black Topped (pucca) Road (Status A(1)/NA(0)),byte,1,0; 1,,527,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_dirt_road,,Gravel (kuchha) Roads (Status A(1)/NA(0)),byte,1,0; 1,,272,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_wbm,,Water Bounded Macadam (Status A(1)/NA(0)),byte,1,0; 1,,2081,583572,0.004,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_all_wthr,,All Weather Road (Status A(1)/NA(0)),byte,1,0; 1,,880,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_nav_wat,,Navigable Waterways (River/Canal) (Status A(1)/NA(0)),byte,1,0; 1,,1978,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_rd_ftph,,Foothpath (Status A(1)/NA(0)),byte,1,0; 1,,1049,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_atm,,ATM (Status A(1)/NA(0)),byte,1,0; 1,,864,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_comm_bank,,Commercial Bank (Status A(1)/NA(0)),byte,1,0; 1,,483,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_coop_bank,,Cooperative Bank (Status A(1)/NA(0)),byte,1,0; 1,,903,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_acs,,Agricultural Credit Societies (Status A(1)/NA(0)),byte,1,0; 1,,599,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_shg,,Financial Self - Help Group (SHG) (Status A(1)/NA(0)),byte,1,0; 1,,1339,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_pds,,Public Distribution System (PDS) Shop (Status A(1)/NA(0)),byte,1,0; 1,,943,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_mrkt,,Mandis/Regular Market (Status A(1)/NA(0)),byte,1,0; 1,,17,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_wkl_haat,,Weekly Haat (Status A(1)/NA(0)),byte,1,0; 1,,1,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_ams,,Agricultural Marketing Society (Status A(1)/NA(0)),byte,1,0; 1,,1,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_nc_icds,,Nutritional Centres-ICDS (Status A(1)/NA(0)),byte,1,0; 1,,1075,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_nc_agwd,,Nutritional Centres-Anganwadi Centre (Status A(1)/NA(0)),byte,1,0; 1,,1220,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_nc_oth,,Nutritional Centres-Others (Status A(1)/NA(0)),byte,1,0; 1,,2903,583572,0.005,,,,
+shrug_pc11_vd.dta,pc11_vd_asha,,ASHA (Status A(1)/NA(0)),byte,1,0; 1,,2015,583572,0.003,,,,
+shrug_pc11_vd.dta,pc11_vd_com_cntr,,Community Centre with/without TV (Status A(1)/NA(0)),byte,1,0; 1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_sp_fld,,Sports Field (Status A(1)/NA(0)),byte,1,0; 1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_sp_cl,,Sports Club/Recreation Centre (Status A(1)/NA(0)),byte,1,0; 1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_cine_hall,,Cinema/Video Hall (Status A(1)/NA(0)),byte,1,0; 1,,3,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_pub_lib,,Public Library (Status A(1)/NA(0)),byte,1,0; 1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_pub_rr,,Public Reading Room (Status A(1)/NA(0)),byte,1,0; 1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_news_pap,,Daily Newspaper Supply (Status A(1)/NA(0)),byte,1,0; 1,,1399,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_poll_st,,Assembly Polling Station (Status A(1)/NA(0)),byte,1,0; 1,,895,583572,0.002,,,,
+shrug_pc11_vd.dta,pc11_vd_bdro,,Birth and Death Registration Office (Status A(1)/NA(0)),byte,1,0; 1,,815,583572,0.001,,,,
+shrug_pc11_vd.dta,pc11_vd_power_dom,,Power Supply For Domestic Use  (Status A(1)/NA(0)),byte,1,0; 1,,37061,583572,0.064,,,,
+shrug_pc11_vd.dta,pc11_vd_power_agr,,Power Supply For Agriculture Use (Status A(1)/NA(0)),byte,1,0; 1,,37255,583572,0.064,,,,
+shrug_pc11_vd.dta,pc11_vd_power_com,,Power Supply For Commercial Use (Status A(1)/NA(0)),byte,1,0; 1,,37623,583572,0.064,,,,
+shrug_pc11_vd.dta,pc11_vd_power_all,,Power Supply For All Users (Status A(1)/NA(0)),byte,1,0; 1,,1086,583572,0.002,,,,
+shrug_pc11_vd.dta,land_flag,,flag for land values greater than area,byte,1,1,,2,583572,0.000,,,,
+shrug_pc11_vd.dta,dist_flag,,flag for distances greater than 3000,byte,1,1,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_town_dist,,Nearest Town Distance from Village (in Km.),float,0,,,140561,583572,0.241,,,,
+shrug_pc11_vd.dta,pc11_vd_s_town_dist,,Nearest Statutory Town (Distance in km),float,0,,,71653,583572,0.123,,,,
+shrug_pc11_vd.dta,pc11_vd_atm_dist,,Nearest Facility Distance (in Km),float,0,,,579625,583572,0.993,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,263872,583572,0.452,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,496158,583572,0.850,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,297450,583572,0.510,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,127564,583572,0.219,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,69118,583572,0.118,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,40901,583572,0.070,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,47330,583572,0.081,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_medi_coll_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,52597,583572,0.090,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,66127,583572,0.113,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,41701,583572,0.071,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_voct_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,40692,583572,0.070,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,123176,583572,0.211,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_disab_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,104306,583572,0.179,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_oth_sch_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,401888,583572,0.689,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_ch_cntr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,25907,583572,0.044,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_phc_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,39657,583572,0.068,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_phs_cntr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,130495,583572,0.224,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mcw_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,55521,583572,0.095,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_tb_cln_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,34883,583572,0.060,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,48874,583572,0.084,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_altmed_hosp_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,53620,583572,0.092,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_all_disp_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,64354,583572,0.110,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vet_hosp_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,53518,583572,0.092,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mh_cln_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,92627,583572,0.159,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_fwc_cntr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,56971,583572,0.098,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_post_off_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,73097,583572,0.125,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_post_off_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,113047,583572,0.194,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_post_tele_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,63948,583572,0.110,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pincd_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,547769,583572,0.939,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pincd,,PIN Code,long,0,,,146502,583572,0.251,,,,
+shrug_pc11_vd.dta,pc11_vd_phone_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,280536,583572,0.481,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pco_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,203560,583572,0.349,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mobl_cov_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,461858,583572,0.791,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_int_caf_csc_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,63107,583572,0.108,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_cour_priv_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,34650,583572,0.059,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_bus_gov_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,208346,583572,0.357,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_bus_priv_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,168272,583572,0.288,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rs_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,26684,583572,0.046,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_auto_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,150644,583572,0.258,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_taxi_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,124405,583572,0.213,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_vans_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,153133,583572,0.262,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_trctr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,316231,583572,0.542,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_cyrick_man_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,287621,583572,0.493,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_cyrick_mac_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,325725,583572,0.558,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_ani_cart_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,369112,583572,0.633,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_ferry_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,266706,583572,0.457,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_nhw_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,56713,583572,0.097,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_shw_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,104917,583572,0.180,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_mdr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,182646,583572,0.313,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_odr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,336169,583572,0.576,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_p_btr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,382296,583572,0.655,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_wbm_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,348919,583572,0.598,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_all_wthr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,430041,583572,0.737,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_nav_wat_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,357744,583572,0.613,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_rd_ftph_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,566134,583572,0.970,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_comm_bank_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,41680,583572,0.071,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_coop_bank_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,37932,583572,0.065,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_acs_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,89287,583572,0.153,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_shg_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,372589,583572,0.638,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pds_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,292864,583572,0.502,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mrkt_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,70698,583572,0.121,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_wkl_haat_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,95616,583572,0.164,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_ams_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,80062,583572,0.137,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_nc_icds_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,257876,583572,0.442,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_nc_agwd_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,478978,583572,0.821,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_nc_oth_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,364019,583572,0.624,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_asha_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,475205,583572,0.814,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_com_cntr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,123281,583572,0.211,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_sp_fld_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,182398,583572,0.313,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_sp_cl_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,92896,583572,0.159,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_cine_hall_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,42164,583572,0.072,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pub_lib_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,73590,583572,0.126,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_pub_rr_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,89155,583572,0.153,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_news_pap_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,341866,583572,0.586,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poll_st_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,375378,583572,0.643,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_bdro_rang,,"If N/A, range code for nearest fac, Km.",byte,1,0; 1; 2,,253438,583572,0.434,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_agr_comm1,,Agricultural Commodities (First),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_man_comm1,,Manufacturers Commodities (First),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_hc_comm1,,Handicrafts Commodities (First),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_agr_comm2,,Agricultural Commodities (Second),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_man_comm2,,Manufacturers Commodities (Second),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_hc_comm2,,Handicrafts Commodities (Second),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_agr_comm3,,Agricultural Commodities (Third),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_man_comm3,,Manufacturers Commodities (Third),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_hc_comm3,,Handicrafts  Commodities (Third),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_town_near,,Nearest Town Name,int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_s_town_near,,Nearest Statutory Town  (Name),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_wi_st_town_near,,Within the State/UT (Name),int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_out_st_town_near,,"Outside the State/UT, if nearest one is not within the State/UT (Name)",int,0,,,0,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_p_p_sch_near,,Nearest Village/Town Name,float,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch_near,,Nearest Village/Town Name,float,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_m_sch_near,,Nearest Village/Town Name,float,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_sch_near,,Nearest Village/Town Name,float,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch_near,,Nearest Village/Town Name,float,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_a_s_coll_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_engg_coll_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_medi_coll_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_mgt_inst_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_poly_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_voct_sch_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_tr_sch_nf_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_disab_sch_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_oth_sch_near,,Nearest Village/Town Name,int,0,,,0,583572,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_vd.dta,pc11_vd_p_sch,,number of primary schools,int,0,,,0,583572,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_m_sch,,number of middle schools,int,0,,,487,583572,0.001,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_s_sch,,number of secondary schools,int,0,,,4,583572,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_vd.dta,pc11_vd_s_s_sch,,number of senior secondary schools,int,0,,,5,583572,0.000,,,,
+shrug_pc11_vd.dta,pc11_vd_college,,number of colleges,int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 11; 14; 16; 21; 22; 23; 160,,11,583572,0.000,,,conceptual,Same normalized label appears under different variable names.

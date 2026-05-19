@@ -43,6 +43,7 @@ INDEX_COLUMNS = [
 VARIABLE_COLUMNS = [
     "dataset_name",
     "variable_name",
+    "variable_rename",
     "variable_label",
     "storage_type",
     "is_categorical",
@@ -349,6 +350,7 @@ def blank_variable_row(
     return {
         "dataset_name": dataset_name,
         "variable_name": variable_name,
+        "variable_rename": "",
         "variable_label": variable_label,
         "storage_type": storage_type,
         "is_categorical": 0,
@@ -405,6 +407,7 @@ def variable_rows_for_frame(
             {
                 "dataset_name": dataset_name,
                 "variable_name": variable,
+                "variable_rename": "",
                 "variable_label": variable_labels.get(variable, ""),
                 "storage_type": storage_type,
                 "is_categorical": is_categorical,
@@ -464,6 +467,7 @@ def variable_rows_for_dta(dataset_name: str, path: Path) -> tuple[list[dict[str,
             {
                 "dataset_name": dataset_name,
                 "variable_name": variable,
+                "variable_rename": "",
                 "variable_label": metadata["variable_labels"].get(variable, ""),
                 "storage_type": storage_type,
                 "is_categorical": is_categorical,

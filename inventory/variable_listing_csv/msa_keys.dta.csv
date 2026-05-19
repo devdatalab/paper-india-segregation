@@ -1,0 +1,14 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+msa_keys.dta,cbsacode,cbsa_id,CBSA Code,Q,0,,,0,1841,0.000,,cbsa_id,,
+msa_keys.dta,metropolitandivisioncode,metropolitan_division_id,Metropolitan Division Code,long,0,,,1731,1841,0.940,,metropolitan_division_id,,
+msa_keys.dta,csacode,csa_id,CSA Code,int,0,,,650,1841,0.353,,csa_id,,
+msa_keys.dta,cbsatitle,cbsa_name,CBSA Title,str46,0,,,0,1841,0.000,,cbsa_name,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+msa_keys.dta,metropolitanmicropolitanstatisti,cbsa_type,Metropolitan/Micropolitan Statistical Area,str29,0,,,0,1841,0.000,,cbsa_type,,
+msa_keys.dta,metropolitandivisiontitle,metropolitan_division_name,Metropolitan Division Title,str49,0,,,1731,1841,0.940,,metropolitan_division_name,,
+msa_keys.dta,csatitle,csa_name,CSA Title,str60,0,,,650,1841,0.353,,csa_name,,
+msa_keys.dta,countycountyequivalent,county_equivalent_name,County/County Equivalent,str28,0,,,0,1841,0.000,,county_equivalent_name,,
+msa_keys.dta,statename,us_state_name,State Name,str20,0,,,0,1841,0.000,,us_state_name,conceptual,Same normalized label appears under different variable names.
+msa_keys.dta,fipsstatecode,us_state_fips_id,FIPS State Code,str2,0,,,0,1841,0.000,,us_state_fips_id,,
+msa_keys.dta,fipscountycode,us_county_fips_component_id,FIPS County Code,str3,0,,,0,1841,0.000,,us_county_fips_component_id,,
+msa_keys.dta,centraloutlyingcounty,county_central_outlying_status,Central/Outlying County,str8,0,,,0,1841,0.000,,county_central_outlying_status,,
+msa_keys.dta,fips_code,us_county_fips_id,,str5,0,,,0,1841,0.000,,us_county_fips_id,,

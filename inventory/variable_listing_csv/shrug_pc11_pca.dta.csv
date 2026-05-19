@@ -1,0 +1,100 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+shrug_pc11_pca.dta,shrid,shrug_id,SHRUG Identifier,str12,0,,,0,590874,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_pca.dta,pc11_sector,,,byte,1,1; 2; 3,1=town; 2=village; 3=town & village,0,590874,0.000,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_p_u,,urban total population,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_no_hh_u,,urban number of households,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_m_u,,urban male population,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_f_u,,urban female population,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_p_sc_u,,urban total scheduled castes population,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_p_st_u,,urban total scheduled tribes population,float,0,,,583346,590874,0.987,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_p_r,,rural total population,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_no_hh_r,,rural number of households,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_m_r,,rural male population,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_f_r,,rural female population,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_p_sc_r,,rural total scheduled castes population,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_p_st_r,,rural total scheduled tribes population,float,0,,,7302,590874,0.012,,,,
+shrug_pc11_pca.dta,pc11_pca_tot_p,,total population,float,0,,,0,590874,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_pca.dta,pc11_pca_no_hh,,number of households,float,0,,,0,590874,0.000,,,naming;conceptual,Same variable name has inconsistent storage type. | Same normalized label appears under different variable names.
+shrug_pc11_pca.dta,pc11_pca_tot_m,,male population,float,0,,,0,590874,0.000,,,naming;conceptual,Same variable name has inconsistent storage type. | Same normalized label appears under different variable names.
+shrug_pc11_pca.dta,pc11_pca_tot_f,,female population,float,0,,,0,590874,0.000,,,naming;conceptual,Same variable name has inconsistent storage type. | Same normalized label appears under different variable names.
+shrug_pc11_pca.dta,pc11_pca_p_06,,total population (0-6 years old),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_m_06,,male population (0-6 years old),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_f_06,,female population (0-6 years old),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_p_sc,,total scheduled castes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_m_sc,,male scheduled castes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_f_sc,,female scheduled castes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_p_st,,total scheduled tribes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_m_st,,male scheduled tribes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_f_st,,female scheduled tribes population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_p_lit,,total literate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_m_lit,,male literate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_f_lit,,female literate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_p_ill,,total illiterate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_m_ill,,male illiterate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_f_ill,,female illiterate population,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_tot_work_p,,total workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_tot_work_m,,male workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_tot_work_f,,female workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_mainwork_p,,total main workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_mainwork_m,,male main workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_mainwork_f,,female main workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_cl_p,,total cultivators,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_cl_m,,male cultivators,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_cl_f,,female cultivators,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_al_p,,total agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_al_m,,male agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_al_f,,female agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_hh_p,,total household industries workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_hh_m,,male household industries workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_hh_f,,female household industries workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_ot_p,,total other serices workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_ot_m,,male other serices workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_main_ot_f,,female other serices workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork_p,,total marginal workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork_m,,male marginal workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork_f,,female marginal workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl_p,,total marginal cultivators,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl_m,,male marginal cultivators,int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl_f,,female marginal cultivators,int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al_p,,total marginal agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al_m,,male marginal agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al_f,,female marginal agricultural labourers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh_p,,total marginal household industries workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh_m,,male marginal household industries workers,int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh_f,,female marginal household industries workers,int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot_p,,total marginal other services workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot_m,,male marginal other services workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot_f,,female marginal other services workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork36_p,,total marginal workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork36_m,,male marginal workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork36_f,,female marginal workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl36_p,,total marginal cultivators (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl36_m,,male marginal cultivators (3-6 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl36_f,,female marginal cultivators (3-6 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al36_p,,total marginal agricultural labourers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al36_m,,male marginal agricultural labourers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al36_f,,female marginal agricultural labourers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh36_p,,total marginal household industries workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh36_m,,male marginal household industries workers (3-6 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh36_f,,female marginal household industries workers (3-6 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot36_p,,total marginal other services workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot36_m,,male marginal other services workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot36_f,,female marginal other services workers (3-6 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork03_p,,total marginal workers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork03_m,,male marginal workers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_margwork03_f,,female marginal workers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl03_p,,total marginal cultivators (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl03_m,,male marginal cultivators (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_cl03_f,,female marginal cultivators (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al03_p,,total marginal agricultural labourers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al03_m,,male marginal agricultural labourers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_al03_f,,female marginal agricultural labourers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh03_p,,total marginal household industries workers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh03_m,,male marginal household industries workers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_hh03_f,,female marginal household industries workers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot03_p,,total marginal other services workers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot03_m,,male marginal other services workers (0-3 months),float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_marg_ot03_f,,female marginal other services workers (0-3 months),int,0,,,0,590874,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_non_work_p,,total non-workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_non_work_m,,male non-workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc11_pca.dta,pc11_pca_non_work_f,,female non-workers,float,0,,,0,590874,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.

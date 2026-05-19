@@ -1,0 +1,8 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11u_town_social_group.dta,pc11_state_id,,State,str2,0,,,0,8130,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,pc11_district_id,,District,str3,0,,,0,8130,0.000,,,label,Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,pc11_subdistrict_id,,Subdistt,str5,0,,,0,8130,0.000,,,label,Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,pc11_town_id,,Town/Village,str6,0,,,0,8130,0.000,,,label,Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,pc11_p_muslim,,Muslim TOT_P,long,0,,,0,8130,0.000,,,label,Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,pc11_tot_p,,Total TOT_P,long,0,,,0,8130,0.000,,,label,Same variable name has inconsistent labels.
+pc11u_town_social_group.dta,muslim_share_pc,,,float,0,,,0,8130,0.000,,,,

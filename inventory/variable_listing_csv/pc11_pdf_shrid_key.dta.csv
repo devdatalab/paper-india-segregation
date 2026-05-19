@@ -1,0 +1,25 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11_pdf_shrid_key.dta,pc11_state_id,,State ID,str2,0,,,0,6667,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_district_id,,District ID,str3,0,,,0,6667,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_subdistrict_id,,Subdistrict (tehsil/taluk) ID,str5,0,,,0,6667,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_town_id,,Town ID,str6,0,,,0,6667,0.000,,,label;conceptual,Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_town_name,,Town name,str48,0,,,0,6667,0.000,,,conceptual,Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_state_name,,2011 state name,str23,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,pc11_district_name,,2011 district name,str27,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,pc11_subdistrict_name,,2011 subdistrict name,str36,0,,,129,6667,0.019,,,,
+pc11_pdf_shrid_key.dta,pc11_pca_town_name,,PCA Town Name,str56,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,pdf_tot_pop,,(sum) pop_tot,double,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,pdf_sc_pop,,(sum) pop_sc,double,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,pdf_st_pop,,(sum) pop_st,double,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,town_name_pc11_pdf,pc11_pdf_town_name,PC11 Town Name in the PDF,str75,0,,,0,6667,0.000,,pc11_pdf_town_name,,
+pc11_pdf_shrid_key.dta,pc11_pca_tot_p,,Total Population,long,0,,,0,6667,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_pca_p_sc,,Scheduled Castes Population Total,long,0,,,0,6667,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,pc11_pca_p_st,,Scheduled Tribes Population Total,long,0,,,0,6667,0.000,,,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+pc11_pdf_shrid_key.dta,diff_tot_pop11,,Total population difference between district handbook and pc11 pca,float,0,,,0,6667,0.000,,,,
+pc11_pdf_shrid_key.dta,diff_sc_pop11,,SC population difference between district handbook and pc11 pca,float,0,,,59,6667,0.009,,,,
+pc11_pdf_shrid_key.dta,diff_st_pop11,,ST population difference between district handbook and pc11 pca,float,0,,,1191,6667,0.179,,,,
+pc11_pdf_shrid_key.dta,pc01_state_id,,2001 state ID,str2,0,,,2240,6667,0.336,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+pc11_pdf_shrid_key.dta,pc01_district_id,,2001 district ID,str2,0,,,2240,6667,0.336,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+pc11_pdf_shrid_key.dta,pc01_subdistrict_id,,2001 subdistrict ID,str4,0,,,2242,6667,0.336,,,label,Same variable name has inconsistent labels.
+pc11_pdf_shrid_key.dta,pc01_town_id,,2001 town ID,str8,0,,,2313,6667,0.347,,,label,Same variable name has inconsistent labels.
+pc11_pdf_shrid_key.dta,shrid,shrug_id,SHRUG Identifier,str12,0,,,0,6667,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.

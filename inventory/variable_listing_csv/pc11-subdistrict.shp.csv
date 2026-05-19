@@ -1,0 +1,5 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc11-subdistrict.shp,pc11_s_id,,,strL,0,,,0,5988,0.000,,,,
+pc11-subdistrict.shp,pc11_d_id,,,strL,0,,,0,5988,0.000,,,,
+pc11-subdistrict.shp,pc11_sd_id,,,strL,0,,,0,5988,0.000,,,,
+pc11-subdistrict.shp,geometry,,,geometry,0,,,0,5988,0.000,,,,

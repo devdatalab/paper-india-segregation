@@ -1,0 +1,374 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+shrug_pc11_td.dta,shrid,shrug_id,SHRUG Identifier,str12,0,,,0,7526,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_avg_rain,,Rainfall (mm.),double,0,,,413,7526,0.055,,,,
+shrug_pc11_td.dta,pc11_td_allh_dist,,Hospital Allopathic Nearest facility Distance (in Kms.),double,0,,,309,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_dist,,Hospital Alternative Medicine Nearest facility Distance(in kms.),double,0,,,418,7526,0.056,,,,
+shrug_pc11_td.dta,pc11_td_disp_dist,,Dispensary/Health Centre Nearest facility Distance (in Kms.),double,0,,,332,7526,0.044,,,,
+shrug_pc11_td.dta,pc11_td_fwc_dist,,Family Welfare Centre Nearest facility Distance (in kms.),double,0,,,446,7526,0.059,,,,
+shrug_pc11_td.dta,pc11_td_mcwc_dist,,Maternity and Child Welfare Centre Nearest facility Distance (in Kms.) ,double,0,,,357,7526,0.047,,,,
+shrug_pc11_td.dta,pc11_td_mh_dist,,Maternity Home Nearest facility Distance (in kms.),double,0,,,380,7526,0.050,,,,
+shrug_pc11_td.dta,pc11_td_tbc_dist,,T.B. Hospital/ Clinic Nearest facility Distance (in kms.),double,0,,,375,7526,0.050,,,,
+shrug_pc11_td.dta,pc11_td_nh_dist,,Nursing Home Nearest facility Distance (in kms.),double,0,,,2110,7526,0.280,,,,
+shrug_pc11_td.dta,pc11_td_veth_dist,,Veterinary Hospital Nearest facility Distance (in kms.),double,0,,,405,7526,0.054,,,,
+shrug_pc11_td.dta,pc11_td_mhc_dist,,Mobile Health Clinic Nearest facility Distance (in kms.),double,0,,,565,7526,0.075,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_dist,,Others Nearest facility Distance (in kms.),double,0,,,2737,7526,0.364,,,,
+shrug_pc11_td.dta,pc11_td_sh_dist,,State H.Q. Road Distance (in kms.),double,0,,,238,7526,0.032,,,,
+shrug_pc11_td.dta,pc11_td_dh_dist,,District H.Q. Road Distance (in kms.),double,0,,,169,7526,0.022,,,,
+shrug_pc11_td.dta,pc11_td_sdt_dist,,Sub-division/Taluk/Tahsil/Police Station/ Development Block/Island H.Q.Road Dist,double,0,,,247,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_city_dist,,Nearest Ciity with Population of 1 Lakh and more Road Distance (in kms.),double,0,,,161,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_city5_dist,,Nearest Ciity with Population of 5 Lakh and more Road Distance (in kms.),double,0,,,208,7526,0.028,,,,
+shrug_pc11_td.dta,pc11_td_rail_dist,,Railway Station Road Distance (in kms),double,0,,,269,7526,0.036,,,,
+shrug_pc11_td.dta,pc11_td_br_dist,,Bus Route Road Distance (in kms.),double,0,,,1089,7526,0.145,,,,
+shrug_pc11_td.dta,pc11_td_fire_dist,,If Staus -2 Nearest Fire Fighting Service Location Distance (Kms),double,0,,,2556,7526,0.340,,,,
+shrug_pc11_td.dta,pc11_td_prim_dist,,Nearest Village/Town Distance  (in kms.),double,0,,,6706,7526,0.891,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_dist,,Nearest Village/Town Distance (in kms.),double,0,,,6381,7526,0.848,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5926,7526,0.787,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5199,7526,0.691,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5417,7526,0.720,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_science_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5232,7526,0.695,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_commerce_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5209,7526,0.692,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_sci_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4186,7526,0.556,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_co_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4282,7526,0.569,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_art_sc_co_dist,,Nearest Village/Town Distance (in kms.),double,0,,,2987,7526,0.397,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_law_dist,,Nearest Village/Town Distance (in kms.),double,0,,,2492,7526,0.331,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_col_dist,,Nearest Village/Town Distance (in kms.),double,0,,,2516,7526,0.334,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_col_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4630,7526,0.615,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_medical_dist,,Nearest Village/Town Distance (in kms.),double,0,,,608,7526,0.081,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_engg_dist,,Nearest Village/Town Distance (in kms.),double,0,,,944,7526,0.125,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1088,7526,0.145,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1253,7526,0.166,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_inst_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4997,7526,0.664,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_type_inst_dist,,Nearest Village/Town Distance (in kms.),double,0,,,5172,7526,0.687,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_type_in_dist,,Nearest Village/Town Distance (in kms.),double,0,,,3057,7526,0.406,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_ms_off_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4606,7526,0.612,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_dtp_publ_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4254,7526,0.565,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_voc_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4143,7526,0.550,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_educ_nf_dist,,Nearest Village/Town Distance (in kms.),double,0,,,3711,7526,0.493,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_disab_sch_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1479,7526,0.197,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_educ_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4754,7526,0.632,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_orph_home_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1478,7526,0.196,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_wwh_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1489,7526,0.198,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_old_home_dist,,Nearest Village/Town Distance (in kms.),double,0,,,1564,7526,0.208,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_stadium_dist,,Nearest Village/Town Distance (in kms.),double,0,,,2689,7526,0.357,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_cinema_dist,,Nearest Village/Town Distance (in kms.),double,0,,,2754,7526,0.366,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_auditorium_dist,,Nearest Village/Town Distance (in kms.),double,0,,,4072,7526,0.541,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_p_lib_dist,,Nearest Village/Town Distance (in kms.),double,0,,,3764,7526,0.500,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_r_rooms_dist,,Nearest Village/Town Distance (in kms.),double,0,,,3830,7526,0.509,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_tot_p,,"Total population, 2011",long,0,,,0,7526,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc11_td.dta,pc11_td_no_hh,,Total   Households,long,0,,,1,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_tot_p,,Total Population of Town,long,0,,,0,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_tot_m,,Total Male Population of Town,long,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_tot_f,,Total Female Population of Town,long,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_p_sc2,,Total Scheduled Castes Population of Town,long,0,,,28,7526,0.004,,,,
+shrug_pc11_td.dta,pc11_td_m_sc,,Total Scheduled Castes  Male Population of Town,long,0,,,28,7526,0.004,,,,
+shrug_pc11_td.dta,pc11_td_f_sc,,Total Scheduled Castes  Female Population of Town,long,0,,,28,7526,0.004,,,,
+shrug_pc11_td.dta,pc11_td_p_st2,,Total Scheduled Tribes Population of Town,long,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_m_st,,Total Scheduled Tribes  Male Population of Town,long,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_f_st,,Total Scheduled Tribes  Female Population of Town,long,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_area,,area in square km,double,0,,,40,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_no_hh_hless,,Number of Households including Houseless Households (2011 Census),long,0,,,1016,7526,0.135,,,,
+shrug_pc11_td.dta,pc11_td_p_sc,,Scheduled Castes Population (2011 Census),long,0,,,953,7526,0.127,,,,
+shrug_pc11_td.dta,pc11_td_p_st,,Scheduled Tribes Population (2011 Census),long,0,,,892,7526,0.119,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1901,,Town Population (Census 1901),long,0,,,5183,7526,0.689,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1911,,Town Population (Census 1911),long,0,,,5139,7526,0.683,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1921,,Town Population (Census 1921),long,0,,,5059,7526,0.672,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1931,,Town Population (Census 1931),long,0,,,4963,7526,0.659,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1941,,Town Population (Census 1941),long,0,,,4866,7526,0.647,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1951,,Town Population (Census 1951),long,0,,,4681,7526,0.622,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1961,,Town Population (Census 1961),long,0,,,4700,7526,0.625,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1971,,Town Population (Census 1971),long,0,,,4483,7526,0.596,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1981,,Town Population (Census 1981),long,0,,,3941,7526,0.524,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_1991,,Town Population (Census 1991),long,0,,,3547,7526,0.471,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_2001,,Town Population (Census 2001),long,0,,,2376,7526,0.316,,,,
+shrug_pc11_td.dta,pc11_td_tot_p_2011,,Town Population (Census 2011),long,0,,,1093,7526,0.145,,,,
+shrug_pc11_td.dta,pc11_td_k_road,,Pucca Road Length (in kms.),double,0,,,326,7526,0.043,,,,
+shrug_pc11_td.dta,pc11_td_p_road,,Kutcha Road Length (in kms.),double,0,,,796,7526,0.106,,,,
+shrug_pc11_td.dta,pc11_td_lat_pit,,Latrines-Pit (Numbers),double,0,,,310,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_lat_flush,,Latrines-Flush/Pour Flush (Numbers),double,0,,,278,7526,0.037,,,,
+shrug_pc11_td.dta,pc11_td_lat_service,,Latrines-Service (Numbers),int,0,,,937,7526,0.125,,,,
+shrug_pc11_td.dta,pc11_td_lat_oth,,Latrines-Others (Numbers),long,0,,,645,7526,0.086,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor1_kl,,Capacity Source-1  (in kilo-litres),double,0,,,1539,7526,0.204,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor2_kl,,Capacity Source-2 (in kilo-litres),double,0,,,6192,7526,0.823,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor3_kl,,Capacity Source-3 (in kilo-litres),long,0,,,6537,7526,0.869,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor4_kl,,Capacity Source-4 (in kilo-litres),double,0,,,6674,7526,0.887,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor5_kl,,Capacity Source-5 (in kilo-litres),long,0,,,6805,7526,0.904,,,,
+shrug_pc11_td.dta,pc11_td_el_dom,,Electricity-Domestic Connection (Numbers),long,0,,,225,7526,0.030,,,,
+shrug_pc11_td.dta,pc11_td_el_ind,,Electricity-Industrial Connection (Numbers),long,0,,,429,7526,0.057,,,,
+shrug_pc11_td.dta,pc11_td_el_com,,Electricity-Commercial Connection (Numbers),long,0,,,387,7526,0.051,,,,
+shrug_pc11_td.dta,pc11_td_el_road_l,,Electricity-Road Lighting Connection (Numbers),double,0,,,272,7526,0.036,,,,
+shrug_pc11_td.dta,pc11_td_el_others,,Electricity-Others Connection (Numbers),long,0,,,682,7526,0.091,,,,
+shrug_pc11_td.dta,pc11_td_all_hospital,,Hospital Allopathic (Numbers),byte,0,,,125,7526,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_allh_beds,,Hospital Allopathic Beds (Numbers),long,0,,,152,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_allh_doc_tot,,Hospital Allopathic Doctors-Total Strength (Numbers),int,0,,,156,7526,0.021,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_allh_doc_pos,,Hospital Allopathic Doctors-In Position (Numbers),int,0,,,183,7526,0.024,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_allh_pmed_tot,,Hospital Allopathic Para Medical Staff-Total Strength (Numbers),int,0,,,191,7526,0.025,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_allh_pmed_pos,,Hospital Allopathic Para Medical Staff-In Postion (Numbers),int,0,,,195,7526,0.026,,,,
+shrug_pc11_td.dta,pc11_td_alt_hospital,,Hospital Alternative Medicine (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 16; 18; 19; 21; 38,,68,7526,0.009,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_beds,,Hospital Alternative Medicine Beds (Numbers),int,0,,,97,7526,0.013,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_doc_tot,,Hospital Alternative Medicine Doctors-Total Strength (Numbers),int,0,,,84,7526,0.011,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_doc_pos,,Hospital Alternative Medicine Doctors-In Position (Numbers),int,0,,,86,7526,0.011,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_pmed_tot,,Hospital Alternative Medicine Para Medical Staff-Total Strength (Numbers),int,0,,,93,7526,0.012,,,,
+shrug_pc11_td.dta,pc11_td_alt_hosp_pmed_pos,,Hospital Alternative Medicine Para Medical Staff-In Position (Numbers),int,0,,,94,7526,0.012,,,,
+shrug_pc11_td.dta,pc11_td_disp,,Dispensary/Health Centre (Numbers),int,0,,,34,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_disp_beds,,Dispensary/Health Centre Beds (Numbers),int,0,,,312,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_disp_doc_tot,,Dispensary/Health Centre Doctors-Total Strength (Numbers),int,0,,,243,7526,0.032,,,,
+shrug_pc11_td.dta,pc11_td_disp_doc_pos,,Dispensary/Health Centre Doctors-In Position (Numbers),int,0,,,256,7526,0.034,,,,
+shrug_pc11_td.dta,pc11_td_disp_pmed_tot,,Dispensary/Health Centre Para Medical Staff-Total Strength (Numbers),int,0,,,232,7526,0.031,,,,
+shrug_pc11_td.dta,pc11_td_disp_pmed_pos,,Dispensary/Health Centre Para Medical Staff-In Position (Numbers),int,0,,,251,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_f_w_ctr,,Family Welfare Centre (Numbers),int,0,,,42,7526,0.006,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_fwc_beds,,Family Welfare Centre Beds (Numbers),int,0,,,185,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_fwc_doc_tot,,Family Welfare Centre Doctors-Total Strength (Numbers),int,0,,,148,7526,0.020,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_fwc_doc_pos,,Family Welfare Centre Doctors-In Position (Numbers),int,0,,,149,7526,0.020,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_fwc_pmed_tot,,Family Welfare Centre Doctors Para Medical Staff-Total Strength (Numbers),int,0,,,136,7526,0.018,,,,
+shrug_pc11_td.dta,pc11_td_fwc_pmed_pos,,Family Welfare Centre Para Medical Staff-In Position (Numbers),int,0,,,141,7526,0.019,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mc_w_ctr,,Maternity and Child Welfare Centre (Numbers),int,0,,,42,7526,0.006,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mcwc_beds,,Maternity and Child Welfare Centre Beds (Numbers),int,0,,,187,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_mcwc_doc_tot,,Maternity and Child Welfare Centre Doctors-Total Strength (Numbers),int,0,,,125,7526,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mcwc_doc_pos,,Maternity and Child Welfare Centre Doctors-In Position (Numbers),int,0,,,127,7526,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mcmw_pmed_tot,,Maternity and Child Welfare Centre Para Medical Staff-Total Strength (Numbers),int,0,,,123,7526,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mcwc_pmed_pos,,Maternity and Child Welfare Centre Para Medical Staff-In Position (Numbers),int,0,,,124,7526,0.016,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mh_cnt,,Maternity Home (Numbers),int,0,,,47,7526,0.006,,,,
+shrug_pc11_td.dta,pc11_td_mh_beds,,Maternity Home Beds (Numbers),int,0,,,119,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_mh_doc_tot,,Maternity Home Doctors-Total Strength (Numbers),int,0,,,101,7526,0.013,,,,
+shrug_pc11_td.dta,pc11_td_mh_doc_pos,,Maternity Home Doctors-In Position (Numbers),int,0,,,106,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_mh_pmed_tot,,Maternity Home Para Medical Staff-Total Strength (Numbers),int,0,,,106,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_mh_pmed_pos,,Maternity Home Para Medical Staff-In position (Numbers),int,0,,,106,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_tb_clinic,,T.B. Hospital/ Clinic (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 13; 14; 15; 16; 21; 22; 30,,41,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_tbc_beds,,T.B. Hospital/ Clinic Beds (Numbers),int,0,,,158,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_tbc_doc_tot,,T.B. Hospital/ Clinic Doctors-Total Strength (Numbers),int,0,,,117,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_tbc_doc_pos,,T.B. Hospital/ Clinic Doctors-In Position (Numbers),byte,0,,,120,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_tbc_pmed_tot,,T.B. Hospital/Clinic Para Medical Staff-Total Strength (Numbers),int,0,,,117,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_tbc_pmed_pos,,T.B. Hospital/Clinic Para Medical Staff-In position (Numbers),int,0,,,119,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_nur_homes,,Nursing Home (Numbers),int,0,,,58,7526,0.008,,,,
+shrug_pc11_td.dta,pc11_td_nh_beds,,Nursing Home Beds (Numbers),int,0,,,97,7526,0.013,,,,
+shrug_pc11_td.dta,pc11_td_nh_doc_tot,,Nursing Home Doctors-Total Strength (Numbers),int,0,,,108,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_nh_doc_pos,,Nursing Home Doctor-In Postion (Numbers),int,0,,,111,7526,0.015,,,,
+shrug_pc11_td.dta,pc11_td_nh_pmed_tot,,Nursing Home Para Medical Staff-Total Strength (Numbers),int,0,,,118,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_nh_pmed_pos,,Nursing Home Para Medical Staff-In Position (Numbers),int,0,,,118,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_veth_cnt,,Veterinary Hospital (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 14; 17; 18; 19; 21; 34; 85,,42,7526,0.006,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_veth_beds,,Veterinary Hospital Beds (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 20; 50,,542,7526,0.072,,,,
+shrug_pc11_td.dta,pc11_td_veth_doc_tot,,Veterinary Hospital Doctors-Total Strength (Numbers),int,0,,,125,7526,0.017,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_veth_doc_pos,,Veterinary Hospital Doctors-In Position (Numbers),int,0,,,134,7526,0.018,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_veth_pmed_tot,,Veterinary Hospital Para Medical Staff-Total Strength (Numbers),int,0,,,163,7526,0.022,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_veth_pmed_pos,,Veterinary Hospital Para Medical Staff-In Position (Numbers),int,0,,,168,7526,0.022,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mh_clinic,,Mobile Health Clinic (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 12; 33; 96,,46,7526,0.006,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mhc_beds,,Mobile Health Clinic Beds (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 18; 24,,79,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_mhc_doc_tot,,Mobile Health Clinic Doctors-Total Strength (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 20; 136,,72,7526,0.010,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mhc_doc_pos,,Mobile Health Clinic Doctors-In Postion (Numbers),int,1,0; 1; 2; 3; 4; 5; 6; 7; 15; 136,,74,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_mhc_pmed_tot,,Mobile Health Clinic Para Medical Staff-Total Strength (Numbers),int,0,,,71,7526,0.009,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mhc_pmed_pos,,Mobile Health Clinic Para Medical Staff-In poistion (Numbers),int,0,,,69,7526,0.009,,,,
+shrug_pc11_td.dta,pc11_td_med_oth,,Others (Numbers),int,0,,,318,7526,0.042,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_beds,,Others Beds (Numbers),int,0,,,365,7526,0.048,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_doc_tot,,Others Doctors-Total Strength (Numbers),byte,0,,,371,7526,0.049,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_doc_pos,,Others Doctors-In Position (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 9; 10; 13; 15; 17; 20; 22; 30; 32; 35; 36; 40,,370,7526,0.049,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_pmed_tot,,Others Para Medical Staff-Total Strength (Numbers),int,0,,,364,7526,0.048,,,,
+shrug_pc11_td.dta,pc11_td_med_oth_pmed_pos,,Others Para Medical Staff-In Position (Numbers),int,0,,,364,7526,0.048,,,,
+shrug_pc11_td.dta,pc11_td_out_pat,,Non-Government Out-Patient (Numbers),long,0,,,73,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_in_out_pat,,Non-Government In and Out Patient (Numbers),long,0,,,142,7526,0.019,,,,
+shrug_pc11_td.dta,pc11_td_c_hosp_home,,Non-Government Charitable-Hospital/Nursing Home (Numbers),int,0,,,211,7526,0.028,,,,
+shrug_pc11_td.dta,pc11_td_med_shop,,Non-Government Medicine Shop (Numbers),int,0,,,69,7526,0.009,,,,
+shrug_pc11_td.dta,pc11_td_primary_gov,,Govt. Primary School (Numbers),int,0,,,2,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_primary_priv,,Private Primary School (Numbers),int,0,,,1,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_gov,,Govt. Middle School (Numbers),int,0,,,303,7526,0.040,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_priv,,Private Middle School (Numbers),int,0,,,397,7526,0.053,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_gov,,Govt. Secondary School (Numbers),int,0,,,3,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_priv,,Private Secondary School (Numbers),int,0,,,26,7526,0.003,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_gov,,Govt. Senior Secondary School (Numbers),int,0,,,13,7526,0.002,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_priv,,Private Senior Secondary School (Numbers),int,0,,,24,7526,0.003,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_gov,,Govt. Degree College-Art Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 12; 13; 15,,1281,7526,0.170,,,,
+shrug_pc11_td.dta,pc11_td_arts_priv,,Private Degree College-Art Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 14; 17; 18; 23; 31,,1299,7526,0.173,,,,
+shrug_pc11_td.dta,pc11_td_science_gov,,Govt. Degree College-Science Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 10; 11; 13; 20,,1316,7526,0.175,,,,
+shrug_pc11_td.dta,pc11_td_science_priv,,Private Degree College-Science Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 14; 15; 16; 22; 31,,1330,7526,0.177,,,,
+shrug_pc11_td.dta,pc11_td_commerce_gov,,Govt. Degree College-Commerce Only (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 9; 10; 13,,1326,7526,0.176,,,,
+shrug_pc11_td.dta,pc11_td_commerce_priv,,Private Degree College-Commerce Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 13; 14; 15; 18; 22; 31,,1328,7526,0.176,,,,
+shrug_pc11_td.dta,pc11_td_arts_sci_gov,,Govt. Degree College-Art and Science Only (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 7; 8; 10; 12; 13; 14,,243,7526,0.032,,,,
+shrug_pc11_td.dta,pc11_td_arts_sci_priv,,Private Degree College-Art and Science Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 14; 15; 20; 28; 31; 47,,252,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_arts_co_gov,,Govt. Degree College-Art and Commerce Only (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 10; 13; 15,,242,7526,0.032,,,,
+shrug_pc11_td.dta,pc11_td_arts_co_priv,,Private Degree College-Art and Commerce Only (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 15; 21; 23; 31,,251,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_art_sc_co_gov,,"Govt. Degree College-Art,Science and Commerce (Numbers))",byte,0,,,60,7526,0.008,,,,
+shrug_pc11_td.dta,pc11_td_art_sc_co_priv,,"Private Degree College-Art,Science and Commerce (Numbers)",int,0,,,64,7526,0.009,,,,
+shrug_pc11_td.dta,pc11_td_law_gov,,Govt. Degree College-Law (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 10,,77,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_law_priv,,Private Degree College-Law (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 11; 12; 23,,80,7526,0.011,,,,
+shrug_pc11_td.dta,pc11_td_col_gov,,Govt. Degree College-University (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6,,243,7526,0.032,,,,
+shrug_pc11_td.dta,pc11_td_col_priv,,Private Degree College-University (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 15,,252,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_oth_col_gov,,Govt. Degree College-Others (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 9; 11; 15; 27,,255,7526,0.034,,,,
+shrug_pc11_td.dta,pc11_td_oth_col_priv,,Private Degree College-Others (Numbers),int,0,,,252,7526,0.033,,,,
+shrug_pc11_td.dta,pc11_td_medical_gov,,Govt.-Medical College (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 12; 13,,79,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_medical_priv,,Private-Medical College (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 10; 11; 24; 28; 38,,81,7526,0.011,,,,
+shrug_pc11_td.dta,pc11_td_engg_gov,,Govt.-Engineering College (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 13; 17,,79,7526,0.010,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_engg_priv,,Private-Engineering College (Numbers),byte,0,,,82,7526,0.011,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_gov,,Govt.-Management Institute (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 10; 15; 21,,78,7526,0.010,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_priv,,Private-Management Institute (Numbers),int,0,,,81,7526,0.011,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_gov,,Govt.-Polytechnic (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 12; 14; 18; 22,,79,7526,0.010,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_priv,,Private-Polytechnic (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 20; 32; 79,,84,7526,0.011,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_inst_gov,,Govt.-Shorthand (Numbers)),int,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 10; 12; 17; 22; 29; 38; 50; 108,,1374,7526,0.183,,,,
+shrug_pc11_td.dta,pc11_td_sh_inst_priv,,Private-Shorthand (Numbers),int,0,,,1374,7526,0.183,,,,
+shrug_pc11_td.dta,pc11_td_type_inst_gov,,Govt.-Typewriting (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 9; 10; 11; 12; 13; 25; 37; 38,,1397,7526,0.186,,,,
+shrug_pc11_td.dta,pc11_td_type_inst_priv,,Private-Typewriting (Numbers),int,0,,,1372,7526,0.182,,,,
+shrug_pc11_td.dta,pc11_td_sh_type_in_gov,,Govt.-Shorthand and Typewriting (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 12; 15; 20; 38,,121,7526,0.016,,,,
+shrug_pc11_td.dta,pc11_td_sh_type_in_priv,,Private-Shorthand and Typewriting (Numbers),int,0,,,128,7526,0.017,,,,
+shrug_pc11_td.dta,pc11_td_ms_off_gov,,Govt.-MS Office (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 7; 9; 10; 11; 60,,522,7526,0.069,,,,
+shrug_pc11_td.dta,pc11_td_ms_off_priv,,Private-MS Office (Numbers),int,0,,,525,7526,0.070,,,,
+shrug_pc11_td.dta,pc11_td_dtp_publ_gov,,Govt.-Desk Top Publishing (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 9; 10; 28,,649,7526,0.086,,,,
+shrug_pc11_td.dta,pc11_td_dtp_publ_priv,,Private-Desk Top Publishing (Numbers),int,0,,,649,7526,0.086,,,,
+shrug_pc11_td.dta,pc11_td_oth_voc_gov,,Govt.-Vocational(Others) (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 13; 15; 20; 21; 22; 48,,312,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_oth_voc_priv,,Private-Vocational(Others) (Numbers),int,0,,,309,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_educ_nf_gov,,Govt.-Non Formal Education (Numbers)),int,0,,,107,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_educ_nf_priv,,Private-Non Formal Education (Numbers),int,0,,,161,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_disab_sch_gov,,Govt.-Special School for Disabled (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 10; 11; 12; 16; 22; 23,,130,7526,0.017,,,,
+shrug_pc11_td.dta,pc11_td_disab_sch_priv,,Private-Special School for Disabled (Numbers),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 14; 15; 18; 22; 44,,134,7526,0.018,,,,
+shrug_pc11_td.dta,pc11_td_oth_educ_gov,,Govt.-Others(Specify) (Numbers)),int,0,,,1141,7526,0.152,,,,
+shrug_pc11_td.dta,pc11_td_oth_educ_priv,,Private-Others(Specify) (Numbers),int,0,,,1143,7526,0.152,,,,
+shrug_pc11_td.dta,pc11_td_orph_home_gov,,Govt.-Orphanage Home (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 11; 17; 26,,186,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_orph_home_priv,,Private-Orphanage Home (Numbers),byte,0,,,181,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_wwh_gov,,Govt.-Working Women's Hostel (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 16; 18; 20; 23; 32; 38; 40; 46; 82,,187,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_wwh_priv,,Private-Working Women's Hostel (Numbers),int,0,,,185,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_old_home_gov,,Govt.-Old Age Home (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 7,,187,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_old_home_priv,,Private-Old Age Home (Numbers),byte,0,,,185,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_stadium_gov,,Govt.-Stadium (Numbers)),int,0,,,176,7526,0.023,,,,
+shrug_pc11_td.dta,pc11_td_stadium_priv,,Private-Stadium (Numbers),int,0,,,192,7526,0.026,,,,
+shrug_pc11_td.dta,pc11_td_cinema_gov,,Govt.-Cinema Theatre (Numbers)),byte,1,0; 1; 2; 3; 4; 5; 6; 8; 9; 13; 15,,186,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_cinema_priv,,Private-Cinema Theatre (Numbers),int,0,,,188,7526,0.025,,,,
+shrug_pc11_td.dta,pc11_td_auditorium_gov,,Govt.-Auditorium/Community Hall (Numbers)),int,0,,,178,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_auditorium_priv,,Private-Auditorium/Community Hall (Numbers),int,0,,,182,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_p_lib_gov,,Govt.-Public Library (Numbers)),int,0,,,172,7526,0.023,,,,
+shrug_pc11_td.dta,pc11_td_p_lib_priv,,Private-Public Library (Numbers),int,0,,,177,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_r_rooms_gov,,Govt.-Public Reading Room (Numbers)),int,0,,,180,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_r_rooms_priv,,Private-Public Reading Room (Numbers),int,0,,,184,7526,0.024,,,,
+shrug_pc11_td.dta,pc11_td_bank_gov,,Nationalised Bank (Numbers),int,0,,,512,7526,0.068,,,,
+shrug_pc11_td.dta,pc11_td_bank_priv_com,,Private Commercial Bank (Numbers),int,0,,,1054,7526,0.140,,,,
+shrug_pc11_td.dta,pc11_td_bank_coop,,Co-operative Bank (Numbers),int,0,,,725,7526,0.096,,,,
+shrug_pc11_td.dta,pc11_td_a_c_soc,,Agricultural Credit Society (Numbers),int,0,,,808,7526,0.107,,,,
+shrug_pc11_td.dta,pc11_td_n_a_c_soc,,Non-Agricultural Credit Society (Numbers),int,0,,,1152,7526,0.153,,,,
+shrug_pc11_td.dta,pc11_td_max_temp,,Maximum Temperature (in centigrade),double,0,,,305,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_fire_f_ser,,Fire Fighting Service (Status A(1)/NA(0)),byte,1,0; 1,,4179,7526,0.555,,,,
+shrug_pc11_td.dta,pc11_td_primary_gov_status,,Govt. Primary School (Status A(1)/NA(0)),byte,1,0; 1,,1,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_primary_priv_status,,Private Primary School (Status A(1)/NA(0)),byte,1,0; 1,,0,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_gov_status,,Govt. Middle School (Status A(1)/NA(0)),byte,1,0; 1,,301,7526,0.040,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_priv_status,,Private Middle School (Status A(1)/NA(0)),byte,1,0; 1,,301,7526,0.040,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_gov_status,,Govt. Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,1,7526,0.000,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_priv_status,,Private Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,17,7526,0.002,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_gov_status,,Govt. Senior Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,5,7526,0.001,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_priv_status,,Private Senior Secondary School (Status A(1)/NA(0)),byte,1,0; 1,,12,7526,0.002,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_gov_status,,Govt. Degree College-Art Only (Status A(1)/NA(0)),byte,1,0; 1,,1256,7526,0.167,,,,
+shrug_pc11_td.dta,pc11_td_arts_priv_status,,Private Degree College-Art Only (Status A(1)/NA(0)),byte,1,0; 1,,1267,7526,0.168,,,,
+shrug_pc11_td.dta,pc11_td_science_gov_status,,Govt. Degree College-Science Only (Status A(1)/NA(0)),byte,1,0; 1,,1289,7526,0.171,,,,
+shrug_pc11_td.dta,pc11_td_science_priv_status,,Private Degree College-Science Only (Status A(1)/NA(0)),byte,1,0; 1,,1311,7526,0.174,,,,
+shrug_pc11_td.dta,pc11_td_commerce_gov_status,,Govt. Degree College-Commerce Only (Status A(1)/NA(0)),byte,1,0; 1,,1305,7526,0.173,,,,
+shrug_pc11_td.dta,pc11_td_commerce_priv_status,,Private Degree College-Commerce Only (Status A(1)/NA(0)),byte,1,0; 1,,1310,7526,0.174,,,,
+shrug_pc11_td.dta,pc11_td_arts_sci_gov_status,,Govt. Degree College-Art and Science Only (Status A(1)/NA(0)),byte,1,0; 1,,223,7526,0.030,,,,
+shrug_pc11_td.dta,pc11_td_arts_sci_priv_status,,Private Degree College-Art and Science Only (Status A(1)/NA(0)),byte,1,0; 1,,234,7526,0.031,,,,
+shrug_pc11_td.dta,pc11_td_arts_co_gov_status,,Govt. Degree College-Art and Commerce Only (Status A(1)/NA(0)),byte,1,0; 1,,220,7526,0.029,,,,
+shrug_pc11_td.dta,pc11_td_arts_co_priv_status,,Private Degree College-Art and Commerce Only (Status A(1)/NA(0)),byte,1,0; 1,,224,7526,0.030,,,,
+shrug_pc11_td.dta,pc11_td_art_sc_co_gov_status,,"Govt. Degree College-Art,Science and Commerce (Status A(1)/NA(0))",byte,1,0; 1,,35,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_art_sc_co_priv_status,,"Private Degree College-Art,Science and Commerce (Status A(1)/NA(0))",byte,1,0; 1,,25,7526,0.003,,,,
+shrug_pc11_td.dta,pc11_td_law_gov_status,,Govt. Degree College-Law (Status A(1)/NA(0)),byte,1,0; 1,,41,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_law_priv_status,,Private Degree College-Law (Status A(1)/NA(0)),byte,1,0; 1,,41,7526,0.005,,,,
+shrug_pc11_td.dta,pc11_td_col_gov_status,,Govt. Degree College-University (Status A(1)/NA(0)),byte,1,0; 1,,217,7526,0.029,,,,
+shrug_pc11_td.dta,pc11_td_col_priv_status,,Private Degree College-University (Status A(1)/NA(0)),byte,1,0; 1,,219,7526,0.029,,,,
+shrug_pc11_td.dta,pc11_td_oth_col_gov_status,,Govt. Degree College-Others (Status A(1)/NA(0)),byte,1,0; 1,,228,7526,0.030,,,,
+shrug_pc11_td.dta,pc11_td_oth_col_priv_status,,Private Degree College-Others (Status A(1)/NA(0)),byte,1,0; 1,,231,7526,0.031,,,,
+shrug_pc11_td.dta,pc11_td_medical_gov_status,,Govt.-Medical College (Status A(1)/NA(0)),byte,1,0; 1,,46,7526,0.006,,,,
+shrug_pc11_td.dta,pc11_td_medical_priv_status,,Private-Medical College (Status A(1)/NA(0)),byte,1,0; 1,,47,7526,0.006,,,,
+shrug_pc11_td.dta,pc11_td_engg_gov_status,,Govt.-Engineering College (Status A(1)/NA(0)),byte,1,0; 1,,33,7526,0.004,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_engg_priv_status,,Private-Engineering College (Status A(1)/NA(0)),byte,1,0; 1,,34,7526,0.005,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_gov_status,,Govt.-Management Institute (Status A(1)/NA(0)),byte,1,0; 1,,33,7526,0.004,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_priv_status,,Private-Management Institute (Status A(1)/NA(0)),byte,1,0; 1,,34,7526,0.005,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_gov_status,,Govt.-Polytechnic (Status A(1)/NA(0)),byte,1,0; 1,,34,7526,0.005,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_priv_status,,Private-Polytechnic (Status A(1)/NA(0)),byte,1,0; 1,,34,7526,0.005,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_inst_gov_status,,Govt.-Shorthand (Status A(1)/NA(0)),byte,1,0; 1,,1332,7526,0.177,,,,
+shrug_pc11_td.dta,pc11_td_sh_inst_priv_status,,Private-Shorthand (Status A(1)/NA(0)),byte,1,0; 1,,1329,7526,0.177,,,,
+shrug_pc11_td.dta,pc11_td_type_inst_gov_status,,Govt.-Typewriting (Status A(1)/NA(0)),byte,1,0; 1,,1352,7526,0.180,,,,
+shrug_pc11_td.dta,pc11_td_type_inst_priv_status,,Private-Typewriting (Status A(1)/NA(0)),byte,1,0; 1,,1323,7526,0.176,,,,
+shrug_pc11_td.dta,pc11_td_sh_type_in_gov_status,,Govt.-Shorthand and Typewriting (Status A(1)/NA(0)),byte,1,0; 1,,77,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_sh_type_in_priv_status,,Private-Shorthand and Typewriting (Status A(1)/NA(0)),byte,1,0; 1,,80,7526,0.011,,,,
+shrug_pc11_td.dta,pc11_td_ms_off_gov_status,,Govt.-MS Office (Status A(1)/NA(0)),byte,1,0; 1,,475,7526,0.063,,,,
+shrug_pc11_td.dta,pc11_td_ms_off_priv_status,,Private-MS Office (Status A(1)/NA(0)),byte,1,0; 1,,474,7526,0.063,,,,
+shrug_pc11_td.dta,pc11_td_dtp_publ_gov_status,,Govt.-Desk Top Publishing (Status A(1)/NA(0)),byte,1,0; 1,,599,7526,0.080,,,,
+shrug_pc11_td.dta,pc11_td_dtp_publ_priv_status,,Private-Desk Top Publishing (Status A(1)/NA(0)),byte,1,0; 1,,598,7526,0.079,,,,
+shrug_pc11_td.dta,pc11_td_oth_voc_gov_status,,Govt.-Vocational(Others) (Status A(1)/NA(0)),byte,1,0; 1,,260,7526,0.035,,,,
+shrug_pc11_td.dta,pc11_td_oth_voc_priv_status,,Private-Vocational(Others) (Status A(1)/NA(0)),byte,1,0; 1,,262,7526,0.035,,,,
+shrug_pc11_td.dta,pc11_td_educ_nf_gov_status,,Govt.-Non Formal Education (Status A(1)/NA(0)),byte,1,0; 1,,79,7526,0.010,,,,
+shrug_pc11_td.dta,pc11_td_educ_nf_priv_status,,Private-Non Formal Education (Status A(1)/NA(0)),byte,1,0; 1,,106,7526,0.014,,,,
+shrug_pc11_td.dta,pc11_td_disab_sch_gov_status,,Govt.-Special School for Disabled (Status A(1)/NA(0)),byte,1,0; 1,,94,7526,0.012,,,,
+shrug_pc11_td.dta,pc11_td_disab_sch_priv_status,,Private-Special School for Disabled (Status A(1)/NA(0)),byte,1,0; 1,,97,7526,0.013,,,,
+shrug_pc11_td.dta,pc11_td_oth_educ_gov_status,,Govt.-Others(Specify) (Status A(1)/NA(0)),byte,1,0; 1,,1107,7526,0.147,,,,
+shrug_pc11_td.dta,pc11_td_oth_educ_priv_status,,Private-Others(Specify) (Status A(1)/NA(0)),byte,1,0; 1,,1111,7526,0.148,,,,
+shrug_pc11_td.dta,pc11_td_orph_home_gov_status,,Govt.-Orphanage Home (Status A(1)/NA(0)),byte,1,0; 1,,147,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_orph_home_priv_status,,Private-Orphanage Home (Status A(1)/NA(0)),byte,1,0; 1,,147,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_wwh_gov_status,,Govt.-Working Women's Hostel (Status A(1)/NA(0)),byte,1,0; 1,,149,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_wwh_priv_status,,Private-Working Women's Hostel (Status A(1)/NA(0)),byte,1,0; 1,,150,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_old_home_gov_status,,Govt.-Old Age Home (Status A(1)/NA(0)),byte,1,0; 1,,151,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_old_home_priv_status,,Private-Old Age Home (Status A(1)/NA(0)),byte,1,0; 1,,151,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_stadium_gov_status,,Govt.-Stadium (Status A(1)/NA(0)),byte,1,0; 1,,153,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_stadium_priv_status,,Private-Stadium (Status A(1)/NA(0)),byte,1,0; 1,,156,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_cinema_gov_status,,Govt.-Cinema Theatre (Status A(1)/NA(0)),byte,1,0; 1,,156,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_cinema_priv_status,,Private-Cinema Theatre (Status A(1)/NA(0)),byte,1,0; 1,,156,7526,0.021,,,,
+shrug_pc11_td.dta,pc11_td_auditorium_gov_status,,Govt.-Auditorium/Community Hall (Status A(1)/NA(0)),byte,1,0; 1,,142,7526,0.019,,,,
+shrug_pc11_td.dta,pc11_td_auditorium_priv_status,,Private-Auditorium/Community Hall (Status A(1)/NA(0)),byte,1,0; 1,,144,7526,0.019,,,,
+shrug_pc11_td.dta,pc11_td_p_lib_gov_status,,Govt.-Public Library (Status A(1)/NA(0)),byte,1,0; 1,,142,7526,0.019,,,,
+shrug_pc11_td.dta,pc11_td_p_lib_priv_status,,Private-Public Library (Status A(1)/NA(0)),byte,1,0; 1,,145,7526,0.019,,,,
+shrug_pc11_td.dta,pc11_td_r_rooms_gov_status,,Govt.-Public Reading Room (Status A(1)/NA(0)),byte,1,0; 1,,151,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_r_rooms_priv_status,,Private-Public Reading Room (Status A(1)/NA(0)),byte,1,0; 1,,153,7526,0.020,,,,
+shrug_pc11_td.dta,pc11_td_min_temp,,Minimum Temperature (in centigrade),double,0,,,310,7526,0.041,,,,
+shrug_pc11_td.dta,pc11_td_state_h_na,,State H.Q. Name,str18,0,,,6,7526,0.001,,,,
+shrug_pc11_td.dta,pc11_td_dist_h_na,,District H.Q. Name,str27,0,,,5,7526,0.001,,,,
+shrug_pc11_td.dta,pc11_td_sdt_h_na,,Subdivision/Taluk/Tahsil/Police Station/ Development Block/Island H.Q. Name,str26,0,,,22,7526,0.003,,,,
+shrug_pc11_td.dta,pc11_td_city_1lakh,,Nearest Ciity Name with Population of 1 Lakh and more,str34,0,,,53,7526,0.007,,,,
+shrug_pc11_td.dta,pc11_td_city_5lakh,,Nearest Ciity Name with Population of 5 Lakh and more,str33,0,,,19,7526,0.003,,,,
+shrug_pc11_td.dta,pc11_td_railway_st,,Railway Station Name,str39,0,,,52,7526,0.007,,,,
+shrug_pc11_td.dta,pc11_td_bus_route,,Bus Route Name,str30,0,,,52,7526,0.007,,,,
+shrug_pc11_td.dta,pc11_td_sys_drain,,Drainage System (Open-1/Closed-2/Both-3/No-4 ?),str1,0,,,0,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_sys_wat_stor1,,Protected Water Supply Source-1,str6,0,,,195,7526,0.026,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor1,,System of Storage Source-1,str6,0,,,447,7526,0.059,,,,
+shrug_pc11_td.dta,pc11_td_sys_wat_stor2,,Protected Water Supply Source-2,str6,0,,,3008,7526,0.400,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor2,,System of Storage Source-2,str6,0,,,4242,7526,0.564,,,,
+shrug_pc11_td.dta,pc11_td_sys_wat_stor3,,Protected Water Supply Source-3,str7,0,,,4373,7526,0.581,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor3,,System of Storage Source-3,str6,0,,,4980,7526,0.662,,,,
+shrug_pc11_td.dta,pc11_td_sys_wat_stor4,,Protected Water Supply Source-4,str6,0,,,4436,7526,0.589,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor4,,System of Storage Source-4,str6,0,,,3156,7526,0.419,,,,
+shrug_pc11_td.dta,pc11_td_sys_wat_stor5,,Protected Water Supply Source-5,str6,0,,,4177,7526,0.555,,,,
+shrug_pc11_td.dta,pc11_td_sys_stor5,,System of Storage Source-5,str6,0,,,2835,7526,0.377,,,,
+shrug_pc11_td.dta,pc11_td_fire_near,,If Staus -2 Nearest Fire Fighting Service Location,str32,0,,,1825,7526,0.242,,,,
+shrug_pc11_td.dta,pc11_td_prim_near,,Nearest Village/Town Name,str19,0,,,3396,7526,0.451,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_middle_near,pc11_td_middle_nearest_name,Nearest Village/Town Name,str23,0,,,5383,7526,0.715,,pc11_td_middle_nearest_name,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sec_near,,Nearest Village/Town Name,str23,0,,,6281,7526,0.835,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_s_sec_near,,Nearest Village/Town Name,str23,0,,,5523,7526,0.734,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_near,,Nearest Village/Town Name,str36,0,,,3443,7526,0.457,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_science_near,,Nearest Village/Town Name,str32,0,,,3063,7526,0.407,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_commerce_near,,Nearest Village/Town Name,str32,0,,,2877,7526,0.382,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_sci_near,,Nearest Village/Town Name,str24,0,,,3131,7526,0.416,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_arts_co_near,,Nearest Village/Town Name,str25,0,,,3302,7526,0.439,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_art_sc_co_near,,Nearest Village/Town Name,str24,0,,,3128,7526,0.416,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_law_near,,Nearest Village/Town Name,str25,0,,,1420,7526,0.189,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_col_near,,Nearest Village/Town Name,str72,0,,,2296,7526,0.305,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_col_near,,Nearest Village/Town Name,str21,0,,,2199,7526,0.292,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_medical_near,,Nearest Village/Town Name,str23,0,,,579,7526,0.077,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_engg_near,,Nearest Village/Town Name,str23,0,,,949,7526,0.126,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_mgt_near,,Nearest Village/Town Name,str23,0,,,1128,7526,0.150,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_poly_near,,Nearest Village/Town Name,str28,0,,,1316,7526,0.175,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_inst_near,,Nearest Village/Town Name,str22,0,,,2818,7526,0.374,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_type_inst_near,,Nearest Village/Town Name,str23,0,,,3849,7526,0.511,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_sh_type_in_near,,Nearest Village/Town Name,str23,0,,,3242,7526,0.431,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_ms_off_near,,Nearest Village/Town Name,str21,0,,,4558,7526,0.606,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_dtp_publ_near,,Nearest Village/Town Name,str19,0,,,4257,7526,0.566,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_voc_near,,Nearest Village/Town Name,str18,0,,,3037,7526,0.404,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_educ_nf_near,,Nearest Village/Town Name,str24,0,,,3873,7526,0.515,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_disab_sch_near,,Nearest Village/Town Name,str30,0,,,1550,7526,0.206,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_oth_educ_near,,Nearest Village/Town Name,str23,0,,,3444,7526,0.458,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_orph_home_near,,Nearest Village/Town Name,str31,0,,,1573,7526,0.209,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_wwh_near,,Nearest Village/Town Name,str31,0,,,1496,7526,0.199,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_old_home_near,,Nearest Village/Town Name,str23,0,,,1592,7526,0.212,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_stadium_near,,Nearest Village/Town Name,str21,0,,,2804,7526,0.373,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_cinema_near,,Nearest Village/Town Name,str30,0,,,2902,7526,0.386,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_auditorium_near,,Nearest Village/Town Name,str24,0,,,4304,7526,0.572,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_p_lib_near,,Nearest Village/Town Name,str20,0,,,4105,7526,0.545,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_r_rooms_near,,Nearest Village/Town Name,str31,0,,,4200,7526,0.558,,,conceptual,Same normalized label appears under different variable names.
+shrug_pc11_td.dta,pc11_td_man_comm1,,Manufactured Commodity (First) ,str41,0,,,1825,7526,0.242,,,,
+shrug_pc11_td.dta,pc11_td_man_comm2,,Manufactured Commodity (Second),str42,0,,,2786,7526,0.370,,,,
+shrug_pc11_td.dta,pc11_td_man_comm3,,Manufactured Commodity (Third),str62,0,,,3798,7526,0.505,,,,
+shrug_pc11_td.dta,pc11_td_p_sch,,,int,0,,,0,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_m_sch,,,int,0,,,301,7526,0.040,,,,
+shrug_pc11_td.dta,pc11_td_s_sch,,,int,0,,,2,7526,0.000,,,,
+shrug_pc11_td.dta,pc11_td_s_s_sch,,,int,0,,,8,7526,0.001,,,,
+shrug_pc11_td.dta,pc11_td_college,,number of colleges,int,0,,,37,7526,0.005,,,conceptual,Same normalized label appears under different variable names.

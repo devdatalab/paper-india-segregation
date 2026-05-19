@@ -1,0 +1,10 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+city_seg_district_rural_urban_4000.dta,pc11_district_id,,2011 district id,str3,0,,,1,514,0.002,,,label,Same variable name has inconsistent labels.
+city_seg_district_rural_urban_4000.dta,city_dissim_sc_r,,(mean) dissimilarity: sc (subdistrict),float,0,,,14,514,0.027,,,,
+city_seg_district_rural_urban_4000.dta,city_dissim_muslim_r,,(mean) dissimilarity: muslim (subdistrict),float,0,,,14,514,0.027,,,,
+city_seg_district_rural_urban_4000.dta,city_iso_sc_r,,(mean) Isolation: sc (subdistrict),float,0,,,14,514,0.027,,,,
+city_seg_district_rural_urban_4000.dta,city_iso_muslim_r,,(mean) Isolation: muslim (subdistrict),float,0,,,14,514,0.027,,,,
+city_seg_district_rural_urban_4000.dta,city_dissim_sc_u,,(mean) dissimilarity: sc (town),float,0,,,12,514,0.023,,,,
+city_seg_district_rural_urban_4000.dta,city_dissim_muslim_u,,(mean) dissimilarity: muslim (town),float,0,,,12,514,0.023,,,,
+city_seg_district_rural_urban_4000.dta,city_iso_sc_u,,(mean) Isolation: sc (town),float,0,,,12,514,0.023,,,,
+city_seg_district_rural_urban_4000.dta,city_iso_muslim_u,,(mean) Isolation: muslim (town),float,0,,,12,514,0.023,,,,

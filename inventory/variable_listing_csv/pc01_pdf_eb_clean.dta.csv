@@ -1,0 +1,13 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+pc01_pdf_eb_clean.dta,location_code,pc01_location_id,,Q,0,,,0,232564,0.000,,pc01_location_id,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,town_name,pc01_pdf_town_name,,Q,0,,,0,232564,0.000,,pc01_pdf_town_name,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,ward_name,pc01_pdf_ward_name,,Q,0,,,0,232564,0.000,,pc01_pdf_ward_name,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,eb_number,pc01_eb_id,,Q,0,,,0,232564,0.000,,pc01_eb_id,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,pop_tot,,,double,0,,,0,232564,0.000,,,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,pop_sc,,,double,0,,,0,232564,0.000,,,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,pop_st,,,double,0,,,0,232564,0.000,,,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,page_no,pc01_pdf_page_number,,int,0,,,0,232564,0.000,,pc01_pdf_page_number,,
+pc01_pdf_eb_clean.dta,pdf_name,pc01_pdf_file_name,,str25,0,,,0,232564,0.000,,pc01_pdf_file_name,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,location_code_tmp,pc01_temp_location_id,,str8,0,,,184661,232564,0.794,,pc01_temp_location_id,naming,Same variable name has inconsistent storage type.
+pc01_pdf_eb_clean.dta,town_name_tmp,pc01_pdf_temp_town_name,,str21,0,,,184661,232564,0.794,,pc01_pdf_temp_town_name,,
+pc01_pdf_eb_clean.dta,town_name_no_par,pc01_pdf_town_clean_name,,str33,0,,,299,232564,0.001,,pc01_pdf_town_clean_name,naming,Same variable name has inconsistent storage type.

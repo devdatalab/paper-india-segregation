@@ -1,0 +1,4 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+shrug_pc01u_key.dta,pc01_state_id,,2001 state id,str2,0,,,0,5171,0.000,,,naming;label,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels.
+shrug_pc01u_key.dta,pc01_town_id,,2001 town id,str8,0,,,0,5171,0.000,,,label,Same variable name has inconsistent labels.
+shrug_pc01u_key.dta,shrid,shrug_id,SHRUG Identifier,str14,0,,,0,5171,0.000,,shrug_id,naming;label;conceptual,Same variable name has inconsistent storage type. | Same variable name has inconsistent labels. | Same normalized label appears under different variable names.

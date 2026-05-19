@@ -1,0 +1,12 @@
+dataset_name,variable_name,variable_rename,variable_label,storage_type,is_categorical,levels,value_labels,n_missing,n_obs,pct_missing,cleaning_flag,rename_suggestion,conflict_flag,remedial_note
+us_tract_pop.dta,tract_id,,GEO_ID,str20,0,,,0,83776,0.000,,,,
+us_tract_pop.dta,tract_total_pop,,P1_001N,long,0,,,0,83776,0.000,,,,
+us_tract_pop.dta,tract_whiteonly_pop,tract_white_only_pop,P1_003N,int,0,,,0,83776,0.000,,tract_white_only_pop,,
+us_tract_pop.dta,tract_blackonly_pop,tract_black_only_pop,P1_004N,int,0,,,0,83776,0.000,,tract_black_only_pop,,
+us_tract_pop.dta,tract_black_pop,,,float,0,,,0,83776,0.000,,,,
+us_tract_pop.dta,tract_nonblack_pop,tract_non_black_pop,,float,0,,,0,83776,0.000,,tract_non_black_pop,,
+us_tract_pop.dta,tract_total_pop_bw,tract_black_white_total_pop,,float,0,,,0,83776,0.000,,tract_black_white_total_pop,,
+us_tract_pop.dta,fips_code,us_county_fips_id,,str5,0,,,0,83776,0.000,,us_county_fips_id,,
+us_tract_pop.dta,tract_black_prop,,,float,0,,,0,83776,0.000,,,,
+us_tract_pop.dta,bcut,,,float,0,,,32,83776,0.000,,,,
+us_tract_pop.dta,tpop_b,,,float,0,,,0,83776,0.000,,,label,Same variable name has inconsistent labels.
