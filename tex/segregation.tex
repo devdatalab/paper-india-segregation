@@ -14,11 +14,9 @@
 %% LOAD LOCAL COMPILATION PATHS %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\IfFileExists{segpath-local.tex}{
-  \input{segpath-local.tex}
-}{
-  \newcommand{\segpath}{../out}
-}
+%% TODO(replication): switch to the relative path before packaging release.
+%% \newcommand{\segpath}{../out}
+\newcommand{\segpath}{/Users/f0018fb/Dropbox/tmp/segdata/out}
 
 %% include standard front_matter
 \input{front_matter_natbib}
@@ -885,15 +883,19 @@ Concentration of marginalized groups and unequal provision of public services ar
     \footnotesize{\noindent \textit{Notes:} The table shows results from a neighborhood-level regression of public facilities on the neighborhood marginalized group share, for towns, analogous to Table~\ref{tab:pg_nbd}. Columns 1--3 show results with a control for whether or not the neighborhood is in a slum. Columns 4--6 show results for the set of urban neighborhoods that are not classified as slums.}
 	\end{table}
 
+  \clearpage
+  
 %%% APPENDIX TABLE: PUBLIC FACILITIES, SLUM CONTROL %%%
 \begin{landscape}
-  \begin{center}
-    \captionof{table}{Neighborhood-level Public Services and Marginalized Group Shares: \cnewline Estimates Controlling for Neighborhood Consumption}
+  \begin{table}[H]
+		\begin{center}
+    \caption{Neighborhood-level Public Services and Marginalized Group Shares: \cnewline Estimates Controlling for Neighborhood Consumption}
     \label{tab:pg_ineq_w_controls}
-    \input{\segpath/pg_ineq_w_controls.tex}
-  \end{center}
-  \par\smallskip
-  \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of urban public service availability on neighborhood marginalized group shares. Odd-numbered columns replicate results from Tables~\ref{tab:pg_nbd}A and \ref{tab:water_nbd}. Even-numbered columns show estimates from the same regression, with a control for average neighborhood per-capita consumption.}
+		\input{\segpath/pg_ineq_w_controls.tex}
+    \end{center}
+    \\
+    \footnotesize{\noindent \textit{Notes:} The table shows results from neighborhood-level regressions of urban public service availability on neighborhood marginalized group shares. Odd-numbered columns replicate results from Tables~\ref{tab:pg_nbd}A and \ref{tab:water_nbd}. Even-numbered columns show estimates from the same regression, with a control for average neighborhood per-capita consumption.}
+	\end{table}
 \end{landscape}
 
 \clearpage

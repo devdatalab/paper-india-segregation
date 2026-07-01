@@ -1248,7 +1248,6 @@ prog def get_pe_coefs, rclass
   /* return town */
   sum value if category == "x-town"
   return local town: di %10.2f `r(mean)'
-  return local shrug_town_id: di %10.2f `r(mean)'
   
   /* return block */
   sum value if category == "x-block"
