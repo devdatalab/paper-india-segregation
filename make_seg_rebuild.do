@@ -25,59 +25,9 @@ global base "~/Dropbox/tmp/segdata/"
 /* Set python to your python executable. (Activate conda and run `which python` to find it) */
 global python "/usr/local/Caskroom/miniconda/base/envs/py3/bin/python"
 
-/****************************/
-/* Validate root globals    */
-/****************************/
-local scode_probe "$scode/set_paths.do"
-if !fileexists("`scode_probe'") {
-  di as error "Repo code not found in scode. Fix scode global."
-  di as error "Expected file not found: `scode_probe'"
-  exit 601
-}
-
-local base_probe "$base/raw/clean/secc_urban_collapsed.dta"
-if !fileexists("`base_probe'") {
-  di as error "Expected raw data file not found: `base_probe'"
-  di as error "Ensure global base points to the data root containing raw/, tmp/, and out/."
-  exit 601
-}
-
-local python_probe "$python"
-if !fileexists("`python_probe'") {
-  di as error "Expected python executable not found: `python_probe'"
-  exit 601
-}
-
-/* validate .env exists */
-local env_file "$scode/.env"
-if !fileexists("`env_file'") {
-  di as error "Expected file '$scode/.env' does not exist. It should look something like this: "
-  di as error ""
-  di as error "SCODE=~/path/to/seg/repo/"
-  di as error "SDATA=~/path/to/data/"
-  error 601
-}
-/* validate .env has the right content */
-local found_scode = 0
-local found_sdata = 0
-
-file open fh using "`env_file'", read text
-file read fh line
-
-while r(eof)==0 {
-    if strpos("`line'", "SCODE") local found_scode = 1
-    if strpos("`line'", "SDATA") local found_sdata = 1
-    file read fh line
-}
-
-file close fh
-
-assert `found_scode'
-assert `found_sdata'
-
-/**************************************************/
-/* validation checks passed; load project configs */
-/**************************************************/
+/************************/
+/* Load project configs */
+/************************/
 do "$scode/set_paths.do"
 do "$tools/stata-tex/stata-tex.do"
 do "$tools/do/tools.do"
