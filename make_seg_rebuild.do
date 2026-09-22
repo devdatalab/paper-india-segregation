@@ -80,6 +80,11 @@ assert `found_base'
 /**************************************************/
 /* validation checks passed; load project configs */
 /**************************************************/
+
+/************************/
+/* Load project configs */
+/************************/
+
 do "$scode/set_paths.do"
 do "$tools/stata-tex/stata-tex.do"
 do "$tools/do/tools.do"
