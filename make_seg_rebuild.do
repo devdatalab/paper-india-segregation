@@ -17,13 +17,14 @@ ssc install require, replace
 /**********************/
 
 /* Set scode to the base repo path (where this file lives) */
-global scode "~/ddl/segregation/"
+global scode "/Users/f0018fb/Dropbox/research/ddl/paper-india-segregation"
 
 /* Set base to the replication data folder */
-global base "~/Dropbox/tmp/segdata/"
+global base "/Users/f0018fb/Dropbox/tmp/segdata"
 
 /* Set python to your python executable. (Activate conda and run `which python` to find it) */
-global python "/usr/local/Caskroom/miniconda/base/envs/py3/bin/python"
+global python "/opt/homebrew/Caskroom/mambaforge/base/envs/py3/bin/python"
+/* Example: global python /opt/homebrew/Caskroom/mambaforge/base/envs/py3/bin/python */
 
 /****************************/
 /* Validate root globals    */
@@ -54,26 +55,27 @@ if !fileexists("`env_file'") {
   di as error "Expected file '$scode/.env' does not exist. It should look something like this: "
   di as error ""
   di as error "SCODE=~/path/to/seg/repo/"
-  di as error "SDATA=~/path/to/data/"
+  di as error "BASE=~/path/to/data/"
   error 601
 }
+
 /* validate .env has the right content */
 local found_scode = 0
-local found_sdata = 0
+local found_base = 0
 
 file open fh using "`env_file'", read text
 file read fh line
 
 while r(eof)==0 {
     if strpos("`line'", "SCODE") local found_scode = 1
-    if strpos("`line'", "SDATA") local found_sdata = 1
+    if strpos("`line'", "BASE") local found_base = 1
     file read fh line
 }
 
 file close fh
 
 assert `found_scode'
-assert `found_sdata'
+assert `found_base'
 
 /**************************************************/
 /* validation checks passed; load project configs */
@@ -81,6 +83,16 @@ assert `found_sdata'
 do "$scode/set_paths.do"
 do "$tools/stata-tex/stata-tex.do"
 do "$tools/do/tools.do"
+
+/* load shared helper programs before the build begins */
+do "$scode/seg_programs.do"
+
+/* verify the Stata-Python interface. An error here means the Python executable failed
+   or could not find the paths specified in .env */
+cap erase $out/test.txt
+shell PYTHONPATH=$scode $python $scode/a/test.py
+cap noi check_file_update_status "$out/test.txt"
+cap erase "$out/test.txt"
 
 /*******************/
 /* Save Start Time */

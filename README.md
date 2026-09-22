@@ -11,11 +11,11 @@ These instructions were tested on Linux and OSX with Stata 18.0 and Python 3.11.
 
 To replicate this paper, take the following steps:
 
-1. Download and extract the replication dataset from [Google Drive](https://drive.google.com/drive/folders/10WmsylJzR8w9zcsNOU99FLJSFxymi_B8) (rclone destination: `ddl_full:public-repos/data-seg-paper`).
-2. Install the python conda environment from `./segregation.yml`.
+1. Download and extract the replication dataset from [Google Drive](https://drive.google.com/drive/folders/10WmsylJzR8w9zcsNOU99FLJSFxymi_B8) 
+2. Install the python conda environment from `./environment.yml`.
 3. Set essential globals:
    - In `./make_seg_rebuild.do`, set `$scode`, `$base`, and `$python`.
-   - In `./.env`, set `SCODE` and `SDATA`.
+   - In `./.env`, set `SCODE` and `BASE`.
 4. Run `make_seg_rebuild.do` in Stata. Intermediate analysis files will be sent to `$base/tmp`, and exhibits to `$base/out`.
 5. Tex compilation: Open `./tex/segregation.tex` and point `\\segpath` to `$base/out` (replacing `$base` with the data path).
 
@@ -23,38 +23,41 @@ To replicate this paper, take the following steps:
 
 ```
 global scode [path to this repo root]
-global base [path to extracted data repository root, containing raw/tmp/out]
+global base [path to extracted data repository root, containing raw/, tmp/, out/]
 global python [path to your python executable, e.g. "/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python"]
 ```
 
-The Stata-Python calls use the direct path to the conda executable to ensure it runs in the correct environment. To find this (after creating the `segregation` conda env):
+The Stata-Python calls use the direct path to the python executable to ensure it runs in the correct environment. To find this (after creating the `segregation` conda env):
 
 ```
-conda activate segregation
-which python
+$ conda activate segregation
+$ which python
+/opt/homebrew/Caskroom/mambaforge/base/envs/segregation/bin/python
 ```
 
-The result of `which python` goes into the `python` Stata global. Stata calls Python with code blocks like this:
+The result gives you the path to the python executable. This is what goes into the `python` Stata global. Stata calls Python with code blocks like this:
 ```stata
 shell PYTHONPATH=$scode $python $scode/a/<script>.py
 ```
 
-### Setting globals in `.env` for Python scripts
 
-SCODE should be the same as `$scode` and SDATA the same as `$base`.
+
+### Set globals in `.env` for Python scripts
+
+SCODE should be the same as `$scode` and BASE the same as `$base`.
 
 Example .env:
 
 ```
 SCODE=~/mystuff/segregation
-SDATA=~/Dropbox/seg-replication
+BASE=~/Dropbox/seg-replication
 ```
 
 ### Build flow
 
 Top-level execution:
 
-1. Single file to run build and analysis: `make_seg_rebuild.do`
+1. `make_seg_rebuild.do` runs all build and analysis
 2. Data build scripts are in `b/`
 3. Analysis scripts are in `a/`, and are run by `a/make_seg_results.do`
 4. outputs go to `$out` for LaTeX consumption
@@ -69,30 +72,31 @@ Runtime is about 2 hours on an M2 Mac. Storage requirement is about 50 GB.
 
 ### Data Availability and Provenance Statements
 
-All data sources used in the paper are available in the paper's data packet. The authors have legitimate access to and permission to use the data used in this manuscript. All data were downloaded from open sources and to our knowledge, can be re-used freely.
+All data sources used in the paper are available in the paper's data packet. The authors have legitimate access to and permission to use the data used in this manuscript. All data were downloaded from open sources and to our knowledge, can be re-used freely. Links to government sources below change frequently and may be broken or restricted to Indian IP addresses.
 
 Primary provenance categories:
 
-- Socioeconomic and Caste Census (SECC) 2011/12 neighborhood records (Originally scraped from `https://secc.gov.in/`).
+- Socioeconomic and Caste Census (SECC) 2011/12 neighborhood demographic records (Originally scraped from `https://secc.gov.in/`).
 - Economic Census of India (1990, 1998, 2005, 2013): [Ministry of Statistics and Programme Implementation (MOSPI) Economic Census](https://www.mospi.gov.in/economic-census).
-- Population Censuses of India (1991, 2001, 2011), including District Handbooks.
+- Population Censuses of India (1991, 2001, 2011), including District Handbooks, from Population Census CDs.
 - SHRUG keys and linked census files: [Socioeconomic High-resolution Rural-Urban Geographic Platform (SHRUG)](https://www.devdatalab.org/shrug).
 - Intergenerational mobility covariates: [Asher, Novosad, Rafkin (AEJ: Applied, 2024)](https://www.aeaweb.org/articles?id=10.1257/app.20210686).
 - Hindu-Muslim violence covariates (Varshney-Wilkinson): [ICPSR study 4342](https://www.icpsr.umich.edu/web/ICPSR/studies/4342).
-- Official Census GIS shapefiles for map generation.
+- Official Census GIS shapefiles for map generation came from the 2011 Census CDs.
 - US comparator files: [Diversity and Disparities Project: Residential Segregation Data](https://s4.ad.brown.edu/projects/diversity/segregation2020/) and [2020 U.S. Census redistricting tables](https://www.census.gov/data/tables/2020/dec/2020-redistricting-data.html).
 
 
 #### Summary of Data Availability
 
-| Data.Name | Data.Files | Location |
-| --- | --- | --- |
-| SECC/EC collapsed inputs | multiple `.dta` files | `raw/clean/` |
-| SHRUG keys and data | multiple `.dta` files | `raw/shrug/` |
-| PC11/PC01 social-group and handbook files | multiple `.dta` files | `raw/pc11/`, `raw/pc01/`, `raw/clean/handbooks/` |
-| Mobility and violence covariates | multiple `.dta` files | `raw/mobility/`, `raw/violence/` |
-| GIS files for map outputs | `.shp/.shx/.dbf/.prj` | `raw/gis/` |
-| US comparison data | `.csv` | `raw/us/` |
+| Data.Name | Data.Files |
+| --- | --- |
+| SECC neighborhood demographics | `raw/clean/secc_rural*`, `secc_urban*` |
+| EC neighborhood public services | `raw/clean/ec/*`, `ec13_rural*`, `ec13_urban*` |
+| SHRUG keys and data | `raw/shrug/data/*.dta`, `keys/*.dta` |
+| PC11/PC01 social-group and handbook files | `raw/pc11/*.dta`, `raw/pc01/*.dta`, `raw/clean/handbooks/*.dta` |
+| Mobility and violence covariates | `raw/mobility/*.dta`, `raw/violence/*.dta` |
+| GIS files for map outputs | `raw/gis/*.shp`, `*.shx`, `*.dbf`, `*.prj` |
+| US comparison data | `raw/us/*.csv` |
 
 ### Computational requirements
 
@@ -104,7 +108,7 @@ Required software:
   - Stata packages used include: `binscatter`, `_gwtmean`, `rangestat`, `ebalance`, `labutil`, `distinct`, and in analysis paths `reghdfe`, `estout`, `gtools`, `ftools`.
 - Python 3.11
   - Environment specified in `segregation.yml`
-  - Major dependencies include `pandas`, `numpy`, `geopandas`, `matplotlib`, `statsmodels`, and related geospatial/scientific stack.
+  - Major dependencies include `pandas`, `numpy`, `geopandas`, `matplotlib`, `statsmodels`, and related.
 
 Local Stata helpers included in repo:
 
@@ -114,7 +118,7 @@ Local Stata helpers included in repo:
 
 #### Controlled Randomness
 
-No pseudo-random generator is used in the analysis described here.
+No pseudo-random generator is used in the analysis.
 
 #### Memory, Runtime, Storage Requirements
 
@@ -129,9 +133,9 @@ Approximate storage required for full local run (raw + intermediates + outputs):
 ### Description of programs/code
 
 - `make_seg_rebuild.do`: top-level replication driver.
-- `set_paths.do`: Stata path aliases derived from `scode` and `sdata` roots.
-- `set_paths.py` + `.env`: Python path contract (`SCODE`, `SDATA`).
-- `b/`: build/data preparation scripts.
+- `set_paths.do`: Sets Stata global paths derived from `scode` and `base` roots.
+- `set_paths.py` + `.env`: Ensures Python can see (`SCODE`, `BASE`).
+- `b/`: data preparation scripts.
 - `a/`: analysis and exhibit generation scripts.
 - `a/make_seg_results.do`: analysis driver for paper exhibits.
 - `tex/segregation.tex`: paper source consuming generated exhibits.

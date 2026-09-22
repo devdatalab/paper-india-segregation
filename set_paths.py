@@ -3,8 +3,8 @@ Canonical Python path aliases for the segregation project.
 
 Contract:
 - PYTHONPATH must include SCODE so scripts can import `set_paths`.
-- A `.env` file must exist at REPO/.env and define SCODE and SDATA.
-- All derived paths are rooted in SCODE or SDATA.
+- A `.env` file must exist at REPO/.env and define SCODE and BASE.
+- All derived paths are rooted in SCODE or BASE.
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ ENV_FILE = Path(__file__).with_name(".env")
 if not ENV_FILE.exists():
     raise FileNotFoundError(
         f"Missing required env file: {ENV_FILE}. "
-        "Create REPO/.env with SCODE and SDATA."
+        "Create REPO/.env with SCODE and BASE."
     )
 
 
@@ -46,7 +46,8 @@ def _required_path(var_name: str) -> Path:
 
 
 SCODE = _required_path("SCODE")
-SDATA = _required_path("SDATA")
+BASE = _required_path("BASE")
+SDATA = BASE
 
 # Data roots
 RAW = SDATA / "raw"
